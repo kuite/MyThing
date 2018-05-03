@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build server",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/server/webapi.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build client2",
+            "command": "npm start",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}/client"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build client",
+            "command": "start ${workspaceFolder}/build_client.bat",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

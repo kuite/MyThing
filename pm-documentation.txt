@@ -1,0 +1,22 @@
+Starting website:
+-npm start in terminal (visual code)
+-open http://localhost:3000 
+
+
+1. Creating new page (example with Register page)
+
+- add <Route path="/register" component={RegisterPage} /> to app/containers/app/index.js
+- add folder RegisterPage to containers 
+- add index.js and Loadable.js to folder above
+- after some time I see that it's simpler to cust copy HomePage folder in app/containers and raname folder then every name, class etc
+- add to app/components/header/index.js hyperlink to Register page
+- change "HomePage.propTypes =" to "RegisterPage.propTypes =" (propTypes : https://reactjs.org/docs/typechecking-with-proptypes.html)
+- copy client\internals\templates\containers\HomePage to containers folder and rename everything accordinly (probably need to debugging RegisterPage but not sure, to confirm)
+
+
+
+2. Adding bootstrap
+https://react-bootstrap.github.io/components/buttons/
+
+- "npm install --save bootstrap" in main folder in console
+- add link to bootstrap in index.html 

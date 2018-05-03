@@ -1,0 +1,44 @@
+{
+   // Use IntelliSense to find out which attributes exist for C# debugging
+   // Use hover for the description of the existing attributes
+   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+   "version": "0.2.0",
+   "compounds": [
+        {
+            "name": "Server/Client",
+            "configurations": ["Server", "Client"]
+        }
+    ],
+   "configurations": [
+        {
+            "name": "Server",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build server",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/server/bin/Debug/netcoreapp2.0/webapi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/server",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Client",
+            "preLaunchTask": "build client",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}/client/app",
+            "sourceMapPathOverrides": {
+                "webpack:///./app/*": "${webRoot}/*",
+                "webpack:///app/*": "${webRoot}/*"
+            }
+        }
+    ]
+}

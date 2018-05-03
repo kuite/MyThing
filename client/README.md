@@ -1,0 +1,1 @@
+This is basically https://github.com/react-boilerplate/react-boilerplate with dotnet core server. 
