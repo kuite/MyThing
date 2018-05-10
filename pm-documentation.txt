@@ -24,10 +24,15 @@ Starting website debugging:
 - copy client\internals\templates\containers\HomePage to containers folder and rename everything accordinly (still don't know why we need that)
 
 
+
 2. Adding bootstrap
 https://react-bootstrap.github.io/components/buttons/
 
 - "npm install --save bootstrap" in main folder in console
 - add link to bootstrap in index.html 
 
-
+3. If you have error message: "'cross-env' is not recognized as an internal or external command," after trying to start project do this:
+- go to client folder and run:
+- npm clean cache --force
+- npm install
+- npm start
