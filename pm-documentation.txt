@@ -1,6 +1,16 @@
-Starting website:
--npm start in terminal (visual code)
--open http://localhost:3000 
+Helpfull links:
+https://reactjs.org/docs/react-component.html
+function mapDispatchToProps(dispatch):
+https://stackoverflow.com/questions/39419237/what-is-mapdispatchtoprops
+
+
+
+Starting website debugging:
+-click F5 (or debug start), if not working try focus on launch.json then F5
+-page should open, if not - go to http://localhost:3000/
+-if breakpoint is grey, refresh website then put breakpoint
+-in case of "Debug adapter process has terminated unexpectedly" update plugins in vs code
+
 
 
 1. Creating new page (example with Register page)
@@ -11,8 +21,7 @@ Starting website:
 - after some time I see that it's simpler to cust copy HomePage folder in app/containers and raname folder then every name, class etc
 - add to app/components/header/index.js hyperlink to Register page
 - change "HomePage.propTypes =" to "RegisterPage.propTypes =" (propTypes : https://reactjs.org/docs/typechecking-with-proptypes.html)
-- copy client\internals\templates\containers\HomePage to containers folder and rename everything accordinly (probably need to debugging RegisterPage but not sure, to confirm)
-
+- copy client\internals\templates\containers\HomePage to containers folder and rename everything accordinly (still don't know why we need that)
 
 
 2. Adding bootstrap
@@ -20,3 +29,5 @@ https://react-bootstrap.github.io/components/buttons/
 
 - "npm install --save bootstrap" in main folder in console
 - add link to bootstrap in index.html 
+
+
