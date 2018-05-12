@@ -12,15 +12,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build client2",
-            "command": "npm start",
-            "type": "shell",
-            "args": [
-                "${workspaceFolder}/client"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "build client",
             "command": "start ${workspaceFolder}/build_client.bat",
             "type": "shell",
