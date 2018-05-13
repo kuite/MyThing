@@ -7,7 +7,7 @@ import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
-import { makeSelectUsername } from 'containers/RegisterPage/selectors';
+import { makeSelectUsername } from 'containers/ExamplePage/selectors';
 
 /**
  * Github repos request/response handler

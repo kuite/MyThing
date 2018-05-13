@@ -7,23 +7,23 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   startProjectHeader: {
-    id: 'boilerplate.containers.RegisterPage.start_project.header',
+    id: 'boilerplate.containers.ExamplePage.start_project.header',
     defaultMessage: 'asdasdasd',
   },
   startProjectMessage: {
-    id: 'boilerplate.containers.RegisterPage.start_project.message',
+    id: 'boilerplate.containers.ExamplePage.start_project.message',
     defaultMessage: 'A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices',
   },
   trymeHeader: {
-    id: 'boilerplate.containers.RegisterPage.tryme.header',
+    id: 'boilerplate.containers.ExamplePage.tryme.header',
     defaultMessage: 'Register account',
   },
   trymeMessage: {
-    id: 'boilerplate.containers.RegisterPage.tryme.message',
-    defaultMessage: 'RegisterPage',
+    id: 'boilerplate.containers.ExamplePage.tryme.message',
+    defaultMessage: 'ExamplePage',
   },
   trymeAtPrefix: {
-    id: 'boilerplate.containers.RegisterPage.tryme.atPrefix',
+    id: 'boilerplate.containers.ExamplePage.tryme.atPrefix',
     defaultMessage: '@',
   },
 });

@@ -32,7 +32,7 @@ import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-export class RegisterPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class ExamplePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
    * when initial state username is not null, submit the form to load repos
    */
@@ -43,12 +43,15 @@ export class RegisterPage extends React.PureComponent { // eslint-disable-line r
   }
 
   render() {
+    const text = "constant text"
+
     return (
       <div className="create_account_screen">
 
         <div className="create_account_form">
           <h1>Create account</h1>
-          <p>Example of form validation built with React.</p>
+          <p>Example of string taken from webapi: { text }</p>
+          <Button bsStyle="primary" onClick={this.props.refreshText}>Refresh text from server</Button>
           <form onSubmit={this.saveAndContinue}>
 
             <Input 
@@ -127,7 +130,7 @@ export class RegisterPage extends React.PureComponent { // eslint-disable-line r
 }
 }
 
-RegisterPage.propTypes = {
+ExamplePage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([
     PropTypes.object,
@@ -138,16 +141,17 @@ RegisterPage.propTypes = {
     PropTypes.bool,
   ]),
   onSubmitForm: PropTypes.func,
+  refreshText: PropTypes.func,
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
+  myPropPM: PropTypes.string
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-    onSubmitForm: (evt) => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos());
+    refreshText: (evt) => {
+      evt.text = "refreshed"
     },
   };
 }
@@ -168,4 +172,4 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(RegisterPage);
+)(ExamplePage);

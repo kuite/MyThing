@@ -14,8 +14,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.features',
     defaultMessage: 'Features',
   },
-  register: {
-    id: 'boilerplate.components.Header.register',
-    defaultMessage: 'Register link',
+  example: {
+    id: 'boilerplate.components.Header.example',
+    defaultMessage: 'Example qwer',
   },
 });

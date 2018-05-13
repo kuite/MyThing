@@ -1,9 +1,15 @@
-Helpfull links:
+Helpfull links (put here only react pro tips):
+... syntax:
+https://stackoverflow.com/questions/40124680/what-does-in-react-native-mean
+
+reacts component lifecycle:
 https://reactjs.org/docs/react-component.html
+
 function mapDispatchToProps(dispatch):
 https://stackoverflow.com/questions/39419237/what-is-mapdispatchtoprops
 
-
+data flow:
+https://www.nafrontendzie.pl/podstawy-redux-zarzadzanie-stanem-react
 
 Starting website debugging:
 -click F5 (or debug start), if not working try focus on launch.json then F5
@@ -14,7 +20,7 @@ Starting website debugging:
 
 
 1. Creating new page (example with Register page)
-
+https://www.youtube.com/
 - add <Route path="/register" component={RegisterPage} /> to app/containers/app/index.js
 - add folder RegisterPage to containers 
 - add index.js and Loadable.js to folder above

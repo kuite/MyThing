@@ -12,9 +12,9 @@ namespace webapi.Controllers
         // GET api/values
         // http://localhost:5000/api/Values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            return "zahardkodowany string na serwerze";
         }
 
         // GET api/values/5
