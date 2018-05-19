@@ -10,3 +10,4 @@
  */
 
 export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
+export const CHANGE_MYPROPPM = 'boilerplate/ExamplePage/CHANGE_MYPROPPM';
