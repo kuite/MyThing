@@ -27,8 +27,8 @@ import Section from './Section';
 import messages from './messages';
 
 import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+import { changeUsername, changeText, loadServerText } from './actions';
+import { makeSelectUsername, makeSelectMyPropPM, makeSelectTextServer } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -37,23 +37,33 @@ export class ExamplePage extends React.PureComponent { // eslint-disable-line re
    * when initial state username is not null, submit the form to load repos
    */
   componentDidMount() {
-    if (this.props.username && this.props.username.trim().length > 0) {
-      this.props.onSubmitForm();
-    }
+    // if (this.props.username && this.props.username.trim().length > 0) {
+    //   this.props.onSubmitForm();
+    // }
   }
 
   render() {
-    const text = "constant text"
+    const text = this.props.myPropPM;
+    const textServer = this.props.textServerProp;
 
     return (
       <div className="create_account_screen">
 
         <div className="create_account_form">
           <h1>Create account</h1>
-          <p>Example of string taken from webapi: { text }</p>
-          <Button bsStyle="primary" onClick={this.props.refreshText}>Refresh text from server</Button>
+          <p>String taken from input: { text }</p>
+          <p>String taken from server: { textServer }</p>
+          <Input
+                  id="myPropPM"
+                  type="text"
+                  placeholder="mxstbr"
+                  value={ this.props.myPropPM }
+                  onChange={ this.props.refreshText }
+                />
+          <br/>
+          <br/>
+          <Button bsStyle="primary" onClick={this.props.onServerText}>Refresh text from server</Button>
           <form onSubmit={this.saveAndContinue}>
-
             <Input 
               text="Email Address" 
               ref="email"
@@ -71,48 +81,11 @@ export class ExamplePage extends React.PureComponent { // eslint-disable-line re
               text="Company Name" 
               ref="companyName"
               validate={this.isEmpty}
-              value={"this.state.companyName"}
+              value={this.props.myPropPM}
               onChange={this.handleCompanyInput} 
               emptyMessage="Company name can't be empty"
             /> 
             <br/>
-            <Input 
-              text="Password" 
-              type="password"
-              ref="password"
-              validator="true"
-              minCharacters="8"
-              requireCapitals="1"
-              requireNumbers="1"
-              forbiddenWords={"this.state.forbiddenWords"}
-              value={"this.state.passsword"}
-              emptyMessage="Password is invalid"
-              onChange={this.handlePasswordInput} 
-            /> 
-            <br/>
-            <Input 
-              text="Confirm password" 
-              ref="passwordConfirm"
-              type="password"
-              validate={this.isConfirmedPassword}
-              value={"this.state.confirmPassword"}
-              onChange={this.handleConfirmPasswordInput} 
-              emptyMessage="Please confirm your password"
-              errorMessage="Passwords don't match"
-            /> 
-            <br/>
-            {/* <Select 
-              options={STATES} 
-              ref="state"
-              value={"this.state.statesValue"} 
-              onChange={this.updateStatesValue} 
-              searchable={this.props.searchable} 
-              emptyMessage="Please select state"
-              errorMessage="Please select state"
-              placeholder="Choose Your State"
-              placeholderTitle="Your State"
-            />  */}
-            
             <Button
               bsStyle="info">
               CREATE ACCOUNt
@@ -140,19 +113,24 @@ ExamplePage.propTypes = {
     PropTypes.array,
     PropTypes.bool,
   ]),
+  textServerProp: PropTypes.string,
+  onServerText: PropTypes.func,
   onSubmitForm: PropTypes.func,
-  refreshText: PropTypes.func,
+  myPropPM: PropTypes.string,
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
-  myPropPM: PropTypes.string
+  refreshText: PropTypes.func
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-    refreshText: (evt) => {
-      evt.text = "refreshed"
-    },
+    refreshText: (evt) => dispatch(changeText(evt.target.value)),
+    onServerText: (evt) => dispatch(loadServerText())
+    
+    // myPropPM: (evt) => {
+    //   dispatch(changeText(evt.target.value))
+    // }
   };
 }
 
@@ -161,12 +139,14 @@ const mapStateToProps = createStructuredSelector({
   username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
+  myPropPM: makeSelectMyPropPM(),
+  textServerProp: makeSelectTextServer()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'home', reducer });
-const withSaga = injectSaga({ key: 'home', saga });
+const withReducer = injectReducer({ key: 'example', reducer });
+const withSaga = injectSaga({ key: 'example', saga });
 
 export default compose(
   withReducer,

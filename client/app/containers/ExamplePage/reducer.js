@@ -1,5 +1,5 @@
 /*
- * HomeReducer
+ * ExampleReducer
  *
  * The reducer takes care of our data. Using actions, we can change our
  * application state.
@@ -13,17 +13,30 @@ import { fromJS } from 'immutable';
 
 import {
   CHANGE_USERNAME,
+  CHANGE_MYPROPPM,
+  LOAD_TEXT,
+  LOAD_SERVER_TEXT_SUCCESS
 } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
   username: '',
+  myPropPM: 'initial value myPropPM',
+  textServerProp : 'initial text server string'
 });
 
-function homeReducer(state = initialState, action) {
+function exampleReducer(state = initialState, action) {
   switch (action.type) {
+    case LOAD_TEXT:
+      return state
+        .set('textServerProp', 'loading');
+    case LOAD_SERVER_TEXT_SUCCESS:
+      return state
+        .set('textServerProp', action.textServer);
+      case CHANGE_MYPROPPM:
+      return state
+        .set('myPropPM', action.myPropPM);
     case CHANGE_USERNAME:
-
       // Delete prefixed '@' from the github username
       return state
         .set('username', action.name.replace(/@/gi, ''));
@@ -32,4 +45,4 @@ function homeReducer(state = initialState, action) {
   }
 }
 
-export default homeReducer;
+export default exampleReducer;
