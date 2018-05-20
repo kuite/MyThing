@@ -17,7 +17,9 @@
 
 import {
   CHANGE_USERNAME,
-  CHANGE_MYPROPPM
+  CHANGE_MYPROPPM,
+  LOAD_TEXT,
+  LOAD_SERVER_TEXT_SUCCESS
 } from './constants';
 
 /**
@@ -34,9 +36,44 @@ export function changeUsername(name) {
   };
 }
 
-export function changeText(text) {
+
+/**
+ * Changes the value of myPropPM
+ *
+ * @param  {myPropPM} myPropPM The new text of the input field
+ *
+ * @return {object}    An action object with a type of CHANGE_MYPROPPM
+ */
+export function changeText(myPropPM) {
   return {
     type: CHANGE_MYPROPPM,
-    text
+    myPropPM
   };
+}
+
+
+/**
+ * Load the server text, this action starts the request saga
+ *
+ * @return {object} An action object with a type of LOAD_TEXT
+ */
+export function loadServerText(){
+  return{
+    type: LOAD_TEXT,
+  }
+}
+
+
+/**
+ * Dispatched when the repositories are loaded by the request saga
+ *
+ * @param  {string} textServer The current username
+ *
+ * @return {object}      An action object with a type of LOAD_SERVER_TEXT_SUCCESS passing the text
+ */
+export function injectServerText(textServer){
+  return{
+    type: LOAD_SERVER_TEXT_SUCCESS,
+    textServer
+  }
 }

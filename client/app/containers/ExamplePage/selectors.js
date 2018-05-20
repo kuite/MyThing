@@ -16,7 +16,13 @@ const makeSelectUsername = () => createSelector(
   (homeState) => homeState.get('username')
 );
 
+const makeSelectTextServer = () => createSelector(
+  selectExample,
+  (homeState) => homeState.get('textServerProp')
+);
+
 export {
   makeSelectUsername,
-  makeSelectMyPropPM
+  makeSelectMyPropPM,
+  makeSelectTextServer
 };
