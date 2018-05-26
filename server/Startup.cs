@@ -31,6 +31,20 @@ namespace webapi
         {
             if (env.IsDevelopment())
             {
+                app.UseCors("MyPolicy");
+
+                // ... add api and other stuff
+
+                //Add a middleware which sets the header on the response
+                app.Use(async (context, next) =>
+                {
+                    // Add Header
+                    context.Response.Headers["Access-Control-Allow-Origin"] = "*";
+
+                    // Call next middleware
+                    await next.Invoke();
+                });
+                
                 app.UseDeveloperExceptionPage();
             }
 

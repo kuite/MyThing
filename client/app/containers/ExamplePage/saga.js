@@ -6,6 +6,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 import { CHANGE_MYPROPPM, LOAD_TEXT } from './constants'
 import { changeUsername, changeText, injectServerText } from './actions';
+import axios from 'axios';
 
 import request from 'utils/request';
 import { makeSelectUsername } from 'containers/ExamplePage/selectors';
@@ -20,7 +21,49 @@ export function* serverText() {
 }
 
 export function* getServerText(){
-  yield put(injectServerText("pobrany string"));
+  var takenString = "placeholder for server string";
+ // var response = getText();
+
+  //try {
+  //   const requestPromise = axios.get('http://localhost:5000/api/Values');
+  //   requestPromise.then(function (response) {
+  //     // console.log(response.data); // ex.: { user: 'Your User'}
+  //     // console.log(response.status);
+  //     put(injectServerText(response.data));
+  //   })
+    
+  // } catch (err) {
+  //   yield put(injectServerText(err));
+  // }
+  //console.log(response);
+  //console.log(response)
+  //yield put(injectServerText(response));
+
+  const requestURL = 'http://localhost:5000/api/Values';
+  //const requestURL = `https://httpbin.org/get`;
+
+  try {
+    // Call our request helper (see 'utils/request')
+    const response = yield call(request, requestURL);
+    yield put(injectServerText(response));
+  } catch (err) {
+    yield put(injectServerText(err));
+  }
+
+}
+
+function getText(){
+  try{
+    const requestPromise = axios.get('http://localhost:5000/api/Values');
+    requestPromise.then(function (response) {
+      console.log(response.data); // ex.: { user: 'Your User'}
+      console.log(response.status);
+      return response.data;
+    })
+  }catch(ex){
+    console.log(ex);
+    return ex;
+  }
 }
 
 export default function* serverExampleText() {
