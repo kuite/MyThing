@@ -12,9 +12,9 @@ namespace webapi.Controllers
         // GET api/values
         // http://localhost:5000/api/Values
         [HttpGet]
-        public string Get()
+        public JsonResult Get()
         {
-            return "zahardkodowany string na serwerze";
+            return new JsonResult("zahardkodowany string na serwerze");
         }
 
         // GET api/values/5
