@@ -36,6 +36,7 @@
             "preLaunchTask": "build client",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceRoot}/client/app",
+            "runtimeExecutable": "C:/Users/tracz/AppData/Local/Google/Chrome SxS/Application/chrome.exe",
             "sourceMapPathOverrides": {
                 "webpack:///./app/*": "${webRoot}/*",
                 "webpack:///app/*": "${webRoot}/*"
