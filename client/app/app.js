@@ -20,6 +20,10 @@ import 'sanitize.css/sanitize.css';
 // Import root app
 import App from 'containers/App';
 
+// styles
+
+require('./components/styles/css/index.css');
+
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
 

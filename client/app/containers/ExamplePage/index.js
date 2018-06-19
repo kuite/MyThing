@@ -4,6 +4,8 @@
  * This is the first thing users see of our App, at the '/' route
  */
 
+
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
@@ -31,6 +33,14 @@ import { changeUsername, changeText, loadServerText } from './actions';
 import { makeSelectUsername, makeSelectMyPropPM, makeSelectTextServer } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+
+
+
+
+import Modaltest from './modal/modal.js';
+
+
+
 
 export class ExamplePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
@@ -64,36 +74,35 @@ export class ExamplePage extends React.PureComponent { // eslint-disable-line re
           <br/>
           <Button bsStyle="primary" onClick={this.props.onServerText}>Refresh text from server</Button>
           <form onSubmit={this.saveAndContinue}>
-            <Input 
-              text="Email Address" 
+            <Input
+              text="Email Address"
               ref="email"
               type="text"
-              defaultValue={messages.startProjectHeader.value} 
+              defaultValue={messages.startProjectHeader.value}
               validate={"this.validateEmail"}
               value={messages.startProjectHeader.value}
-              onChange={this.handleEmailInput} 
+              onChange={this.handleEmailInput}
               errorMessage="Email is invalid"
               emptyMessage="Email can't be empty"
               errorVisible={"this.state.showEmailError"}
             />
             <br/>
-            <Input 
-              text="Company Name" 
+            <Input
+              text="Company Name"
               ref="companyName"
               validate={this.isEmpty}
               value={this.props.myPropPM}
-              onChange={this.handleCompanyInput} 
+              onChange={this.handleCompanyInput}
               emptyMessage="Company name can't be empty"
-            /> 
+            />
             <br/>
-            <Button
-              bsStyle="info">
-              CREATE ACCOUNt
-            </Button>
-
           </form>
 
-           <a href="https://github.com/mikepro4/react-signup-form" target="_blank" className="github_link" title="View Source Code"> 
+              <Modaltest/>
+
+
+
+           <a href="https://github.com/mikepro4/react-signup-form" target="_blank" className="github_link" title="View Source Code">
 
           </a>
         </div>
@@ -127,7 +136,7 @@ export function mapDispatchToProps(dispatch) {
     onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
     refreshText: (evt) => dispatch(changeText(evt.target.value)),
     onServerText: (evt) => dispatch(loadServerText())
-    
+
     // myPropPM: (evt) => {
     //   dispatch(changeText(evt.target.value))
     // }
