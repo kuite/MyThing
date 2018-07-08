@@ -1,0 +1,9 @@
+AccountController:
+ -login
+ -forget password
+ -log out
+ -
+ 
+IdeasController:
+ -getIdeasByCategory
+ -submitIdea
