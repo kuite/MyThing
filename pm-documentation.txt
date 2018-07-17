@@ -46,3 +46,7 @@ https://react-bootstrap.github.io/components/buttons/
 
 4. PWA
 https://sunscrapers.com/blog/pwa-pierwsze-kroki/
+
+5. Run api on macos
+- https://www.microsoft.com/net/download/macos
+- go to server folder and run "dotnet run"
