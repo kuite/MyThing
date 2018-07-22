@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using Newtonsoft.Json;
 
-namespace webapi.Model
+namespace webapi.Model.Common
 {
     public class Link
     {

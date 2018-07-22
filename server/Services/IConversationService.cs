@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using webapi.Model;
+using webapi.Model.Domain;
+using webapi.Model.Common;
 
 namespace webapi.Services
 {
     public interface IConversationService
     {
-        Task<ConversationResource> GetConversationAsync(Guid id, CancellationToken ct);
+        Task<ConversationResource> GetConversationAsync(Guid id);
 
-        Task<Page<ConversationResource>> GetConversationsAsync(
-            PagingOptions pagingOptions,
-            CancellationToken ct);
+        Task<Page<ConversationResource>> GetConversationsAsync(PagingOptions pagingOptions);
     }
 }

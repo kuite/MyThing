@@ -1,6 +1,7 @@
 ﻿using System;
+using webapi.Model.Common;
 
-namespace webapi.Model
+namespace webapi.Model.Domain
 {
     public sealed class ConversationResource : Resource
     {

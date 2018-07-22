@@ -1,8 +1,9 @@
 ﻿using System;
+using webapi.Model.Common;
 
-namespace webapi.Model
+namespace webapi.Model.Domain
 {
-    public sealed class CommentResource : Resource
+    public sealed class CommentResource : Resource //Domain objects
     {
         public Link Conversation { get; set; }
 

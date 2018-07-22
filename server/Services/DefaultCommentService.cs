@@ -4,7 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using webapi.Model;
+using webapi.Model.Domain;
+using webapi.Model.Database;
+using webapi.Model.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace webapi.Services
@@ -18,19 +20,18 @@ namespace webapi.Services
             _context = context;
         }
 
-        public async Task<CommentResource> GetCommentAsync(Guid id, CancellationToken ct)
+        public async Task<CommentResource> GetCommentAsync(Guid id)
         {
             var entity = await _context
                 .Comments
-                .SingleOrDefaultAsync(x => x.Id == id, ct);
+                .SingleOrDefaultAsync(x => x.Id == id);
 
             return Mapper.Map<CommentResource>(entity);
         }
 
         public async Task<Page<CommentResource>> GetCommentsAsync(
             Guid? conversationId,
-            PagingOptions pagingOptions,
-            CancellationToken ct)
+            PagingOptions pagingOptions)
         {
             IQueryable<CommentEntity> query = _context.Comments;
 
@@ -42,13 +43,13 @@ namespace webapi.Services
             // todo apply search
             // todo apply sort
 
-            var size = await query.CountAsync(ct);
+            var size = await query.CountAsync();
 
             var items = await query
                 .Skip(pagingOptions.Offset.Value)
                 .Take(pagingOptions.Limit.Value)
                 .ProjectTo<CommentResource>()
-                .ToArrayAsync(ct);
+                .ToArrayAsync();
 
             return new Page<CommentResource>
             {

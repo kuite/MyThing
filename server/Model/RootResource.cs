@@ -1,4 +1,6 @@
-﻿namespace webapi.Model
+﻿using webapi.Model.Common;
+
+namespace webapi.Model
 {
     public class RootResource : Resource
     {

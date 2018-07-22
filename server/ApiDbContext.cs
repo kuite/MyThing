@@ -1,4 +1,4 @@
-﻿using webapi.Model;
+﻿using webapi.Model.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace webapi

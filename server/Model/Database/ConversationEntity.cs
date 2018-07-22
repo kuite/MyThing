@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace webapi.Model
+namespace webapi.Model.Database
 {
     public sealed class ConversationEntity
     {

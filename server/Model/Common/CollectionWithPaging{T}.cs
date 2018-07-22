@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Routing;
 using Newtonsoft.Json;
 
-namespace webapi.Model
+namespace webapi.Model.Common
 {
     public class CollectionWithPaging<T> : Collection<T>
     {

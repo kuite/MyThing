@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using AutoMapper;
+using webapi.Model.Database;
+using webapi.Model.Common;
 
 namespace webapi
 {
@@ -50,7 +52,7 @@ namespace webapi
 
             services.AddAutoMapper();
 
-            services.Configure<Model.PagingOptions>(Configuration.GetSection("DefaultPagingOptions"));
+            services.Configure<PagingOptions>(Configuration.GetSection("DefaultPagingOptions"));
 
             // Services that consume EF Core objects (DbContext) should be registered as Scoped
             // (see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#registering-your-own-services)
@@ -78,21 +80,21 @@ namespace webapi
         {
             // TODO add Author to all of these:
 
-            var conv1 = context.Conversations.Add(new Model.ConversationEntity
+            var conv1 = context.Conversations.Add(new ConversationEntity
             {
                 Id = Guid.Parse("6f1e369b-29ce-4d43-b027-3756f03899a1"),
                 CreatedAt = DateTimeOffset.UtcNow,
                 Title = "Who is the coolest Avenger?"
             }).Entity;
 
-            var conv2 = context.Conversations.Add(new Model.ConversationEntity
+            var conv2 = context.Conversations.Add(new ConversationEntity
             {
                 Id = Guid.Parse("2d555f8f-e2a2-461e-b756-1f6d0d254b46"),
                 CreatedAt = DateTimeOffset.UtcNow,
                 Title = "How do we defeat Thanos?!"
             }).Entity;
 
-            context.Comments.Add(new Model.CommentEntity
+            context.Comments.Add(new CommentEntity
             {
                 Id = Guid.Parse("653d061d-cdb9-423c-b03d-cd656ff567c7"),
                 CreatedAt = DateTimeOffset.UtcNow,
@@ -100,7 +102,7 @@ namespace webapi
                 Body = "Iron Man of course"
             });
 
-            context.Comments.Add(new Model.CommentEntity
+            context.Comments.Add(new CommentEntity
             {
                 Id = Guid.Parse("4bfba838-5872-46be-a2df-db6db8aa261f"),
                 CreatedAt = DateTimeOffset.UtcNow,

@@ -1,4 +1,5 @@
 ﻿using webapi.Model;
+using webapi.Model.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.Controllers

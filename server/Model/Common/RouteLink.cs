@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace webapi.Model
+namespace webapi.Model.Common
 {
     public sealed class RouteLink : Link
     {

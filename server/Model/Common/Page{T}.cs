@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace webapi.Model
+namespace webapi.Model.Common
 {
     public sealed class Page<T>
     {

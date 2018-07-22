@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace webapi.Model
+namespace webapi.Model.Database
 {
-    public sealed class CommentEntity
+    public sealed class CommentEntity //Database entites
     {
         public Guid Id { get; set; }
 

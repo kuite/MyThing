@@ -3,7 +3,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using webapi.Infrastructure;
-using webapi.Model;
+using webapi.Model.Domain;
+using webapi.Model.Common;
 using webapi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -30,31 +31,31 @@ namespace webapi.Controllers
         [HttpGet(Name = nameof(GetConversationsAsync))]
         [ValidateModel]
         public async Task<IActionResult> GetConversationsAsync(
-            [FromQuery] PagingOptions pagingOptions,
-            CancellationToken ct)
+            [FromQuery] PagingOptions pagingOptions)
         {
             pagingOptions.Offset = pagingOptions?.Offset ?? _defaultPagingOptions.Offset;
             pagingOptions.Limit = pagingOptions?.Limit ?? _defaultPagingOptions.Limit;
 
             var conversations = await _conversationService.GetConversationsAsync(
-                pagingOptions, ct);
-
-            var collection = CollectionWithPaging<ConversationResource>.Create(
-                Link.ToCollection(nameof(GetConversationsAsync)),
-                conversations.Items.ToArray(),
-                conversations.TotalSize,
                 pagingOptions);
 
-            return Ok(collection);
+            // var collection = CollectionWithPaging<ConversationResource>.Create(
+            //     Link.ToCollection(nameof(GetConversationsAsync)),
+            //     conversations.Items.ToArray(),
+            //     conversations.TotalSize,
+            //     pagingOptions);
+
+            return Ok(conversations);
         }
 
         [HttpGet("{conversationId}", Name = nameof(GetConversationByIdAsync))]
         [ValidateModel]
-        public async Task<IActionResult> GetConversationByIdAsync(GetConversationByIdParameters parameters, CancellationToken ct)
+        public async Task<IActionResult> GetConversationByIdAsync(int conversationId)
         {
-            if (parameters.ConversationId == Guid.Empty) return NotFound();
+            Guid conversationGuidId = Helpers.ToGuid(conversationId);
+            if (conversationGuidId == Guid.Empty) return NotFound();
 
-            var conversation = await _conversationService.GetConversationAsync(parameters.ConversationId, ct);
+            var conversation = await _conversationService.GetConversationAsync(conversationGuidId);
             if (conversation == null) return NotFound();
 
             return Ok(conversation);
@@ -63,19 +64,20 @@ namespace webapi.Controllers
         [HttpGet("{conversationId}/comments", Name = nameof(GetConversationCommentsByIdAsync))]
         [ValidateModel]
         public async Task<IActionResult> GetConversationCommentsByIdAsync(
-            GetConversationByIdParameters parameters,
-            [FromQuery] PagingOptions pagingOptions,
-            CancellationToken ct)
+            int conversationId,
+            [FromQuery] PagingOptions pagingOptions)
         {
+            Guid conversationGuidId = Helpers.ToGuid(conversationId);
+
             pagingOptions.Offset = pagingOptions?.Offset ?? _defaultPagingOptions.Offset;
             pagingOptions.Limit = pagingOptions?.Limit ?? _defaultPagingOptions.Limit;
 
-            var conversationComments = await _commentService.GetCommentsAsync(parameters.ConversationId, pagingOptions, ct);
+            var conversationComments = await _commentService.GetCommentsAsync(conversationGuidId, pagingOptions);
 
             var collection = CollectionWithPaging<CommentResource>.Create(
                 Link.ToCollection(
                     nameof(GetConversationCommentsByIdAsync),
-                    new GetConversationByIdParameters { ConversationId = parameters.ConversationId }),
+                    conversationGuidId),
                 conversationComments.Items.ToArray(),
                 conversationComments.TotalSize,
                 pagingOptions);

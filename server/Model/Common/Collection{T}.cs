@@ -1,4 +1,4 @@
-﻿namespace webapi.Model
+﻿namespace webapi.Model.Common
 {
     public class Collection<T> : Resource
     {
