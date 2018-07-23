@@ -1,24 +1,54 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using webapi.Infrastructure;
+using webapi.Model.Domain;
+using webapi.Model.Common;
+using webapi.Services;
+using webapi.Services.Interfaces;
+using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.Controllers
 {
-    [Route("api/[controller]")]
-    public class FundController : Controller
+    [Route("/[controller]")]
+    public class FundController : ControllerBase
     {
-        [HttpGet]
-        public JsonResult GetFundsByCategory(string category)
+        private readonly IFundService _fundService;
+        private readonly PagingOptions _defaultPagingOptions;
+
+        public FundController(
+            IFundService fundService,
+            IOptions<PagingOptions> defaultPagingOptionsAccessor)
         {
-            return new JsonResult("Requested category: " + category);
+            _fundService = fundService;
+            _defaultPagingOptions = defaultPagingOptionsAccessor.Value;
         }
 
-        [HttpPost]
-        public JsonResult SubmitFund(string ideaText)
+
+        [HttpGet("GetFunds")]
+        [ValidateModel]
+        public async Task<IActionResult> GetFundsAsync(
+            [FromQuery] PagingOptions pagingOptions)
         {
-            return new JsonResult("Send idea: " + ideaText);
+            pagingOptions.Offset = pagingOptions.Offset ?? _defaultPagingOptions.Offset;
+            pagingOptions.Limit = pagingOptions.Limit ?? _defaultPagingOptions.Limit;
+
+            var funds = await _fundService.GetFundsAsync(null, pagingOptions);
+
+            return Ok(funds);
+        }
+
+        [HttpGet("GetFund/{fundId}")]
+        [ValidateModel]
+        public async Task<IActionResult> GetFundByIdAsync(int fundId)
+        {
+            Guid fundnGuidId = Helpers.ToGuid(fundId);
+            if (fundnGuidId == Guid.Empty) return NotFound();
+
+            var fund = await _fundService.GetFundAsync(fundnGuidId);
+            return Ok(fund);
         }
     }
 }

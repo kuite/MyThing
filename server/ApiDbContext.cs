@@ -1,5 +1,6 @@
 ﻿using webapi.Model.Database;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace webapi
 {
@@ -8,10 +9,8 @@ namespace webapi
         public ApiDbContext(DbContextOptions<ApiDbContext> options)
             : base(options)
         {
+
         }
-
-        public DbSet<ConversationEntity> Conversations { get; set; }
-
-        public DbSet<CommentEntity> Comments { get; set; }
+        public DbSet<FundEntity> Funds { get; set; }
     }
 }

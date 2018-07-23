@@ -1,14 +1,13 @@
-﻿using System;
+using System;
 
 namespace webapi.Model.Database
 {
-    public sealed class CommentEntity //Database entites
+    public class FundEntity
     {
         public Guid Id { get; set; }
 
-        public ConversationEntity Conversation { get; set; }
-
-        public string Body { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
 
         public DateTimeOffset CreatedAt { get; set; }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,32 +7,40 @@ using AutoMapper.QueryableExtensions;
 using webapi.Model.Domain;
 using webapi.Model.Database;
 using webapi.Model.Common;
+using webapi.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace webapi.Services
 {
-    public sealed class DefaultConversationService : IConversationService
+    public sealed class FundService : IFundService
     {
         private readonly ApiDbContext _context;
 
-        public DefaultConversationService(ApiDbContext context)
+        public FundService(ApiDbContext context)
         {
             _context = context;
         }
 
-        public async Task<ConversationResource> GetConversationAsync(Guid id)
+        public async Task<Fund> GetFundAsync(Guid id)
         {
             var entity = await _context
-                .Conversations
+                .Funds
                 .SingleOrDefaultAsync(x => x.Id == id);
 
-            return Mapper.Map<ConversationResource>(entity);
+            return Mapper.Map<Fund>(entity);
         }
 
-        public async Task<Page<ConversationResource>> GetConversationsAsync(
+        public async Task<Page<Fund>> GetFundsAsync(
+            Guid? fundId,
             PagingOptions pagingOptions)
         {
-            IQueryable<ConversationEntity> query = _context.Conversations;
+            IQueryable<FundEntity> query = _context.Funds;
+
+            if (fundId != null)
+            {
+                query = query.Where(x => x.Id == fundId);
+            }
+
             // todo apply search
             // todo apply sort
 
@@ -41,10 +49,10 @@ namespace webapi.Services
             var items = await query
                 .Skip(pagingOptions.Offset.Value)
                 .Take(pagingOptions.Limit.Value)
-                .ProjectTo<ConversationResource>()
+                .ProjectTo<Fund>()
                 .ToArrayAsync();
 
-            return new Page<ConversationResource>
+            return new Page<Fund>
             {
                 Items = items,
                 TotalSize = size
