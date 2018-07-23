@@ -50,5 +50,18 @@ namespace webapi.Controllers
             var fund = await _fundService.GetFundAsync(fundnGuidId);
             return Ok(fund);
         }
+
+        [HttpPost("SubmitFund")]
+        [ValidateModel]
+        public async Task<IActionResult> SubmitFundAsync([FromBody]Fund fund)
+        {
+            return Ok(fund);
+        }
+
+        [HttpPost("SubmitNumber")]
+        public async Task<IActionResult> SubmitNumberAsync(int num)
+        {
+            return Ok(num);
+        }
     }
 }

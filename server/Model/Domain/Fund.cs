@@ -1,15 +1,16 @@
 using System;
-using webapi.Model.Common;
 
 namespace webapi.Model.Domain
 {
-    public sealed class Fund
+    public class Fund
     {
-        //public Link Author { get; set; }
+        //public User Author { get; set; }
 
         public string Title { get; set; }
         public string Description { get; set; }
-
-        public DateTimeOffset CreatedAt { get; set; }
+        public decimal BtcGoal { get; set; }
+        public decimal BtcDonated { get; set; }
+        public DateTimeOffset StartDate { get; set; }
+        public DateTimeOffset EndDate { get; set; }
     }
 }
