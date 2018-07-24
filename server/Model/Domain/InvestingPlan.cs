@@ -17,12 +17,10 @@ namespace webapi.Model.Domain
     {
         BronzeShort = 1,
         BronzeMedium = 2,
-        BronzeLong = 3,
-        SilverShort = 4,
-        SilverMedium = 5,
-        SilverLong = 6,
-        GoldShort = 7,
-        GoldMedium = 8,
-        GoldLong = 9
+        SilverShort = 3,
+        SilverMedium = 4,
+        SilverLong = 5,
+        GoldMedium = 6,
+        GoldLong = 7
     }
 }
