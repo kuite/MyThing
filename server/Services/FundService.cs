@@ -14,9 +14,9 @@ namespace webapi.Services
 {
     public sealed class FundService : IFundService
     {
-        private readonly ApiDbContext _context;
+        private readonly DbContext _context;
 
-        public FundService(ApiDbContext context)
+        public FundService(DbContext context)
         {
             _context = context;
         }

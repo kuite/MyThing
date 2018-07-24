@@ -57,11 +57,5 @@ namespace webapi.Controllers
         {
             return Ok(fund);
         }
-
-        [HttpPost("SubmitNumber")]
-        public async Task<IActionResult> SubmitNumberAsync(int num)
-        {
-            return Ok(num);
-        }
     }
 }

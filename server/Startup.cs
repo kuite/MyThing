@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using webapi.Infrastructure;
 using webapi.Services;
 using webapi.Services.Interfaces;
@@ -8,15 +9,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Newtonsoft.Json;
 using AutoMapper;
 using webapi.Model.Database;
 using webapi.Model.Common;
+using Microsoft.IdentityModel.Tokens;
+using webapi.Auth;
+using Microsoft.AspNetCore.Identity;
 
 namespace webapi
 {
     public class Startup
     {
+        private const string SecretKey = "iNivDmHLpUA223sqsfhqGbMRdRj1PVkH"; // todo: get this from somewhere secure
+        private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -31,7 +39,7 @@ namespace webapi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApiDbContext>(options =>
+            services.AddDbContext<DbContext>(options =>
             {
                 // Use an in-memory database with a randomized database name (for testing)
                 //options.UseInMemoryDatabase(Guid.NewGuid().ToString()); //some bug that context is not saved with this name
@@ -56,6 +64,64 @@ namespace webapi
             // Services that consume EF Core objects (DbContext) should be registered as Scoped
             // (see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#registering-your-own-services)
             services.AddScoped<IFundService, FundService>();
+
+            #region JWT token
+
+            // Get options from app settings
+            var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
+
+            // Configure JwtIssuerOptions
+            services.Configure<JwtIssuerOptions>(options =>
+            {
+                options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+                options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
+                options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
+            });
+
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidIssuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)],
+
+                ValidateAudience = true,
+                ValidAudience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)],
+
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = _signingKey,
+
+                RequireExpirationTime = false,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(configureOptions =>
+              {
+                  configureOptions.ClaimsIssuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+                  configureOptions.TokenValidationParameters = tokenValidationParameters;
+                  configureOptions.SaveToken = true;
+              });
+
+            // api user claim policy
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiUser", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Rol, Constants.Strings.JwtClaims.ApiAccess));
+            });
+            // add identity
+            var builder = services.AddIdentityCore<UserEntity>(o =>
+            {
+                o.Password.RequireDigit = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 6;
+            });
+            builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
+            builder.AddEntityFrameworkStores<DbContext>().AddDefaultTokenProviders();
+            #endregion
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -63,7 +129,7 @@ namespace webapi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var dbContext = app.ApplicationServices.GetRequiredService<ApiDbContext>();
+            var dbContext = app.ApplicationServices.GetRequiredService<DbContext>();
             AddTestData(dbContext);
 
             // Serialize all exceptions to JSON
@@ -72,9 +138,10 @@ namespace webapi
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
 
             app.UseMvc();
+            app.UseAuthentication();
         }
 
-        private static void AddTestData(ApiDbContext context)
+        private static void AddTestData(DbContext context)
         {
             // TODO add Author to all of these:
 
