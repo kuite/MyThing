@@ -10,6 +10,8 @@ using webapi.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace webapi.Controllers
 {
@@ -58,6 +60,18 @@ namespace webapi.Controllers
         public async Task<IActionResult> SubmitFundAsync([FromBody]Fund fund)
         {
             return Ok(fund);
+        }
+
+        [HttpPost("SubmitFundImages")]
+        [Authorize(Policy = "ApiUser")]
+        public async Task<IActionResult> SubmitFundImages(List<IFormFile> imgs, string fundGuid)
+        {
+            //var name = file.GetFilename();
+            foreach (var file in imgs)
+            {
+               
+            }
+            return Ok(imgs);
         }
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace webapi.Model.Domain
 {
@@ -10,6 +12,7 @@ namespace webapi.Model.Domain
         public decimal BtcGoal { get; set; }
         public decimal BtcDonated { get; set; }
         //public List<Transactions> SupportersList 
+        public List<IFormFile> RelatedImages { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
     }
