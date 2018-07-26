@@ -1,4 +1,5 @@
 using System;
+using webapi.Model.Common;
 
 namespace webapi.Model.Domain
 {
@@ -11,16 +12,5 @@ namespace webapi.Model.Domain
         public bool IsPaid { get ;set; }
         public bool IsCashedOut  {get; set; }
         public DateTimeOffset StartDate { get; set; }
-    }
-
-    public enum PlanType
-    {
-        BronzeShort = 1,
-        BronzeMedium = 2,
-        SilverShort = 3,
-        SilverMedium = 4,
-        SilverLong = 5,
-        GoldMedium = 6,
-        GoldLong = 7
     }
 }

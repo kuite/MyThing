@@ -64,8 +64,12 @@ namespace webapi
             // Services that consume EF Core objects (DbContext) should be registered as Scoped
             // (see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#registering-your-own-services)
             services.AddScoped<IFundService, FundService>();
+            services.AddScoped<IUserService, UserService>();
+
 
             #region JWT token
+            services.AddSingleton<IJwtFactory, JwtFactory>();
+            services.Configure<FacebookAuthSettings>(Configuration.GetSection(nameof(FacebookAuthSettings)));
 
             // Get options from app settings
             var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
@@ -117,7 +121,7 @@ namespace webapi
                 o.Password.RequireLowercase = false;
                 o.Password.RequireUppercase = false;
                 o.Password.RequireNonAlphanumeric = false;
-                o.Password.RequiredLength = 6;
+                o.Password.RequiredLength = 3;
             });
             builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
             builder.AddEntityFrameworkStores<DbContext>().AddDefaultTokenProviders();

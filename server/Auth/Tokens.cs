@@ -7,9 +7,14 @@ using Newtonsoft.Json;
 
 namespace webapi.Auth
 {
-    public class Tokens
+    public static class Tokens
     {
-      public static async Task<string> GenerateJwt(ClaimsIdentity identity, IJwtFactory jwtFactory,string userName, JwtIssuerOptions jwtOptions, JsonSerializerSettings serializerSettings)
+      public static async Task<string> GenerateJwt(
+        ClaimsIdentity identity, 
+        IJwtFactory jwtFactory,
+        string userName, 
+        JwtIssuerOptions jwtOptions, 
+        JsonSerializerSettings serializerSettings)
       {
         var response = new
         {
