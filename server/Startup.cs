@@ -141,8 +141,8 @@ namespace webapi
                 app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
 
-            app.UseMvc();
             app.UseAuthentication();
+            app.UseMvc();
         }
 
         private static void AddTestData(DbContext context)

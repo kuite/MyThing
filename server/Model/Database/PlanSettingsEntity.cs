@@ -12,6 +12,4 @@ namespace webapi.Model.Database
         public string Title { get; set; }
         public PlanType PlanType { get; set; }
     }
-
-
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace webapi.Auth
+namespace webapi.Model.Common
 {
     public static class Constants
     {

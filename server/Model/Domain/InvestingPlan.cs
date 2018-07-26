@@ -5,7 +5,7 @@ namespace webapi.Model.Domain
 {
     public class InvestingPlan
     {
-        //public User Investor { get; set; } //connect plan with user (token?)
+        public string InvestorId { get; set; }
         public PlanType PlanType { get; set; }
         public decimal BtcComitted { get; set; }
         public decimal BtcPayout {get; set; }

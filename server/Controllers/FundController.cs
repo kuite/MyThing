@@ -9,6 +9,7 @@ using webapi.Services;
 using webapi.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace webapi.Controllers
 {
@@ -52,6 +53,7 @@ namespace webapi.Controllers
         }
 
         [HttpPost("SubmitFund")]
+        [Authorize(Policy = "ApiUser")]
         [ValidateModel]
         public async Task<IActionResult> SubmitFundAsync([FromBody]Fund fund)
         {
