@@ -61,11 +61,6 @@ namespace webapi
                 opt.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
             });
 
-            services.Configure<MvcOptions>(options =>
-            {
-                options.Filters.Add(new CorsAuthorizationFilterFactory("AllowMyOrigin"));
-            });
-
             services.AddAutoMapper();
 
             services.Configure<PagingOptions>(Configuration.GetSection("DefaultPagingOptions"));
@@ -152,7 +147,6 @@ namespace webapi
                 app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
 
-            app.UseCors("AllowMyOrigin");
             app.UseAuthentication();
             app.UseMvc();
         }
