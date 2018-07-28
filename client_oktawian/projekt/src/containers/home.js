@@ -9,7 +9,7 @@ import {ChoiceSection} from '../components/choiceSection';
 import {LatestIdeas} from '../components/latestIdeas';
 import {SignInModule} from '../components/signin'
 
-import {Idea} from './browseideas';
+import {Idea, ResultItem} from './browseideas';
 
 
 import '../global-styles';
@@ -25,7 +25,7 @@ export default class Home extends Component{
                 <SignInModule/>
                 <ChoiceSection/>
                 <LatestIdeas/>
-                <Idea/>
+                <ResultItem/>
             </div>
         )
     }

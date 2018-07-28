@@ -23,39 +23,6 @@ export default class Browseideas extends Component{
 };
 
 
-export class Idea extends Component{
-
-    render(){
-        return(
-            <div className ="Idea">                               
-                <Container>
-
-                    <Row>
-                        <Col sm={{size:1}}><Vote/></Col>   
-                        <Col sm={{size:3}}><div className ="Idea_image"></div></Col>
-                        <Col sm={{size:6}}>
-                        <h2>Simple title</h2>
-                            <p>Business/Non Profit</p>
-                            <p>Kategoria</p>
-                            <p>Started 27.01 - Finish: 32.02</p>
-                        <div className ="Rectangle"></div>
-                        
-                        <p>Description about this specific issue with information about
-                        it and why customer should support this idea</p>
-
-                        <Progress multi>
-                            <Progress bar color="success" value="35" /> 35 / 100 BTC funded
-                        </Progress>
-
-                            <Link to="/idea" className="btn btn-link">Support idea now</Link>
-
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-        )
-    }
-};
 
 
 class Main extends React.Component {
@@ -79,6 +46,8 @@ class Main extends React.Component {
     }
    }
 
+  
+
 
 const Result = ({ state: { products, displayCategory } }) =>
 <div>
@@ -86,8 +55,8 @@ const Result = ({ state: { products, displayCategory } }) =>
     .filter(({ category }) =>
         displayCategory === category || displayCategory === "all"
     )
-    .map(({ category, name, desc, img }) =>
-      <ResultItem category={category} name={name} desc={desc} img ={img}/>
+    .map(({ category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img }) =>
+      <ResultItem category={category} name={name} desc={desc} StartDate ={StartDate} EndDate ={EndDate} BtcGoal={BtcGoal} BtcDonated={BtcDonated} img ={img}/>
     )}
 </div>;
 
@@ -95,10 +64,10 @@ const Result = ({ state: { products, displayCategory } }) =>
 
 
 
-const ResultItem = ({ category, name, desc, img }) =>
+export const ResultItem = ({ category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img }) =>
  
 <div className ="Idea"> 
-<Link to ={`${name}`}>                              
+                             
 <Container>
     <Row>
         <Col sm={{size:1}}><Vote/></Col>   
@@ -107,21 +76,20 @@ const ResultItem = ({ category, name, desc, img }) =>
         <h2>{name}</h2>
             <p>Business/Non Profit</p>
             <p>{category}</p>
-            <p>Started 27.01 - Finish: 32.02</p>
+            <p>Started {StartDate} - Finish: {EndDate}</p>
         <div className ="Rectangle"></div>
         
         <p>{desc}</p>
 
         <Progress multi>
-            <Progress bar color="success" value="35" /> 35 / 100 BTC funded
+            <Progress bar color="success" value="{BtcDonated}"/> {BtcDonated} BTC / {BtcGoal }BTC funded
         </Progress>
 
-            <Link to="/idea" className="btn btn-link">Support idea now</Link>
+            <Link to ={`${name}`}className="btn btn-link">Support idea now</Link>
 
         </Col>
     </Row>
 </Container>
-</Link>
 </div>
 ;
 
@@ -184,9 +152,15 @@ const UI = ({
 //data (need to fetch from api later)
 
 const PRODUCTS = [
-    { category: "Category1", name: "IdeaCategory1", desc: "Description about idea",img: <div>test</div>},
-    { category: "Category2", name: "IdeaCategory2", desc: "Description about idea",img: <div>test</div>},
+    { category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
+    { category: "Category2", name: "IdeaCategory2", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
 ];
+
+
+
+
+
+
 
 
 const uniqueItems = (x, i, a) => a.indexOf(x) === i;
