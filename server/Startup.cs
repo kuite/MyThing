@@ -19,6 +19,8 @@ using webapi.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 
 namespace webapi
 {
@@ -40,7 +42,7 @@ namespace webapi
         public IConfigurationRoot Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {          
+        {
             services.AddDbContext<DbContext>(options =>
             {
                 // Use an in-memory database with a randomized database name (for testing)
@@ -57,6 +59,11 @@ namespace webapi
                 opt.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
                 opt.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
                 opt.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
+            });
+
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new CorsAuthorizationFilterFactory("AllowMyOrigin"));
             });
 
             services.AddAutoMapper();
@@ -145,6 +152,7 @@ namespace webapi
                 app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
 
+            app.UseCors("AllowMyOrigin");
             app.UseAuthentication();
             app.UseMvc();
         }
