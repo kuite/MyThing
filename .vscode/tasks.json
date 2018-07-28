@@ -19,6 +19,15 @@
                 "${workspaceFolder}"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build client_oktawian",
+            "command": "start ${workspaceFolder}/build_client_oktawian.bat",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }

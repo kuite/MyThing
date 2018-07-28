@@ -8,6 +8,10 @@
         {
             "name": "Server/Client",
             "configurations": ["Server", "Client"]
+        },
+        {
+            "name": "Server/Client_okt",
+            "configurations": ["Server", "Client_okt"]
         }
     ],
    "configurations": [
@@ -40,6 +44,19 @@
             "sourceMapPathOverrides": {
                 "webpack:///./app/*": "${webRoot}/*",
                 "webpack:///app/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Client_okt",
+            "preLaunchTask": "build client_oktawian",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}/client_oktawian/projekt",
+            "runtimeExecutable": "C:/Users/tracz/AppData/Local/Google/Chrome SxS/Application/chrome.exe",
+            "sourceMapPathOverrides": {
+                "webpack:///./projekt/*": "${webRoot}/*",
+                "webpack:///projekt/*": "${webRoot}/*"
             }
         }
     ]
