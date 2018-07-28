@@ -1,5 +1,4 @@
 import React from 'react';
-import {Apptest} from '../index.js';
 import { LoginPage } from '../containers/LoginPage/LoginPage';
 
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import {Container, Row, Col, Progress } from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 import {Navbar} from '../components/navbar';
+import { Link } from 'react-router-dom';
 
 import '../global-styles';
 
@@ -69,6 +70,7 @@ const Basic = (props) => {
             <CardSubtitle>Card subtitle</CardSubtitle>
             <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
             <Button>Button</Button>
+            <Link to="/plan" className="btn btn-link">Support idea now</Link>
           </CardBody>
         </Card>
       </div>
@@ -85,6 +87,7 @@ const Basic = (props) => {
             <CardSubtitle>Card subtitle</CardSubtitle>
             <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
             <Button>Button</Button>
+            <Link to="/plan" className="btn btn-link">Support idea now</Link>
           </CardBody>
         </Card>
       </div>

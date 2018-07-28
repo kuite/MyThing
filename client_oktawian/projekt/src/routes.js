@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
 } from 'react-router-dom';
 
-import {Navbar} from './components/navbar';
 
 import home from './containers/home';
 import fund from './containers/fund';
 import browseideas from './containers/browseideas';
 import earnwithus from './containers/earnwithus';
+
+import idea from './containers/idea';
+import plan from './containers/plan';
+
 import {RegisterPage} from './containers/RegisterPage/RegisterPage.jsx';
 import {LoginPage} from './containers/LoginPage/LoginPage.jsx';
+
 
 
 export class Routing extends Component {
@@ -30,6 +33,9 @@ export class Routing extends Component {
               <Route path="/earnwithus" component={earnwithus} />
               <Route path="/register" component={RegisterPage} />
               <Route path="/login" component={LoginPage} />
+
+              <Route path="/idea" component={idea} />
+              <Route path="/plan" component={plan} />
             </div>
           </Router>
 

@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 
 import {Navbar} from '../components/navbar';
 import {Header} from '../components/header';
-import {Choice_section} from '../components/choice_section';
-import {Latest_ideas} from '../components/latest_ideas';
+import {ChoiceSection} from '../components/choiceSection';
+import {LatestIdeas} from '../components/latestIdeas';
 import {SignInModule} from '../components/signin'
 
 import {Idea} from './browseideas';
@@ -23,8 +23,8 @@ export default class Home extends Component{
                 <Navbar/>
                 <Header/>
                 <SignInModule/>
-                <Choice_section/>
-                <Latest_ideas/>
+                <ChoiceSection/>
+                <LatestIdeas/>
                 <Idea/>
             </div>
         )

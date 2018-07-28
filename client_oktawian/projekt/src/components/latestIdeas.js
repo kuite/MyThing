@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 
-export class Latest_ideas extends Component{
+export class LatestIdeas extends Component{
 
     render(){
         return(

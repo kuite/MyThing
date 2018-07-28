@@ -27,10 +27,10 @@ import {Modalfinal} from '../../components/modal';
 
         this.state = {
             user: {
-                firstName: '',
-                lastName: '',
-                username: '',
-                password: ''
+                FirstName: '',
+                LastName: '',
+                Email: '',
+                Password: ''
             },
             submitted: false,
 
@@ -60,7 +60,8 @@ import {Modalfinal} from '../../components/modal';
         const { user } = this.state;
         const { dispatch } = this.props;
 
-        if (user.firstName && user.lastName && user.username && user.password) {
+
+        if (user.FirstName && user.LastName && user.Email && user.Password) {
             dispatch(userActions.register(user));
             history.push('/browseideas');
         }
@@ -79,54 +80,50 @@ import {Modalfinal} from '../../components/modal';
             <Container>
                <Row>
                     <Col sm="12" md={{ size: 8, offset: 3 }}>
-                        <h1>Create your account</h1>
+                        <h1>Let’s start with account</h1>
                      </Col>
                 </Row>
                 <Row>
                     <Col sm="12" md={{ size: 6, offset: 3 }}>
-                        <p>Lorem ipsum dolor sit amet</p>
+                        <p>Get all the opportunities offered by the platform. 100% free</p>
                         
                         <form className ="RegistrationLeft" name="form" onSubmit={this.handleSubmit}>
 
-                                <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
-                                    <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} placeholder="First Name" />
-                                    {submitted && !user.firstName &&
+                                <div className={'form-group' + (submitted && !user.FirstName ? ' has-error' : '')}>
+                                    <input type="text" className="form-control" name="FirstName" value={user.firstName} onChange={this.handleChange} placeholder="First Name" />
+                                    {submitted && !user.FirstName &&
                                         <div className="help-block">First Name is required</div>
                                     }
                                 </div>
 
-                                <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
-                                    <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} placeholder="Last Name"/>
-                                    {submitted && !user.lastName &&
+                                <div className={'form-group' + (submitted && !user.LastName ? ' has-error' : '')}>
+                                    <input type="text" className="form-control" name="LastName" value={user.lastName} onChange={this.handleChange} placeholder="Last Name"/>
+                                    {submitted && !user.LastName &&
                                         <div className="help-block">Last Name is required</div>
                                     }
                                 </div>
 
 
-                                <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
-                                    <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} placeholder="Username"/>
-                                    {submitted && !user.username &&
-                                        <div className="help-block">Username is required</div>
+                                <div className={'form-group' + (submitted && !user.Email ? ' has-error' : '')}>
+                                    <input type="text" className="form-control" name="Email" value={user.Email} onChange={this.handleChange} placeholder="Username"/>
+                                    {submitted && !user.Email &&
+                                        <div className="help-block">Email is required</div>
                                     }
                                 </div>
 
-                                <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                                    <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} placeholder="Password"/>
-                                    {submitted && !user.password &&
+                                <div className={'form-group' + (submitted && !user.Password ? ' has-error' : '')}>
+                                    <input type="password" className="form-control" name="Password" value={user.Password} onChange={this.handleChange} placeholder="Password"/>
+                                    {submitted && !user.Password &&
                                         <div className="help-block">Password is required</div>
                                     }
                                 </div>
 
                                 <div className="form-group">
-                                    <button className="btn btn-primary">Register</button>
+                                    <button className="Login">Register</button>
                                     {registering && 
                                         <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                     }
                                     
-
-                                    <Modalfinal/>
-
-
                                     <Link to="/login" className="btn btn-link">I have account</Link>
                                 </div>
 
@@ -139,10 +136,13 @@ import {Modalfinal} from '../../components/modal';
                      
             </Container>
 
-            </div>
+           </div> 
 
 
             <div className = "RegistrationRight">
+            Selected ideas<br/>
+            <p>New opportunities to develop</p> <br/>
+            <Link to="/browseideas" className="Login">Explore now</Link>
             </div>
 
 

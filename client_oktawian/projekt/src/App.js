@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 
-import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from './_helpers';
 import { alertActions } from './_actions';
-import { PrivateRoute } from './components';
-import { HomePage } from './containers/HomePage';
-import { LoginPage } from './containers/LoginPage';
-import { RegisterPage } from './containers/RegisterPage';
+
 import {Routing} from './routes';
 
 import { configureFakeBackend } from './_helpers';
+{/*
 configureFakeBackend();
+*/}
+
 
 class App extends Component {
     

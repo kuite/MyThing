@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../_helpers';
 
 import {Navbar} from '../components/navbar';
-import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, InputGroup, InputGroupAddon, InputGroupText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Select} from 'reactstrap';
+import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 
 import {Fundheader} from '../components/fundheader';
+import StepOneFormValidation from './fundform/getfundtitle';
+
+import '../global-styles';
 
 //date
 import 'react-dates/initialize';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
 
+export class FormTest extends React.Component{
+
+    render(){
+      return(
+          <div>
+          <Provider store={store}>
+            <div>
+                <StepOneFormValidation onSubmit={this.props.onSubmit} />
+            </div>
+          </Provider>
+          </div>
+      )
+    }
+};
 
 
 
 
 
-import '../global-styles';
 
 
 export default class Fund extends Component{
@@ -40,34 +58,36 @@ class GetfundedForm extends Component{
     render(){
         return(
             <div>
+                <FormTest/>
 
+                
+                {/*
                     <Row>
                         <Form className ="Getfundedform">
-                            {/* <Title/> */}
                             <Col sm={{size:10}}><Description/></Col>
                                 <Row>
                                     <Col sm={{size:1}}><MoneyGoalSelect/></Col>
                                     <Col sm={{size:3}}><MoneyGoalValue/></Col>
                                 </Row>
                             <Col sm={{size:12}}><Date/></Col>
-
                             <Col sm={{size:4}}><CategoryDropdown/></Col>
                             <Col sm={{size:4}}><FormRadio/></Col>
+                            <Col sm={{size:4}}><Files/></Col>
                             <Button color="primary">Submit</Button>{' '}
-                        </Form>
-                    </Row>
+                              </Form>
+                            </Row> */}
             </div>
         )
     }
 };
 
 
-class Description extends Component {
+export class Description extends Component {
 
     render() {
         return (
         <FormGroup>
-            <div class="group">  
+            <div className="group">  
                 <Input type="description" name="description" id="description" placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you" />      
             </div>
         </FormGroup>
@@ -75,7 +95,7 @@ class Description extends Component {
       }
 }
 
-class Date extends Component {
+export class Date extends Component {
 
     constructor(props) {
         super(props);
@@ -125,7 +145,7 @@ class MoneyGoalValue extends Component {
     render() {
         return (
         <FormGroup>
-            <div class="group">  
+            <div className="group">  
                  <Input placeholder="How many you will achieve?" type="number" step="1" />
             </div>
         </FormGroup>
@@ -182,6 +202,22 @@ class FormRadio extends Component {
               </Label>
             </FormGroup>
             </FormGroup>
+        )
+    }
+}
+
+class Files extends Component{
+
+    render(){
+        return(
+            <FormGroup>
+            <Label for="exampleFile">Select images</Label>
+            <Input type="file" name="file" id="exampleFile" />
+            <FormText color="muted">
+              Select a image, which in the best way shows your idea
+            </FormText>
+          </FormGroup>
+
         )
     }
 }

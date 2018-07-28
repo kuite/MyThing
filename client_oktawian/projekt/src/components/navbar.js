@@ -28,13 +28,13 @@ export class Menu extends Component{
     render(){
         return(
 
+
              <div className = "Menu">
                 <Container>
                     <Row>
-                        <Col><a href = "/fund">Fund</a></Col>
-                        <Col><a href = "/browseideas">Browse ideas</a></Col>
-                        <Col><a href = "/earnwithus">Earn with us</a></Col>
-                        <Col><a href = "/whoweare">Who we are</a></Col>
+                        <Col><Link to = "/fund">Fund</Link></Col>
+                        <Col><Link to = "/browseideas">Browse ideas</Link></Col>
+                        <Col><Link to = "/earnwithus">Earn with us</Link></Col>
                         <Col><Login/></Col>
                         <Col><Register/></Col>
                     </Row>

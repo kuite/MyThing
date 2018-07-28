@@ -2,15 +2,15 @@
 import React, { Component } from 'react';
 
 
-export class Choice_section extends Component{
+export class ChoiceSection extends Component{
 
     render(){
         return(
             <div className = "Choice_sections">
-                <Section_one/>
-                <Section_two/>
-                <Section_three/>
-                <Section_four/>    
+                <SectionOne/>
+                <SectionTwo/>
+                <SectionThree/>
+                <SectionFour/>    
             </div>
         )
     }
@@ -19,12 +19,12 @@ export class Choice_section extends Component{
 
 
 
-export class Section_one extends Component{
+export class SectionOne extends Component{
 
     render(){
         return(
             <div className ="Section">
-                <h2>Advantage #1
+                <h2>Reliability
                 <div className ="Rectangle"></div>
                 </h2>
                 
@@ -34,12 +34,12 @@ export class Section_one extends Component{
     }
 }
 
-export class Section_two extends Component{
+export class SectionTwo extends Component{
 
     render(){
         return(
             <div className ="Section">
-                <h2>Advantage #2
+                <h2>Growth
                 <div className ="Rectangle"></div>
                 </h2>
                 
@@ -50,12 +50,12 @@ export class Section_two extends Component{
 
 }
 
-export class Section_three extends Component{
+export class SectionThree extends Component{
 
     render(){
         return(
             <div className ="Section">
-                <h2>Advantage #3
+                <h2>Innovation
                 <div className ="Rectangle"></div>
                 </h2>
                 
@@ -66,12 +66,12 @@ export class Section_three extends Component{
 
 }
 
-export class Section_four extends Component{
+export class SectionFour extends Component{
 
     render(){
         return(
             <div className ="Section">
-                <h2>Advantage #4
+                <h2>Investment plans
                 <div className ="Rectangle"></div>
                 </h2>
                 

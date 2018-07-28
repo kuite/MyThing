@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import { Container, Row, Col } from 'reactstrap';
-import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+
+import MainImage from '../img/mainimage.jpg';
 
 
 
@@ -32,6 +33,9 @@ export class Header extends Component{
 
 
                 <div className = "HeaderRight">
+                
+                    <img src={MainImage} alt={"logo"}/> 
+
                 </div>
 
 

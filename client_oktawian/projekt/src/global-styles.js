@@ -91,7 +91,7 @@ p{
 .Header h1{
 font-family:Helvetica;
 font-size:48px;
-font-weight:400;
+font-weight:100;
 color:white;
 margin-top:33%;
 
@@ -158,7 +158,7 @@ margin-top:33%;
   .Signin{
     float:right;
     width:60px;
-    height:340px
+    height:190px
     position:fixed;
     top:20%;
     right:0px;
@@ -177,6 +177,15 @@ margin-top:33%;
   }
   
   .HeaderRight{
+    width:38.17%;
+    height:800px;
+    float:left;
+  }
+
+  .HeaderRight > img{
+    width:100%;
+    height:100%;
+    float:left;
   }
     
   .Section{
@@ -203,8 +212,8 @@ margin-top:33%;
 
   .Rectangle{
     width: 60px;
-    height: 5px;
-    margin:5% 0 5% 0%;
+    height: 1px;
+    margin:2% 0 2% 0%;
     background: #7DC72C;
   }
 
@@ -275,6 +284,14 @@ margin-top:33%;
   margin: 15%;
 }
 
+.LoginIcon{
+  position:absolute;
+  float:left;
+  width:40px;
+  height:40px;
+
+}
+
 //Registration
 
 .help-block{
@@ -286,11 +303,13 @@ margin-top:33%;
 
 .RegisterForm{
   width:100%;
-  background-color:grey;
-  height:800px;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  height:100%;
+  position:absolute;
 }
 
 .RegistrationLeft{
+  padding-top:10%;
   width:61.8034%;
   height:100%;
   float:left;
@@ -298,8 +317,30 @@ margin-top:33%;
 }
 
 .RegistrationRight{
-  float:right;
-  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  float:left;
+  text-align:center;
+  font-family:Helvetica;
+  color:white;
+  font-size:18px;
+  margin:20% 0 0% 10%;
+}
+
+.RegistrationRight > p{
+  float:left;
+  text-align:center;
+  font-family:Helvetica;
+  color:white;
+  font-size:14px;
+
+}
+
+
+
+
+
+google-login{
+
+
 }
 
 

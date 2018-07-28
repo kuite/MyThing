@@ -20,8 +20,8 @@ class LoginPage extends React.Component {
         this.props.dispatch(userActions.logout());
 
         this.state = {
-            username: '',
-            password: '',
+            Email: '',
+            Password: '',
             submitted: false
         };
 
@@ -46,56 +46,68 @@ class LoginPage extends React.Component {
         e.preventDefault();
         this.setState({ submitted: true });
 
-        const { username, password } = this.state;
+        const { Email, Password } = this.state;
         const { dispatch } = this.props;
 
-        if (username && password) {
-            dispatch(userActions.login(username, password));
+        if (Email && Password) {
+            dispatch(userActions.login(Email, Password));
         }
 
     }
 
     render() {
         const { loggingIn } = this.props;
-        const { username, password, submitted } = this.state;
+        const { Email, Password, submitted } = this.state;
 
 
 
         return (
             
-            <div className ="loginform">
+            <div className ="RegisterForm">
 
+             <div className ="RegistrationLeft">
+            <Container>
+               <Row>
+                
+                    <div className = "LoginIcon">
                         <LoginGoogle/>
                         <LoginFacebook/>
+                    </div>
+
+                    <Col sm="12" md={{ size: 8, offset: 3 }}>
+                        <h1>Welcome back.</h1>
+                     </Col>
+                </Row>
+                <Row>
+                    <Col sm="12" md={{ size: 6, offset: 3 }}>
+                        <p>We are glad that you are coming back</p>
                         
-                <h2>Welcome back!</h2>
-                <p>Lorem ipsum dolor sit amet</p>
-                <form name="form" onSubmit={this.handleSubmit}>
+                        
+                <form className="RegistrationLeft" name="form" onSubmit={this.handleSubmit}>
 
 
 
-                    <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} placeholder ="Username" />
+                    <div className={'form-group' + (submitted && !Email ? ' has-error' : '')}>
+                        <input type="text" className="form-control" name="Email" value={Email} onChange={this.handleChange} placeholder ="Write your mail" />
 
-                        {submitted && !username &&
+                        {submitted && !Email &&
                             <div className="help-block">Username is required</div>
                         }
 
                     </div>
 
 
-                    <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange}placeholder ="Password" />
+                    <div className={'form-group' + (submitted && !Password ? ' has-error' : '')}>
+                        <input type="password" className="form-control" name="Password" value={Password} onChange={this.handleChange}placeholder ="Wrire your password" />
 
-
-                        {submitted && !password &&
+                        {submitted && !Password &&
                             <div className="help-block">Password is required</div>
                         }
 
                     </div>
                     <div className="form-group">
 
-                        <button className="btn btn-primary">Login</button>
+                        <button className="Login">Login</button>
 
 
                         {loggingIn &&
@@ -103,14 +115,24 @@ class LoginPage extends React.Component {
                         }
 
 
-                        <Link to="/register" className="btn btn-link">I don't have account yet</Link>
-
-
-
-                    
+                        <Link to="/register">I don't have account yet</Link>
                     </div>
                 </form>
-            </div>
+                    </Col>
+                </Row>
+             </Container>
+
+                </div>
+
+
+                <div className = "RegistrationRight">
+                    Selected ideas<br/>
+                <p>New opportunities to develop</p> <br/>
+                <Link to="/browseideas" className="Login">Explore now</Link>
+                </div>
+
+
+                </div>
         );
     }
 }
@@ -120,6 +142,8 @@ function mapStateToProps(state) {
     return {
         loggingIn
     };
+
+    
 }
 
 const connectedLoginPage = connect(mapStateToProps)(LoginPage);

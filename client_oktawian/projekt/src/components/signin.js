@@ -9,7 +9,7 @@ export class SignInModule extends Component{
         return(
             
             <div className = "Signin">
-                Log in:
+                <p>Log in:</p>
                     <LoginFacebook/>
                     <LoginGoogle/>
                   

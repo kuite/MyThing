@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { render } from 'react-dom';
 import './index.css';
 
@@ -12,7 +11,10 @@ import registerServiceWorker from './registerServiceWorker';
 
 // setup fake backend
 import { configureFakeBackend } from './_helpers';
+
+{/*
 configureFakeBackend();
+*/}
 
 render(
     <Provider store={store}>
