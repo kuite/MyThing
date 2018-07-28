@@ -28,7 +28,6 @@ export class Menu extends Component{
     render(){
         return(
 
-
              <div className = "Menu">
                 <Container>
                     <Row>

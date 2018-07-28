@@ -61,7 +61,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`http://localhost:50647/account/RegisterUser`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/account/RegisterUser`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
