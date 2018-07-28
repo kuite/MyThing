@@ -17,6 +17,8 @@ using webapi.Model.Common;
 using Microsoft.IdentityModel.Tokens;
 using webapi.Auth;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace webapi
 {
@@ -38,7 +40,7 @@ namespace webapi
         public IConfigurationRoot Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {
+        {          
             services.AddDbContext<DbContext>(options =>
             {
                 // Use an in-memory database with a randomized database name (for testing)
@@ -65,6 +67,7 @@ namespace webapi
             // (see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#registering-your-own-services)
             services.AddScoped<IFundService, FundService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IImageService, ImageService>();
 
 
             #region JWT token
@@ -124,6 +127,7 @@ namespace webapi
                 o.Password.RequiredLength = 3;
             });
             builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
+
             builder.AddEntityFrameworkStores<DbContext>().AddDefaultTokenProviders();
             #endregion
         }

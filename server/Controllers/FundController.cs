@@ -19,13 +19,16 @@ namespace webapi.Controllers
     public class FundController : ControllerBase
     {
         private readonly IFundService _fundService;
+        private readonly IImageService _imageService;
         private readonly PagingOptions _defaultPagingOptions;
 
         public FundController(
             IFundService fundService,
+            IImageService imageService,
             IOptions<PagingOptions> defaultPagingOptionsAccessor)
         {
             _fundService = fundService;
+            _imageService = imageService;
             _defaultPagingOptions = defaultPagingOptionsAccessor.Value;
         }
 
@@ -45,12 +48,11 @@ namespace webapi.Controllers
 
         [HttpGet("GetFund/{fundId}")]
         [ValidateModel]
-        public async Task<IActionResult> GetFundByIdAsync(int fundId)
+        public async Task<IActionResult> GetFundByIdAsync(string fundGuid)
         {
-            Guid fundnGuidId = Helpers.ToGuid(fundId);
-            if (fundnGuidId == Guid.Empty) return NotFound();
+            if (string.IsNullOrEmpty(fundGuid)) return NotFound();
 
-            var fund = await _fundService.GetFundAsync(fundnGuidId);
+            var fund = await _fundService.GetFundAsync(fundGuid);
             return Ok(fund);
         }
 
@@ -63,15 +65,11 @@ namespace webapi.Controllers
         }
 
         [HttpPost("SubmitFundImages")]
-        [Authorize(Policy = "ApiUser")]
+        //[Authorize(Policy = "ApiUser")]
         public async Task<IActionResult> SubmitFundImages(List<IFormFile> imgs, string fundGuid)
         {
-            //var name = file.GetFilename();
-            foreach (var file in imgs)
-            {
-               
-            }
-            return Ok(imgs);
+            var response = await _imageService.SaveFundImgsAsync(imgs, fundGuid);
+            return Ok(response);
         }
     }
 }

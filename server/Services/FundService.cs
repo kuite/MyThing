@@ -21,8 +21,9 @@ namespace webapi.Services
             _context = context;
         }
 
-        public async Task<Fund> GetFundAsync(Guid id)
+        public async Task<Fund> GetFundAsync(string fundGuid)
         {
+            Guid id = new Guid(fundGuid);
             var entity = await _context
                 .Funds
                 .SingleOrDefaultAsync(x => x.Id == id);
@@ -31,14 +32,16 @@ namespace webapi.Services
         }
 
         public async Task<Page<Fund>> GetFundsAsync(
-            Guid? fundId,
+            string fundGuid,
             PagingOptions pagingOptions)
         {
+            Guid id = new Guid(fundGuid);
+
             IQueryable<FundEntity> query = _context.Funds;
 
-            if (fundId != null)
+            if (id != null)
             {
-                query = query.Where(x => x.Id == fundId);
+                query = query.Where(x => x.Id == id);
             }
 
             // todo apply search
