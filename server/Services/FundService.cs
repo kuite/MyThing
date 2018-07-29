@@ -9,14 +9,15 @@ using webapi.Model.Database;
 using webapi.Model.Common;
 using webapi.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using webapi.Model.Database.Access;
 
 namespace webapi.Services
 {
     public sealed class FundService : IFundService
     {
-        private readonly DbContext _context;
+        private readonly DatabaseContext _context;
 
-        public FundService(DbContext context)
+        public FundService(DatabaseContext context)
         {
             _context = context;
         }

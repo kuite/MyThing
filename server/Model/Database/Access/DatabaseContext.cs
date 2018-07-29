@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace webapi
+namespace webapi.Model.Database.Access
 {
-    public class DbContext : IdentityDbContext<UserEntity>
+    public class DatabaseContext : IdentityDbContext<UserEntity>
     {
-        public DbContext(DbContextOptions<DbContext> options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
 

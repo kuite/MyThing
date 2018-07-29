@@ -21,6 +21,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using webapi.Model.Database.Access;
 
 namespace webapi
 {
@@ -43,7 +44,7 @@ namespace webapi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DbContext>(options =>
+            services.AddDbContext<DatabaseContext>(options =>
             {
                 // Use an in-memory database with a randomized database name (for testing)
                 //options.UseInMemoryDatabase(Guid.NewGuid().ToString()); //some bug that context is not saved with this name
@@ -60,7 +61,7 @@ namespace webapi
                 opt.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
                 opt.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
             });
-
+            services.AddCors();
             services.AddAutoMapper();
 
             services.Configure<PagingOptions>(Configuration.GetSection("DefaultPagingOptions"));
@@ -130,7 +131,7 @@ namespace webapi
             });
             builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
 
-            builder.AddEntityFrameworkStores<DbContext>().AddDefaultTokenProviders();
+            builder.AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
             #endregion
         }
 
@@ -139,7 +140,7 @@ namespace webapi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var dbContext = app.ApplicationServices.GetRequiredService<DbContext>();
+            var dbContext = app.ApplicationServices.GetRequiredService<DatabaseContext>();
             AddTestData(dbContext);
 
             // Serialize all exceptions to JSON
@@ -147,11 +148,15 @@ namespace webapi
                 app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
 
+            app.UseCors(
+                options => options.WithOrigins("http://localhost").AllowAnyMethod()
+            );
+
             app.UseAuthentication();
             app.UseMvc();
         }
 
-        private static void AddTestData(DbContext context)
+        private static void AddTestData(DatabaseContext context)
         {
             // TODO add Author to all of these:
 
