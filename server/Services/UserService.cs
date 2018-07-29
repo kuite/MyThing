@@ -10,12 +10,13 @@ using webapi.Model.Domain;
 using webapi.Auth;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using webapi.Model.Database.Access;
 
 namespace webapi.Services
 {
     public class UserService : IUserService
     {
-        private readonly DbContext _context;
+        private readonly DatabaseContext _context;
         private readonly IMapper _mapper;
         private readonly UserManager<UserEntity> _userManager;
         private readonly IJwtFactory _jwtFactory;
@@ -23,7 +24,7 @@ namespace webapi.Services
 
         public UserService(
             UserManager<UserEntity> userManager,
-            DbContext context, 
+            DatabaseContext context, 
             IMapper mapper, 
             IJwtFactory jwtFactory, 
             IOptions<JwtIssuerOptions> jwtOptions)

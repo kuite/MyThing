@@ -52,6 +52,7 @@ namespace webapi
             });
 
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddCors();
 
             services.AddMvc()
             .AddJsonOptions(opt =>
@@ -61,7 +62,6 @@ namespace webapi
                 opt.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
                 opt.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
             });
-            services.AddCors();
             services.AddAutoMapper();
 
             services.Configure<PagingOptions>(Configuration.GetSection("DefaultPagingOptions"));
@@ -148,11 +148,12 @@ namespace webapi
                 app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
 
-            app.UseCors(
-                options => options.WithOrigins("http://localhost").AllowAnyMethod()
-            );
-
             app.UseAuthentication();
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());  
             app.UseMvc();
         }
 
