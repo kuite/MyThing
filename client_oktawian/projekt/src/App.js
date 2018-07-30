@@ -7,10 +7,10 @@ import { alertActions } from './_actions';
 
 import {Routing} from './routes';
 
-import { configureFakeBackend } from './_helpers';
-{/*
+
+/*
 configureFakeBackend();
-*/}
+*/
 
 
 class App extends Component {

@@ -7,18 +7,31 @@ export const userService = {
     register,
     getAll,
     getById,
-    update,
+    /* update, */
     delete: _delete
 };
+
+
+
+
+
+
+
+
 
 function login(username, password) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ username, password })
     };
 
     return fetch(`http://localhost:50647/account/login`, requestOptions)
+
+
         .then(handleResponse)
         .then(user => {
             // login successful if there's a jwt token in the response
@@ -28,8 +41,17 @@ function login(username, password) {
             }
 
             return user;
+
         });
 }
+
+
+
+
+
+
+
+
 
 function logout() {
     // remove user from local storage to log user out
@@ -54,14 +76,48 @@ function getById(id) {
     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
 }
 
+
+
+
+
+
+
 function register(user) {
+    
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify(user)
     };
 
-    return fetch(`${config.apiUrl}/account/RegisterUser`, requestOptions).then(handleResponse);
+    return fetch(`http://localhost:50647/account/RegisterUser`, requestOptions).then(handleResponse);
+}
+
+
+/* 
+
+async function register(user){
+        try{
+            let response = await fetch(`http://localhost:50674/account/RegisterUser`, {
+                credentials: 'include',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    Email: '',
+                    Password: '',
+                    FirstName: '',
+                    LastName: ''
+                })
+            });
+            let responseJson = await response.json();
+            return responseJson;
+        }   catch (error) {
+                console.error(error);
+        }
 }
 
 function update(user) {
@@ -73,6 +129,9 @@ function update(user) {
 
     return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);;
 }
+*/
+
+
 
 // prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {

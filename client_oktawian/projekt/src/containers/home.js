@@ -9,7 +9,7 @@ import {ChoiceSection} from '../components/choiceSection';
 import {LatestIdeas} from '../components/latestIdeas';
 import {SignInModule} from '../components/signin'
 
-import {Idea, ResultItem} from './browseideas';
+import {ResultItem} from './browseideas';
 
 
 import '../global-styles';

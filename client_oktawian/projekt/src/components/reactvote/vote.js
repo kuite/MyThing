@@ -23,20 +23,23 @@ class NumberColumn extends Component {
   _getNumbers() {
     let numbers = []
     let i = 0
-    
+  
     while (i < 10) {
-      numbers.push(<div>{i}</div>)
+      numbers.push(<div key={i}>{i}</div>)
       i++
     }
-    
+  
     return numbers
   }
+    
+
   
   render() {
     const { current } = this.props
-    
+
     return (
       <div className="vote__column">
+      
         <Motion
           style={{y: spring(current * 10)}}
         >
@@ -46,7 +49,8 @@ class NumberColumn extends Component {
                 transform: `translateY(${-y}%)`
               }}
             >
-              {this._getNumbers()}
+                {this._getNumbers()}
+                
             </div>
           }
         </Motion>
@@ -68,11 +72,11 @@ export  class Vote extends Component {
   _getCount() {
     const counts = this.state.count.toString().split('')
     
-    return counts.map(_count => {
+    return counts.map( (i, _count) => {
       if (_count === '-') {
-        return <span className="vote__column">-</span>
+        return <span key ={i} className="vote__column">-</span>
       } else {
-        return <NumberColumn current={parseFloat(_count)} />
+        return <NumberColumn key ={i} current={parseFloat(_count)} />
       }
     })
   }
@@ -83,6 +87,8 @@ export  class Vote extends Component {
     return(
         
       <div className="vote">
+
+
         <Arrow
           direction="up"
           className="vote__arrow vote__arrow--up"
@@ -92,6 +98,7 @@ export  class Vote extends Component {
         <div className="vote__columns">
           {this._getCount()}
         </div>
+
 
         <Arrow
           direction="down"

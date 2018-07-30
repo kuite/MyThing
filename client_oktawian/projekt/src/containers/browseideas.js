@@ -49,24 +49,27 @@ class Main extends React.Component {
   
 
 
-const Result = ({ state: { products, displayCategory } }) =>
+const Result = ({state: { products, displayCategory} }) =>
 <div>
+
   {products
     .filter(({ category }) =>
         displayCategory === category || displayCategory === "all"
     )
-    .map(({ category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img }) =>
-      <ResultItem category={category} name={name} desc={desc} StartDate ={StartDate} EndDate ={EndDate} BtcGoal={BtcGoal} BtcDonated={BtcDonated} img ={img}/>
-    )}
+    .map(( {i, category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img}) =>
+      <ResultItem key ={i} category={category} name={name} desc={desc} StartDate ={StartDate} EndDate ={EndDate} BtcGoal={BtcGoal} BtcDonated={BtcDonated} img ={img}/>
+    )
+    
+  }
 </div>;
 
 
 
 
 
-export const ResultItem = ({ category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img }) =>
+export const ResultItem = ({i, category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img }) =>
  
-<div className ="Idea"> 
+<div key ={i} className ="Idea"> 
                              
 <Container>
     <Row>
@@ -95,29 +98,9 @@ export const ResultItem = ({ category, name, StartDate, EndDate, BtcGoal, BtcDon
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const OptionCategory = ({ setCategory, category }) =>
 <button
-    className={`${category}` + ' button_category'}
+    className={`${category}`}
     onClick={() => setCategory(category)}
     >
     {category}
@@ -125,6 +108,7 @@ const OptionCategory = ({ setCategory, category }) =>
 
 
 const UI = ({
+    i,
     state,
     state: { productCategories },
     setCategory,
@@ -137,40 +121,34 @@ const UI = ({
         <p>All added ideas can become a reality with your help, choose what is most important to you</p>
   
        <div className ="filters_button animated fadeIn">
-         {productCategories.map(category =>
-           <OptionCategory setCategory={setCategory} category={category} />
+         {productCategories.map((category, i) =>
+           <OptionCategory key ={i} setCategory={setCategory} category={category} />
          )}
        </div>
      </div>
      <div>
-       <Result className="Projects" state={state} />
+       <Result key ={i} className="Projects" state={state} />
      </div>
    </div>
   ;
 
 
 //data (need to fetch from api later)
-
 const PRODUCTS = [
-    { category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
-    { category: "Category2", name: "IdeaCategory2", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
+    {i: 1, category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
+    {i: 2, category: "Category2", name: "IdeaCategory2", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
 ];
 
-
-
-
-
-
-
-
 const uniqueItems = (x, i, a) => a.indexOf(x) === i;
+
 const PRODUCT_CATEGORIES = PRODUCTS.map(prod => prod.category).filter(
- uniqueItems
+ uniqueItems,
 );
 
 PRODUCT_CATEGORIES.push("all");
 PRODUCT_CATEGORIES.sort();
 
+/*
 class RenderTests extends React.Component {
     render(){
       return(
@@ -180,6 +158,7 @@ class RenderTests extends React.Component {
       )
     }
 };
+*/
 
 
 

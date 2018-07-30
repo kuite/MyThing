@@ -41,29 +41,27 @@ export var submit =(values) =>{
     if (isError) {
         {/* throw new SumissionError(error); */}
     } else{
+      console.log(values)
       return submitToServer(values)
-        .then(data =>{
-            if (data.errors)  {
-              console.log(data.errors);
-                throw new SubmissionError(data.errors);
-            } else{
+        .then(values =>{
+
                 console.log(values)
                 console.log('server added data to database');
-            }
+  
         });
     }
 }
 
 
 //async function send to server
-export async function submitToServer(data){
+export async function submitToServer(values){
     try{
         let response = await fetch('http://localhost:5000/fund/submitfund', {
             method: 'POST',
             headers: {
               'Content-type' :  'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(values),
           });
           let responseJson = await response.json();
           return responseJson;
@@ -83,13 +81,12 @@ const RenderDescription = ({ input, label, meta: { touched, error, warning }, cu
     </div>
   )
 
-  export class Description extends React.Component {
 
+  export class Description extends React.Component {
     render() {
         return (
         <FormGroup>
             <div className="group">  
-            
                 <Input type="description" name="description" id="description" placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you" />      
             </div>
         </FormGroup>
@@ -105,6 +102,8 @@ const RenderDescription = ({ input, label, meta: { touched, error, warning }, cu
         <Date/>
     </div>
   )
+
+
 
 
 
@@ -144,43 +143,7 @@ const RenderDescription = ({ input, label, meta: { touched, error, warning }, cu
 
 
 
-{/*
-export class TitleForm extends Component {
 
-    render() {
-        return (
-        <FormGroup>
-                <Input type="title" name="title" id="title" placeholder="Title of project" />        
-                <Field name="title" type="title" component={renderField} label="title"/>
-        </FormGroup>
-        )
-      }
-};
-
-
-const Title = (props) => {
-    const {handleSubmit, pristine, reset, submitting} = props
-    return(
-        <form onSubmit = {handleSubmit(submit)}>
-            <TitleForm/>
-        </form>
-    )
-}
-
-let StepOneFormValidation = (props) => {
-    const { handleSubmit, pristine, reset, submitting } = props
-    return (
-      <form className ="formmailforbook" onSubmit={handleSubmit(submit)}>
-  
-        <Field name="email" type="email" component={renderField} label="Email"/>
-        <div>
-          <button className ="hero_button margin_left" type="submit" disabled={submitting}>Submit</button>
-        </div>
-  
-      </form>
-    )
-}
-*/}
 
 
 
