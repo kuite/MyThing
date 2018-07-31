@@ -143,6 +143,18 @@ margin-top:33%;
     box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 8px 0 rgba(0,0,0,.19);
   }
 
+  .SecondaryButton{
+    border-color:#00C57F;
+    border-size:2px;
+    border-style:solid;
+    width:120px;
+    height:30px;
+    font-size:12px;
+    color:#00C57F;
+    border-radius:4px;
+    box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 4px 0 rgba(0,0,0,0);
+  }
+
 
 
 
@@ -335,13 +347,27 @@ margin-top:33%;
 }
 
 
-
-
-
 google-login{
 
 
 }
 
+
+
+// HOME PAGE AFTER LOGIN
+
+.HomeFund {
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  width:100%;
+  height:1200px;
+}
+
+.BitcoinAvailable{
+  background-color:white;
+  margin: 10% 0 0 0;
+  padding:3% 3% 3% 3%;
+  height:220px
+  border-radius:20px;
+}
 
 `;

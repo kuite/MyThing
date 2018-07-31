@@ -13,6 +13,12 @@ import earnwithus from './containers/earnwithus';
 import idea from './containers/idea';
 import plan from './containers/plan';
 
+
+//Authorized
+import homepage from './containers/Authorized//HomePage.js';
+import increase from './containers/Authorized/Increase.js';
+import policyprivacy from './containers/Authorized/PolicyPrivacy';
+
 import {RegisterPage} from './containers/RegisterPage/RegisterPage.jsx';
 import {LoginPage} from './containers/LoginPage/LoginPage.jsx';
 
@@ -36,6 +42,11 @@ export class Routing extends Component {
 
               <Route path="/idea" component={idea} />
               <Route path="/plan" component={plan} />
+
+              <Route path ="/homepage" component ={homepage}/>
+              <Route path ="/increase" component ={increase}/>
+              <Route path ="/policy" component ={policyprivacy}/>
+              
             </div>
           </Router>
 
