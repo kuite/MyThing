@@ -161,6 +161,21 @@ margin-top:33%;
     box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 4px 0 rgba(0,0,0,0);
   }
 
+  .SecondaryButton:hover{
+    transition: background-color 0.5s ease;
+    cursor:pointer;
+    background-color:#00C57F;
+    border-color:#00C57F;
+    border-size:2px;
+    border-style:solid;
+    width:120px;
+    height:30px;
+    font-size:12px;
+    color:white;
+    border-radius:4px;
+    box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 4px 0 rgba(0,0,0,0);
+  }
+
 
 
 
@@ -405,5 +420,17 @@ google-login{
   height:100%;
   border-radius:10px;
 }
+
+
+//INCREASE AFTER LOGIN
+
+.IncreaseOpportunity{
+margin:3% 0 3% 0;
+}
+
+.IncreaseOpportunity > img{
+  width:80px;
+  margin:1% 0 1% 0;
+  }
 
 `;

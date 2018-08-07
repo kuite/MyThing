@@ -100,7 +100,7 @@ export const ResultItem = ({i, category, name, StartDate, EndDate, BtcGoal, BtcD
 
 const OptionCategory = ({ setCategory, category }) =>
 <button
-    className={`${category}`}
+    className={'SecondaryButton'}
     onClick={() => setCategory(category)}
     >
     {category}
@@ -116,6 +116,7 @@ const UI = ({
   }) =>
   
   <div>
+    <Container>
       <div className="project_options">
         <h1>Find the best alternative for yourself</h1>
         <p>All added ideas can become a reality with your help, choose what is most important to you</p>
@@ -129,6 +130,7 @@ const UI = ({
      <div>
        <Result key ={i} className="Projects" state={state} />
      </div>
+     </Container>
    </div>
   ;
 
