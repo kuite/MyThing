@@ -289,6 +289,15 @@ margin-top:33%;
   margin-top:0%;
 }
 
+//Earn with us
+
+.Plans{
+  padding-top:5%;
+}
+
+
+
+
 
 // Login
 
