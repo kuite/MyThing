@@ -152,7 +152,6 @@ class BasicStartTwo extends Component{
                     <h2>2. Choose the best plan for you </h2>
                     <div className ="Rectangle"></div>
                     <p>Make a decision and participate in the rotation of cryptocurrencies designated for business and non-profit initiatives</p>
-                    <Link to="/earnwithus"><button className="SecondaryButton">Select Plan</button></Link>
                 </div>
         )
     }

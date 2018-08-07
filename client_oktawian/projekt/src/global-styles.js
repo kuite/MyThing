@@ -82,6 +82,12 @@ h2{
   font-weight:500;
 }
 
+h3{
+  color:#222064;
+  font-size:18px;
+  font-weight:300;
+}
+
 p{
   font-size:14px;
   color:#75739B;
@@ -389,7 +395,15 @@ google-login{
   margin: 10% 0 0 0;
   padding:3% 3% 3% 3%;
   height:220px
-  border-radius:20px;
+  border-radius:10px;
+}
+
+.Plans{
+  background-color:white;
+  margin: 2% 0 0 0;
+  padding:3% 3% 3% 3%;
+  height:100%;
+  border-radius:10px;
 }
 
 `;

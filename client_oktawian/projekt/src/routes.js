@@ -62,9 +62,9 @@ export class Routing extends Component {
               <Route path="/intermediate" component={RegisterPage} />
               <Route path="/pro" component={RegisterPage} />
 
-              <PrivateRoute path ="/homepage" component ={homepage}/>
-              <PrivateRoute path ="/increase" component ={increase}/>
-              <PrivateRoute path ="/policy" component ={policyprivacy}/>
+              <Route path ="/homepage" component ={homepage}/>
+              <Route path ="/increase" component ={increase}/>
+              <Route path ="/policy" component ={policyprivacy}/>
               
             </div>
           </Router>
