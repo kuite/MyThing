@@ -13,7 +13,7 @@ import earnwithus from './containers/earnwithus';
 import idea from './containers/idea';
 import plan from './containers/plan';
 
-
+import { PrivateRoute } from './components';
 //Authorized
 import homepage from './containers/Authorized//HomePage.js';
 import increase from './containers/Authorized/Increase.js';
@@ -43,9 +43,9 @@ export class Routing extends Component {
               <Route path="/idea" component={idea} />
               <Route path="/plan" component={plan} />
 
-              <Route path ="/homepage" component ={homepage}/>
-              <Route path ="/increase" component ={increase}/>
-              <Route path ="/policy" component ={policyprivacy}/>
+              <PrivateRoute path ="/homepage" component ={homepage}/>
+              <PrivateRoute path ="/increase" component ={increase}/>
+              <PrivateRoute path ="/policy" component ={policyprivacy}/>
               
             </div>
           </Router>
