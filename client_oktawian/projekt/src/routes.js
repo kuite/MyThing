@@ -8,12 +8,27 @@ import {
 import home from './containers/home';
 import fund from './containers/fund';
 import browseideas from './containers/browseideas';
+
+
+
+
 import earnwithus from './containers/earnwithus';
+
+//Plans
+
+import Basic from './containers/Plans/basic'
+
 
 import idea from './containers/idea';
 import plan from './containers/plan';
 
 import { PrivateRoute } from './components';
+
+
+
+
+
+
 //Authorized
 import homepage from './containers/Authorized//HomePage.js';
 import increase from './containers/Authorized/Increase.js';
@@ -42,6 +57,10 @@ export class Routing extends Component {
 
               <Route path="/idea" component={idea} />
               <Route path="/plan" component={plan} />
+
+              <Route path="/basic" component={Basic} />
+              <Route path="/intermediate" component={RegisterPage} />
+              <Route path="/pro" component={RegisterPage} />
 
               <PrivateRoute path ="/homepage" component ={homepage}/>
               <PrivateRoute path ="/increase" component ={increase}/>

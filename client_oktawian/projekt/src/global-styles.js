@@ -295,6 +295,19 @@ margin-top:33%;
   padding-top:5%;
 }
 
+.PlanAdvantages{
+  margin:10% 0 10% 0;
+  width:100%;
+}
+
+.PlanElement{
+  margin:0% 0 10% 0;
+}
+
+.PlanSection{
+  width:100%;
+  margin:2% 0 7% 0;
+}
 
 
 
