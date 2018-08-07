@@ -21,11 +21,7 @@ export class FormTest extends React.Component{
     render(){
       return(
           <div>
-          <Provider store={store}>
-            <div>
-                <StepOneFormValidation onSubmit={this.props.onSubmit} />
-            </div>
-          </Provider>
+                <StepOneFormValidation />
           </div>
       )
     }

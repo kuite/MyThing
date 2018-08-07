@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 
 import {Date} from '../fund.js';
@@ -9,17 +9,35 @@ import { Field, reduxForm, SubmissionError,} from 'redux-form';
 
 // all validation
 
-const required = value => value ? undefined : 'Required'
+
 
 const validate = values => {
 
     const errors = {}
 
-    if (!values.description ) {
-    errors.description ='Required'
-  } else if (values.description.length > 7) {
-    errors.description = 'Should be 7 characters or less'
+
+    //Title
+    if (!values.Title ) {
+    errors.Title ='Name of your idea is necessary'
   }
+
+    //Description
+    if (!values.Description ) {
+      errors.Description ='Name of your Description is necessary'
+    } else if (values.Description.length > 7) {
+      errors.Description = 'Should be 7 characters or less'
+    }
+
+
+    //Btc Goal
+    if (!values.BtcGoal ) {
+      errors.BtcGoal ='Your money goal is necessary'
+    }
+
+
+    // Date
+
+
     return errors
   }
 
@@ -36,27 +54,29 @@ const validate = values => {
 //catch errors + callback to async func submitToServer
 export var submit =(values) =>{
 
-    let isError =false;
+          let isError =false;
 
-    if (isError) {
-        {/* throw new SumissionError(error); */}
-    } else{
-      console.log(values)
-      return submitToServer(values)
-        .then(values =>{
-
-                console.log(values)
-                console.log('server added data to database');
-  
-        });
-    }
+          if (isError) {
+            //  throw new SumissionError(error);
+          } else{
+            return submitToServer(values)
+              .then(data =>{
+                  if (data.errors)  {
+                    console.log(data.errors);
+                      throw new SubmissionError(data.errors);
+                  } else{
+                      console.log(values)
+                      console.log('server added data to database');
+                  }
+              });
+          }
 }
 
 
 //async function send to server
 export async function submitToServer(values){
     try{
-        let response = await fetch('http://localhost:5000/fund/submitfund', {
+        let response = await fetch('http://localhost:50647/fund/submitfund', {
             method: 'POST',
             headers: {
               'Content-type' :  'application/json',
@@ -72,38 +92,62 @@ export async function submitToServer(values){
 
 
 
-// generic solution to display data
-const RenderDescription = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
-    <div>
-        <Description/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Title
+
+  const RenderTitle = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
+    <div className="group">
+        <input className="text" {...input} {...inputProps} />  
         <label>{label}</label>
         {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
   )
 
+  // Description
 
-  export class Description extends React.Component {
-    render() {
-        return (
-        <FormGroup>
-            <div className="group">  
-                <Input type="description" name="description" id="description" placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you" />      
-            </div>
-        </FormGroup>
-        );
-      }
-}
-
-
-
-
-  const RenderDate = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
+  const RenderDescription = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
     <div>
-        <Date/>
+        <input className="text" {...input} {...inputProps} />
+        <label>{label}</label>
+        {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
   )
 
+//BTC Goal
 
+const RenderBtcGoal = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
+  <div>
+      <input className="text" {...input} {...inputProps} />  
+      <label>{label}</label>
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+  </div>
+)
+
+const RenderDatePicker = ({ input, label, meta: { touched, error }, ...custom }) => {
+  return (
+      <Date {...input} {...custom} autoOk={true} dateForm='MM/DD/YYYY' onChange={(event, value) => input.onChange(value)} />
+  );
+};
+
+
+
+
+
+
+
+// Description
 
 
 
@@ -112,20 +156,34 @@ const RenderDescription = ({ input, label, meta: { touched, error, warning }, cu
   
   
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(submitToServer)}>
   
-        <Field name="description"
+        <Field name="Title"
+          type="text"
+          component={RenderTitle}
+          placeholder="What is Title of idea?"
+            />
+    
+        <Field name="Description"
           type="text"
           component={RenderDescription}
-          validate = {[required]}
+          placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you"
             />
-  
-        <Field name="email"
-         type="email"
-          component={RenderDate}
-          label="Email"
+
+
+        <Field name="BtcGoal"
+          type="number"
+          component={RenderBtcGoal}
+          placeholder="How many you will achieve?"
+
            />
-  
+
+          <Field name="date"
+          type="date"
+          component={RenderDatePicker}
+           />
+
+
         <div>
           <button
           className ="hero_button"
@@ -147,11 +205,30 @@ const RenderDescription = ({ input, label, meta: { touched, error, warning }, cu
 
 
 
-StepOneFormValidation = reduxForm({
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export default reduxForm({
     form: 'syncValidation',           // a unique identifier for this form
     validate,                                  // <--- validation function given to redux-form
     warn,                                        // <--- warning function given to redux-form
   })(StepOneFormValidation)
   
 
-export default StepOneFormValidation;
