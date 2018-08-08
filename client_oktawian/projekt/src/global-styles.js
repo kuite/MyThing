@@ -223,6 +223,7 @@ margin-top:33%;
   }
     
   .Section{
+    padding:2%;
     float:left;
     width: calc(25% - 1px);
     height:220px;
@@ -231,16 +232,25 @@ margin-top:33%;
     border-color:#BEBEBE;
   }
 
+  .Section > img {
+
+    width:50px;
+    height:50px;
+    margin:2% 0 2% 0;
+
+  }
+
+
   .Section h2{
     font-family:Helvetica;
-    margin:12% 0 0 7%;
+    margin:0% 0 0 0%;
     font-size:24px;
   }
 
   .Section p{
     font-family:Helvetica;
     font-weight:100;
-    margin:0% 7% 0 7%;
+    margin:0% 0% 0 0%;
     font-size:14px;
   }
 
