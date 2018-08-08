@@ -25,6 +25,7 @@ namespace webapi.Services
 
         public async Task<List<ImgUploadResponse>> SaveFundImgsAsync(List<IFormFile> imgs, string fundId)
         {
+            var responses = new List<ImgUploadResponse>();
             Guid fundGuid = new Guid(fundId);
             var response = new List<ImgUploadResponse>();
             var fundDirName = fundId.Replace("-", "");
@@ -33,17 +34,33 @@ namespace webapi.Services
             Directory.CreateDirectory(fundDir);
             foreach (var img in imgs)
             {
-                
-                if (img.Length > 0)
+                var response = new ImgUploadResponse();
+                bool isImgValid = true;
+                try
                 {
-                    var filePath = Path.Combine(fundDir, img.FileName);
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    //todo: validate if img is valid (size)
+                    if (isImgValid)
                     {
-                        await img.CopyToAsync(fileStream);
+                        var filePath = Path.Combine(fundDir, img.FileName);
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await img.CopyToAsync(fileStream);
+                        }
                     }
                 }
+                catch(Exception ex)
+                {
+                    response.Message = ex.Message;
+                    isImgValid = false;
+                }
+                finally
+                {
+                    response.IsSucess = isImgValid;
+                    responses.Add(response);
+                }
+
             }
-            return response;
+            return responses;
         }
     }
 }
