@@ -86,7 +86,7 @@ const Basic = (props) => {
           
           </CardText><br/>
             <button className="SecondaryButton">
-                 <Link to="/planintermediate">Learn more now</Link>
+                 <Link to="/intermediate">Learn more now</Link>
             </button>
           </CardBody>
         </Card>
@@ -108,7 +108,7 @@ const Basic = (props) => {
             Plan for advanced, fast growth, a short-term investment for experienced players
           </CardText><br/>
             <button className="SecondaryButton">
-                 <Link to="/planpro">Learn more now</Link>
+                 <Link to="/pro">Learn more now</Link>
             </button>
           </CardBody>
         </Card>

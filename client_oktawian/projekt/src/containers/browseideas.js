@@ -117,8 +117,8 @@ const UI = ({
   
   <div>
     <Container>
-      <div className="project_options">
-        <h1>Find the best alternative for yourself</h1>
+      <div className="project_options"><br/><br/>
+        <h2>Find the best alternative for yourself</h2>
         <p>All added ideas can become a reality with your help, choose what is most important to you</p>
   
        <div className ="filters_button animated fadeIn">

@@ -150,6 +150,7 @@ margin-top:33%;
   }
 
   .SecondaryButton{
+    margin:2% 2% 0 0;
     border-color:#00C57F;
     border-size:2px;
     border-style:solid;

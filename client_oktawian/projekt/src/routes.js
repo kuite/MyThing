@@ -16,7 +16,9 @@ import earnwithus from './containers/earnwithus';
 
 //Plans
 
-import Basic from './containers/Plans/basic'
+import Basic from './containers/Plans/basic';
+import Intermediate from './containers/Plans/intermediate';
+import Pro from './containers/Plans/pro'
 
 
 import idea from './containers/idea';
@@ -59,8 +61,8 @@ export class Routing extends Component {
               <Route path="/plan" component={plan} />
 
               <Route path="/basic" component={Basic} />
-              <Route path="/intermediate" component={RegisterPage} />
-              <Route path="/pro" component={RegisterPage} />
+              <Route path="/intermediate" component={Intermediate} />
+              <Route path="/pro" component={Pro} />
 
               <Route path ="/homepage" component ={homepage}/>
               <Route path ="/increase" component ={increase}/>
