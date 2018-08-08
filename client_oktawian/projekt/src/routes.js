@@ -5,17 +5,18 @@ import {
 } from 'react-router-dom';
 
 
+import {SignInModule} from './components/signin'
+import {PrivateRoute } from './components';
+
 import home from './containers/home';
 import fund from './containers/fund';
 import browseideas from './containers/browseideas';
-
-
-
-
 import earnwithus from './containers/earnwithus';
 
-//Plans
 
+
+
+//Plans
 import Basic from './containers/Plans/basic';
 import Intermediate from './containers/Plans/intermediate';
 import Pro from './containers/Plans/pro'
@@ -24,7 +25,7 @@ import Pro from './containers/Plans/pro'
 import idea from './containers/idea';
 import plan from './containers/plan';
 
-import { PrivateRoute } from './components';
+
 
 
 
@@ -47,8 +48,9 @@ export class Routing extends Component {
 
 
           <Router>
+            
             <div>
-                
+            <SignInModule/> 
 
               <Route exact path="/" component={home} />
               <Route path="/fund" component={fund} />

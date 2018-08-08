@@ -60,7 +60,7 @@ export class Register extends Component{
     render(){
         return(
             <div className = "Register">  
-                <Link to="/register" className="btn btn-link">Create Account</Link>  
+                <Link to="/register" className="SecondaryButton">Create Account</Link>  
             </div>
         )
     }

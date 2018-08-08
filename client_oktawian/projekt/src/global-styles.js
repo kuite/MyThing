@@ -138,6 +138,14 @@ margin-top:33%;
     color:#222064;
   }
 
+  .Menu  a:hover{
+    font-size:14px;
+    font-family:Helvetica;
+    margin-top:25px !important;
+    color:#00C57F;
+    text-decoration:none;
+  }
+
   .Login{
     background-color:#00C57F;
     width:120px;
@@ -424,10 +432,10 @@ google-login{
   border-radius:10px;
 }
 
-.Plans{
+.PlanWidget{
   background-color:white;
-  margin: 2% 0 0 0;
   padding:3% 3% 3% 3%;
+  margin: 2.25% 0 0 0;
   height:100%;
   border-radius:10px;
 }

@@ -25,7 +25,7 @@ export class Funds extends Component{
 
                         <Col sm={{size:12}}>
 
-                                <div class ="Plans">
+                                <div class ="PlanWidget">
                                     <p> Your currently plan:</p>
                                     <h1>Basic</h1>
                                     <p>expires in: 5 days</p>

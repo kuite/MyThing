@@ -88,7 +88,7 @@ export const ResultItem = ({i, category, name, StartDate, EndDate, BtcGoal, BtcD
             <Progress bar color="success" value="{BtcDonated}"/> {BtcDonated} BTC / {BtcGoal }BTC funded
         </Progress>
 
-            <Link to ={`${name}`}className="btn btn-link">Support idea now</Link>
+            <Link to ={`${name}`} className="SecondaryButton">Support idea now</Link>
 
         </Col>
     </Row>
