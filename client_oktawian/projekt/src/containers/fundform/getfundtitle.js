@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 
+import DropdownList from 'react-widgets/lib/DropdownList'
+import 'react-widgets/dist/css/react-widgets.css'
+
 import {Date} from '../fund.js';
+
 
 import { Field, reduxForm, SubmissionError,} from 'redux-form';
 
@@ -141,7 +145,23 @@ const RenderDatePicker = ({ input, label, meta: { touched, error }, ...custom })
   );
 };
 
+//Category
 
+const renderDropdownList = ({ input, data, valueField, textField }) =>
+  <DropdownList {...input}
+    data={data}
+    valueField={valueField}
+    textField={textField}
+    onChange={input.onChange} />
+
+
+const category = 
+[ 
+  { color: 'Startup', value: '1' },
+  { color: 'Technology', value: '2' },
+  { color: 'Economy', value: '3' },
+  { color: 'SocialMedia', value: '4' }
+ ]
 
 
 
@@ -158,6 +178,7 @@ const RenderDatePicker = ({ input, label, meta: { touched, error }, ...custom })
     return (
         <form onSubmit={handleSubmit(submitToServer)}>
   
+
         <Field name="Title"
           type="text"
           component={RenderTitle}
@@ -175,13 +196,26 @@ const RenderDatePicker = ({ input, label, meta: { touched, error }, ...custom })
           type="number"
           component={RenderBtcGoal}
           placeholder="How many you will achieve?"
-
            />
+
+
 
           <Field name="date"
           type="date"
           component={RenderDatePicker}
            />
+
+
+
+        <Field
+          name="Category"
+          component={renderDropdownList}
+          data={category}
+          valueField="value"
+          textField="color"/>
+
+
+
 
 
         <div>
