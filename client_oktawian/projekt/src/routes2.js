@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-
-import { connect } from 'react-redux';
-
-import { history } from './_helpers';
-import { alertActions } from './_actions';
-
 import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
 
+
+import history from './_helpers';
 
 import {SignInModule} from './components/signin'
 import {PrivateRoute } from './components';
@@ -47,29 +43,14 @@ import {RegisterPage} from './containers/RegisterPage/RegisterPage.jsx';
 import {LoginPage} from './containers/LoginPage/LoginPage.jsx';
 
 
-/*
-configureFakeBackend();
-*/
 
 
-class App extends Component {
-    
-    constructor(props) {
-        super(props);
-
-        const { dispatch } = this.props;
-        history.listen((location, action) => {
-            // clear alert on location change
-            dispatch(alertActions.clear());
-        });
-    }
-
+export class Routing extends Component {
     render() {
-        const { alert } = this.props;
-        return (
-            <div>
-                                        
-            <Router history={history}>
+      return (
+
+
+         <Router history={history}>
             <div>
              <SignInModule/> 
 
@@ -93,17 +74,8 @@ class App extends Component {
             
             </div>
           </Router>
-            </div>
+
         );
-    }
+      }
 }
 
-function mapStateToProps(state) {
-    const { alert } = state;
-    return {
-        alert
-    };
-}
-
-const connectedApp = connect(mapStateToProps)(App);
-export { connectedApp as App }; 

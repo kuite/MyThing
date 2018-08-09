@@ -6,6 +6,8 @@ import { history } from '../_helpers';
 
 
 
+
+
 export const userActions = {
     login,
     logout,
@@ -14,7 +16,20 @@ export const userActions = {
     delete: _delete
 };
 
-function login(username, password) {
+
+
+
+
+
+
+
+
+
+
+function login(username, password,) {
+    
+
+    
     return dispatch => {
         dispatch(request({ username }));
 
@@ -22,7 +37,7 @@ function login(username, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/browseideas');
+                    history.push("/homepage");
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -36,10 +51,42 @@ function login(username, password) {
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function logout() {
     userService.logout();
     return { type: userConstants.LOGOUT };
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,7 +5,8 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './_helpers';
 
-import {App} from './App';
+
+import {App} from './routes';
 
 import registerServiceWorker from './registerServiceWorker';
 

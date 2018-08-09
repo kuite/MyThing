@@ -3,18 +3,27 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 
+import { history } from '../../_helpers';
+import { userActions } from '../../_actions';
+import { alertActions } from '../../_actions';
+
 import {LoginGoogle} from '../../components/googlelogin';
 import {LoginFacebook} from '../../components/facebooklogin';
 
 
 
 
-
-import { userActions } from '../../_actions';
-
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
+
+        const { dispatch } = this.props;
+
+        history.listen((location, action) => {
+            // clear alert on location change
+            dispatch(alertActions.clear());
+        });
+
 
         // reset login status
         this.props.dispatch(userActions.logout());
@@ -56,7 +65,7 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        const { loggingIn } = this.props;
+        const { loggingIn, alert } = this.props;
         const { Email, Password, submitted } = this.state;
 
 
@@ -64,6 +73,10 @@ class LoginPage extends React.Component {
         return (
             
             <div className ="RegisterForm">
+
+            {alert.message &&
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
 
              <div className ="RegistrationLeft">
             <Container>
@@ -138,9 +151,10 @@ class LoginPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
+    const { loggingIn, alert } = state;
     return {
-        loggingIn
+        loggingIn,
+        alert
     };
 
     

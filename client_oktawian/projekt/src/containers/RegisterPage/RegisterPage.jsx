@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 
 
+
 import { history } from '../../_helpers';
 import { userActions } from '../../_actions';
 import { alertActions } from '../../_actions';
@@ -20,10 +21,13 @@ import {Modalfinal} from '../../components/modal';
         super(props);
 
         const { dispatch } = this.props;
+
         history.listen((location, action) => {
             // clear alert on location change
             dispatch(alertActions.clear());
         });
+
+
 
         this.state = {
             user: {
@@ -33,9 +37,6 @@ import {Modalfinal} from '../../components/modal';
                 LastName: ''
             },
             submitted: false,
-
-
-
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -73,7 +74,15 @@ import {Modalfinal} from '../../components/modal';
 
         
         return (
+
+
+
+
             <div className = "RegisterForm">
+
+            {alert.message &&
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
 
                         
             <div className ="RegistrationLeft">
@@ -153,7 +162,7 @@ import {Modalfinal} from '../../components/modal';
 
 
 function mapStateToProps(state) {
-    const { registering, alert } = state.registration;
+    const { registering, alert } = state;
     return {
         registering,
         alert

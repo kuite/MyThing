@@ -19,14 +19,14 @@ export const userService = {
 
 
 
-function login(username, password) {
+function login(Email, Password) {
     const requestOptions = {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ Email, Password })
     };
 
     return fetch(`http://localhost:50647/account/login`, requestOptions)

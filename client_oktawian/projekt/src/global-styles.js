@@ -25,7 +25,9 @@ body {
 
 
 
-
+.alert{
+  margin-bottom:0 !important;
+}
 
 
 
