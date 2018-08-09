@@ -58,7 +58,7 @@ class LoginPage extends React.Component {
         const { Email, Password } = this.state;
         const { dispatch } = this.props;
 
-        if (Email && Password) {
+        if (Email && Password && /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Email)) {
             dispatch(userActions.login(Email, Password));
         }
 

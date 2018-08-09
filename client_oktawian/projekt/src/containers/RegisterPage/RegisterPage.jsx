@@ -17,6 +17,8 @@ import {Modalfinal} from '../../components/modal';
 
  class RegisterPage extends Component {
 
+    
+
     constructor(props) {
         super(props);
 

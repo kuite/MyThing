@@ -75,6 +75,7 @@ body {
 //
 
 h1{
+
   color:#222064;
 }
 
@@ -317,7 +318,7 @@ margin-top:33%;
 
 .SectionsHeader h1{
   font-family:Helvetica;
-  font-size:36px;
+  font-size:48px;
   font-weight:400;
   color:white;
   margin-top:15%;
