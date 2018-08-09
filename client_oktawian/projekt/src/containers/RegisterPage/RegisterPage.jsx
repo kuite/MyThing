@@ -114,10 +114,13 @@ import {Modalfinal} from '../../components/modal';
 
 
                                 <div className={'form-group' + (submitted && !user.Email ? ' has-error' : '')}>
-                                    <input type="text" className="form-control" name="Email" value={user.Email} onChange={this.handleChange} placeholder="Username"/>
+                                    <input type="text" className="form-control" name="Email" value={user.Email} onChange={this.handleChange} placeholder="Email"/>
                                     {submitted && !user.Email &&
                                         <div className="help-block">Email is required</div>
                                     }
+                                    {submitted && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(user.Email) &&
+                                        <div className="help-block">It's seems email isn't in correctly form</div>
+                                      }
                                 </div>
 
                                 <div className={'form-group' + (submitted && !user.Password ? ' has-error' : '')}>

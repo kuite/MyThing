@@ -65,7 +65,6 @@ class App extends Component {
     }
 
     render() {
-        const { alert } = this.props;
         return (
             <div>
                                         

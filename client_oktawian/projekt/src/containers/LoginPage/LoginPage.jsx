@@ -104,7 +104,10 @@ class LoginPage extends React.Component {
                         <input type="text" className="form-control" name="Email" value={Email} onChange={this.handleChange} placeholder ="Write your mail" />
 
                         {submitted && !Email &&
-                            <div className="help-block">Username is required</div>
+                            <div className="help-block">Email is required</div>
+                        }
+                        {submitted && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Email) &&
+                                        <div className="help-block">It's seems email isn't in correctly form</div>
                         }
 
                     </div>
