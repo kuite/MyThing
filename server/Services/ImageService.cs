@@ -27,7 +27,6 @@ namespace webapi.Services
         {
             var responses = new List<ImgUploadResponse>();
             Guid fundGuid = new Guid(fundId);
-            var response = new List<ImgUploadResponse>();
             var fundDirName = fundId.Replace("-", "");
             var fundDir = Path.Combine(_hostingEnvironment.ContentRootPath, "images", fundDirName);
 
