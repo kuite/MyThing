@@ -19,32 +19,36 @@ import { Field, reduxForm, SubmissionError,} from 'redux-form';
 
 
 
-const valiDate = values => {
+const validate = values => {
 
     const errors = {}
 
 
     //Title
     if (!values.Title ) {
-    errors.Title ='Name of your idea is necessary'
+    errors.Title =<div className ="help-block">Name of your idea is necessary</div>
   }
 
     //Description
     if (!values.Description ) {
-      errors.Description ='Name of your Description is necessary'
-    } else if (values.Description.length > 7) {
-      errors.Description = 'Should be 7 characters or less'
+      errors.Description =<div className ="help-block">Your description is necessary</div>
+    } else if (values.Description.length < 7) {
+      errors.Description = <div className ="help-block">Should be 7 characters or more</div>
     }
-
 
     //Btc Goal
     if (!values.BtcGoal ) {
-      errors.BtcGoal ='Your money goal is necessary'
+      errors.BtcGoal =<div className ="help-block">Your money goal is necessary</div>
     }
-
 
     // Date
 
+
+
+    // Category
+    if (!values.Category ) {
+      errors.Category = <div className ="help-block">Your money goal is necessary</div>
+    }
 
     return errors
   }
@@ -87,6 +91,7 @@ export async function submitToServer(values){
         let response = await fetch('http://localhost:50647/fund/submitfund', {
             method: 'POST',
             headers: {
+              'Accept': 'application/json',
               'Content-Type' :  'application/json',
             },
             body: JSON.stringify(values),
@@ -180,7 +185,7 @@ const renderDropdownList = ({ input, data, valueField, textField }) =>
     onChange={input.onChange} />
 
 
-const category = 
+const Category = 
 [ 
   { color: 'Startup', value: '1' },
   { color: 'Technology', value: '2' },
@@ -263,16 +268,16 @@ const renderDropzoneInput = (field) => {
         <Field
           name="Category"
           component={renderDropdownList}
-          data={category}
+          data={Category}
           valueField="value"
           textField="color"/>
 
-      <h3>Image:</h3>
+      {/* <h3>Image:</h3>
       <Field
             name={FILE_FIELD_NAME}
             component={renderDropzoneInput}
           />
-
+      */}
 
 
         <div>
@@ -318,7 +323,7 @@ const renderDropzoneInput = (field) => {
 
 export default reduxForm({
     form: 'syncValidation',           // a unique identifier for this form
-    valiDate,                                  // <--- validation function given to redux-form
+    validate,                                  // <--- validation function given to redux-form
     warn,                                        // <--- warning function given to redux-form
   })(StepOneFormValidation)
   
