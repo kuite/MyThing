@@ -48,11 +48,18 @@ namespace webapi
             var sqlConnectionString = Configuration.GetConnectionString("ConnPostgress");
  
             services.AddDbContext<DatabaseContext>(options =>
-                options.UseNpgsql(sqlConnectionString, b => b.MigrationsAssembly("webapi")
-            ));
-            services.AddIdentity<UserEntity, IdentityRole<long>>()
-                .AddEntityFrameworkStores<DatabaseContext>()
-                .AddDefaultTokenProviders();
+                options.UseNpgsql(sqlConnectionString));
+
+            services.AddIdentity<UserEntity, IdentityRole>(o =>
+            {
+                o.Password.RequireDigit = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 3;
+            })
+            .AddEntityFrameworkStores<DatabaseContext>()
+            .AddDefaultTokenProviders();
 
             // services.AddDbContext<DatabaseContext>(options =>
             // {
@@ -130,18 +137,19 @@ namespace webapi
             {
                 options.AddPolicy("ApiUser", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Rol, Constants.Strings.JwtClaims.ApiAccess));
             });
-            // add identity           
-            var builder = services.AddIdentityCore<UserEntity>(o =>
-            {
-                o.Password.RequireDigit = false;
-                o.Password.RequireLowercase = false;
-                o.Password.RequireUppercase = false;
-                o.Password.RequireNonAlphanumeric = false;
-                o.Password.RequiredLength = 3;
-            });
-            builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
 
-            builder.AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
+            // add identity           
+            // var builder = services.AddIdentityCore<UserEntity>(o =>
+            // {
+            //     o.Password.RequireDigit = false;
+            //     o.Password.RequireLowercase = false;
+            //     o.Password.RequireUppercase = false;
+            //     o.Password.RequireNonAlphanumeric = false;
+            //     o.Password.RequiredLength = 3;
+            // });
+            // builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
+
+            // builder.AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
             #endregion
         }
 
@@ -150,7 +158,7 @@ namespace webapi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var dbContext = app.ApplicationServices.GetRequiredService<DatabaseContext>();
+            //var dbContext = app.ApplicationServices.GetRequiredService<DatabaseContext>();
             //AddTestData(dbContext);
 
             // Serialize all exceptions to JSON
