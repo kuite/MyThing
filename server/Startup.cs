@@ -44,12 +44,22 @@ namespace webapi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Use a PostgreSQL database
+            var sqlConnectionString = Configuration.GetConnectionString("ConnPostgress");
+ 
             services.AddDbContext<DatabaseContext>(options =>
-            {
-                // Use an in-memory database with a randomized database name (for testing)
-                //options.UseInMemoryDatabase(Guid.NewGuid().ToString()); //some bug that context is not saved with this name
-                options.UseInMemoryDatabase("test_memory_db");
-            });
+                options.UseNpgsql(sqlConnectionString, b => b.MigrationsAssembly("webapi")
+            ));
+            services.AddIdentity<UserEntity, IdentityRole<long>>()
+                .AddEntityFrameworkStores<DatabaseContext>()
+                .AddDefaultTokenProviders();
+
+            // services.AddDbContext<DatabaseContext>(options =>
+            // {
+            //     // Use an in-memory database with a randomized database name (for testing)
+            //     //options.UseInMemoryDatabase(Guid.NewGuid().ToString()); //some bug that context is not saved with this name
+            //     options.UseInMemoryDatabase("test_memory_db");
+            // });
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddCors();
@@ -120,7 +130,7 @@ namespace webapi
             {
                 options.AddPolicy("ApiUser", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Rol, Constants.Strings.JwtClaims.ApiAccess));
             });
-            // add identity
+            // add identity           
             var builder = services.AddIdentityCore<UserEntity>(o =>
             {
                 o.Password.RequireDigit = false;
@@ -141,7 +151,7 @@ namespace webapi
             loggerFactory.AddDebug();
 
             var dbContext = app.ApplicationServices.GetRequiredService<DatabaseContext>();
-            AddTestData(dbContext);
+            //AddTestData(dbContext);
 
             // Serialize all exceptions to JSON
             var jsonExceptionMiddleware = new JsonExceptionMiddleware(

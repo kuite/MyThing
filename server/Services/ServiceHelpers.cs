@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace webapi.Services
 {
-    public static class Helpers
+    public static class ServiceHelpers
     {
 
     }

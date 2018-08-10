@@ -30,7 +30,7 @@ namespace webapi.Controllers
         {
             var result = await _userService.RegisterUserAsync(form);
 
-            if (!result.Succeeded) new BadRequestObjectResult(new ApiError("something gone wrong"));
+            if (!result.Succeeded) return new BadRequestObjectResult(new ApiError("something gone wrong"));
 
             return Ok(result);
         }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 
-namespace webapi.Model.Database.Access
+namespace webapi.Model.Database.Access.Interfaces
 {
     public interface IImageRepository
     {
