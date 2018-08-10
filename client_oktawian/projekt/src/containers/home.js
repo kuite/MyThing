@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 
 
-
 import {Navbar} from '../components/navbar';
 import {Header} from '../components/header';
 import {ChoiceSection} from '../components/choiceSection';

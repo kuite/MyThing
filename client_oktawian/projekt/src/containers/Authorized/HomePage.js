@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+
+import {Btc} from '../../btc_graph/src/index';
+
 import {Navbar} from '../../components/navbar';
 import '../../global-styles';
 
@@ -13,6 +16,7 @@ export default class HomePage extends Component{
             <div>
                 <Navbar/>
                 <Funds/>
+                <Btc/>
              </div>
         )
     }

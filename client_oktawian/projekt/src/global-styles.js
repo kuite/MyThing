@@ -32,6 +32,15 @@ body {
 
 
 
+input{
+  font-weight:100;
+  width:80%;
+  height:40px
+  padding:1% 1% 1% 1%;
+  border-radius:4px;
+  border: #ccc 1px solid
+}
+
   //React Vote
 
 
@@ -150,7 +159,21 @@ margin-top:33%;
   }
 
   .Login{
+    margin-right:2%;
     background-color:#00C57F;
+    width:120px;
+    height:30px;
+    font-size:12px;
+    color:white;
+    border-radius:6px;
+    border:none;
+    box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 8px 0 rgba(0,0,0,.19);
+  }
+
+  .Login:hover{
+    cursor:pointer;
+    margin-right:2%;
+    background-color:#24EBA4;
     width:120px;
     height:30px;
     font-size:12px;
