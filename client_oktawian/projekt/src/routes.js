@@ -80,12 +80,12 @@ class App extends Component {
               <Route path="/intermediate" component={Intermediate} />
               <Route path="/pro" component={Pro} />
 
-              <Route path ="/homepage" component ={homepage}/>
-              <Route path ="/increase" component ={increase}/>
-              <Route path ="/policy" component ={policyprivacy}/>
+              <PrivateRoute path ="/homepage" component ={homepage}/>
+              <PrivateRoute path ="/increase" component ={increase}/>
+              <PrivateRoute path ="/policy" component ={policyprivacy}/>
 
-              <Route path ="/deposit" component ={deposit}/>
-              <Route path ="/withdraw" component ={withdraw}/>
+              <PrivateRoute path ="/deposit" component ={deposit}/>
+              <PrivateRoute path ="/withdraw" component ={withdraw}/>
             
             </div>
           </Router>

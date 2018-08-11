@@ -10,6 +10,7 @@ import dropzoneStyle from "react-dropzone"
 
 import {Date} from '../fund.js';
 
+import {authHeader} from '../../_helpers/auth-header.js';
 
 import { Field, reduxForm, SubmissionError,} from 'redux-form';
 
@@ -86,28 +87,27 @@ export var submit =(values) =>{
 
 
 //async function send to server
-export async function submitToServer(values){
-    try{
-        let response = await fetch('http://localhost:50647/fund/submitfund', {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type' :  'application/json',
-            },
-            body: JSON.stringify(values),
-          });
-          let responseJson = await response.json();
-          return responseJson;
-    }   catch (error) {
-            console.error(error);
-    }
+export async function submitToServer(values) {
+  try {
+    let response = await fetch('http://localhost:50647/fund/submitfund', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...authHeader()
+      },
+      body: JSON.stringify(values),
+      
+    });
+    let responseJson = await response.json();
+    return responseJson;
+
+  } catch (error) {
+    console.error(error);
   }
-
-
+}
 
 
   // test normal function (other method)
-
   function onSubmit(data) {
     var body = new FormData();
     Object.keys(data).forEach(( key ) => {

@@ -26,16 +26,14 @@ function login(Email, Password) {
     return fetch(`http://localhost:50647/account/login`, requestOptions)
 
         .then(handleResponse)
+
         .then(user => {
 
-            console.log ('token dont exist')
-            // login successful if there's a jwt token in the response
-                    if (user.token) {
 
-                            console.log ('token exist')
+               
+                    // login successful if there's a jwt token in the response
                         // store user details and jwt token in local storage to keep user logged in between page refreshes
                         localStorage.setItem('user', JSON.stringify(user));
-                    }
 
             return user;
 

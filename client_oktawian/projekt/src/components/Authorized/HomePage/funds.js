@@ -18,7 +18,7 @@ export class Funds extends Component{
 
                             <Link to="/increase"> <button className="Login"> Increase</button></Link>
                             <Link to="/deposit"><button className="SecondaryButton">Deposit</button></Link>
-                            <Link to="/withdraw"><button className="SecondaryButton">Withdraw</button> </Link>
+                            <Link to="/withdraw"><button className="SecondaryButton">Withdraw</button></Link>
                         </div>
                         </Col>
                     
@@ -39,7 +39,7 @@ export class Funds extends Component{
                                     <h3> Available funds: 0.0057 BTC </h3><p> + 0.0002 /day</p>
                                     
                                     <Link to="/increase"> <button className="Login"> Upgrade</button></Link>
-                                    <button className="SecondaryButton">Withdraw</button> 
+                                    <Link to="/withdraw"><button className="SecondaryButton">Withdraw</button></Link>
 
                                 </div>
 
