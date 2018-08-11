@@ -3,7 +3,7 @@ using webapi.Model.Common;
 
 namespace webapi.Model.Database
 {
-    public class PlanSettingsEntity
+    public class PlanSettings
     {
         public int DurationDays { get; set; }
         public decimal MinimumBtc { get; set; }
