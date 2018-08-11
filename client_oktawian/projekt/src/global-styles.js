@@ -444,25 +444,31 @@ google-login{
 
 // HOME PAGE AFTER LOGIN
 
+.bsOFsf{
+  width:65vw !important;
+  box-shadow:none !important;
+}
+
 .HomeFund {
+  padding-top:5%;
   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
   width:100%;
-  height:1200px;
+  height:1800px;
 }
 
 .BitcoinAvailable{
+  width:100%;
   background-color:white;
-  margin: 10% 0 0 0;
+  margin: 2% 0 2% 0;
   padding:3% 3% 3% 3%;
-  height:220px
+
   border-radius:10px;
 }
 
 .PlanWidget{
   background-color:white;
   padding:3% 3% 3% 3%;
-  margin: 2.25% 0 0 0;
-  height:100%;
+  margin: 1% 0 2% 0;
   border-radius:10px;
 }
 

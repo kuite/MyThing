@@ -10,7 +10,6 @@ import { border, boxShadow, color, font, fontSize, fontWeight, height, width } f
 import { PriceActions } from "../../store/price";
 import Flex from "../../components/Flex";
 import Footer from "../../components/Footer";
-import GithubBanner from "../../components/GithubBanner";
 import DocumentHead from "../../containers/DocumentHead";
 import CryptocurrencyTabs from "../../containers/CryptocurrencyTabs";
 import DurationTabs from "../../containers/DurationTabs";
@@ -117,7 +116,6 @@ class MainView extends Component {
     return (
       <StyledMainView center column>
         <DocumentHead />
-        <GithubBanner />
         <MediaQuery maxWidth={width.desktopMin}>
           {matches => (matches ? this.renderMobile() : this.renderDesktop())}
         </MediaQuery>

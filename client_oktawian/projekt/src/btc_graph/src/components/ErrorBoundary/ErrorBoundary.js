@@ -4,7 +4,6 @@ import Raven from "raven-js";
 import styled from "styled-components";
 
 import Flex from "../Flex";
-import GithubBanner from "../GithubBanner";
 import { color, fontFamily, fontSize, fontWeight } from "../../styles/constants";
 
 const StyledErrorBoundary = styled(Flex)`
@@ -31,7 +30,6 @@ class ErrorBoundary extends Component {
   render() {
     return this.state.hasError ? (
       <StyledErrorBoundary center>
-        <GithubBanner />
         <div center>{ERROR_MESSAGE_TEXT}</div>
       </StyledErrorBoundary>
     ) : (

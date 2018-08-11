@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
 
-import {Btc} from '../../btc_graph/src/index';
 
 import {Navbar} from '../../components/navbar';
 import '../../global-styles';
 
-import {Funds} from '../../components/Authorized/HomePage/funds';
-import {InvestmentsIdeas} from '../../components/Authorized/HomePage/investmentsideas';
+import {Deposit} from '../../components/Authorized/Deposit/deposit';
 
 export default class HomePage extends Component{
 
@@ -15,7 +13,7 @@ export default class HomePage extends Component{
         return(
             <div>
                 <Navbar/>
-                <Funds/>
+                <Deposit/>
              </div>
         )
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Container, Row, Col } from 'reactstrap';
+import {Btc} from '../../../btc_graph/src/index';
 
 export class Funds extends Component{
 
@@ -11,16 +12,20 @@ export class Funds extends Component{
                     <Row>
                     
                         <Col sm={{size:12}}>
-
                         <div class ="BitcoinAvailable">
                             <p> Available funds:</p>
                             <h1>3,04343 BTC</h1>
 
                             <Link to="/increase"> <button className="Login"> Increase</button></Link>
-                            <button className="SecondaryButton">Deposit</button>
-                            <button className="SecondaryButton">Withdraw</button> 
+                            <Link to="/deposit"><button className="SecondaryButton">Deposit</button></Link>
+                            <Link to="/withdraw"><button className="SecondaryButton">Withdraw</button> </Link>
                         </div>
-
+                        </Col>
+                    
+                        <Col sm={{size:12}}>
+                        <div class ="BitcoinAvailable">
+                            <Btc/>
+                        </div>
                         </Col>
 
                         <Col sm={{size:12}}>

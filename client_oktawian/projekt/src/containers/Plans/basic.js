@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import {Container, Row, Col} from 'reactstrap';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button } from 'reactstrap';
+
 import {Navbar} from '../../components/navbar';
 
 import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../components/Plans/Advantages';

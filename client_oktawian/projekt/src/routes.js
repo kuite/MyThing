@@ -19,9 +19,6 @@ import fund from './containers/fund';
 import browseideas from './containers/browseideas';
 import earnwithus from './containers/earnwithus';
 
-
-
-
 //Plans
 import Basic from './containers/Plans/basic';
 import Intermediate from './containers/Plans/intermediate';
@@ -31,13 +28,6 @@ import Pro from './containers/Plans/pro'
 import idea from './containers/idea';
 import plan from './containers/plan';
 
-
-
-
-
-
-
-
 //Authorized
 import homepage from './containers/Authorized//HomePage.js';
 import increase from './containers/Authorized/Increase.js';
@@ -46,6 +36,10 @@ import policyprivacy from './containers/Authorized/PolicyPrivacy';
 import {RegisterPage} from './containers/RegisterPage/RegisterPage.jsx';
 import {LoginPage} from './containers/LoginPage/LoginPage.jsx';
 
+
+//Payment
+import withdraw from './containers/Authorized//Withdraw.js';
+import deposit from './containers/Authorized//Deposit.js';
 
 /*
 configureFakeBackend();
@@ -89,6 +83,9 @@ class App extends Component {
               <Route path ="/homepage" component ={homepage}/>
               <Route path ="/increase" component ={increase}/>
               <Route path ="/policy" component ={policyprivacy}/>
+
+              <Route path ="/deposit" component ={deposit}/>
+              <Route path ="/withdraw" component ={withdraw}/>
             
             </div>
           </Router>
