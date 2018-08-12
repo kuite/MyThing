@@ -23,6 +23,26 @@ body {
     color:#222064 !important;
   }
 
+  .Demo__some-network {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 30px;
+    text-align: center;
+  }
+  
+  .Demo__some-network__share-count {
+    margin-top: 3px;
+    font-size: 12px;
+  }
+  
+  .Demo__some-network__share-button {
+    cursor: pointer;
+  }
+  
+  .Demo__some-network__share-button:hover:not(:active) {
+    opacity: 0.75;
+  }
+
 
 
 .alert{

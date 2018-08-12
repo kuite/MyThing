@@ -36,6 +36,7 @@
     "react-responsive": "^4.1.0",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.1.4",
+    "react-share": "^2.2.0",
     "react-vote": "^3.3.0",
     "react-widgets": "^4.4.3",
     "reactstrap": "^6.2.0",
