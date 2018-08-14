@@ -22,11 +22,6 @@ export const userActions = {
 
 
 
-
-
-
-
-
 function login(username, password,) {
     
 
@@ -56,25 +51,11 @@ function login(username, password,) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function logout() {
+
     userService.logout();
     return { type: userConstants.LOGOUT };
+    history.push("/");
 }
 
 

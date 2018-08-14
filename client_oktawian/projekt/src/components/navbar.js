@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import {Container, Row, Col } from 'reactstrap';
 import {Modalfinal} from './modal';
 
-import {RoleAwareComponent} from './roleawarecomponent';
+import { userActions } from '../_actions/user.actions';
+import { history } from '../_helpers';
+import { alertActions } from '../_actions';
+
+
+import {RoleAwareComponent, RoleAwareComponentUser} from './roleawarecomponent';
 
 import { Link } from 'react-router-dom';
 
@@ -33,9 +38,11 @@ export class Menu extends Component{
              <div className = "Menu">
                 <Container>
                     <Row>
+                        <Col><Panel/></Col>
                         <Col><Link to = "/fund">Fund</Link></Col>
                         <Col><Link to = "/browseideas">Browse ideas</Link></Col>
                         <Col><Link to = "/earnwithus">Earn with us</Link></Col>
+                        <Col><Logout/></Col>
                         <Col><Login/></Col>
                         <Col><Register/></Col>
                     </Row>
@@ -44,8 +51,6 @@ export class Menu extends Component{
         )
     }
 }
-
-
 
 
 
@@ -71,7 +76,6 @@ export class Login extends RoleAwareComponent{
     }
 }
 
-
 export class Register extends RoleAwareComponent{
 
     constructor(props) {
@@ -95,6 +99,93 @@ export class Register extends RoleAwareComponent{
 }
 
 
+
+
+
+
+
+
+export class Logout extends RoleAwareComponentUser{
+
+
+
+    constructor(props) {
+        super(props);
+
+        const { dispatch } = this.props;
+
+         // component will be visible for the roles below:
+        this.authorize = ['user'];
+
+        // This binding is necessary to make `this` work in the callback
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick(event) {
+          
+        console.log('test');
+        event.preventDefault();
+
+        this.setState({ submitted: true });
+        userActions.logout();
+
+    }
+
+
+    render(){
+
+    const jsx = (
+    <div>
+        <button onClick={this.handleClick} className ="SecondaryButton">Logout</button>
+    </div>
+      );
+
+      return this.shouldBeVisible() ? jsx : null;
+        
+    }
+}
+
+export class Panel extends RoleAwareComponentUser{
+
+    constructor(props) {
+        super(props);
+        // component will be visible for the roles below:
+
+        this.authorize = ['user'];
+        
+      }
+
+      handleClick(event) {
+
+        const { dispatch } = this.props;
+
+        dispatch(userActions.logout());
+        history.push('/login');
+    }
+
+
+    render(){
+
+    const jsx = (
+    <div>
+        <Col><Link to = "/HomePage">Panel</Link></Col>
+    </div>
+      );
+
+      return this.shouldBeVisible() ? jsx : null;
+        
+    }
+}
+
+
+
+
+
+
 export default Navbar;
+
+
+
+
 
 

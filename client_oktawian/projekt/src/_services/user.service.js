@@ -34,6 +34,7 @@ function login(Email, Password) {
                     // login successful if there's a jwt token in the response
                         // store user details and jwt token in local storage to keep user logged in between page refreshes
                         localStorage.setItem('user', JSON.stringify(user));
+                        
 
             return user;
 
@@ -49,7 +50,6 @@ function login(Email, Password) {
 
 
 function logout() {
-
     // remove user from local storage to log user out
     localStorage.removeItem('user');
 }
