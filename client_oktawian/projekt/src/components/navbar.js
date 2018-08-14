@@ -40,8 +40,8 @@ export class Menu extends Component{
                     <Row>
                         <Col><Panel/></Col>
                         <Col><Link to = "/fund">Fund</Link></Col>
-                        <Col><Link to = "/browseideas">Browse ideas</Link></Col>
-                        <Col><Link to = "/earnwithus">Earn with us</Link></Col>
+                        <Col><Link to = "/browseideas">Ideas</Link></Col>
+                        <Col><Link to = "/earnwithus">Earn</Link></Col>
                         <Col><Logout/></Col>
                         <Col><Login/></Col>
                         <Col><Register/></Col>
@@ -66,7 +66,7 @@ export class Login extends RoleAwareComponent{
     render(){
 
     const jsx = (
-        <div className = "Login">
+    <div>
         <Modalfinal/>
     </div>
       );
@@ -89,7 +89,8 @@ export class Register extends RoleAwareComponent{
 
             const jsx = (
                 <div className = "Register">  
-                    <Link to="/register" className="SecondaryButton">Create Account</Link>  
+
+                    <Link to="/register"><button className ="SecondaryButton">Create Account</button></Link>  
                 </div>
               );
 

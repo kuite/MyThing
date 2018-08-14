@@ -155,8 +155,8 @@ margin-top:33%;
     position:fixed;
     width:100%;
     height:52px;
-    background-color:white;
-    box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.2);
+    background-color:#211C3F;
+    box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.4);
   }
 
   .Menu {
@@ -166,14 +166,14 @@ margin-top:33%;
   .Menu  a{
     font-size:14px;
     font-family:Helvetica;
-    margin-top:25px !important;
-    color:#222064;
+    margin-top:30px !important;
+    color:white;
   }
 
   .Menu  a:hover{
     font-size:14px;
     font-family:Helvetica;
-    margin-top:25px !important;
+    margin-top:30px !important;
     color:#00C57F;
     text-decoration:none;
   }
@@ -213,6 +213,7 @@ margin-top:33%;
     height:30px;
     font-size:12px;
     color:#00C57F;
+    background-color:transparent;
     border-radius:4px;
     box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 4px 0 rgba(0,0,0,0);
   }
