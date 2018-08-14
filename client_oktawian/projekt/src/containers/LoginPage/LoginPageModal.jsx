@@ -13,7 +13,7 @@ import {LoginFacebook} from '../../components/facebooklogin';
 
 
 
-class LoginPage extends React.Component {
+class LoginPageModal extends React.Component {
     constructor(props) {
         super(props);
 
@@ -71,32 +71,29 @@ class LoginPage extends React.Component {
 
 
         return (
-            
-            <div className ="RegisterForm">
+           
+
+            <Container>
+            <div className ="LoginModal">
 
             {alert.message &&
                 <div className={`alert ${alert.type}`}>{alert.message}</div>
             }
 
-             <div className ="RegistrationLeft">
-            <Container>
+
                <Row>
                 
-                    <div className = "LoginIcon">
-                        <LoginGoogle/>
-                        <LoginFacebook/>
-                    </div>
 
-                    <Col sm="12" md={{ size: 8, offset: 3 }}>
+                    <Col sm="12" md={{ size: 12, offset: 0 }}>
                         <h1>Welcome back</h1>
                      </Col>
                 </Row>
                 <Row>
-                    <Col sm="12" md={{ size: 6, offset: 3 }}>
+                    <Col sm="12" md={{ size: 12, offset: 0 }}>
                         <p>We are glad that you are coming back</p>
                         
                         
-                <form className="RegistrationLeft" name="form" onSubmit={this.handleSubmit}>
+                <form className="" name="form" onSubmit={this.handleSubmit}>
 
 
 
@@ -109,7 +106,6 @@ class LoginPage extends React.Component {
                         {submitted && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Email) &&
                                         <div className="help-block">It's seems email isn't in correctly form</div>
                         }
-
                     </div>
 
 
@@ -121,34 +117,25 @@ class LoginPage extends React.Component {
                         }
 
                     </div>
+
                     <div className="form-group">
 
-                        <button className="Login">Login</button>
+                        <button className="Login">Login</button><br/><br/>
 
 
                         {loggingIn &&
                             <img alt ="test" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                         }
-
-
                         <Link to="/register">I don't have account yet</Link>
                     </div>
+
                 </form>
                     </Col>
                 </Row>
+                </div>
              </Container>
 
-                </div>
 
-
-                <div className = "RegistrationRight">
-                    Selected ideas<br/>
-                <p>New opportunities to develop</p> <br/>
-                <Link to="/browseideas" className="Login">Explore now</Link>
-                </div>
-
-
-                </div>
         );
     }
 }
@@ -163,5 +150,5 @@ function mapStateToProps(state) {
     
 }
 
-const connectedLoginPage = connect(mapStateToProps)(LoginPage);
-export { connectedLoginPage as LoginPage }; 
+const connectedLoginPageModal = connect(mapStateToProps)(LoginPageModal);
+export { connectedLoginPageModal as LoginPageModal }; 

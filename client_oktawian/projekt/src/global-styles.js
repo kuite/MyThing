@@ -189,6 +189,7 @@ margin-top:33%;
     border:none;
     box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 8px 0 rgba(0,0,0,.19);
   }
+  
 
   .Login:hover{
     cursor:pointer;
@@ -399,6 +400,17 @@ margin-top:33%;
 
 
 // Login
+
+.LoginModal{
+
+  border-radius:10px;
+  padding:15% 10% 15% 10%;
+  width:500px;
+  height:500px;
+
+
+}
+
 
 .loginform, .registerform{
   margin: 15%;

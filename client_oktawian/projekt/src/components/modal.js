@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginPage } from '../containers/LoginPage/LoginPage';
+import { LoginPageModal } from '../containers/LoginPage/LoginPageModal';
 
 
 
@@ -13,7 +13,7 @@ class Signup extends React.Component{
   render(){
     return(
     <div>
-        <LoginPage/> 
+        <LoginPageModal/> 
     </div>
     )
   }
@@ -61,13 +61,10 @@ export class Modalfinal extends React.Component {
        }
      }
 
-
-
-
     let modalStyle = {
         position: 'fixed',
-        width: '20%',
-        left: '40%',
+        width: '30%',
+        left: '35%',
         top: '20%',
         zIndex: '9999',
         background: '#fff'

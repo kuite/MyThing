@@ -123,10 +123,6 @@ export class Logout extends RoleAwareComponentUser{
 
       handleClick(event) {
           
-        console.log('test');
-        event.preventDefault();
-
-        this.setState({ submitted: true });
         userActions.logout();
 
     }
