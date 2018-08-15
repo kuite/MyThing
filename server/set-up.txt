@@ -1,4 +1,4 @@
--If need clean migrations:
+-BEFORE CLEAN MIGRATIONS -ask lead before-:
 dotnet ef migrations add Initial -o Model\Database\Migrations
 
 -After every migration:

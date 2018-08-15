@@ -65,11 +65,12 @@ namespace webapi.Controllers
         }
 
         [HttpPost("SubmitFundImages")]
-        //[Authorize(Policy = "ApiUser")]
-        public async Task<IActionResult> SubmitFundImages(List<IFormFile> imgs, string fundGuid)
+        [Authorize(Policy = "ApiUser")]
+        public async Task<IActionResult> SubmitFundImagesAsync(List<IFormFile> imgs, string fundGuid)
         {
             var response = await _imageService.SaveFundImgsAsync(imgs, fundGuid);
             return Ok(response);
         }
+
     }
 }
