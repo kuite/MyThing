@@ -5,7 +5,7 @@ import { store } from '../_helpers';
 import {Navbar} from '../components/navbar';
 import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 
-import {Fundheader} from '../components/fundheader';
+import {Fundheader, Fundheader2} from '../components/fundheader';
 import StepOneFormValidation from './fundform/getfundtitle';
 
 import '../global-styles';
@@ -40,8 +40,8 @@ export default class Fund extends Component{
             <div>
                 <Navbar/>
                 <Fundheader/>
+                <Fundheader2/>
                 <Container>
-                    <p> Marketing text about how to fill the form and how system works to get funded</p>
                     <GetfundedForm/>
                 </Container>
             </div>

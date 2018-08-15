@@ -155,7 +155,7 @@ margin-top:33%;
     position:fixed;
     width:100%;
     height:52px;
-    background-color:#211C3F;
+    background-color:#313131;
     box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.4);
   }
 
@@ -358,7 +358,8 @@ margin-top:33%;
 .SectionsHeader{
   background-image: linear-gradient(to right, #7065D8 0%, #275DDF 100%);
   width:100%;
-  height:420px;
+  height:470px;
+  padding-top:3%;
 }
 
 .SectionsHeader h1{
@@ -368,6 +369,60 @@ margin-top:33%;
   color:white;
   margin-top:15%;
 }
+
+.SectionHeader > img{
+width: 100%;
+height: 100%;
+float: left;
+}
+
+
+.SectionHeaderRight{
+  width:38.17%;
+  height:800px;
+  float:left;
+}
+
+.SectionHeaderRight > img{
+  width:100%;
+  float:left;
+}
+
+#circle {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: red;
+}
+
+.FundHeader2{
+  height:600px;
+  margin:5% 0 10% 0;
+  position:absolute;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+
+
+.FundHeader2Icons{
+display:inline-flex;
+}
+
+.FundIcon{
+  width:300px;
+  float:left;
+
+}
+
+.FundIcon > img{
+  height:80px;
+  margin:5% 0 5% 0;
+}
+
+
 
 .SectionsHeader p{
   font-family:Helvetica;
@@ -535,7 +590,18 @@ margin:3% 0 3% 0;
     height:80px;
   }
 
+.SecureSection{
+  margin-top:2%;
+  margin-bottom:2%;
+}
 
+.SecureSection img{
+  float:left;
+}
+
+.SecureSection p{
+  float:left;
+}
 
 
 `;

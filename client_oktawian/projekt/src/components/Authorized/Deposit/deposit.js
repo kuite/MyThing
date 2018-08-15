@@ -24,9 +24,6 @@ export class Deposit extends Component{
                         </div>
                         </Col>
 
-                        
-
-                    
                     </Row>
                 </Container>
              </div>
@@ -79,9 +76,9 @@ export class Payment extends Component {
         return(
             <div className ="Deposit Steps">
                 <PaymentModalfinal/>
-                <div>
+                <div className ="SecureSection">
                     <img src = {SecureIcon}/>
-                    <p> Read about secure policy</p>
+                    <Link to ="/policy"> <p> ...read about secure policy</p></Link>
                 </div>
 
             </div>
