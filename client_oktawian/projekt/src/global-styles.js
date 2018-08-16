@@ -165,7 +165,7 @@ margin-top:33%;
     position:fixed;
     width:100%;
     height:52px;
-    background-color:grey;
+    background-color:#ea9e33;
     transition: background-color 0.5s ease;
     box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.4);
   }

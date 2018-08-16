@@ -8,9 +8,15 @@ import { Link } from 'react-router-dom';
 
 import '../global-styles';
 
+import {PlansHeader} from '../components/plansheader';
+
 import BasicImg from '../img/basic.svg';
 import IntermediateImg from '../img/intermediate.svg';
 import ProImg from '../img/pro.svg';
+
+
+
+
 
 export default class Browseideas extends Component{
 
@@ -30,20 +36,37 @@ export class Plans extends Component{
 
     render(){
         return(
-            <div className="Plans">       
+            <div className="PlansHeader">       
 
-                <Container>
-                    <Row>
-                        <Col sm={{size:4}}> <Basic/>     </Col>   
-                        <Col sm={{size:4}}> <Intermediate/>    </Col>
-                        <Col sm={{size:4}}> <Pro/>    </Col>
-                    </Row>
-                </Container>                        
-                
+                <PlansHeader/>  
+                <Plan/>
+
             </div>
         )
     }
 };
+
+
+
+
+
+
+class Plan extends Component{
+
+  render(){
+    return(
+      <div>
+        <Container>
+        <Row>
+            <Col sm={{size:4}}><Basic/></Col>
+            <Col sm={{size:4}}><Intermediate/></Col>
+            <Col sm={{size:4}}><Pro/></Col>
+        </Row>
+        </Container>
+      </div>
+    )
+  }
+}
 
 
 const Basic = (props) => {

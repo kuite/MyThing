@@ -10,6 +10,8 @@ import { alertActions } from '../../_actions';
 import {LoginGoogle} from '../../components/googlelogin';
 import {LoginFacebook} from '../../components/facebooklogin';
 
+import {Modalfinal} from '../../components/registermodal';
+
 
 
 
@@ -131,7 +133,7 @@ class LoginPage extends React.Component {
                         }
 
 
-                        <Link to="/register">I don't have account yet</Link>
+                        <Modalfinal/>
                     </div>
                 </form>
                     </Col>

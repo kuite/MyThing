@@ -53,8 +53,8 @@ export class Menu extends Component{
              <div className = "Menu">
                 <Container>
                     <Row>
-                        <Col><Panel/></Col>
                         <Col><Link to = "/">Home</Link></Col>
+                        <Panel/>
                         <Col><Link to = "/fund">Fund</Link></Col>
                         <Col><Link to = "/browseideas">Fundraiser</Link></Col>
                         <Col><Link to = "/earnwithus">Plans</Link></Col>
