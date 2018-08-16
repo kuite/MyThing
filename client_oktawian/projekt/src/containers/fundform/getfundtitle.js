@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 
 import DropdownList from 'react-widgets/lib/DropdownList';
+
 import 'react-widgets/dist/css/react-widgets.css';
 import SelectList from 'react-widgets/lib/SelectList';
 
@@ -138,7 +139,7 @@ export async function submitToServer(values) {
 
   // Title
   const RenderTitle = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
-    <div className="group">
+    <div>
         <input className="text" {...input} {...inputProps} />  
         <label>{label}</label>
         {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
@@ -232,39 +233,39 @@ const renderDropzoneInput = (field) => {
     return (
         <form onSubmit={handleSubmit(submitToServer)}>
   
-      <h3>Title:</h3>
+ 
         <Field name="Title"
           Type="text"
           component={RenderTitle}
           placeholder="What is Title of idea?"
             />
     
-    <h3>Description:</h3>
+  
         <Field name="Description"
           Type="text"
           component={RenderDescription}
           placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you"
             />
 
-    <h3>Money Goal:</h3>
+
         <Field name="BtcGoal"
           Type="number"
           component={RenderBtcGoal}
           placeholder="How many you will achieve?"
            />
 
-      <h3>Type:</h3>
+      
           <Field
-          name="Type"
+          name="type"
           component={renderSelectList}
           data={[ 'bussiness', 'nonprofit' ]}/>
 
-      <h3>Date:</h3>
+     
           <Field name="Date"
           Type="Date"
           component={RenderDatePicker}
            />
-      <h3>Category:</h3>
+      
         <Field
           name="Category"
           component={renderDropdownList}

@@ -18,12 +18,12 @@ export class Header extends Component{
                 <Container>
                    <Row>
                         <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <h1>Where ideas turning <br/> into reality</h1>
+                            <h1>Fundraising for people <br/>and ideas</h1>
                          </Col>
                     </Row>
                     <Row>
                         <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <p>The place where business and cooperation work efficent</p>
+                            <p>Get started now.</p>
                          </Col>
                     </Row>
                          

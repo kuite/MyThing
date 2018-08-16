@@ -14,10 +14,25 @@ import { Link } from 'react-router-dom';
 
 export class Navbar extends Component{
 
+    constructor(props){
+        super(props);
+        this.handleScroll = this.handleScroll.bind(this);
+        this.state={Navbar: 'Navbar'}
+      }
+        componentDidMount() {
+          window.addEventListener('scroll', this.handleScroll);
+        };
+
+        handleScroll() {
+            let Navbar = this.state.Navbar
+             this.setState( {Navbar : 'Navbar ' + 'NavbarScroll' } )
+     };
+
+
     render(){
         return(
             
-            <div className ="Navbar">
+            <div onScroll={this.handleScroll.bind(this)} className ={this.state.Navbar}>
                 <Container>
                     <Row>
                         <Col sm={{size:3,}}>Logo</Col>
@@ -39,9 +54,10 @@ export class Menu extends Component{
                 <Container>
                     <Row>
                         <Col><Panel/></Col>
+                        <Col><Link to = "/">Home</Link></Col>
                         <Col><Link to = "/fund">Fund</Link></Col>
-                        <Col><Link to = "/browseideas">Ideas</Link></Col>
-                        <Col><Link to = "/earnwithus">Earn</Link></Col>
+                        <Col><Link to = "/browseideas">Fundraiser</Link></Col>
+                        <Col><Link to = "/earnwithus">Plans</Link></Col>
                         <Col><Logout/></Col>
                         <Col><Login/></Col>
                         <Col><Register/></Col>

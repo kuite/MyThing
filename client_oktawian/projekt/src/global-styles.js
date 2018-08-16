@@ -55,9 +55,10 @@ body {
 input{
   font-weight:100;
   width:80%;
-  height:40px
+  height:50px
   padding:1% 1% 1% 1%;
-  border-radius:4px;
+  margin:1% 0% 1% 0%;
+  border-radius:8px;
   border: #ccc 1px solid
 }
 
@@ -155,7 +156,17 @@ margin-top:33%;
     position:fixed;
     width:100%;
     height:52px;
-    background-color:#313131;
+    background-color:transparent;
+    // box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.4);
+  }
+  
+  .NavbarScroll{
+    z-index:10000;
+    position:fixed;
+    width:100%;
+    height:52px;
+    background-color:grey;
+    transition: background-color 0.5s ease;
     box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.4);
   }
 
@@ -282,31 +293,40 @@ margin-top:33%;
     padding:2%;
     float:left;
     width: calc(25% - 1px);
-    height:220px;
+    height:280px;
     border-style: solid;
     border-width: 1px;
     border-color:#BEBEBE;
+    text-align:center
   }
 
-  .Section > img {
-
-    width:50px;
-    height:50px;
+  .SectionInside > img {
+    text-align:center;
+    display:inline-flex;
+    width:75px;
+    height:75px;
     margin:2% 0 2% 0;
-
   }
 
+  .SectionInside h2 > .Rectangle {
+    text-align:center;
+    display:inline-flex;
+    width: 60px;
+    height: 3px;
+    margin:2% 0 2% 0%;
+    background: #7DC72C;
+  }
 
   .Section h2{
     font-family:Helvetica;
-    margin:0% 0 0 0%;
+    margin:2% 0 2% 0%;
     font-size:24px;
   }
 
   .Section p{
     font-family:Helvetica;
     font-weight:100;
-    margin:0% 0% 0 0%;
+    margin:2% 0% 2% 0%;
     font-size:14px;
   }
 
@@ -379,7 +399,6 @@ float: left;
 
 .SectionHeaderRight{
   width:38.17%;
-  height:800px;
   float:left;
 }
 
@@ -398,9 +417,7 @@ float: left;
 }
 
 .FundHeader2{
-  height:600px;
-  margin:5% 0 10% 0;
-  position:absolute;
+  margin:7% 0 7% 0;
   width:100%;
   height:100%;
   text-align:center;
