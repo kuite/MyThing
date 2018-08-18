@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 import {Container, Row, Col, Progress } from 'reactstrap';
-import {Navbar} from '../components/navbar';
+import {Navbar} from '../../components/navbar';
 import { Link } from 'react-router-dom';
 
-import {Browseideaheader} from '../components/browseideaheader';
+import {Browseideaheader} from '../../components/browseideaheader';
 
-import {Vote} from '../components/reactvote/vote';
-import '../global-styles';
+import {Vote} from '../../components/reactvote/vote';
+import '../../global-styles';
 
 export default class Browseideas extends Component{
 
@@ -136,6 +136,13 @@ const UI = ({
 
 
 //data (need to fetch from api later)
+
+//GET FUNCTION
+
+
+
+
+
 const PRODUCTS = [
     {i: 1, category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
     {i: 2, category: "Category2", name: "IdeaCategory2", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},

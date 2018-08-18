@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { store } from '../_helpers';
+import { store } from '../../_helpers';
 
-import {Navbar} from '../components/navbar';
+import {Navbar} from '../../components/navbar';
 import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 
-import {Fundheader, Fundheader2} from '../components/fundheader';
+import {Fundheader, Fundheader2} from '../../components/fundheader';
 import StepOneFormValidation from './fundform/getfundtitle';
 
-import '../global-styles';
+import '../../global-styles';
 
 //date
 import 'react-dates/initialize';

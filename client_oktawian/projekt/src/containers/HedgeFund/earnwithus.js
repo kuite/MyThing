@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
-import {Navbar} from '../components/navbar';
+import {Navbar} from '../../components/navbar';
 import { Link } from 'react-router-dom';
 
-import '../global-styles';
+import '../../global-styles';
 
-import {PlansHeader} from '../components/plansheader';
+import {PlansHeader} from '../../components/plansheader';
 
-import BasicImg from '../img/basic.svg';
-import IntermediateImg from '../img/intermediate.svg';
-import ProImg from '../img/pro.svg';
+import BasicImg from '../../img/basic.svg';
+import IntermediateImg from '../../img/intermediate.svg';
+import ProImg from '../../img/pro.svg';
 
 
 

@@ -11,7 +11,7 @@ import dropzoneStyle from "react-dropzone"
 
 import {Date} from '../fund.js';
 
-import {authHeader} from '../../_helpers/auth-header.js';
+import {authHeader} from '../../../_helpers/auth-header.js';
 
 import { Field, reduxForm, SubmissionError,} from 'redux-form';
 
@@ -105,37 +105,8 @@ export async function submitToServer(values) {
   } catch (error) {
     console.error(error);
   }
+
 }
-
-
-  // test normal function (other method)
-  function onSubmit(data) {
-    var body = new FormData();
-    Object.keys(data).forEach(( key ) => {
-      body.append(key, data[ key ]);
-    });
-
-    console.info('POST', body, data);
-    console.info('This is expected to fail:');
-    fetch(`http://example.com/send/`, {
-      method: 'POST',
-      body: body,
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(err => console.error(err));
-  }
-
-
-
-
-
-
-
-
-
-
-
 
   // Title
   const RenderTitle = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
@@ -273,12 +244,20 @@ const renderDropzoneInput = (field) => {
           valueField="value"
           textField="color"/>
 
-      {/* <h3>Image:</h3>
+
+
+
+
+      <h3>Image:</h3>
       <Field
             name={FILE_FIELD_NAME}
             component={renderDropzoneInput}
           />
-      */}
+      
+
+
+
+
 
 
         <div>

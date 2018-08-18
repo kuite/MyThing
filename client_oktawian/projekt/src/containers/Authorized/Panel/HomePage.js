@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { userActions } from '../../_actions';
+import { userActions } from '../../../_actions';
 
 
-import {Btc} from '../../btc_graph/src/index';
+import {Navbar} from '../../../components/navbar';
+import '../../../global-styles';
 
-import {Navbar} from '../../components/navbar';
-import '../../global-styles';
-
-import {Funds} from '../../components/Authorized/HomePage/funds';
-import {InvestmentsIdeas} from '../../components/Authorized/HomePage/investmentsideas';
+import {Funds} from '../../../components/Authorized/HomePage/funds';
 
 export default class HomePage extends Component{
 

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
 import {Container, Row, Col} from 'reactstrap';
-import {Navbar} from '../../components/navbar';
+import {Navbar} from '../../../components/navbar';
 import { Link } from 'react-router-dom';
 
-import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../components/Plans/Advantages';
-import {PlanStartOne, PlanStartTwo, PlanStartThree} from '../../components/Plans/Elements';
+import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../../components/Plans/Advantages';
+import {PlanStartOne, PlanStartTwo, PlanStartThree} from '../../../components/Plans/Elements';
 
-import '../../global-styles';
+import '../../../global-styles';
 
-import IntermediateImg from '../../img/intermediate.svg';
+import IntermediateImg from '../../../img/intermediate.svg';
 
 
 

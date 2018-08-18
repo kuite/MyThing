@@ -2,39 +2,37 @@ import React, { Component } from 'react';
 
 import {Container, Row, Col} from 'reactstrap';
 
-import {Navbar} from '../../components/navbar';
-
-import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../components/Plans/Advantages';
-import {PlanStartOne, PlanStartTwo, PlanStartThree} from '../../components/Plans/Elements';
+import {Navbar} from '../../../components/navbar';
 
 
-import { Link } from 'react-router-dom';
+import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../../components/Plans/Advantages';
+import {PlanStartOne, PlanStartTwo, PlanStartThree} from '../../../components/Plans/Elements';
 
-import '../../global-styles';
+import '../../../global-styles';
 
-import BasicImg from '../../img/basic.svg';
+import ProImg from '../../../img/pro.svg';
 
 
 
 
-export default class Basic extends Component{
+export default class Pro extends Component{
 
     render(){
         return(
             <div>
                 <Navbar/>
-                <BasicBackground/>
+                <ProBackground/>
              </div>
         )
     }
 };
 
-class BasicBackground extends Component{
+class ProBackground extends Component{
 
     render(){
         return(
             <div>
-               <img src ={BasicImg}/>
+               <img src ={ProImg}/>
 
                    <Container>
 
@@ -50,7 +48,7 @@ class BasicBackground extends Component{
                             <Row>
                                     <Col sm={{size:4}}> <PlanStartOne/>   </Col>   
                                     <Col sm={{size:4}}> <PlanStartTwo/>   </Col>
-                                    {/* <Col sm={{size:4}}> <BasicStartThree/>    </Col> */}
+                                    {/* <Col sm={{size:4}}> <PlanStartThree/>    </Col> */}
                             </Row>
                         </div>
                     
@@ -74,25 +72,5 @@ class BasicBackground extends Component{
         )
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

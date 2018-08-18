@@ -48,12 +48,12 @@ import {
 
 
 import {Container, Row, Col, Progress } from 'reactstrap';
-import {Navbar} from '../components/navbar';
+import {Navbar} from '../../components/navbar';
 
-import {Browseideaheader} from '../components/browseideaheader';
+import {Browseideaheader} from '../../components/browseideaheader';
 
-import {Vote} from '../components/reactvote/vote';
-import '../global-styles';
+import {Vote} from '../../components/reactvote/vote';
+import '../../global-styles';
 
 export default class Ideas extends Component{
 
