@@ -11,6 +11,7 @@ namespace webapi.Model.Domain
         public string Description { get; set; }
         public decimal BtcGoal { get; set; }
         public decimal BtcDonated { get; set; }
+        public FundCategories Categories { get; set; }
         //public List<Transactions> SupportersList 
         public List<IFormFile> RelatedImages { get; set; }
         public DateTimeOffset StartDate { get; set; }

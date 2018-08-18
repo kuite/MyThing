@@ -72,5 +72,20 @@ namespace webapi.Controllers
             return Ok(response);
         }
 
+        [HttpPost("GetFundsByCategory")]
+        //[Authorize(Policy = "ApiUser")]
+        [ValidateModel]
+        public async Task<IActionResult> GetFundsByCategoryAsync([FromBody]FundCategories categories)
+        {
+            if (categories == null) return NotFound();
+            var funds = await _fundService.GetFundsByCategories(categories);
+            return Ok(funds);
+        }
+
+        // [HttpGet("GetEndedFunds")]
+        // public async Task<IActionResult> GetEndedFunds()
+        // {
+            
+        // }
     }
 }

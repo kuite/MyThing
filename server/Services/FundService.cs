@@ -10,16 +10,19 @@ using webapi.Model.Common;
 using webapi.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using webapi.Model.Database.Access;
+using System.Collections.Generic;
 
 namespace webapi.Services
 {
     public sealed class FundService : IFundService
     {
         private readonly DatabaseContext _context;
+        private readonly IMapper _mapper;
 
-        public FundService(DatabaseContext context)
+        public FundService(DatabaseContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<Fund> GetFundAsync(string fundGuid)
@@ -62,5 +65,27 @@ namespace webapi.Services
                 TotalSize = size
             };
         }
+
+        public async Task<List<Fund>> GetFundsByCategories(FundCategories categories)
+        {
+            List<FundEntity> entities = new List<FundEntity>();
+            List<string> searchCategories = categories.ToString().Split(", ").ToList();
+
+            entities.AddRange( _context
+                    .Funds
+                    .Where(x => HaveCommonItems(x.Categories, searchCategories)).ToList());  
+
+            return _mapper.Map<List<Fund>>(entities);
+        }
+
+        private bool HaveCommonItems(FundCategories categories, List<string> searchedCategories)
+        {
+            List<string> existingCategories = categories.ToString().Split(", ").ToList();
+            return existingCategories.Any(cat => searchedCategories.Contains(cat));
+        }
+
+        // public Task<List<Fund>> GetEndedFunds()
+        // {
+        // }
     }
 }

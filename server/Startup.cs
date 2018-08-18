@@ -153,10 +153,267 @@ namespace webapi
             #endregion
         }
 
+        public static void AddTestData(DatabaseContext context)
+        {
+
+            var fund0 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title0",
+                Description = "Sample Description0"
+                }).Entity;
+                var fund1 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title1",
+                Description = "Sample Description1"
+                }).Entity;
+                var fund2 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title2",
+                Description = "Sample Description2"
+                }).Entity;
+                var fund3 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title3",
+                Description = "Sample Description3"
+                }).Entity;
+                var fund4 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title4",
+                Description = "Sample Description4"
+                }).Entity;
+                var fund5 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title5",
+                Description = "Sample Description5"
+                }).Entity;
+                var fund6 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title6",
+                Description = "Sample Description6"
+                }).Entity;
+                var fund7 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title7",
+                Description = "Sample Description7"
+                }).Entity;
+                var fund8 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Digital,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title8",
+                Description = "Sample Description8"
+                }).Entity;
+
+
+                var fund9 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title9",
+                Description = "Sample Description9"
+                }).Entity;
+                var fund10 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title10",
+                Description = "Sample Description10"
+                }).Entity;
+                var fund11 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title11",
+                Description = "Sample Description11"
+                }).Entity;
+                var fund12 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title12",
+                Description = "Sample Description12"
+                }).Entity;
+                var fund13 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title13",
+                Description = "Sample Description13"
+                }).Entity;
+                var fund14 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title14",
+                Description = "Sample Description14"
+                }).Entity;
+                var fund15 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title15",
+                Description = "Sample Description15"
+                }).Entity;
+                var fund16 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title16",
+                Description = "Sample Description16"
+                }).Entity;
+                var fund17 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.Social,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title17",
+                Description = "Sample Description17"
+                }).Entity;
+
+                var fund18 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title18",
+                Description = "Sample Description18"
+                }).Entity;
+                var fund19 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title19",
+                Description = "Sample Description19"
+                }).Entity;
+                var fund20 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title20",
+                Description = "Sample Description20"
+                }).Entity;
+                var fund21 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title21",
+                Description = "Sample Description21"
+                }).Entity;
+                var fund22 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title22",
+                Description = "Sample Description22"
+                }).Entity;
+                var fund23 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title23",
+                Description = "Sample Description23"
+                }).Entity;
+                var fund24 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title24",
+                Description = "Sample Description24"
+                }).Entity;
+                var fund25 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title25",
+                Description = "Sample Description25"
+                }).Entity;
+                var fund26 = context.Funds.Add(new FundEntity 
+                {
+                Id = Guid.NewGuid(),
+                AuthorId = Guid.NewGuid(),
+                Categories = FundCategories.NonProfit,
+                CreatedAt = DateTimeOffset.UtcNow,
+                Title = "Fund Title26",
+                Description = "Sample Description26"
+                }).Entity;
+                
+                context.SaveChanges();
+        }
+ 
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            // var dbContext = app.ApplicationServices.GetRequiredService<DatabaseContext>();
+            // AddTestData(dbContext);
 
             // Serialize all exceptions to JSON
             var jsonExceptionMiddleware = new JsonExceptionMiddleware(
