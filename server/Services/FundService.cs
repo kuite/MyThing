@@ -17,10 +17,12 @@ namespace webapi.Services
     public sealed class FundService : IFundService
     {
         private readonly DatabaseContext _context;
+        private readonly IMapper _mapper;
 
-        public FundService(DatabaseContext context)
+        public FundService(DatabaseContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<Fund> GetFundAsync(string fundGuid)
@@ -69,17 +71,11 @@ namespace webapi.Services
             List<FundEntity> entities = new List<FundEntity>();
             List<string> searchCategories = categories.ToString().Split(", ").ToList();
 
-            var testlist = _context
-                    .Funds
-                    .Select(x => x.Categories).ToList();
-
-
-            var stop = 5;
             entities.AddRange( _context
                     .Funds
                     .Where(x => HaveCommonItems(x.Categories, searchCategories)).ToList());  
 
-            return Mapper.Map<List<Fund>>(entities);
+            return _mapper.Map<List<Fund>>(entities);
         }
 
         private bool HaveCommonItems(FundCategories categories, List<string> searchedCategories)

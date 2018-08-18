@@ -13,6 +13,8 @@ namespace webapi.Infrastructure
         {
             CreateMap<RegisterUserForm, UserEntity>(MemberList.Source)
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
+
+            CreateMap<FundEntity, Fund>(MemberList.Source);
         }
     }
 }
