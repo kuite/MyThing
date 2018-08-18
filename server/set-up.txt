@@ -1,3 +1,13 @@
+1. If first time using postgres:
+
+in psql cmd: 
+CREATE USER webapi WITH PASSWORD 'zoe';
+CREATE DATABASE webapidb;
+ALTER DATABASE webapidb OWNER TO webapi;
+\l - for validate if ok
+
+2. Set up schemas, data:
+
 -BEFORE CLEAN MIGRATIONS -ask lead before-:
 dotnet ef migrations add Initial -o Model\Database\Migrations
 

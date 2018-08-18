@@ -158,9 +158,6 @@ namespace webapi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            //var dbContext = app.ApplicationServices.GetRequiredService<DatabaseContext>();
-            //AddTestData(dbContext);
-
             // Serialize all exceptions to JSON
             var jsonExceptionMiddleware = new JsonExceptionMiddleware(
                 app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
