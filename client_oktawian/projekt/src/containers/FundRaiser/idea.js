@@ -50,7 +50,7 @@ import {
 import {Container, Row, Col, Progress } from 'reactstrap';
 import {Navbar} from '../../components/navbar';
 
-import {Browseideaheader} from '../../components/browseideaheader';
+import {Browseideaheader} from '../../components/FundRaiser/browseideaheader';
 
 import {Vote} from '../../components/reactvote/vote';
 import '../../global-styles';

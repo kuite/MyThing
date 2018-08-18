@@ -1,7 +1,7 @@
 import React from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
 
-import GoogleIcon from '../img/fbicon.svg';
+import GoogleIcon from '../../img/fbicon.svg';
 
 
 var FacebookIconStyle = {

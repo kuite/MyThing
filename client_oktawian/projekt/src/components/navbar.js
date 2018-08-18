@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Container, Row, Col } from 'reactstrap';
-import {Modalfinal} from './modal';
+import {Modalfinal} from './Login/loginmodal';
 
 import { userActions } from '../_actions/user.actions';
 import { history } from '../_helpers';

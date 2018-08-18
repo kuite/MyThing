@@ -7,10 +7,9 @@ import { history } from '../../_helpers';
 import { userActions } from '../../_actions';
 import { alertActions } from '../../_actions';
 
-import {LoginGoogle} from '../../components/googlelogin';
-import {LoginFacebook} from '../../components/facebooklogin';
+import {LoginGoogle} from '../../components/Login/googlelogin';
+import {LoginFacebook} from '../../components/Login/facebooklogin';
 
-import {Modalfinal} from '../../components/registermodal';
 
 
 
@@ -133,7 +132,7 @@ class LoginPage extends React.Component {
                         }
 
 
-                        <Modalfinal/>
+                        <Link to ="/register">I haven't account yet</Link>
                     </div>
                 </form>
                     </Col>

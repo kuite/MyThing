@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleLogin } from 'react-google-login-component';
 
-import GoogleIcon from '../img/chromeicon.svg';
+import GoogleIcon from '../../img/chromeicon.svg';
 
 
 var ChromeIconStyle = {

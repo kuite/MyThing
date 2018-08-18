@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import {Container, Row, Col } from 'reactstrap';
 
-import fundimg from '../img/fundimg.jpg'
+import fundimg from '../../img/fundimg.jpg'
 
-import fundheadericon1 from '../img/addicon.svg'
-import fundheadericon2 from '../img/shareicon.svg'
-import fundheadericon3 from '../img/startupicon.svg'
+import fundheadericon1 from '../../img/addicon.svg'
+import fundheadericon2 from '../../img/shareicon.svg'
+import fundheadericon3 from '../../img/startupicon.svg'
 
 
 export class Fundheader extends Component{

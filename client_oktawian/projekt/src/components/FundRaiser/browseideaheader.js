@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import {Container, Row, Col } from 'reactstrap';
 
-import planimg from '../img/planimg.jpg'
+import fundraiseimg from '../../img/fundraiseimg.jpg'
 
-export class PlansHeader extends Component{
+export class Browseideaheader extends Component{
 
     render(){
         return(
@@ -12,8 +12,8 @@ export class PlansHeader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Plans for investors</h1>
-                        <p>Do you want to participate in the platform's operation?</p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Create something fantastic</h1>
+                        <p>Browse ideas to find something for you</p> 
                         </Col>
                     </Row>
                 </Container>
@@ -21,10 +21,11 @@ export class PlansHeader extends Component{
                 
                 
                 <div className = "SectionHeaderRight">
-                    <img src={planimg}/> 
+                
+                    <img src={fundraiseimg}/> 
+
                 </div>
             </div>
-
         )
     }
 };

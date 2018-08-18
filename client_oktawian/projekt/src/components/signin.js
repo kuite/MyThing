@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {LoginFacebook} from './facebooklogin';
-import {LoginGoogle} from './googlelogin';
+import {LoginFacebook} from './Login/facebooklogin';
+import {LoginGoogle} from './Login/googlelogin';
 
 import {RoleAwareComponent} from './roleawarecomponent';
 

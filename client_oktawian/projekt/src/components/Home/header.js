@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import MainImage from '../img/mainimage.jpg';
+import MainImage from '../../img/mainimage.jpg';
 
 
 

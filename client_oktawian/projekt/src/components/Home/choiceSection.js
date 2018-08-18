@@ -1,10 +1,10 @@
 
 import React, { Component } from 'react';
 
-import Reliability from '../img/reliabilityicon.svg';
-import Growth from '../img/growthicon.svg';
-import Innovation from '../img/innovationicon.svg';
-import Investment from '../img/investmenticon.svg';
+import Reliability from '../../img/reliabilityicon.svg';
+import Growth from '../../img/growthicon.svg';
+import Innovation from '../../img/innovationicon.svg';
+import Investment from '../../img/investmenticon.svg';
 
 
 export class ChoiceSection extends Component{

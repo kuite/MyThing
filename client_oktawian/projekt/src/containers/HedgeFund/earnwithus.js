@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import '../../global-styles';
 
-import {PlansHeader} from '../../components/plansheader';
+import {PlansHeader} from '../../components//HedgeFund/Plans/plansheader';
 
 import BasicImg from '../../img/basic.svg';
 import IntermediateImg from '../../img/intermediate.svg';

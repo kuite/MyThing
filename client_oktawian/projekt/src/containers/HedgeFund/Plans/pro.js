@@ -5,8 +5,8 @@ import {Container, Row, Col} from 'reactstrap';
 import {Navbar} from '../../../components/navbar';
 
 
-import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../../components/Plans/Advantages';
-import {PlanStartOne, PlanStartTwo, PlanStartThree} from '../../../components/Plans/Elements';
+import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../../components/HedgeFund/Plans/Advantages';
+import {PlanStartOne, PlanStartTwo, PlanStartThree} from '../../../components/HedgeFund/Plans/Elements';
 
 import '../../../global-styles';
 

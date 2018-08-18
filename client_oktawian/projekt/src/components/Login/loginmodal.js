@@ -1,5 +1,5 @@
 import React from 'react';
-import { RegisterPageModal } from '../containers/RegisterPage/RegisterPageModal';
+import { LoginPageModal } from '../../containers/LoginPage/LoginPageModal';
 
 
 
@@ -13,7 +13,7 @@ class Signup extends React.Component{
   render(){
     return(
     <div>
-        <RegisterPageModal/> 
+        <LoginPageModal/> 
     </div>
     )
   }
@@ -30,7 +30,7 @@ export class Modalfinal extends React.Component {
    render() {
      return (
        <div>
-         <button className ="SecondaryButton" onClick={() => this.openModal()}>Register</button>
+         <button className ="SecondaryButton" onClick={() => this.openModal()}>Login</button>
          <Modal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
            <Signup/>
          </Modal>
