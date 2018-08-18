@@ -52,7 +52,7 @@ export class Fundheader2 extends Component{
                      </div>
 
                     <div className="FundIcon"><img src={fundheadericon2}/>
-                    <h3>Share and promote</h3>
+                    <h3>Share with friends</h3>
                     <p>Your idea is seen by the rest of the community, more interesting ideas will gain more interest</p>
 
                      </div>

@@ -3,6 +3,33 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
 body {
 
+
+  #mainmenu, #mainmenu ul {list-style: none; margin: 0; padding: 0;}
+  #mainmenu ul {width: 160px;}
+  #mainmenu ul li {clear: both;}
+  #mainmenu > li {margin-right: 10px; position: relative;}
+  #mainmenu > li li {position: relative;}
+  #mainmenu > li ul {position: absolute; left:0;margin-top:8%;}
+  #mainmenu > li ul li ul {position: absolute; left: 160px; top: 0px;}
+  ul ul {display: none;}
+  ul li:hover > ul {display: block;}
+  
+  /*POZIOM 1*/
+  #mainmenu {margin: 21px 0 0 47% ;}
+  #mainmenu > li > a {display: table; width: auto; padding: 8px; border-radius: 6px; text-align: center; text-decoration: none; color: #84c5f7;}
+  #mainmenu > li:hover > a {background: #eee; color: #0090ff;}
+  
+  /*POZIOMY NIŻSZE*/
+  #mainmenu ul {font-size: 12px; border-radius: 3px; background: #F6F6F6;}
+  #mainmenu ul li > a {color: #999; display: block; padding: 10px; border-radius: 6px; text-decoration: none;text-align:left;}
+  #mainmenu ul li:hover > a {color: #eee; background: blue;}
+
+
+
+
+
+
+  
   
 
   .CalendarDay__highlighted_calendar {

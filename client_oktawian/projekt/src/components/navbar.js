@@ -58,9 +58,9 @@ export class Menu extends Component{
                         <Fund/>
                         <Col><Link to = "/browseideas">Fundraiser</Link></Col>
                         <Col><Link to = "/earnwithus">Plans</Link></Col>
-                        <Col><Logout/></Col>
                         <Col><Login/></Col>
                         <Col><Register/></Col>
+                        <Profil/>
                     </Row>
                 </Container>
             </div>
@@ -221,6 +221,75 @@ export class Fund extends RoleAwareComponentUser{
     const jsx = (
     <div>
         <Col><Link to = "/fund">Fund</Link></Col>
+    </div>
+      );
+
+      return this.shouldBeVisible() ? jsx : null;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export class Profil extends RoleAwareComponentUser{
+
+
+
+    constructor(props) {
+        super(props);
+
+        const { dispatch } = this.props;
+
+         // component will be visible for the roles below:
+        this.authorize = ['user'];
+
+        // This binding is necessary to make `this` work in the callback
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick(event) {
+          
+        userActions.logout();
+
+    }
+
+
+    render(){
+
+    const jsx = (
+    <div>
+        <Col>
+        <ul id="mainmenu">
+        <li className ="limenu"><a className ="link_menu tenth before after">Mail of User</a>
+          <ul>
+            <li><Link to ="/profile">User Profile</Link></li>
+            <li><Link to="/myfunds">My Funds</Link></li>
+            <li><Link to="/activehedges">Active Hedges</Link></li>
+            <li><Link to="/photography"><Logout/></Link></li>
+          </ul>
+        </li>
+        </ul>
+        </Col>
     </div>
       );
 
