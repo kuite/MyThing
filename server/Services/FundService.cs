@@ -10,6 +10,7 @@ using webapi.Model.Common;
 using webapi.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using webapi.Model.Database.Access;
+using System.Collections.Generic;
 
 namespace webapi.Services
 {
@@ -62,5 +63,33 @@ namespace webapi.Services
                 TotalSize = size
             };
         }
+
+        public async Task<List<Fund>> GetFundsByCategories(FundCategories categories)
+        {
+            List<FundEntity> entities = new List<FundEntity>();
+            List<string> searchCategories = categories.ToString().Split(", ").ToList();
+
+            var testlist = _context
+                    .Funds
+                    .Select(x => x.Categories).ToList();
+
+
+            var stop = 5;
+            entities.AddRange( _context
+                    .Funds
+                    .Where(x => HaveCommonItems(x.Categories, searchCategories)).ToList());  
+
+            return Mapper.Map<List<Fund>>(entities);
+        }
+
+        private bool HaveCommonItems(FundCategories categories, List<string> searchedCategories)
+        {
+            List<string> existingCategories = categories.ToString().Split(", ").ToList();
+            return existingCategories.Any(cat => searchedCategories.Contains(cat));
+        }
+
+        // public Task<List<Fund>> GetEndedFunds()
+        // {
+        // }
     }
 }
