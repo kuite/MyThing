@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 
 
 import {Navbar} from '../../components/navbar';
+import {SignInModule} from '../../components/signin'
+
 import {Header} from '../../components/Home/header';
 import {ChoiceSection} from '../../components/Home/choiceSection';
-import {SignInModule} from '../../components/signin'
+import {CarouselFinal} from '../../components/Home/carousel';
 
 
 
@@ -21,6 +23,8 @@ export default class Home extends Component{
                 <Header/>
                 <SignInModule/>
                 <ChoiceSection/>
+                
+                <CarouselFinal/>
             </div>
         )
     }

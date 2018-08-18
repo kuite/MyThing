@@ -3,6 +3,8 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
 body {
 
+  
+
   .CalendarDay__highlighted_calendar {
     background: #82E0AA;
     color: #186A3B;
