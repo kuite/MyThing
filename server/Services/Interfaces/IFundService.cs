@@ -14,6 +14,9 @@ namespace webapi.Services.Interfaces
         Task<Page<Fund>> GetFundsAsync(
             string fundGuid,
             PagingOptions pagingOptions);
-        Task<List<Fund>> GetFundsByCategories(FundCategories categories);
+
+        Task<List<Fund>> GetFundsByCategoriesAsync(FundCategories categories);
+
+        Task<List<Fund>> GetUserFundsAsync(string userId);
     }
 }

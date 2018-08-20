@@ -66,14 +66,14 @@ namespace webapi.Services
             };
         }
 
-        public async Task<List<Fund>> GetFundsByCategories(FundCategories categories)
+        public async Task<List<Fund>> GetFundsByCategoriesAsync(FundCategories categories)
         {
             List<FundEntity> entities = new List<FundEntity>();
             List<string> searchCategories = categories.ToString().Split(", ").ToList();
 
-            entities.AddRange( _context
+            entities.AddRange( await _context
                     .Funds
-                    .Where(x => HaveCommonItems(x.Categories, searchCategories)).ToList());  
+                    .Where(x => HaveCommonItems(x.Categories, searchCategories)).ToListAsync());  
 
             return _mapper.Map<List<Fund>>(entities);
         }
@@ -82,6 +82,18 @@ namespace webapi.Services
         {
             List<string> existingCategories = categories.ToString().Split(", ").ToList();
             return existingCategories.Any(cat => searchedCategories.Contains(cat));
+        }
+
+        public async Task<List<Fund>> GetUserFundsAsync(string userId)
+        {
+            List<FundEntity> entities = new List<FundEntity>();
+
+            entities.AddRange( await _context
+                    .Funds
+                    .Where(x => x.AuthorId.ToString() == userId).ToListAsync()
+            );
+
+            return _mapper.Map<List<Fund>>(entities);
         }
 
         // public Task<List<Fund>> GetEndedFunds()

@@ -78,10 +78,21 @@ namespace webapi.Controllers
         public async Task<IActionResult> GetFundsByCategoryAsync([FromBody]FundCategories categories)
         {
             if (categories == null) return NotFound();
-            var funds = await _fundService.GetFundsByCategories(categories);
+            var funds = await _fundService.GetFundsByCategoriesAsync(categories);
             return Ok(funds);
         }
 
+        [HttpPost("GetFundsByCategory")]
+        //[Authorize(Policy = "ApiUser")]
+        [ValidateModel]
+        public async Task<IActionResult> GetUserFundsAsync([FromBody]string userId)
+        {
+            if (string.IsNullOrEmpty(userId)) return NotFound();
+            var funds = await _fundService.GetUserFundsAsync(userId);
+            return Ok(funds);
+        }
+
+        // to do:
         // [HttpGet("GetEndedFunds")]
         // public async Task<IActionResult> GetEndedFunds()
         // {
