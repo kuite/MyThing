@@ -10,16 +10,19 @@ using webapi.Model.Common;
 using webapi.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using webapi.Model.Database.Access;
+using System.Collections.Generic;
 
 namespace webapi.Services
 {
     public sealed class FundService : IFundService
     {
         private readonly DatabaseContext _context;
+        private readonly IMapper _mapper;
 
-        public FundService(DatabaseContext context)
+        public FundService(DatabaseContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<Fund> GetFundAsync(string fundGuid)
@@ -62,5 +65,66 @@ namespace webapi.Services
                 TotalSize = size
             };
         }
+
+        public async Task<List<Fund>> GetFundsByCategoriesAsync(FundCategories categories)
+        {
+            List<FundEntity> entities = new List<FundEntity>();
+            List<string> searchCategories = categories.ToString().Split(", ").ToList();
+
+            entities.AddRange( await _context
+                    .Funds
+                    .Where(x => HaveCommonItems(x.Categories, searchCategories)).ToListAsync());  
+
+            return _mapper.Map<List<Fund>>(entities);
+        }
+
+        private bool HaveCommonItems(FundCategories categories, List<string> searchedCategories)
+        {
+            List<string> existingCategories = categories.ToString().Split(", ").ToList();
+            return existingCategories.Any(cat => searchedCategories.Contains(cat));
+        }
+
+        public async Task<List<Fund>> GetUserFundsAsync(string userId)
+        {
+            List<FundEntity> entities = new List<FundEntity>();
+
+            entities.AddRange( await _context
+                    .Funds
+                    .Where(x => x.AuthorId.ToString() == userId).ToListAsync()
+            );
+
+            return _mapper.Map<List<Fund>>(entities);
+        }
+
+        public async Task<Guid> GetNewFundId()
+        {
+            Guid id;
+            FundEntity itemWithWantedId;
+
+            do
+            {
+                id = Guid.NewGuid();
+                itemWithWantedId = await _context
+                    .Funds
+                    .SingleOrDefaultAsync(x => x.Id == id);
+            }
+            while(itemWithWantedId != null);
+
+            return id;                
+        }
+
+        public async Task<Fund> SaveFundAsync(Fund fund)
+        {
+            FundEntity entity = new FundEntity();
+            entity = _mapper.Map<FundEntity>(fund);
+            await _context.Funds.AddAsync(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Fund>(entity);
+        }
+
+        // to do:
+        // public Task<List<Fund>> GetEndedFunds()
+        // {
+        // }
     }
 }

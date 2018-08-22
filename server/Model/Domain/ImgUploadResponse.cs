@@ -5,7 +5,7 @@ namespace webapi.Model.Domain
 {
     public class ImgUploadResponse
     {
-        public bool IsSucess{get;set;}
-        public string Message{get;set;}
+        public bool IsSucess { get; set; }
+        public string Message { get; set; }
     }
 }
