@@ -96,6 +96,33 @@ namespace webapi.Services
             return _mapper.Map<List<Fund>>(entities);
         }
 
+        public async Task<Guid> GetNewFundId()
+        {
+            Guid id;
+            FundEntity itemWithWantedId;
+
+            do
+            {
+                id = Guid.NewGuid();
+                itemWithWantedId = await _context
+                    .Funds
+                    .SingleOrDefaultAsync(x => x.Id == id);
+            }
+            while(itemWithWantedId != null);
+
+            return id;                
+        }
+
+        public async Task<Fund> SaveFundAsync(Fund fund)
+        {
+            FundEntity entity = new FundEntity();
+            entity = _mapper.Map<FundEntity>(fund);
+            await _context.Funds.AddAsync(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Fund>(entity);
+        }
+
+        // to do:
         // public Task<List<Fund>> GetEndedFunds()
         // {
         // }

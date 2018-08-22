@@ -18,5 +18,9 @@ namespace webapi.Services.Interfaces
         Task<List<Fund>> GetFundsByCategoriesAsync(FundCategories categories);
 
         Task<List<Fund>> GetUserFundsAsync(string userId);
+
+        Task<Guid> GetNewFundId();
+
+        Task<Fund> SaveFundAsync(Fund fund);
     }
 }
