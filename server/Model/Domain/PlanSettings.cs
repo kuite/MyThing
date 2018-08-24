@@ -1,7 +1,7 @@
 using System;
 using webapi.Model.Common;
 
-namespace webapi.Model.Database
+namespace webapi.Model.Domain
 {
     public class PlanSettings
     {
