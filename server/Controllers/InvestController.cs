@@ -36,7 +36,16 @@ namespace webapi.Controllers
         [ValidateModel]
         public async Task<IActionResult> GetUserPlansAsync(string investorId)
         {
-            //var investments = 
+            var investments = await _investService.GetUserPlansAsync(investorId);
+            return null;
+        }
+
+        [HttpPost("SubmitNewPlan")]
+        // to do: access for admin
+        [ValidateModel]
+        public async Task<IActionResult> CreatePlanTypeAsync([FromBody]PlanSettings settings)
+        {
+            throw new NotImplementedException();
         }
 
     }

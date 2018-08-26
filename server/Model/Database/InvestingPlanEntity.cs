@@ -1,10 +1,12 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using webapi.Model.Common;
 
 namespace webapi.Model.Database
 {
     public class InvestingPlanEntity
     {
+        public int Id { get; set; }
         public string InvestorId { get; set; }
         public PlanType PlanType { get; set; }
         public decimal BtcComitted { get; set; }

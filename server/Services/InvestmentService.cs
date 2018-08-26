@@ -25,13 +25,36 @@ namespace webapi.Services
             _mapper = mapper;
         }
 
-        public async Task<PlanSettings> GetUserPlansAsync(string investorId)
+        public async Task<List<PlanSettings>> GetUserPlansAsync(string userId)
         {
-            // List<InvestingPlanEntity> entities;
-            // entities.AddRange( await _context
-            //     .Plans
-            //     .Where(x => x.));
-            return null;
+            List<InvestingPlanEntity> entities = new List<InvestingPlanEntity>();
+            entities.AddRange( await _context
+                .Plans
+                .Where(x => x.InvestorId == userId).ToListAsync());
+
+            List<InvestingPlan> investingPlans = _mapper.Map<List<InvestingPlan>>(entities);
+            
+            List<PlanSettingsEntity> planSettingsDb = await GetPlanSettingsAsync();
+            List<PlanSettings> planSettings = _mapper.Map<List<PlanSettings>>(planSettingsDb);
+            List<PlanSettings> result = new List<PlanSettings>();
+
+            foreach(var investingPlan in investingPlans)
+            {
+                PlanSettings settings = planSettings.SingleOrDefault(x => x.PlanType == investingPlan.PlanType);
+                settings.DurationDays = DateTime.Now.Day - investingPlan.StartDate.Day;
+                result.Add(settings);
+            }
+
+            return result;
         }
+
+        public async Task<List<PlanSettingsEntity>> GetPlanSettingsAsync()
+        {
+            List<PlanSettingsEntity> planSettings = new List<PlanSettingsEntity>();
+            planSettings.AddRange( await _context
+                .PlansSettings.ToListAsync());
+
+            return planSettings;
+        }        
     }
 }
