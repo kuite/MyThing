@@ -45,7 +45,8 @@ namespace webapi.Controllers
         [ValidateModel]
         public async Task<IActionResult> CreatePlanTypeAsync([FromBody]PlanSettings settings)
         {
-            throw new NotImplementedException();
+            var result = await _investService.CreatePlanTypeAsync(settings);
+            return Ok(result);
         }
 
     }

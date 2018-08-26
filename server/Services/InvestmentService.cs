@@ -55,6 +55,17 @@ namespace webapi.Services
                 .PlansSettings.ToListAsync());
 
             return planSettings;
-        }        
+        }
+
+        public async Task<PlanSettings> CreatePlanTypeAsync(PlanSettings settings)
+        {
+            PlanSettingsEntity entity = _mapper.Map<PlanSettingsEntity>(settings);
+            if(settings.MinimumBtc > 0 && settings.ROI > 0)
+            {
+                await _context.PlansSettings.AddAsync(entity);
+                _context.SaveChanges();
+            }
+            return _mapper.Map<PlanSettings>(entity);
+        }
     }
 }
