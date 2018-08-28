@@ -19,6 +19,9 @@ export class Navbar extends Component{
         this.handleScroll = this.handleScroll.bind(this);
         this.state={Navbar: 'Navbar'}
       }
+
+
+
         componentDidMount() {
           window.addEventListener('scroll', this.handleScroll);
         };
@@ -58,8 +61,8 @@ export class Menu extends Component{
                         <Fund/>
                         <Col><Link to = "/browseideas">Fundraiser</Link></Col>
                         <Col><Link to = "/earnwithus">Plans</Link></Col>
-                        <Col><Login/></Col>
                         <Col><Register/></Col>
+                        <Col><Login/></Col>
                         <Profil/>
                     </Row>
                 </Container>
@@ -285,7 +288,7 @@ export class Profil extends RoleAwareComponentUser{
             <li><Link to ="/profile">User Profile</Link></li>
             <li><Link to="/myfunds">My Funds</Link></li>
             <li><Link to="/activehedges">Active Hedges</Link></li>
-            <li><Link to="/photography"><Logout/></Link></li>
+            <li><Link to="/"><Logout/></Link></li>
           </ul>
         </li>
         </ul>

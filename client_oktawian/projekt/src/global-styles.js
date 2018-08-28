@@ -22,15 +22,11 @@ body {
   /*POZIOMY NIŻSZE*/
   #mainmenu ul {font-size: 12px; border-radius: 3px; background: #F6F6F6;}
   #mainmenu ul li > a {color: #999; display: block; padding: 10px; border-radius: 6px; text-decoration: none;text-align:left;}
-  #mainmenu ul li:hover > a {color: #eee; background: blue;}
+  #mainmenu ul li:hover > a {color: #eee; background:blue;}
 
 
 
 
-
-
-  
-  
 
   .CalendarDay__highlighted_calendar {
     background: #82E0AA;
@@ -134,30 +130,33 @@ input{
 //
 
 h1{
-
+  font-family:Lato;
   color:#222064;
 }
 
 h2{
+  font-family:Lato;
   color:#222064;
   font-size:24px;
   font-weight:500;
 }
 
 h3{
+  font-family:Lato;
   color:#222064;
   font-size:18px;
   font-weight:300;
 }
 
 p{
+  font-family:Museo Sans;
   font-size:14px;
   color:#75739B;
   font-weight:100;
 }
 
 .Header h1{
-font-family:Helvetica;
+font-family:Lato;
 font-size:48px;
 font-weight:100;
 color:white;
@@ -170,7 +169,7 @@ margin-top:33%;
   }
 
 .Header p{
-  font-family:Helvetica;
+  font-family:Museo Sans;
   font-size:14px;
   font-weight:200;
   color:white;
@@ -194,7 +193,7 @@ margin-top:33%;
     position:fixed;
     width:100%;
     height:52px;
-    background-color:#ea9e33;
+    background-color:white;
     transition: background-color 0.5s ease;
     box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.4);
   }
@@ -220,7 +219,7 @@ margin-top:33%;
 
   .Login{
     margin-right:2%;
-    background-color:#00C57F;
+    background-image: linear-gradient(to right,#FABD61 0%,#F76B1C 100%);
     width:120px;
     height:30px;
     font-size:12px;
@@ -246,13 +245,13 @@ margin-top:33%;
 
   .SecondaryButton{
     margin:2% 2% 0 0;
-    border-color:#00C57F;
+    border-color:#FF9100;
     border-size:2px;
     border-style:solid;
     width:120px;
     height:30px;
     font-size:12px;
-    color:#00C57F;
+    color:#FF9100;
     background-color:transparent;
     border-radius:4px;
     box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 4px 0 rgba(0,0,0,0);
@@ -261,8 +260,8 @@ margin-top:33%;
   .SecondaryButton:hover{
     transition: background-color 0.5s ease;
     cursor:pointer;
-    background-color:#00C57F;
-    border-color:#00C57F;
+    background-image: linear-gradient(to right,#FABD61 0%,#F76B1C 100%);
+    border-color:#FABD61;
     border-size:2px;
     border-style:solid;
     width:120px;
@@ -300,7 +299,7 @@ margin-top:33%;
   .HeaderLeft{
   width:61.8034%;
   height:100%;
-  background-image: linear-gradient(to right,#6a11cb 0%,#2575fc 100%);
+  background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
   float:left;
   
   
@@ -405,7 +404,6 @@ margin-top:33%;
 // Browse Ideas
 
 .SectionsHeader{
-  background-image: linear-gradient(to right,#6a11cb 0%,#2575fc 100%);
   width:100%;
   height:470px;
   padding-top:3%;
@@ -537,7 +535,7 @@ display:inline-flex;
 
 .RegisterForm{
   width:100%;
-  background-image: linear-gradient(to right,#6a11cb 0%,#2575fc 100%);
+  background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
   height:100%;
   position:absolute;
 }
@@ -648,6 +646,33 @@ margin:3% 0 3% 0;
 .SecureSection p{
   float:left;
 }
+
+// CAROUSELL STYLING
+
+.carousel-control-prev-icon{
+  width:60px;
+  height:60px;
+  background-image: url(img/arrow_left.svg);
+}
+
+.carousel-control-next-icon{
+width:60px;
+height:60px;
+background-image: url(img/arrow_right.svg);
+}
+
+
+/////
+
+.HomeInteraction{
+  margin:20% 0 20% 0;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+
+
+
 
 
 `;

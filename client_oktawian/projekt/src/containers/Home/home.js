@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 
+import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
+
 
 
 import {Navbar} from '../../components/navbar';
 import {SignInModule} from '../../components/signin'
 
+
 import {Header} from '../../components/Home/header';
 import {ChoiceSection} from '../../components/Home/choiceSection';
 import {CarouselFinal} from '../../components/Home/carousel';
+import {Advantages} from '../../components/Home/advantages';
+import {HomeInteraction} from '../../components/Home/interaction';
 
 
 
@@ -22,9 +27,13 @@ export default class Home extends Component{
                 <Navbar/>
                 <Header/>
                 <SignInModule/>
+
                 <ChoiceSection/>
-                
+                <Container>
                 <CarouselFinal/>
+                <Advantages/>
+                <HomeInteraction/>
+                </Container>
             </div>
         )
     }

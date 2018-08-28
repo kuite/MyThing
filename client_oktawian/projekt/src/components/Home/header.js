@@ -23,7 +23,13 @@ export class Header extends Component{
                     </Row>
                     <Row>
                         <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <p>Get started now.</p>
+                            <p>the place where you can help & earn</p>
+                         </Col>
+                    </Row>
+
+                    <Row>
+                            <Col sm="12" md={{ size: 8, offset: 3 }}>
+                            <div className="Login">Start Now!</div>
                          </Col>
                     </Row>
                          

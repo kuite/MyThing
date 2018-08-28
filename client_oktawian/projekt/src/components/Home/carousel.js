@@ -44,6 +44,10 @@ export class CarouselFinal extends Component {
     this.animating = false;
   }
 
+
+
+
+
   next() {
     if (this.animating) return;
     const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
@@ -55,6 +59,11 @@ export class CarouselFinal extends Component {
     const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
+
+
+
+
+
 
   goToIndex(newIndex) {
     if (this.animating) return;
@@ -78,15 +87,26 @@ export class CarouselFinal extends Component {
     });
 
     return (
+
+
       <Carousel
         activeIndex={activeIndex}
         next={this.next}
         previous={this.previous}
       >
+
+
         <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
         {slides}
+ 
+
+
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
         <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+
+
+
+
       </Carousel>
     );
   }
