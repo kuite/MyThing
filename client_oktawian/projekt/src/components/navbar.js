@@ -20,8 +20,6 @@ export class Navbar extends Component{
         this.state={Navbar: 'Navbar'}
       }
 
-
-
         componentDidMount() {
           window.addEventListener('scroll', this.handleScroll);
         };
@@ -39,7 +37,7 @@ export class Navbar extends Component{
                 <Container>
                     <Row>
                         <Col sm={{size:3,}}>Logo</Col>
-                        <Col><Menu/></Col>
+                        <Col><Menu navbarState={this.state.Navbar} /></Col>
                     </Row>
                 </Container>
             </div>
@@ -47,6 +45,8 @@ export class Navbar extends Component{
         )
     }
 }
+
+
 
 export class Menu extends Component{
 
@@ -56,11 +56,11 @@ export class Menu extends Component{
              <div className = "Menu">
                 <Container>
                     <Row>
-                        <Col><Link to = "/">Home</Link></Col>
+                        <Col><Link to = "/"><a className ={this.props.navbarState}>Home</a></Link></Col>
                         <Panel/>
                         <Fund/>
-                        <Col><Link to = "/browseideas">Fundraiser</Link></Col>
-                        <Col><Link to = "/earnwithus">Plans</Link></Col>
+                        <Col><Link to = "/browseideas"><a className ={this.props.navbarState}>Fundraiser</a></Link></Col>
+                        <Col><Link to = "/earnwithus"><a className ={this.props.navbarState}>Plans</a></Link></Col>
                         <Col><Register/></Col>
                         <Col><Login/></Col>
                         <Profil/>
@@ -109,7 +109,7 @@ export class Register extends RoleAwareComponent{
             const jsx = (
                 <div className = "Register">  
 
-                    <Link to="/register"><button className ="SecondaryButton">Create Account</button></Link>  
+                    <Link to="/register"><button className ="Login">Create Account</button></Link>  
                 </div>
               );
 
@@ -185,7 +185,7 @@ export class Panel extends RoleAwareComponentUser{
 
     const jsx = (
     <div>
-        <Col><Link to = "/HomePage">Panel</Link></Col>
+        <Col><Link to = "/HomePage"><a className ={this.props.navbarState}>Panel</a></Link></Col>
     </div>
       );
 

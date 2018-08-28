@@ -13,6 +13,7 @@ import {ChoiceSection} from '../../components/Home/choiceSection';
 import {CarouselFinal} from '../../components/Home/carousel';
 import {Advantages} from '../../components/Home/advantages';
 import {HomeInteraction} from '../../components/Home/interaction';
+import {Policy} from '../../components/Home/policy';
 
 
 
@@ -28,7 +29,6 @@ export default class Home extends Component{
                 <Header/>
                 <SignInModule/>
                 <ChoiceSection/>
-
                 <CarouselFinal/>
                     <Container>
                     <Row>
@@ -36,6 +36,7 @@ export default class Home extends Component{
                     </Row>
                     <Row>
                        <HomeInteraction/> 
+                       <Policy/>
                     </Row>
                 </Container>
             </div>

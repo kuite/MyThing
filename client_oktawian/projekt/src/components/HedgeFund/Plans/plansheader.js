@@ -12,8 +12,8 @@ export class PlansHeader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Plans for investors</h1>
-                        <p>Do you want to participate in the platform's operation?</p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Hedgefunds</h1>
+                        <p>Plan for investors, who are looking for stable income.</p> 
                         </Col>
                     </Row>
                 </Container>

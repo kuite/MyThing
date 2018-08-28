@@ -23,8 +23,6 @@ export default class Browseideas extends Component{
 };
 
 
-
-
 class Main extends React.Component {
 
     constructor(props) {
@@ -145,6 +143,8 @@ const UI = ({
   
   <div>
     <Container>
+
+
       <div className="project_options"><br/><br/>
         <h2>Find the best alternative for yourself</h2>
         <p>All added ideas can become a reality with your help, choose what is most important to you</p>
@@ -155,9 +155,15 @@ const UI = ({
          )}
        </div>
      </div>
+
+
+
+
      <div>
        <Result key ={i} className="Projects" state={state} />
      </div>
+
+     
      </Container>
    </div>
   ;

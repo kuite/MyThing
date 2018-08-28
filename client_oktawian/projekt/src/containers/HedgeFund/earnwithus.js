@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 
 import '../../global-styles';
 
-import {PlansHeader} from '../../components//HedgeFund/Plans/plansheader';
+import {PlansHeader} from '../../components/HedgeFund/Plans/plansheader';
+import {Work, Start} from './Plans/basic';
 
 import BasicImg from '../../img/basic.svg';
 import IntermediateImg from '../../img/intermediate.svg';
-import ProImg from '../../img/pro.svg';
 
 
 
@@ -39,16 +39,14 @@ export class Plans extends Component{
             <div className="PlansHeader">       
 
                 <PlansHeader/>  
+                <Work/>
                 <Plan/>
+                <Start/>
 
             </div>
         )
     }
 };
-
-
-
-
 
 
 class Plan extends Component{
@@ -58,9 +56,8 @@ class Plan extends Component{
       <div>
         <Container>
         <Row>
-            <Col sm={{size:4}}><Basic/></Col>
-            <Col sm={{size:4}}><Intermediate/></Col>
-            <Col sm={{size:4}}><Pro/></Col>
+            <Col sm={{size:6}}><Lightning/></Col>
+            <Col sm={{size:6}}><Storm/></Col>
         </Row>
         </Container>
       </div>
@@ -69,76 +66,42 @@ class Plan extends Component{
 }
 
 
-const Basic = (props) => {
-    return (
+
+class Lightning extends Component{
+
+  render(){
+    return(
       <div>
-        <Card>
-          <CardImg top width="100%" src={BasicImg} alt="Card image cap" />
-          <CardBody>
-            <CardTitle><h2>Basic</h2></CardTitle>
-            <CardSubtitle>0.005 BTC</CardSubtitle><br/>
-            <CardText>
-            <b>Risk:</b> low<br/>
-            <b>Income:</b> ~0.0002/day<br/><br/>
-
-            Plan for people who are starting an adventure with bitcoin, low risk and optimal growth.
-          
-            </CardText><br/>
-            <button className="SecondaryButton">
-                 <Link to="/basic">Learn more now</Link>
-            </button>
-          </CardBody>
-        </Card>
+        <Container>
+        <Row>
+          <div>
+              <h1>Lightning</h1>
+              <p>90 days</p>
+              <p>15%</p>
+              <p>0.5 BTC </p>
+              <button className ="SecondaryButton">Learn More...</button>
+          </div>
+        </Row>
+        </Container>
       </div>
-    );
-  };
+    )
+  }
+}
 
-  const Intermediate = (props) => {
-    return (
+class Storm extends Component{
+
+  render(){
+    return(
       <div>
-        <Card>
-          <CardImg top width="100%" src={IntermediateImg} alt="Card image cap" />
-          <CardBody>
-            <CardTitle><h2>Intermediate</h2></CardTitle>
-            <CardSubtitle>0.010 BTC</CardSubtitle><br/>
-            <CardText>
-            <b>Risk:</b> medium<br/>
-            <b>Income:</b> ~0.005/day<br/><br/>
-
-            Plan for intermediate, high growth, but the risk also increases. Long-term probability of profits
-          
-          </CardText><br/>
-            <button className="SecondaryButton">
-                 <Link to="/intermediate">Learn more now</Link>
-            </button>
-          </CardBody>
-        </Card>
+        <Container>
+        <Row>
+            <h1>Storm</h1>
+        </Row>
+        </Container>
       </div>
-    );
-  };
-
-  const Pro = (props) => {
-    return (
-      <div>
-        <Card>
-          <CardImg top width="100%" src={ProImg} alt="Card image cap" />
-          <CardBody>
-            <CardTitle><h2>Pro</h2></CardTitle>
-            <CardSubtitle>0.1 BTC</CardSubtitle><br/>
-            <CardText> <b>Risk:</b> medium<br/>
-            <b>Income:</b> ~0.075/day<br/><br/>
-
-            Plan for advanced, fast growth, a short-term investment for experienced players
-          </CardText><br/>
-            <button className="SecondaryButton">
-                 <Link to="/pro">Learn more now</Link>
-            </button>
-          </CardBody>
-        </Card>
-      </div>
-    );
-  };
-
+    )
+  }
+}
 
 
 

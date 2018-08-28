@@ -144,8 +144,7 @@ h2{
 h3{
   font-family:Lato;
   color:#222064;
-  font-size:18px;
-  font-weight:300;
+  font-size:22px;
 }
 
 p{
@@ -158,7 +157,6 @@ p{
 .Header h1{
 font-family:Lato;
 font-size:48px;
-font-weight:100;
 color:white;
 margin-top:33%;
 
@@ -202,17 +200,27 @@ margin-top:33%;
     margin-top:10px;
   }
 
-  .Menu  a{
+  .Menu a.Navbar{
+    width:0%;
+    height:0%;
     font-size:14px;
     font-family:Helvetica;
-    margin-top:30px !important;
     color:white;
+  }
+
+  a.Navbar.NavbarScroll{
+    width:0%;
+    height:0%;
+    background-color:none;
+    padding:0%;
+    font-size:14px;
+    font-family:Helvetica;
+    color:#222064;
   }
 
   .Menu  a:hover{
     font-size:14px;
     font-family:Helvetica;
-    margin-top:30px !important;
     color:#00C57F;
     text-decoration:none;
   }
@@ -435,8 +443,65 @@ background-image: url(img/arrow_right.svg);
   display:none;
 }
 
-
-
+.Rodo{
+    margin-top:6%;
+    width:80%;
+    height:100%;
+    text-align:left;
+    float:left;
+  }
+  
+  .Rodo > h1{
+    margin:8% 10% 0% 13%;
+    font-family: SF-Pro-Display-Light, Helvetica, Arial;
+    font-size: 42px;
+    font-weight:200;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #021a38;
+  }
+  
+  .Rodo > h2{
+    margin:2% 10% 2% 13%;
+  }
+  
+  .Rodo > p{
+    margin:2% 10% 0% 13%;
+    font-size:12px;
+  }
+  
+  .rodo_button{
+    width:140px;
+    height:20px;
+    right:20px;
+    background-color:transparent;
+    border-color:white;
+    position:absolute;
+    color:white;
+  }
+  
+    .rodo_button:hover{
+      width:140px;
+      height:20px;
+      right:20px;
+      background-color:white;
+      border-color:white;
+      position:absolute;
+      cursor:pointer;
+      color:red;
+  }
+  
+  .rodo_info > p{
+    margin:0;
+    font-size:12px;
+    font-family:HarmoniaDemo;
+    color:white;
+  }
+  
+  .rodo_info > p > a {
+    text-decoration:underline !important;
+    color:white !important;
+  }
 
 
 
@@ -487,7 +552,6 @@ background-image: url(img/arrow_right.svg);
 .SectionsHeader{
   width:100%;
   height:470px;
-  padding-top:3%;
 }
 
 .SectionsHeader h1{
@@ -495,7 +559,7 @@ background-image: url(img/arrow_right.svg);
   font-size:48px;
   font-weight:400;
   color:white;
-  margin-top:15%;
+  margin-top:25%;
 }
 
 .SectionHeader > img{
@@ -512,6 +576,7 @@ float: left;
 
 .SectionHeaderRight > img{
   width:100%;
+  height:470px;
   float:left;
 }
 

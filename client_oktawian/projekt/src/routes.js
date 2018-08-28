@@ -22,9 +22,8 @@ import browseideas from './containers/FundRaiser/browseideas';
 import earnwithus from './containers/HedgeFund/earnwithus';
 
 //Plans
-import Basic from './containers/HedgeFund/Plans/basic';
-import Intermediate from './containers/HedgeFund/Plans/intermediate';
-import Pro from './containers/HedgeFund/Plans/pro'
+import Lightning from './containers/HedgeFund/Plans/Lightning';
+import Storm from './containers/HedgeFund/Plans/Storm';
 
 
 import idea from './containers/FundRaiser/idea';
@@ -76,11 +75,8 @@ class App extends Component {
 
               <Route path="/idea" component={idea} />
 
-              <Route path="/basic" component={Basic} />
-              <Route path="/intermediate" component={Intermediate} />
-              <Route path="/pro" component={Pro} />
-
-
+              <Route path="/lightning" component={Lightning} />
+              <Route path="/storm" component={Storm} />
 
               <PrivateRoute path ="/homepage" component ={homepage}/>
               <PrivateRoute path ="/increase" component ={increase}/>
