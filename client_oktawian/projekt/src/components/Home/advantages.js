@@ -12,11 +12,8 @@ export class Advantages extends Component{
     render(){
         return(
             <div className ="FundHeader2">
-                <h2>What's happening with your growing idea?</h2>
-                <p>Our platform makes these ideas crystallize and have a much better chance of success.</p>
 
                 <div className ="FundHeader2Icons">
-
                     <div className="FundIcon"><img src={fundheadericon1}/>
                     <h3>Add your fundraisers</h3>
                     <p>Filling out a short form will allow you to add your idea, it will be available to others</p>
@@ -31,7 +28,6 @@ export class Advantages extends Component{
                     <div className="FundIcon"><img src={fundheadericon3}/>
                     <h3>Be part of our HedgeFund</h3>
                     <p>If your idea is interesting, there will be investors and people who will want to support it</p>
-                    
                      </div>
                 </div>
             </div>

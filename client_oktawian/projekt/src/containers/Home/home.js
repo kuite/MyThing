@@ -27,12 +27,16 @@ export default class Home extends Component{
                 <Navbar/>
                 <Header/>
                 <SignInModule/>
-
                 <ChoiceSection/>
-                <Container>
+
                 <CarouselFinal/>
-                <Advantages/>
-                <HomeInteraction/>
+                    <Container>
+                    <Row>
+                        <Advantages/>
+                    </Row>
+                    <Row>
+                       <HomeInteraction/> 
+                    </Row>
                 </Container>
             </div>
         )

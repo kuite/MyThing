@@ -301,10 +301,15 @@ margin-top:33%;
   height:100%;
   background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
   float:left;
-  
-  
   }
   
+.Choice_sections{
+  position:absolute;
+  width:100%;
+}
+
+
+
   .HeaderRight{
     width:38.17%;
     height:800px;
@@ -346,13 +351,13 @@ margin-top:33%;
   }
 
   .Section h2{
-    font-family:Helvetica;
+    font-family:Lato;
     margin:2% 0 2% 0%;
     font-size:24px;
   }
 
   .Section p{
-    font-family:Helvetica;
+    font-family:Museo Sans;
     font-weight:100;
     margin:2% 0% 2% 0%;
     font-size:14px;
@@ -378,6 +383,75 @@ margin-top:33%;
     height:200px;
   }
 
+  /////
+
+  .HomeInteraction{
+    margin:12% 0 12% 0;
+    width:100%;
+    height:100%;
+    text-align:center;
+  }
+  
+  
+  /////Carousel
+
+  .carousel{
+    position:relative;
+    margin-top:280px;
+    margin-bottom:80px;
+  }
+
+  .d-md-block{
+    display: block !important;
+    position: fixed;
+    margin-left: 40%;
+    width: 30%;
+    top: 10%;
+    text-align: left;
+    float: left;
+  }
+
+
+  .d-md-block h3{
+    padding-bottom:40px;
+    font-size:42px;
+    font-family:Lato;
+    color:#222064;
+  }
+
+.carousel-control-prev-icon{
+  width:60px;
+  height:60px;
+  background-image: url(img/arrow_left.svg);
+}
+
+.carousel-control-next-icon{
+width:60px;
+height:60px;
+background-image: url(img/arrow_right.svg);
+}
+
+.carousel-indicators{
+  display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Browse Ideas
 
@@ -392,6 +466,13 @@ margin-top:33%;
     height:100%;
     background-color:grey;
   }
+
+
+
+
+
+
+
 
 
 // Get Funded
@@ -456,7 +537,7 @@ display:inline-flex;
 }
 
 .FundIcon{
-  width:300px;
+  width:350px;
   float:left;
 
 }
@@ -647,29 +728,6 @@ margin:3% 0 3% 0;
   float:left;
 }
 
-// CAROUSELL STYLING
-
-.carousel-control-prev-icon{
-  width:60px;
-  height:60px;
-  background-image: url(img/arrow_left.svg);
-}
-
-.carousel-control-next-icon{
-width:60px;
-height:60px;
-background-image: url(img/arrow_right.svg);
-}
-
-
-/////
-
-.HomeInteraction{
-  margin:20% 0 20% 0;
-  width:100%;
-  height:100%;
-  text-align:center;
-}
 
 
 
