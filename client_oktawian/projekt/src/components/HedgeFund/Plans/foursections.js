@@ -25,7 +25,7 @@ export class SectionOne extends Component{
 
     render(){
         return(
-            <div className ="Section">
+            <div className ="SectionPlans">
                 <div className ="SectionInside">
                     <h2>medium<br/>
                     <div className ="Rectangle"></div>
@@ -42,7 +42,7 @@ export class SectionTwo extends Component{
 
     render(){
         return(
-            <div className ="Section">
+            <div className ="SectionPlans">
                 <div className ="SectionInside">
                     <h2>-0.54%<br/>
                     <div className ="Rectangle"></div>
@@ -60,7 +60,7 @@ export class SectionThree extends Component{
 
     render(){
         return(
-            <div className ="Section">
+            <div className ="SectionPlans">
               <div className ="SectionInside">
                     <h2>+4,77%<br/>
                     <div className ="Rectangle"></div>
@@ -77,7 +77,7 @@ export class SectionFour extends Component{
 
     render(){
         return(
-            <div className ="Section">
+            <div className ="SectionPlans">
                   <div className ="SectionInside">
                     <h2>+14,77%<br/>
                     <div className ="Rectangle"></div>

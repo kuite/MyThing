@@ -6,6 +6,8 @@ import { userActions } from '../_actions/user.actions';
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
 
+import {LogoColor} from '../img/logocolor.svg';
+import {LogoWhite} from '../img/logowhite.svg';
 
 import {RoleAwareComponent, RoleAwareComponentUser} from './roleawarecomponent';
 
@@ -36,7 +38,7 @@ export class Navbar extends Component{
             <div onScroll={this.handleScroll.bind(this)} className ={this.state.Navbar}>
                 <Container>
                     <Row>
-                        <Col sm={{size:3,}}>Logo</Col>
+                        <Col sm={{size:3}}><img src ={LogoColor}/></Col>
                         <Col><Menu navbarState={this.state.Navbar} /></Col>
                     </Row>
                 </Container>

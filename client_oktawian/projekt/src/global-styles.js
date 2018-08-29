@@ -150,7 +150,6 @@ h3{
 }
 
 p{
-  text-align:left;
   font-family:Museo Sans;
   font-size:14px;
   color:#75739B;
@@ -338,6 +337,17 @@ margin-top:33%;
     float:left;
     width: calc(25% - 1px);
     height:280px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#BEBEBE;
+    text-align:center
+  }
+
+  .SectionPlans{
+    padding:2%;
+    float:left;
+    width: calc(25% - 1px);
+    height:180px;
     border-style: solid;
     border-width: 1px;
     border-color:#BEBEBE;
@@ -626,12 +636,18 @@ display:inline-flex;
 .FundIcon{
   width:350px;
   float:left;
-
 }
 
 .FundIcon > img{
   height:80px;
   margin:5% 0 5% 0;
+}
+
+.FundIcon > p{
+  width:80%
+  margin-left:10%;
+  text-align:center;
+
 }
 
 
@@ -702,6 +718,38 @@ display:inline-flex;
   margin-top:18px;
   margin-left:60px;
 }
+
+.PlanFeatures{
+  margin-top:17%;;
+  text-align:center;
+}
+
+
+
+// LAW NOTE
+
+
+.Invest{
+  text-align:center;
+}
+
+.LawNote{
+  text-align:center;
+  width: 950px;
+  height: 260px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(91, 91, 91, 0.5);
+}
+
+.LawNote > p{
+font-size:12px;
+}
+
+
+
+
+
 
 
 
