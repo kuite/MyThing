@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 import '../../global-styles';
 
 import {PlansHeader} from '../../components/HedgeFund/Plans/plansheader';
-import {Work, Start} from './Plans/basic';
+import {Work, Start} from '../../components/HedgeFund/Plans/basic';
 
-import BasicImg from '../../img/basic.svg';
-import IntermediateImg from '../../img/intermediate.svg';
+import LightningPlan from '../../img/lightningplan.jpg';
+import StormPlan from '../../img/stormplan.jpg';
 
 
 
@@ -74,12 +74,15 @@ class Lightning extends Component{
       <div>
         <Container>
         <Row>
-          <div>
+          <div className ="Plan">
+
+          <img src ={LightningPlan}/>
               <h1>Lightning</h1>
-              <p>90 days</p>
-              <p>15%</p>
-              <p>0.5 BTC </p>
-              <button className ="SecondaryButton">Learn More...</button>
+              <p>90 days<br/>
+              15%<br/>
+              0.5 BTC <br/>
+              </p>
+              <Link to ="/Lightning"><button className ="SecondaryButton">Learn More...</button></Link>
           </div>
         </Row>
         </Container>
@@ -95,7 +98,16 @@ class Storm extends Component{
       <div>
         <Container>
         <Row>
-            <h1>Storm</h1>
+          <div className ="Plan">
+
+          <img src ={StormPlan}/>
+              <h1>Storm</h1>
+              <p>270 days<br/>
+              8-10%<br/>
+              1 BTC <br/>
+              </p>
+              <Link to ="/Storm"><button className ="SecondaryButton">Learn More...</button></Link>
+          </div>
         </Row>
         </Container>
       </div>

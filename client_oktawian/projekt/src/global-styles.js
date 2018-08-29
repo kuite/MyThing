@@ -3,6 +3,8 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
 body {
 
+  background-color:#F3F6F7;
+
 
   #mainmenu, #mainmenu ul {list-style: none; margin: 0; padding: 0;}
   #mainmenu ul {width: 160px;}
@@ -148,6 +150,7 @@ h3{
 }
 
 p{
+  text-align:left;
   font-family:Museo Sans;
   font-size:14px;
   color:#75739B;
@@ -518,8 +521,27 @@ background-image: url(img/arrow_right.svg);
 
 
 
-  // Browse Ideas
+  // FUNRAISERS
 
+.Categories_Header{
+  margin-top:10%;
+}
+
+.Categories_Header > h2{
+  text-align:center;
+}
+
+.Categories_Header > p{
+  text-align:center;
+}
+
+
+  .Categories{
+    text-align:center;
+    width:100%;
+    margin-bottom:15%;
+    vertical-align: middle;
+  }
 
   .Idea{
     margin:5% 0 5% 0;
@@ -555,7 +577,7 @@ background-image: url(img/arrow_right.svg);
 }
 
 .SectionsHeader h1{
-  font-family:Helvetica;
+  font-family:Lato;
   font-size:48px;
   font-weight:400;
   color:white;
@@ -636,10 +658,53 @@ display:inline-flex;
 .PlanElement{
   margin:0% 0 10% 0;
 }
+.PlanElement > h2{
+  margin:10% 0 5% 0;
+}
+
+.PlanElement > p{
+  margin:10% 0 5% 0;
+}
 
 .PlanSection{
   width:100%;
   margin:2% 0 7% 0;
+}
+
+.Plan{
+  width: 510px;
+  height: 255px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(91, 91, 91, 0.5);
+}
+
+.Plan > img{
+  width: 208px;
+  height: 255px;
+  float:left;
+}
+
+.Plan > h1{
+  margin-top:32px;
+  margin-left:270px;
+  font-size:24px;
+}
+
+.Plan > p{
+  margin-top:18px;
+  margin-left:270px;
+  color: #75739b;
+}
+
+.Plan .SecondaryButton{
+  float:left;
+  margin-top:18px;
+  margin-left:60px;
+}
+
+
+
 }
 
 

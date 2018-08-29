@@ -65,7 +65,6 @@ class Main extends React.Component {
     render() {
       return (
       <div>
-        {this.state.pictures}
       <UI setCategory={this.setCategory} state={this.state} />;
       </div>
       )
@@ -145,11 +144,11 @@ const UI = ({
     <Container>
 
 
-      <div className="project_options"><br/><br/>
-        <h2>Find the best alternative for yourself</h2>
+      <div className="Categories_Header"><br/><br/>
+        <h2>Find what interests you</h2>
         <p>All added ideas can become a reality with your help, choose what is most important to you</p>
   
-       <div className ="filters_button animated fadeIn">
+       <div className ="Categories">
          {productCategories.map((category, i) =>
            <OptionCategory key ={i} setCategory={setCategory} category={category} />
          )}
