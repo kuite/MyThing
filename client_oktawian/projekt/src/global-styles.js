@@ -179,6 +179,13 @@ margin-top:33%;
 
 //Navbar + Menu
 
+
+.Logo{
+  margin-top:2%;
+  width:140px;
+  height:100%;
+}
+
   .Navbar{
     z-index:10000;
     position:fixed;
@@ -199,30 +206,32 @@ margin-top:33%;
   }
 
   .Menu {
-    margin-top:10px;
+    margin-top:15px;
   }
 
   .Menu a.Navbar{
+    letter-spacing:1.5px;
     width:0%;
     height:0%;
     font-size:14px;
-    font-family:Helvetica;
+    font-family:Museo Sans;
     color:white;
   }
 
   a.Navbar.NavbarScroll{
+    letter-spacing:1.5px;
     width:0%;
     height:0%;
     background-color:none;
     padding:0%;
     font-size:14px;
-    font-family:Helvetica;
+    font-family:Museo Sans;
     color:#222064;
   }
 
   .Menu  a:hover{
     font-size:14px;
-    font-family:Helvetica;
+    font-family:Museo Sans;
     color:#00C57F;
     text-decoration:none;
   }
@@ -254,7 +263,7 @@ margin-top:33%;
   }
 
   .SecondaryButton{
-    margin:2% 2% 0 0;
+    margin:0% 0% 0 0;
     border-color:#FF9100;
     border-size:2px;
     border-style:solid;
