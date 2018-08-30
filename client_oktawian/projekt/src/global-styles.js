@@ -181,9 +181,19 @@ margin-top:33%;
 
 
 .Logo{
-  margin-top:2%;
-  width:140px;
-  height:100%;
+  margin-top:3%;
+  width:150px;
+  height:80%;
+  background-image: url(img/logowhite.svg);
+  background-repeat: no-repeat;
+}
+
+.LogoScroll{
+  margin-top:3%;
+  width:150px;
+  height:80%;
+  background-image: url(img/logocolor.svg);
+  background-repeat: no-repeat;
 }
 
   .Navbar{
@@ -851,7 +861,7 @@ google-login{
 
 .HomeFund {
   padding-top:5%;
-  background-image: linear-gradient(to right,#6a11cb 0%,#2575fc 100%);
+  background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
   width:100%;
   height:1800px;
 }

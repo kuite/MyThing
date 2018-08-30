@@ -37,6 +37,10 @@ import policyprivacy from './containers/Authorized/PolicyPrivacy';
 import {RegisterPage} from './containers/RegisterPage/RegisterPage.jsx';
 import {LoginPage} from './containers/LoginPage/LoginPage.jsx';
 
+import {ActiveHedges} from './containers/Authorized/ActiveHedges/ActiveHedges';
+import {UserProfile} from './containers/Authorized/UserProfile/UserProfile';
+import {MyFunds} from './containers/Authorized/MyFunds/MyFunds';
+
 
 //Payment
 import withdraw from './containers/Authorized/Withdraw/Withdraw.js';
@@ -92,6 +96,10 @@ class App extends Component {
               <PrivateRoute path ="/homepage" component ={homepage}/>
               <PrivateRoute path ="/increase" component ={increase}/>
               <PrivateRoute path ="/policy" component ={policyprivacy}/>
+
+              <PrivateRoute path ="/activehedges" component ={ActiveHedges}/>
+              <PrivateRoute path ="/userprofile" component ={UserProfile}/>
+              <PrivateRoute path ="/myfunds" component ={MyFunds}/>
 
               <PrivateRoute path ="/deposit" component ={deposit}/>
               <PrivateRoute path ="/withdraw" component ={withdraw}/>

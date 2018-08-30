@@ -6,9 +6,6 @@ import { userActions } from '../_actions/user.actions';
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
 
-import LogoColor from '../img/logocolor.svg';
-import LogoWhite from '../img/logowhite.svg';
-
 import {RoleAwareComponent, RoleAwareComponentUser} from './roleawarecomponent';
 
 import { Link } from 'react-router-dom';
@@ -38,12 +35,37 @@ export class Navbar extends Component{
             <div onScroll={this.handleScroll.bind(this)} className ={this.state.Navbar}>
                 <Container>
                     <Row>
-                        <Col sm={{size:3}}><img className ="Logo" src ={LogoColor}/></Col>
+                        <Col sm={{size:3}}><Logo/></Col>
                         <Col><Menu navbarState={this.state.Navbar} /></Col>
                     </Row>
                 </Container>
             </div>
             
+        )
+    }
+}
+
+
+class Logo extends Component{
+
+    constructor(props){
+        super(props);
+        this.handleScroll = this.handleScroll.bind(this);
+        this.state={Logo: 'Logo'}
+      }
+
+        componentDidMount() {
+          window.addEventListener('scroll', this.handleScroll);
+        };
+
+        handleScroll() {
+            let Logo = this.state.Logo
+             this.setState( {Logo : 'Logo ' + 'LogoScroll' } )
+     };
+
+    render(){
+        return(
+            <div onScroll={this.handleScroll.bind(this)} className ={this.state.Logo}></div>
         )
     }
 }
@@ -225,7 +247,7 @@ export class Fund extends RoleAwareComponentUser{
 
     const jsx = (
     <div>
-        <Col><Link to = "/fund">Fund</Link></Col>
+        <Col><Link to = "/fund"><a className ={this.props.navbarState}>Fund</a></Link></Col>
     </div>
       );
 
@@ -287,7 +309,7 @@ export class Profil extends RoleAwareComponentUser{
         <ul id="mainmenu">
         <li className ="limenu"><a className ="link_menu tenth before after">Mail of User</a>
           <ul>
-            <li><Link to ="/profile">User Profile</Link></li>
+            <li><Link to ="/userprofile">User Profile</Link></li>
             <li><Link to="/myfunds">My Funds</Link></li>
             <li><Link to="/activehedges">Active Hedges</Link></li>
             <li><Link to="/"><Logout/></Link></li>

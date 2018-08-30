@@ -36,16 +36,19 @@ class Main extends React.Component {
     }
 
     componentDidMount(){
-      fetch('https://randomuser.me/api/?results=500')
+      fetch('http://localhost:50647/fund/GetFunds')
       .then(results=>{
           return results.json();
       }).then(data=> {
         let pictures = data.results.map((pic)=>{
-            return(
-              <div key ={pic.results}>
-                <img src ={pic.picture.medium}/>
+          console.log(data);
+
+            return( 
+              <div>
+                  
               </div>
             )
+
         })
         this.setState({pictures:pictures});
         console.log("state", this.state.pictures)
@@ -171,10 +174,6 @@ const UI = ({
 //data (need to fetch from api later)
 
 //GET FUNCTION
-
-
-
-
 
 const PRODUCTS = [
     {i: 1, category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
