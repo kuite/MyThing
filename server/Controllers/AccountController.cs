@@ -11,6 +11,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using webapi.Controllers.ViewModels;
 
 namespace webapi.Controllers
 {
@@ -30,7 +32,7 @@ namespace webapi.Controllers
         {
             var result = await _userService.RegisterUserAsync(form);
 
-            if (!result.Succeeded) new BadRequestObjectResult(new ApiError("something gone wrong"));
+            if (!result.Succeeded) return new BadRequestObjectResult(new ApiError("something gone wrong"));
 
             return Ok(result);
         }
@@ -43,6 +45,16 @@ namespace webapi.Controllers
 
             return Ok(token);
             //expires_in in [s]
+        }
+
+        [HttpPost("refreshToken")]
+        [Authorize(Policy = "ApiUser")]
+        [ValidateModel]
+        public async Task<IActionResult> RefreshToken([FromBody]UserDataForm userData)
+        {
+            string token = await _userService.ExtendTokenAsync(userData.UserName, userData.Email, userData.UserId);
+
+            return Ok(token);
         }
     }
 }

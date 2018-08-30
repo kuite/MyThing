@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Container, Row, Col } from 'reactstrap';
-import {Btc} from '../../../btc_graph/src/index';
+
+import {PaymentModalfinal} from '../Payment/paymentmodal'
+
+import SecureIcon from '../../../img/secureicon.svg'
 
 export class Deposit extends Component{
 
@@ -15,25 +18,70 @@ export class Deposit extends Component{
                         <div class ="BitcoinAvailable">
                         <h1>Deposit:</h1>
                         <h3> Available funds: 3,04343 BTC </h3>
-                        <form action="https://www.coinpayments.net/index.php" method="post">
-                            <input type="hidden" name="cmd" value="_pay"/>
-                            <input type="hidden" name="reset" value="1"/>
-                            <input type="hidden" name="merchant" value="45b3be002d9b5c7e0739554100d90971"/>
-                            <input type="hidden" name="item_name" value="Invest"/>
-                            <input type="hidden" name="currency" value="USD"/>
-                            <input type="hidden" name="amountf" value="10.00000000"/>
-                            <input type="hidden" name="quantity" value="1"/>
-                            <input type="hidden" name="allow_quantity" value="0"/>
-                            <input type="hidden" name="want_shipping" value="1"/>
-                            <input type="hidden" name="allow_extra" value="0"/>
-                            <input type="image" src="https://www.coinpayments.net/images/pub/CP-main-medium.png" alt="Buy Now with CoinPayments.net"/>
-                         </form>
+                        
+                        <DepositSteps/>
+                        <Payment/>
                         </div>
                         </Col>
-                    
+
                     </Row>
                 </Container>
              </div>
+        )
+    }
+};
+
+
+export class DepositSteps extends Component{
+
+    render(){
+        return(
+            <div className ="DepositSteps">
+                <Row>
+                   <Col sm={{size:3}}><h2>1. Choose amount</h2>
+                   <div className ="Rectangle"></div>
+                   <p>Firsly you should write amount of transaction
+                    </p>
+                   
+                   </Col>         
+
+                   <Col sm={{size:3}}><h2>2. Unique Adress</h2>
+                   <div className ="Rectangle"></div>
+                   <p>You get adress to initiate payment using your software or online wallet
+                    </p>
+                   
+                   </Col>  
+
+                   <Col sm={{size:3}}><h2>3. Unique Number</h2>
+                   <div className ="Rectangle"></div>
+                   <p>Verification code is neccessary to verify that you are the transaction sender
+                    </p>
+                   
+                   </Col>  
+
+                   <Col sm={{size:3}}><h2>4. Succesfully added</h2>
+                   <div className ="Rectangle"></div>
+                   <p>Review the status of your transaction. It's usually takes 10-45 minutes to confirm and authorize your payment
+                    </p>
+                   
+                   </Col>  
+                </Row>   
+            </div>
+        )
+    }
+};
+
+export class Payment extends Component {
+    render(){
+        return(
+            <div className ="Deposit Steps">
+                <PaymentModalfinal/>
+                <div className ="SecureSection">
+                    <img src = {SecureIcon}/>
+                    <Link to ="/policy"> <p> ...read about secure policy</p></Link>
+                </div>
+
+            </div>
         )
     }
 };

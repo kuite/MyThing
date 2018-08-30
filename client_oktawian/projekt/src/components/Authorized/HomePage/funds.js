@@ -11,7 +11,7 @@ export class Funds extends Component{
                 <Container>
                     <Row>
                     
-                        <Col sm={{size:12}}>
+        {/*  <Col sm={{size:12}}>
                         <div class ="BitcoinAvailable">
                             <p> Available funds:</p>
                             <h1>3,04343 BTC</h1>
@@ -21,29 +21,34 @@ export class Funds extends Component{
                             <Link to="/withdraw"><button className="SecondaryButton">Withdraw</button></Link>
                         </div>
                         </Col>
-                    
+
+
+        */}                   
+                            <Col sm={{size:12}}>
+
+                            <div class ="PlanWidget">
+                                <p> Your currently plan:</p>
+                                <h1>Basic</h1>
+                                <p>expires in: 5 days</p>
+
+                                <h3> You invest: 0.005 BTC</h3>
+                                <h3> Available funds: 0.0057 BTC </h3><p> + 0.0002 /day</p>
+                                
+                                <Link to="/increase"> <button className="Login"> Upgrade</button></Link>
+                                <Link to="/withdraw"><button className="SecondaryButton">Withdraw</button></Link>
+
+                            </div>
+
+                            </Col>
+
+
+
                         <Col sm={{size:12}}>
                         <div class ="BitcoinAvailable">
                             <Btc/>
                         </div>
                         </Col>
 
-                        <Col sm={{size:12}}>
-
-                                <div class ="PlanWidget">
-                                    <p> Your currently plan:</p>
-                                    <h1>Basic</h1>
-                                    <p>expires in: 5 days</p>
-
-                                    <h3> You invest: 0.005 BTC</h3>
-                                    <h3> Available funds: 0.0057 BTC </h3><p> + 0.0002 /day</p>
-                                    
-                                    <Link to="/increase"> <button className="Login"> Upgrade</button></Link>
-                                    <Link to="/withdraw"><button className="SecondaryButton">Withdraw</button></Link>
-
-                                </div>
-
-                         </Col>
 
 
                         <Col sm={{size:6}}>

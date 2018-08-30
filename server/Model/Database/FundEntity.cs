@@ -9,5 +9,6 @@ namespace webapi.Model.Database
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
+        public FundCategories Categories { get; set; }
     }
 }

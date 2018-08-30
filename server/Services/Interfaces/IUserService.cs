@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using webapi.Model.Domain;
 using webapi.Model.Common;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace webapi.Services.Interfaces
 {
@@ -11,5 +12,6 @@ namespace webapi.Services.Interfaces
     {
         Task<IdentityResult> RegisterUserAsync(RegisterUserForm form);
         Task<string> GetTokenAsync(LoginForm credentials);
+        Task<string> ExtendTokenAsync(string userName, string userEmail, string userId);
     }
 }

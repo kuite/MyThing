@@ -6,11 +6,13 @@ namespace webapi.Model.Domain
 {
     public class Fund
     {
+        public string Id { get; set; }
         public string AuthorId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal BtcGoal { get; set; }
         public decimal BtcDonated { get; set; }
+        public FundCategories Categories { get; set; }
         //public List<Transactions> SupportersList 
         public List<IFormFile> RelatedImages { get; set; }
         public DateTimeOffset StartDate { get; set; }

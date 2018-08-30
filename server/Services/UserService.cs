@@ -38,7 +38,7 @@ namespace webapi.Services
 
         public async Task<string> GetTokenAsync(LoginForm credentials)
         {
-            var identity = await GetClaimsIdentity(credentials.Email, credentials.Password);
+            var identity = await GetClaimsIdentityAsync(credentials.Email, credentials.Password);
 
             //validate indentity against null
 
@@ -60,7 +60,7 @@ namespace webapi.Services
             return result;
         }
 
-        private async Task<ClaimsIdentity> GetClaimsIdentity(string userName, string password)
+        private async Task<ClaimsIdentity> GetClaimsIdentityAsync(string userName, string password)
         {
             if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
                 return await Task.FromResult<ClaimsIdentity>(null);
@@ -78,6 +78,24 @@ namespace webapi.Services
 
             // Credentials are invalid, or account doesn't exist
             return await Task.FromResult<ClaimsIdentity>(null);
+        }
+
+        public async Task<string> ExtendTokenAsync(string userName, string userEmail, string userId)
+        {
+            //return await Task.FromResult(_jwtFactory.GenerateClaimsIdentity(userName, userId));
+
+            // other possibility:
+
+            var identity = await Task.FromResult(_jwtFactory.GenerateClaimsIdentity(userName, userId));
+
+            var jwt = await Tokens.GenerateJwt(
+                identity, 
+                _jwtFactory, 
+                userEmail,
+                _jwtOptions, 
+                new JsonSerializerSettings { Formatting = Formatting.Indented });
+
+            return jwt;       
         }
     }
 }

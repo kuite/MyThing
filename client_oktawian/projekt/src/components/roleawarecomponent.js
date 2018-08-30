@@ -13,31 +13,32 @@ export class RoleAwareComponent extends Component {
       const user = JSON.parse(localStorage.getItem('user'));
 
         if (!user) {
-            return _.intersection(this.authorize).length > 0;
-        }
+          return _.intersection(this.authorize).length > 0;
+      }
 
       return false;
     }
   }
 
 
-
-  
-  export class RoleAwareComponentUser extends Component {
-
-    constructor(props) {
-      super(props);
-      this.authorize = [];
-    }
-  
-    shouldBeVisible() {
-
-      const user = JSON.parse(localStorage.getItem('user'));
-
-        if (user) {
-            return _.intersection(this.authorize).length > 0;
+    export class RoleAwareComponentUser extends Component {
+   
+        constructor(props) {
+          super(props);
+         this.authorize = [];
         }
+      
+        shouldBeVisible() {
+    
+          const user = JSON.parse(localStorage.getItem('user'));
+    
+            if (user) {
+                return _.intersection(this.authorize).length > 0;
+            }
 
-      return false;
-    }
-  }
+    
+     
+           return false;
+         }
+      }
+    
