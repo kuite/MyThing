@@ -10,6 +10,8 @@ import '../../../global-styles';
 
 import {UserStatistics} from '../../../components/Authorized/UserProfile/information';
 
+import Avatar from '../../../img/avatar.svg'
+
 export default class UserProfile extends Component{
 
     render(){
@@ -21,6 +23,8 @@ export default class UserProfile extends Component{
         )
     }
 };
+
+
 
 
 function mapStateToProps(state) {

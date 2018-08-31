@@ -30,7 +30,7 @@ export class SectionOne extends Component{
         return(
             <div className ="Section">
                 <div className ="SectionInside">
-                    <img src={Reliability} alt={"logo"}/> 
+                    <img className ="animated fadeIn" src={Reliability} alt={"logo"}/> 
                     <h2>Reliability<br/>
                     <div className ="Rectangle"></div>
                     </h2>
@@ -48,7 +48,7 @@ export class SectionTwo extends Component{
         return(
             <div className ="Section">
                 <div className ="SectionInside">
-                    <img src={Growth} alt={"logo"}/> 
+                    <img className ="animated fadeIn" src={Growth} alt={"logo"}/> 
                     <h2>Growth<br/>
                     <div className ="Rectangle"></div>
                     </h2>
@@ -67,7 +67,7 @@ export class SectionThree extends Component{
         return(
             <div className ="Section">
               <div className ="SectionInside">
-                    <img src={Innovation} alt={"logo"}/> 
+                    <img className ="animated fadeIn"  src={Innovation} alt={"logo"}/> 
                     <h2>Innovation<br/>
                     <div className ="Rectangle"></div>
                     </h2>
@@ -86,7 +86,7 @@ export class SectionFour extends Component{
         return(
             <div className ="Section">
                   <div className ="SectionInside">
-                    <img src={Investment} alt={"logo"}/> 
+                    <img className ="animated fadeIn" src={Investment} alt={"logo"}/> 
                     <h2>Investment plans<br/>
                     <div className ="Rectangle"></div>
                     </h2>

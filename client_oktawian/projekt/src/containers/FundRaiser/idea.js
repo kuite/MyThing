@@ -52,6 +52,8 @@ import {Navbar} from '../../components/navbar';
 
 import {IdeaHeader} from '../../components/FundRaiser/ideaheader';
 
+import {PaymentModalfinal} from '../../components/Payment/paymentmodal';
+
 import {Vote} from '../../components/reactvote/vote';
 import '../../global-styles';
 
@@ -62,7 +64,7 @@ export default class Ideas extends Component{
             <div>  
                 <Navbar/>
                 <IdeaHeader/>
-                <Share/>
+                
                 <Idea/>
              </div>
         )
@@ -77,17 +79,25 @@ export class Idea extends Component{
                 <Container>
 
                     <Row>
-                        <Col sm={{size:1}}><Vote/></Col>  
-                        <Col sm={{size:12}}>
 
-                       
-                        <Progress multi>
-                            <Progress bar color="success" value="35" /> 35 / 100 BTC funded
-                        </Progress>
+                      <Col sm={{size:1}}>
+                      <Vote/>
+                      </Col>
 
+                        <Col sm={{size:7}}>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mollis mattis erat quis laoreet. Nunc posuere faucibus aliquam. In efficitur est odio, et dapibus libero faucibus vitae. Pellentesque quis nisi et ipsum ultrices ultricies eget tempus libero. Praesent venenatis aliquam rhoncus. Sed at ullamcorper erat, sit amet pretium ligula. Aenean semper bibendum aliquet.</p>
+                        </Col>
+                        <Col sm={{size:4}}>
+                           <Share/>
+                          <Progress multi>
+                              <Progress bar color="success" value="35" /> 0.4531 / 1 BTC funded
+                          </Progress>
+
+                          <PaymentModalfinal/>
+                        </Col>
       
 
-                        </Col>
+                        
                     </Row>
                 </Container>
             </div>

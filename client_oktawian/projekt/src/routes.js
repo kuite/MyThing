@@ -92,10 +92,10 @@ class App extends Component {
 
               <ScrollToTopRoute path="/lightning" component={Lightning} />
               <ScrollToTopRoute path="/storm" component={Storm} />
+              <ScrollToTopRoute path ="/increase" component ={increase}/>
+              <ScrollToTopRoute path ="/policy" component ={policyprivacy}/>
 
               <PrivateRoute path ="/homepage" component ={homepage}/>
-              <PrivateRoute path ="/increase" component ={increase}/>
-              <PrivateRoute path ="/policy" component ={policyprivacy}/>
 
               <PrivateRoute path ="/activehedges" component ={ActiveHedges}/>
               <PrivateRoute path ="/userprofile" component ={UserProfile}/>

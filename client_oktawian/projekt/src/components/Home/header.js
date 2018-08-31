@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -18,18 +19,18 @@ export class Header extends Component{
                 <Container>
                    <Row>
                         <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <h1>Fundraising for people <br/>and ideas</h1>
+                            <h1 className ="animated fadeIn">Fundraising for people <br/>and ideas</h1>
                          </Col>
                     </Row>
                     <Row>
                         <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <p>the place where you can help & earn</p>
+                            <p className ="animated fadeIn">the place where you can help & earn</p>
                          </Col>
                     </Row>
 
                     <Row>
-                            <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <div className="Login">Start Now!</div>
+                        <Col sm="12" md={{ size: 8, offset: 3 }}>
+                            <Link to ="/increase"><div className="Login animated fadeInUp">Start Now!</div></Link>
                          </Col>
                     </Row>
                          

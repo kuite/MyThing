@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Container, Row, Col } from 'reactstrap';
 
 import {Navbar} from '../../../components/navbar';
 import '../../../global-styles';
@@ -12,13 +13,17 @@ export default class IncreaseSteps extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
-                <IncreaseHeader/>
-                <IncreaseStep/>
-             </div>
+            <Navbar/>
+        <div className="HomeFund">
+            <Container>
+                <div className ="BitcoinAvailable">
+                    
+                    <IncreaseHeader/>
+                    <IncreaseStep/>
+                </div>
+            </Container>
+        </div>
+        </div>
         )
     }
 };
-
-
-

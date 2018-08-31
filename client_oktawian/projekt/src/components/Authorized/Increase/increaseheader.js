@@ -7,15 +7,15 @@ export class IncreaseHeader extends Component{
 
     render(){
         return(
-            <div className ="SectionsHeader">                               
+            <div>                               
                 <Container>
                     <Row>
-                        <Col sm={{size:12}}><h1>Increase your fund in three ways</h1>
+                        <Col sm={{size:12}}><h1>Welcome! You can use this platform for:</h1>
                         <br/>
                         <p>
-                        - Add your idea for and expect sponsors <br/>
-                        - Contributing to other ideas becoming an investor  <br/>
-                        - Purchase a plan and participate in the cryptocurrency rotation <br/>
+                        - Add your fundraiser for and expect sponsors <br/>
+                        - Contributing to other ideas & helping them achieve success  <br/>
+                        - Purchase a hedgefund and participate in the cryptocurrency rotation <br/>
                         </p>
 
                         </Col>

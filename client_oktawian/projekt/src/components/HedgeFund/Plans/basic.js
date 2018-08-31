@@ -10,7 +10,7 @@ import {PlanStartOne, PlanStartTwo} from '../../../components/HedgeFund/Plans/El
 import {RoleAwareComponent, RoleAwareComponentUser} from '../../roleawarecomponent';
 
 
-import { Link } from 'react-router-dom';
+
 
 import '../../../global-styles';
 

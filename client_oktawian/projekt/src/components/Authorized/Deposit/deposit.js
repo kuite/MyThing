@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Container, Row, Col } from 'reactstrap';
 
-import {PaymentModalfinal} from '../Payment/paymentmodal'
+
 
 import SecureIcon from '../../../img/secureicon.svg'
 
@@ -75,7 +75,7 @@ export class Payment extends Component {
     render(){
         return(
             <div className ="Deposit Steps">
-                <PaymentModalfinal/>
+
                 <div className ="SecureSection">
                     <img src = {SecureIcon}/>
                     <Link to ="/policy"> <p> ...read about secure policy</p></Link>

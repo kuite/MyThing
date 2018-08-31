@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../../_actions';
@@ -25,13 +26,18 @@ class NoFunds extends Component{
 
     render(){
         return(
-            <div>
-                <h1>No active funds</h1>
+            <div className="HomeFund">
+            <Container>
+                <div className ="BitcoinAvailable">
+                <h2>No active funds</h2>
                 <button className ="Login">Add fund now</button>
-             </div>
+                </div>
+            </Container>
+            </div>
         )
     }
 };
+
 
 
 function mapStateToProps(state) {
