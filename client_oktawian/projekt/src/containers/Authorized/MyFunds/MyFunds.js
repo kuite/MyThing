@@ -15,6 +15,19 @@ export default class MyFunds extends Component{
         return(
             <div>
                 <Navbar/>
+                <NoFunds/>
+             </div>
+        )
+    }
+};
+
+class NoFunds extends Component{
+
+    render(){
+        return(
+            <div>
+                <h1>No active funds</h1>
+                <button className ="Login">Add fund now</button>
              </div>
         )
     }

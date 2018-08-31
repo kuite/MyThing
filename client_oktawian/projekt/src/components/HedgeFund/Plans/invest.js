@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import {PaymentModalfinal} from '../../Payment/paymentmodal'
 
 
 export class Invest extends Component{
@@ -7,7 +8,7 @@ export class Invest extends Component{
     render(){
         return(
             <div className ="Invest">
-                <button className="Login">Invest Now</button>
+                <PaymentModalfinal/>
                 <Secure/>
                 <LawNote/>
             </div>

@@ -8,7 +8,7 @@ import { userActions } from '../../../_actions';
 import {Navbar} from '../../../components/navbar';
 import '../../../global-styles';
 
-import {Funds} from '../../../components/Authorized/HomePage/funds';
+import {UserStatistics} from '../../../components/Authorized/UserProfile/information';
 
 export default class UserProfile extends Component{
 
@@ -16,7 +16,7 @@ export default class UserProfile extends Component{
         return(
             <div>
                 <Navbar/>
-                <Funds/>
+                <UserStatistics/>
              </div>
         )
     }

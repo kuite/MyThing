@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import {Container, Row, Col} from 'reactstrap';
+
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 import {Navbar} from '../../components/navbar';
@@ -10,6 +10,8 @@ import '../../global-styles';
 
 import {PlansHeader} from '../../components/HedgeFund/Plans/plansheader';
 import {Work, Start} from '../../components/HedgeFund/Plans/basic';
+import {Lightning} from '../../components/HedgeFund/Plans/lightning';
+import {Storm} from '../../components/HedgeFund/Plans/storm';
 
 import LightningPlan from '../../img/lightningplan.jpg';
 import StormPlan from '../../img/stormplan.jpg';
@@ -67,53 +69,8 @@ class Plan extends Component{
 
 
 
-class Lightning extends Component{
 
-  render(){
-    return(
-      <div>
-        <Container>
-        <Row>
-          <div className ="Plan">
 
-          <img src ={LightningPlan}/>
-              <h1>Lightning</h1>
-              <p>90 days<br/>
-              15%<br/>
-              0.5 BTC <br/>
-              </p>
-              <Link to ="/Lightning"><button className ="SecondaryButton">Learn More...</button></Link>
-          </div>
-        </Row>
-        </Container>
-      </div>
-    )
-  }
-}
-
-class Storm extends Component{
-
-  render(){
-    return(
-      <div>
-        <Container>
-        <Row>
-          <div className ="Plan">
-
-          <img src ={StormPlan}/>
-              <h1>Storm</h1>
-              <p>270 days<br/>
-              8-10%<br/>
-              1 BTC <br/>
-              </p>
-              <Link to ="/Storm"><button className ="SecondaryButton">Learn More...</button></Link>
-          </div>
-        </Row>
-        </Container>
-      </div>
-    )
-  }
-}
 
 
 

@@ -44,30 +44,33 @@ export class Funds extends Component{
 
                         <Col sm={{size:6}}>
 
-                        <div className ="BitcoinAvailable">
-                            <h4>My Investments</h4>
-                            <p>Check all your investments and profits from ideas</p>
-
+                        <div class ="BitcoinAvailable">
+                            <h4>My Funds</h4>
+                            <p>Check your ideas and other people's investments in them</p>
                             <div className ="Rectangle"></div>
-                            <Link to="/login" className="btn btn-link">Name of invested Idea 1</Link><br/>
-                            <Link to="/login" className="btn btn-link">Name of invested Idea 2</Link><br/>
-                            <Link to="/login" className="btn btn-link"> Name of invested Idea 3</Link>
+                            <Link to="/login" className="btn btn-link">Name of fund  1</Link><br/>
+                            <Link to="/login" className="btn btn-link">Name of fund  2</Link><br/>
+                            <Link to="/login" className="btn btn-link">Name of fund  3</Link><br/>
+                            <Link to="/login" className="btn btn-link">Name of fund  4</Link><br/>
+
 
                         </div>
+
 
                         </Col>
 
                         <Col sm={{size:6}}>
 
-                        <div class ="BitcoinAvailable">
-                            <h4>My Ideas</h4>
-                            <p>Check your ideas and other people's investments in them</p>
+                        <div className ="BitcoinAvailable">
+                            <h4>Active Plans</h4>
+                            <p>Check all your investments and profits from ideas</p>
+
                             <div className ="Rectangle"></div>
-                            <Link to="/login" className="btn btn-link">Name of user Idea 1</Link><br/>
-                            <Link to="/login" className="btn btn-link">Name of user Idea 2</Link><br/>
-                            <Link to="/login" className="btn btn-link">Name of user Idea 3</Link>
+                            <Link to="/login" className="btn btn-link">Name of Plan 1</Link><br/>
+
 
                         </div>
+
 
                         </Col>
 

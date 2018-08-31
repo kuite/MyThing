@@ -11,22 +11,24 @@ body {
   #mainmenu ul li {clear: both;}
   #mainmenu > li {margin-right: 10px; position: relative;}
   #mainmenu > li li {position: relative;}
-  #mainmenu > li ul {position: absolute; left:0;margin-top:8%;}
+  #mainmenu > li ul {position: absolute; left:0;margin-top:0;}
   #mainmenu > li ul li ul {position: absolute; left: 160px; top: 0px;}
   ul ul {display: none;}
   ul li:hover > ul {display: block;}
   
   /*POZIOM 1*/
-  #mainmenu {margin: 21px 0 0 47% ;}
   #mainmenu > li > a {display: table; width: auto; padding: 8px; border-radius: 6px; text-align: center; text-decoration: none; color: #84c5f7;}
-  #mainmenu > li:hover > a {background: #eee; color: #0090ff;}
+  #mainmenu > li:hover > a { color: #0090ff;}
   
   /*POZIOMY NIŻSZE*/
   #mainmenu ul {font-size: 12px; border-radius: 3px; background: #F6F6F6;}
-  #mainmenu ul li > a {color: #999; display: block; padding: 10px; border-radius: 6px; text-decoration: none;text-align:left;}
-  #mainmenu ul li:hover > a {color: #eee; background:blue;}
+  #mainmenu ul li > a {color:#F76B1C; display: block; padding: 10px; border-radius: 6px; text-decoration: none;text-align:left;}
+  #mainmenu ul li:hover > a {color: #eee; background-image: linear-gradient(to right,#FABD61 0%,#F76B1C 100%);}
 
-
+img.Avatar{
+  width:30px;
+  height:30px;
+}
 
 
 
@@ -216,26 +218,27 @@ margin-top:33%;
   }
 
   .Menu {
-    margin-top:15px;
   }
 
   .Menu a.Navbar{
+    margin-top:15px;
     letter-spacing:1.5px;
     width:0%;
     height:0%;
     font-size:14px;
-    font-family:Museo Sans;
+    font-family:Lato;
     color:white;
   }
 
   a.Navbar.NavbarScroll{
+    margin-top:15px;
     letter-spacing:1.5px;
     width:0%;
     height:0%;
     background-color:none;
     padding:0%;
     font-size:14px;
-    font-family:Museo Sans;
+    font-family:Lato;
     color:#222064;
   }
 
@@ -871,7 +874,7 @@ google-login{
   background-color:white;
   margin: 2% 0 2% 0;
   padding:3% 3% 3% 3%;
-
+  box-shadow: 0 1px 4px 0 rgba(91, 91, 91, 0.5);
   border-radius:10px;
 }
 

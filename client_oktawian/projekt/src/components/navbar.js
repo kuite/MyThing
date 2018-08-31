@@ -10,6 +10,7 @@ import {RoleAwareComponent, RoleAwareComponentUser} from './roleawarecomponent';
 
 import { Link } from 'react-router-dom';
 
+import Avatar from '../img/avatar.svg'
 
 export class Navbar extends Component{
 
@@ -113,9 +114,7 @@ export class Login extends RoleAwareComponent{
         <Modalfinal/>
     </div>
       );
-
       return this.shouldBeVisible() ? jsx : null;
-        
     }
 }
 
@@ -176,8 +175,8 @@ export class Logout extends RoleAwareComponentUser{
     render(){
 
     const jsx = (
-    <div>
-        <button onClick={this.handleClick} className ="SecondaryButton">Logout</button>
+    <div onClick={this.handleClick}>
+        <a>Logout</a>
     </div>
       );
 
@@ -195,7 +194,6 @@ export class Panel extends RoleAwareComponentUser{
         this.authorize = ['user'];
         
       }
-
       handleClick(event) {
 
         const { dispatch } = this.props;
@@ -203,8 +201,6 @@ export class Panel extends RoleAwareComponentUser{
         dispatch(userActions.logout());
         history.push('/login');
     }
-
-
     render(){
 
     const jsx = (
@@ -307,7 +303,7 @@ export class Profil extends RoleAwareComponentUser{
     <div>
         <Col>
         <ul id="mainmenu">
-        <li className ="limenu"><a className ="link_menu tenth before after">Mail of User</a>
+        <li className ="limenu"><a className ="link_menu tenth before after"><img className="Avatar" src ={Avatar}/></a>
           <ul>
             <li><Link to ="/userprofile">User Profile</Link></li>
             <li><Link to="/myfunds">My Funds</Link></li>

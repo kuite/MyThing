@@ -52,7 +52,7 @@ export class PaymentModalfinal extends React.Component {
    render() {
      return (
        <div>
-         <button className ="Login" onClick={() => this.openModal()}>Deposit crypto</button>
+         <button className ="Login" onClick={() => this.openModal()}>Invest Now</button>
          <Modal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
            <PaymentModal/>
          </Modal>
