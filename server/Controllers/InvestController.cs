@@ -29,7 +29,16 @@ namespace webapi.Controllers
         [ValidateModel]
         public IActionResult GetPlanTypesAsync()
         {
-            return Ok(Enum.GetValues(typeof(PlanType)));
+            var planTypes = _investService.GetPlanTypesAsync();
+            return Ok(planTypes);
+        }
+
+        [HttpGet("GetAllPlans")]
+        [ValidateModel]
+        public async Task<IActionResult> GetAllPlansAsync()
+        {
+            var allPlans = await _investService.GetAllPlansAsync();
+            return Ok(allPlans);
         }
 
         [HttpGet("GetUserPlans")]
@@ -37,15 +46,41 @@ namespace webapi.Controllers
         public async Task<IActionResult> GetUserPlansAsync(string investorId)
         {
             var investments = await _investService.GetUserPlansAsync(investorId);
-            return null;
+            return Ok(investments);
         }
 
-        [HttpPost("SubmitNewPlan")]
+        [HttpPost("SubscribeToPlan")]
+        [ValidateModel]
+        public async Task<IActionResult> SubscribeToPlanAsync(InvestingPlan plan)
+        {
+            var subscription = await _investService.SubscribeToPlanAsync(plan);
+            return Ok(subscription);
+        }
+
+        [HttpPost("CreatePlanType")]
         // to do: access for admin
         [ValidateModel]
         public async Task<IActionResult> CreatePlanTypeAsync([FromBody]PlanSettings settings)
         {
             var result = await _investService.CreatePlanTypeAsync(settings);
+            return Ok(result);
+        }
+
+        [HttpPost("UpdatePlanType")]
+        // to do: access for admin
+        [ValidateModel]
+        public async Task<IActionResult> UpdatePlanTypeAsync([FromBody]PlanSettings settings)
+        {
+            var result = await _investService.UpdatePlanTypeAsync(settings);
+            return Ok(result);
+        }
+        
+        [HttpDelete("DeletePlanType")]
+        // to do: access for admin
+        [ValidateModel]
+        public async Task<IActionResult> DeletePlanTypeAsync([FromBody]PlanType type)
+        {
+            var result = await _investService.DeletePlanTypeAsync(type);
             return Ok(result);
         }
 

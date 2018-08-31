@@ -23,6 +23,10 @@ namespace webapi.Infrastructure
 
             CreateMap<InvestingPlan, PlanSettings>(MemberList.Source)
                 .ForMember(dest => dest.DurationDays, opt => opt.MapFrom(src => DateTime.Now.Day - src.StartDate.Day));
+
+            CreateMap<PlanSettings, PlanSettingsEntity>(MemberList.Source);
+
+            CreateMap<PlanSettingsEntity, PlanSettings>(MemberList.Source);
         }
     }
 }

@@ -48,6 +48,33 @@ namespace webapi.Services
             return result;
         }
 
+        public async Task<List<PlanType>> GetPlanTypesAsync()
+        {
+            var enumValues = Enum.GetValues(typeof(PlanType));
+            var types = new List<PlanType>();
+            foreach(var value in enumValues){ types.Add((PlanType)value); }
+            //return Enum.GetValues(typeof(PlanType));
+            return types;
+        }
+
+        public async Task<List<PlanSettings>> GetAllPlansAsync()
+        {
+            List<PlanSettingsEntity> entities = await GetPlanSettingsAsync();
+            return _mapper.Map<List<PlanSettings>>(entities);
+        }
+
+        public async Task<InvestingPlan> SubscribeToPlanAsync(InvestingPlan plan)
+        {
+            PlanSettingsEntity settingsEntity = await _context.PlansSettings.SingleOrDefaultAsync(x => x.PlanType == plan.PlanType);
+            PlanSettings planSettings = _mapper.Map<PlanSettings>(settingsEntity);
+            if(plan.BtcComitted >= planSettings.MinimumBtc && plan.InvestorId != null)
+            {
+                var planEntity = _mapper.Map<InvestingPlanEntity>(plan);
+                _context.Plans.Add(planEntity);
+            }
+            return null;
+        }
+
         public async Task<List<PlanSettingsEntity>> GetPlanSettingsAsync()
         {
             List<PlanSettingsEntity> planSettings = new List<PlanSettingsEntity>();
@@ -66,6 +93,30 @@ namespace webapi.Services
                 _context.SaveChanges();
             }
             return _mapper.Map<PlanSettings>(entity);
+        }
+
+        public async Task<PlanSettings> UpdatePlanTypeAsync(PlanSettings settings)
+        {
+            PlanSettingsEntity entityToChange = await _context.PlansSettings.SingleOrDefaultAsync(x => x.PlanType == settings.PlanType);
+            if (entityToChange == null) { throw new ArgumentException("Given plan deostn exist."); }
+
+            PlanSettingsEntity updatedPlan = _mapper.Map<PlanSettingsEntity>(settings);
+            updatedPlan.Id = entityToChange.Id;
+            _context.Entry(entityToChange).CurrentValues.SetValues(updatedPlan);
+            _context.SaveChanges();
+            return _mapper.Map<PlanSettings>(updatedPlan);
+        }
+
+        public async Task<PlanSettings> DeletePlanTypeAsync(PlanType type)
+        {
+            PlanSettingsEntity entity = await _context
+                .PlansSettings
+                .SingleOrDefaultAsync(x => x.PlanType == type);
+
+            PlanSettings settings = _mapper.Map<PlanSettings>(entity);
+            _context.PlansSettings.Remove(entity);
+            _context.SaveChanges();
+            return settings;
         }
     }
 }

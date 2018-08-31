@@ -10,6 +10,11 @@ namespace webapi.Services.Interfaces
     public interface IInvestmentService
     {
         Task<List<PlanSettings>> GetUserPlansAsync(string investorId);
+        Task<List<PlanType>> GetPlanTypesAsync();
         Task<PlanSettings> CreatePlanTypeAsync(PlanSettings settings);
+        Task<PlanSettings> UpdatePlanTypeAsync(PlanSettings settings);
+        Task<InvestingPlan> SubscribeToPlanAsync(InvestingPlan plan);
+        Task<List<PlanSettings>> GetAllPlansAsync();
+        Task<PlanSettings> DeletePlanTypeAsync(PlanType type);
     }
 }

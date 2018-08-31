@@ -88,6 +88,7 @@ namespace webapi
             services.AddScoped<IFundService, FundService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IInvestmentService, InvestmentService>();
 
 
             #region JWT token
