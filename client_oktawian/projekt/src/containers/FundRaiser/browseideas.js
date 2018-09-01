@@ -28,33 +28,24 @@ class Main extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        
+        data: null,
+        error: null,
+        isLoading: false,
+        
         displayCategory: "all",
         products: PRODUCTS,
         productCategories: PRODUCT_CATEGORIES
       };
       this.setCategory = this.setCategory.bind(this);
     }
-
+  
     componentDidMount(){
-      fetch('http://localhost:50647/fund/GetFunds')
-      .then(results=>{
-          return results.json();
-      }).then(data=> {
-        let pictures = data.results.map((pic)=>{
-
-          console.log(data);
-
-            return( 
-              <div>
-                  
-              </div>
-            )
-
-        })
-        this.setState({pictures:pictures});
-        console.log("state", this.state.pictures)
-      })
-  }
+        fetch('http://localhost:50647/fund/GetFunds?MaxPageSize=100&Offset=5&Limit=5')
+        .then(response => response.json())
+        .then(data => this.setState({ hits: data.hits, isLoading: false }))
+        .catch(error => this.setState({ error, isLoading: false }));
+    }
 
 
    

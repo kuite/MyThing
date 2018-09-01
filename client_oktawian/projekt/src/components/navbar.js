@@ -11,6 +11,13 @@ import { Link } from 'react-router-dom';
 
 import Avatar from '../img/avatar.svg'
 
+
+
+
+const ThemeContext = React.createContext();  
+
+
+
 export class Navbar extends Component{
 
     constructor(props){
@@ -34,8 +41,12 @@ export class Navbar extends Component{
             <div onScroll={this.handleScroll.bind(this)} className ={this.state.Navbar}>
                 <Container>
                     <Row>
-                        <Col sm={{size:3}}><Logo/></Col>
-                        <Col><Menu navbarState={this.state.Navbar} /></Col>
+                        <Col sm={{size:3}}><Link to ="/"><Logo/></Link></Col>
+
+                        <ThemeContext.Provider value={this.state.Navbar} >
+                            <Col><Menu navbarState={this.state.Navbar} /></Col>
+                        </ThemeContext.Provider>
+
                     </Row>
                 </Container>
             </div>
@@ -70,6 +81,7 @@ class Logo extends Component{
 
 
 
+
 export class Menu extends Component{
 
     render(){
@@ -78,14 +90,14 @@ export class Menu extends Component{
              <div className = "Menu">
                 <Container>
                     <Row>
-                        <Col><Link to = "/"><a className ={this.props.navbarState}>Home</a></Link></Col>
-                        <Panel/>
-                        <Fund/>
-                        <Col><Link to = "/browseideas"><a className ={this.props.navbarState}>Fundraiser</a></Link></Col>
-                        <Col><Link to = "/earnwithus"><a className ={this.props.navbarState}>Plans</a></Link></Col>
-                        <Col><Register/></Col>
-                        <Col><Login/></Col>
-                        <Profil/>
+                            <Col><Panel /></Col>
+                            <Col><Fund/></Col>
+                            <Col><Link className ={this.props.navbarState} to = "/browseideas">Fundraiser</Link></Col>
+                            <Col><Link className ={this.props.navbarState} to = "/earnwithus">Plans</Link></Col>
+                            <Col><Register/></Col>
+                            <Col><Login/></Col>
+                            <Profil/>
+                        
                     </Row>
                 </Container>
             </div>
@@ -128,8 +140,7 @@ export class Register extends RoleAwareComponent{
 
             const jsx = (
                 <div className = "Register">  
-
-                    <Link to="/register"><button className ="Login">Create Account</button></Link>  
+                    <Link  to="/register"><button className ="Login">Create Account</button></Link>  
                 </div>
               );
 
@@ -171,7 +182,7 @@ export class Logout extends RoleAwareComponentUser{
 
     const jsx = (
     <div onClick={this.handleClick}>
-        <a>Logout</a>
+        Logout
     </div>
       );
 
@@ -179,6 +190,13 @@ export class Logout extends RoleAwareComponentUser{
         
     }
 }
+
+
+
+
+
+
+
 
 export class Panel extends RoleAwareComponentUser{
 
@@ -189,18 +207,14 @@ export class Panel extends RoleAwareComponentUser{
         this.authorize = ['user'];
         
       }
-      handleClick(event) {
 
-        const { dispatch } = this.props;
-
-        dispatch(userActions.logout());
-        history.push('/login');
-    }
     render(){
 
-    const jsx = (
+    const jsx =(
     <div>
-        <Col><Link to = "/HomePage"><a className ={this.props.navbarState}>Panel</a></Link></Col>
+        <ThemeContext.Consumer>
+            {value => <Link className={value} to= "/HomePage">Panel</Link>}
+        </ThemeContext.Consumer>
     </div>
       );
 
@@ -208,6 +222,21 @@ export class Panel extends RoleAwareComponentUser{
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -237,7 +266,9 @@ export class Fund extends RoleAwareComponentUser{
 
     const jsx = (
     <div>
-        <Col><Link to = "/fund"><a className ={this.props.navbarState}>Fund</a></Link></Col>
+         <ThemeContext.Consumer>
+            {value => <Link className={value} to= "/fund">Fund</Link>}
+        </ThemeContext.Consumer>
     </div>
       );
 
