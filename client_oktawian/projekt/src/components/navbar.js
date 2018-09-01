@@ -4,7 +4,6 @@ import {Modalfinal} from './Login/loginmodal';
 
 import { userActions } from '../_actions/user.actions';
 import { history } from '../_helpers';
-import { alertActions } from '../_actions';
 
 import {RoleAwareComponent, RoleAwareComponentUser} from './roleawarecomponent';
 
@@ -25,7 +24,6 @@ export class Navbar extends Component{
         };
 
         handleScroll() {
-            let Navbar = this.state.Navbar
              this.setState( {Navbar : 'Navbar ' + 'NavbarScroll' } )
      };
 
@@ -60,7 +58,6 @@ class Logo extends Component{
         };
 
         handleScroll() {
-            let Logo = this.state.Logo
              this.setState( {Logo : 'Logo ' + 'LogoScroll' } )
      };
 
@@ -156,8 +153,6 @@ export class Logout extends RoleAwareComponentUser{
     constructor(props) {
         super(props);
 
-        const { dispatch } = this.props;
-
          // component will be visible for the roles below:
         this.authorize = ['user'];
 
@@ -223,7 +218,6 @@ export class Fund extends RoleAwareComponentUser{
     constructor(props) {
         super(props);
 
-        const { dispatch } = this.props;
 
          // component will be visible for the roles below:
         this.authorize = ['user'];
@@ -281,8 +275,6 @@ export class Profil extends RoleAwareComponentUser{
     constructor(props) {
         super(props);
 
-        const { dispatch } = this.props;
-
          // component will be visible for the roles below:
         this.authorize = ['user'];
 
@@ -303,7 +295,7 @@ export class Profil extends RoleAwareComponentUser{
     <div>
         <Col>
         <ul id="mainmenu">
-        <li className ="limenu"><a className ="link_menu tenth before after"><img className="Avatar" src ={Avatar}/></a>
+        <li className ="limenu"><a className ="link_menu tenth before after"><img alt ="Avatar" className="Avatar" src ={Avatar}/></a>
           <ul>
             <li><Link to ="/userprofile">User Profile</Link></li>
             <li><Link to="/myfunds">My Funds</Link></li>

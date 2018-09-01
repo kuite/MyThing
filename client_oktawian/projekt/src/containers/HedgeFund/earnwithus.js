@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {Container, Row, Col} from 'reactstrap';
 
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button } from 'reactstrap';
 import {Navbar} from '../../components/navbar';
-import { Link } from 'react-router-dom';
 
 import '../../global-styles';
 
@@ -13,8 +10,7 @@ import {Work, Start} from '../../components/HedgeFund/Plans/basic';
 import {Lightning} from '../../components/HedgeFund/Plans/lightning';
 import {Storm} from '../../components/HedgeFund/Plans/storm';
 
-import LightningPlan from '../../img/lightningplan.jpg';
-import StormPlan from '../../img/stormplan.jpg';
+
 
 
 

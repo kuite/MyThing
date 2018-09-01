@@ -7,8 +7,8 @@ import { alertActions } from './_actions';
 import ScrollToTopRoute from './scrolltotop';
 
 import {
-  BrowserRouter as Router,
-  Route,
+  Router,
+  
 } from 'react-router-dom';
 
 

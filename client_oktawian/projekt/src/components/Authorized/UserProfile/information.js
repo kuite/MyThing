@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 import Avatar from '../../../img/avatar.svg'
 
@@ -34,7 +33,7 @@ class UserAvatar extends Component{
     render(){
         return(
             <div>
-                <img className="Avatar" src ={Avatar}/>
+                <img alt ="Avatar" className="Avatar" src ={Avatar}/>
                 <h2>Imię i Nazwisko</h2>
              </div>
         )

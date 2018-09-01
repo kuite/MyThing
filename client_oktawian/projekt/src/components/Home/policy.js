@@ -16,7 +16,7 @@ export class Policy extends React.Component{
   render(){
     return(
       <div className = {this.state.rodo_info}>
-      <p>For your security & better experience<a href="/policy">Read privacy notice...</a></p><button className="rodo_button" onClick={this.onClick}>Accept</button>
+      <p>For your security & better experience <a href="/policy">Read privacy notice...</a></p><button className="rodo_button" onClick={this.onClick}>ACCEPT</button>
       </div>
   
     )

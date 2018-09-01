@@ -21,7 +21,7 @@ export class PlansHeader extends Component{
                 
                 
                 <div className = "SectionHeaderRight">
-                    <img src={planimg}/> 
+                    <img alt ="Hedgefund home" src={planimg}/> 
                 </div>
             </div>
 

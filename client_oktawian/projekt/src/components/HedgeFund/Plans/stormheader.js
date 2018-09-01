@@ -21,7 +21,7 @@ export class StormHeader extends Component{
                 
                 
                 <div className = "SectionHeaderRight">
-                    <img src={planimg}/> 
+                    <img alt ="Storm Plan" src={planimg}/> 
                 </div>
             </div>
 

@@ -22,7 +22,7 @@ export class Browseideaheader extends Component{
                 
                 <div className = "SectionHeaderRight">
                 
-                    <img src={fundraiseimg}/> 
+                    <img alt ="FundRaiser" src={fundraiseimg}/> 
 
                 </div>
             </div>

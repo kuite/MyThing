@@ -17,18 +17,18 @@ export class IncreaseStep extends Component{
 
                         <Col sm={{size:4}}>
                         <div className ="IncreaseOpportunity">
-                            <img src ={Icon1}/>
+                            <img alt ="Add Your Fundraiser" src ={Icon1}/>
                             <h2>1. Add your Fundraiser</h2>
                             <div className="Rectangle"></div>
                             
                             <p>Do you need support for your fundraiser for you or your family/friends? </p>
-                                <Link to="/fund"><button className="SecondaryButton">Add idea now</button></Link>
+                            <Link to="/fund"><button className="SecondaryButton">Add idea now</button></Link>
                         </div>
                         </Col>
 
                         <Col sm={{size:4}}>
                         <div className ="IncreaseOpportunity">
-                        <img src ={Icon2}/>
+                        <img alt ="Helping Other" src ={Icon2}/>
                          <h2>2. Helping other </h2>
                          <div className="Rectangle"></div>
                          <p>You also can help other people achieve their idea.</p>
@@ -38,7 +38,7 @@ export class IncreaseStep extends Component{
 
                         <Col sm={{size:4}}>
                         <div className ="IncreaseOpportunity">
-                        <img src ={Icon3}/>
+                        <img alt ="Choose Hedgefund" src ={Icon3}/>
                              <h2>3.Choose Hedgefund</h2>
                             <div className="Rectangle"></div>
                              <p>Become a member of the club and receive a percentage of each investment in this portal</p>

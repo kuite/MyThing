@@ -41,6 +41,7 @@ class Main extends React.Component {
           return results.json();
       }).then(data=> {
         let pictures = data.results.map((pic)=>{
+
           console.log(data);
 
             return( 
@@ -174,6 +175,7 @@ const UI = ({
 //data (need to fetch from api later)
 
 //GET FUNCTION
+
 
 const PRODUCTS = [
     {i: 1, category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},

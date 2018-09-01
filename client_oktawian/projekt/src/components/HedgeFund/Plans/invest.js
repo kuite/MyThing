@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import {PaymentModalfinal} from '../../Payment/paymentmodal'
 
+import SecureIcon from '../../../img/secureicon.svg'
 
 export class Invest extends Component{
 
@@ -21,7 +22,7 @@ export class Secure extends Component{
     render(){
         return(
             <div className ="Secure">
-                <img src =""/>
+                <img alt ="Secure Icon" src ={SecureIcon}/>
                 <p>your payment is secured by our security systems and 100% anonymous, in addition, you can withdraw your funds within 48 hours</p>
             </div>
         )

@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import {Navbar} from '../../components/navbar';
 import '../../global-styles';
 
-import {Funds} from '../../components/Authorized/HomePage/funds';
-import {InvestmentsIdeas} from '../../components/Authorized/HomePage/investmentsideas';
 
 export default class PrivacyPolicy extends Component{
 
     render(){
         return(
+        <div>
+            <Navbar/>
             <div>
                      <h1>Privacy Notice</h1>
             <h2>Last updated June 18, 2018</h2>
@@ -105,7 +105,7 @@ export default class PrivacyPolicy extends Component{
                 <p>In short: In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.</p>
                 <p>In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right(i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.</p>
                 <p> If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.</p>
-                <p> If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact detail <a target ="_blank" href ="http://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612080">CLICK HERE TO SEE.</a></p>
+                <p> If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact detail <a rel ="noopener noreferrer" target ="_blank" href ="http://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612080">CLICK HERE TO SEE.</a></p>
 
                 <h1>9. Do we make updates to this policy?</h1>
 
@@ -117,6 +117,7 @@ export default class PrivacyPolicy extends Component{
                 <p>If you have questions or comments about this policy, you may email us at MAIL</p>
                 <br/><br/><br/><br/><br/><br/><br/><br/>
       </div>
+    </div>
 
         )
     }

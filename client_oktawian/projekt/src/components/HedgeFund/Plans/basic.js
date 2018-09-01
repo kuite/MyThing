@@ -1,23 +1,10 @@
 import React, { Component } from 'react';
 
 import {Container, Row, Col} from 'reactstrap';
-
-import {Navbar} from '../../../components/navbar';
-
 import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../../components/HedgeFund/Plans/Advantages';
 import {PlanStartOne, PlanStartTwo} from '../../../components/HedgeFund/Plans/Elements';
-
-import {RoleAwareComponent, RoleAwareComponentUser} from '../../roleawarecomponent';
-
-
-
-
+import {RoleAwareComponent} from '../../roleawarecomponent';
 import '../../../global-styles';
-
-import BasicImg from '../../../img/basic.svg';
-
-
-
 
 export class Start extends RoleAwareComponent{
 

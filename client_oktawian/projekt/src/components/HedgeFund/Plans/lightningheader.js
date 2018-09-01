@@ -21,7 +21,7 @@ export class LightningHeader extends Component{
                 
                 
                 <div className = "SectionHeaderRight">
-                    <img src={planimg}/> 
+                    <img alt ="Lightning Plan" src={planimg}/> 
                 </div>
             </div>
 

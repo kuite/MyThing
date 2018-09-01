@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import StormPlan from '../../../img/stormplan.jpg';
@@ -13,7 +13,7 @@ export class Storm extends Component{
           <Row>
             <div className ="Plan">
   
-            <img src ={StormPlan}/>
+            <img alt ="Storm HedgeFund" src ={StormPlan}/>
                 <h1>Storm</h1>
                 <p>270 days<br/>
                 8-10%<br/>

@@ -1596,7 +1596,9 @@ body {
 
 
 
-
+.hide{
+  display:none;
+}
 
 
 
@@ -2086,7 +2088,24 @@ background-image: url(img/arrow_right.svg);
   display:none;
 }
 
-.Rodo{
+.rodo_info{
+  background-image: linear-gradient(to right,#FABD61 0%,#F76B1C 100%);
+  position: fixed;
+  color: white;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  flex-direction: column;
+  text-align: center;
+  }
+  
+  .Rodo{
     margin-top:6%;
     width:80%;
     height:100%;
@@ -2096,7 +2115,7 @@ background-image: url(img/arrow_right.svg);
   
   .Rodo > h1{
     margin:8% 10% 0% 13%;
-    font-family: SF-Pro-Display-Light, Helvetica, Arial;
+    font-family:Lato;
     font-size: 42px;
     font-weight:200;
     letter-spacing: 1px;
@@ -2106,11 +2125,13 @@ background-image: url(img/arrow_right.svg);
   
   .Rodo > h2{
     margin:2% 10% 2% 13%;
+    font-family:Lato;
   }
   
   .Rodo > p{
     margin:2% 10% 0% 13%;
     font-size:12px;
+    font-family:Lato;
   }
   
   .rodo_button{
@@ -2137,7 +2158,7 @@ background-image: url(img/arrow_right.svg);
   .rodo_info > p{
     margin:0;
     font-size:12px;
-    font-family:HarmoniaDemo;
+    font-family:Lato;
     color:white;
   }
   

@@ -23,7 +23,7 @@ export class IdeaHeader extends Component{
                 
                 <div className = "SectionHeaderRight">
                 
-                    <img src={fundraiseimg}/> 
+                    <img alt ="Fundraise" src={fundraiseimg}/> 
 
                 </div>
             </div>

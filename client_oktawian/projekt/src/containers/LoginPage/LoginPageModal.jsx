@@ -7,10 +7,6 @@ import { history } from '../../_helpers';
 import { userActions } from '../../_actions';
 import { alertActions } from '../../_actions';
 
-import {LoginGoogle} from '../../components/Login/googlelogin';
-import {LoginFacebook} from '../../components/Login/facebooklogin';
-
-
 
 
 class LoginPageModal extends React.Component {

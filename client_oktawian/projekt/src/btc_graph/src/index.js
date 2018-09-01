@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import Raven from "raven-js";
 import ReactGA from "react-ga";

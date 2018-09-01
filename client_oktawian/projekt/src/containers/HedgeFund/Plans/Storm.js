@@ -7,7 +7,6 @@ import {StormFeatures} from '../../../components/HedgeFund/Plans/stormfeatures';
 import {Invest} from '../../../components/HedgeFund/Plans/invest';
 
 import '../../../global-styles';
-import { Plans } from '../earnwithus';
 
 export default class Storm extends Component{
 

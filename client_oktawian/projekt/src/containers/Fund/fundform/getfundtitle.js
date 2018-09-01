@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import {Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
+import React from 'react';
 
 import DropdownList from 'react-widgets/lib/DropdownList';
 

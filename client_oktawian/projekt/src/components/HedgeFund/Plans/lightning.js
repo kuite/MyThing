@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import LightningPlan from '../../../img/lightningplan.jpg';
@@ -14,7 +14,7 @@ export class Lightning extends Component{
           <Row>
             <div className ="Plan">
   
-            <img src ={LightningPlan}/>
+            <img alt ="Lightning Plan" src ={LightningPlan}/>
                 <h1>Lightning</h1>
                 <p>90 days<br/>
                 15%<br/>
