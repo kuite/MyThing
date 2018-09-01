@@ -9,7 +9,7 @@ namespace webapi.Services.Interfaces
 {
     public interface IFundService
     {
-        Task<Fund> GetFundAsync(string fundGuid);
+        Task<Fund> GetFundByIdAsync(string fundGuid);
 
         Task<Page<Fund>> GetFundsAsync(
             string fundGuid,

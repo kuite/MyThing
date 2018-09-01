@@ -20,6 +20,13 @@ namespace webapi.Infrastructure
 
             CreateMap<Fund, FundEntity>(MemberList.Source)
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => new Guid(src.Id)));
+
+            CreateMap<InvestingPlan, PlanSettings>(MemberList.Source)
+                .ForMember(dest => dest.DurationDays, opt => opt.MapFrom(src => DateTime.Now.Day - src.StartDate.Day));
+
+            CreateMap<PlanSettings, PlanSettingsEntity>(MemberList.Source);
+
+            CreateMap<PlanSettingsEntity, PlanSettings>(MemberList.Source);
         }
     }
 }

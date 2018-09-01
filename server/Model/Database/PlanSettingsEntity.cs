@@ -5,6 +5,7 @@ namespace webapi.Model.Database
 {
     public class PlanSettingsEntity
     {
+        public int Id { get; set; }
         public int DurationDays { get; set; }
         public decimal MinimumBtc { get; set; }
         public decimal ROI { get; set; }

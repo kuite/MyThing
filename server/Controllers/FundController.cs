@@ -46,13 +46,13 @@ namespace webapi.Controllers
             return Ok(funds);
         }
 
-        [HttpGet("GetFund/{fundId}")]
+        [HttpGet("GetFund/{fundGuid}")]
         [ValidateModel]
         public async Task<IActionResult> GetFundByIdAsync(string fundGuid)
         {
             if (string.IsNullOrEmpty(fundGuid)) return NotFound();
 
-            var fund = await _fundService.GetFundAsync(fundGuid);
+            var fund = await _fundService.GetFundByIdAsync(fundGuid);
             return Ok(fund);
         }
 
