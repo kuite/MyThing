@@ -25,26 +25,27 @@ namespace webapi.Services
             _mapper = mapper;
         }
 
-        public async Task<Fund> GetFundAsync(string fundGuid)
+        public async Task<Fund> GetFundByIdAsync(string fundGuid)
         {
             Guid id = new Guid(fundGuid);
             var entity = await _context
                 .Funds
                 .SingleOrDefaultAsync(x => x.Id == id);
 
-            return Mapper.Map<Fund>(entity);
+            if (entity == null) { throw new ArgumentException("This fund does not exist."); }
+
+            return _mapper.Map<Fund>(entity);
         }
 
         public async Task<Page<Fund>> GetFundsAsync(
             string fundGuid,
             PagingOptions pagingOptions)
         {
-            Guid id = new Guid(fundGuid);
-
             IQueryable<FundEntity> query = _context.Funds;
 
-            if (id != null)
+            if (fundGuid != null)
             {
+                Guid id = new Guid(fundGuid);
                 query = query.Where(x => x.Id == id);
             }
 
@@ -53,11 +54,12 @@ namespace webapi.Services
 
             var size = await query.CountAsync();
 
-            var items = await query
+            var itemsEntities = await query
                 .Skip(pagingOptions.Offset.Value)
                 .Take(pagingOptions.Limit.Value)
-                .ProjectTo<Fund>()
-                .ToArrayAsync();
+                .ToListAsync();
+
+            var items = _mapper.Map<List<Fund>>(itemsEntities);
 
             return new Page<Fund>
             {
@@ -115,8 +117,7 @@ namespace webapi.Services
 
         public async Task<Fund> SaveFundAsync(Fund fund)
         {
-            FundEntity entity = new FundEntity();
-            entity = _mapper.Map<FundEntity>(fund);
+            FundEntity entity = _mapper.Map<FundEntity>(fund);
             await _context.Funds.AddAsync(entity);
             _context.SaveChanges();
             return _mapper.Map<Fund>(entity);
