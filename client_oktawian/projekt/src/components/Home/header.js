@@ -41,7 +41,7 @@ export class Header extends Component{
 
                 <div className = "HeaderRight">
                 
-                    <img src={MainImage} alt={"logo"}/> 
+                    <img className ="animated fadeIn" src={MainImage} alt={"logo"}/> 
 
                 </div>
 

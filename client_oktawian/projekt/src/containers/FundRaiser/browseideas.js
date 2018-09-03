@@ -27,9 +27,8 @@ class Main extends React.Component {
       super(props);
       this.state = {
         
-        data: null,
-        error: null,
-        isLoading: false,
+        data: [],
+        isLoaded: false,
         
         displayCategory: "all",
         products: PRODUCTS,
@@ -38,36 +37,45 @@ class Main extends React.Component {
       this.setCategory = this.setCategory.bind(this);
     }
   
+
+
     componentDidMount(){
         fetch('http://localhost:50647/fund/GetFunds?MaxPageSize=100&Offset=5&Limit=5')
-        .then(response => response.json())
-        .then(data => this.setState({ hits: data.hits, isLoading: false }))
-        .catch(error => this.setState({ error, isLoading: false }));
+        
+        .then(response => {
+          return response.json();
 
-        console.log(this.state);
+        }).then(data => {
+          this.setState({
+            isLoaded: true,
+            data: data,
+          })
+          console.log(data);
 
+        }).catch(err => {
+        });
     }
 
-
-   
     setCategory(category) {
       this.setState({
         displayCategory: category
       });
     }
 
-
-
     render() {
+
       return (
       <div>
-      <UI setCategory={this.setCategory} state={this.state} />;
+      <UI setCategory={this.setCategory} state={this.state} />; 
       </div>
       )
     }
    }
 
-  
+   const PRODUCTS = [
+    {i: 1, category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
+    {i: 2, category: "Category2", name: "IdeaCategory2", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
+];
 
 
 const Result = ({state: { products, displayCategory} }) =>
@@ -169,10 +177,7 @@ const UI = ({
 //GET FUNCTION
 
 
-const PRODUCTS = [
-    {i: 1, category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
-    {i: 2, category: "Category2", name: "IdeaCategory2", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
-];
+
 
 const uniqueItems = (x, i, a) => a.indexOf(x) === i;
 

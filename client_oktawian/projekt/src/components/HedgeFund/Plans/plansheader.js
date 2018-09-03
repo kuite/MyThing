@@ -12,8 +12,8 @@ export class PlansHeader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Hedgefunds</h1>
-                        <p>Plan for investors, who are looking for stable income.</p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Hedgefunds</h1>
+                         <p className ="animated fadeInUp">Plan for investors, who are looking for stable income.</p> 
                         </Col>
                     </Row>
                 </Container>
@@ -21,7 +21,7 @@ export class PlansHeader extends Component{
                 
                 
                 <div className = "SectionHeaderRight">
-                    <img alt ="Hedgefund home" src={planimg}/> 
+                    <img className ="animated fadeIn" alt ="Hedgefund home" src={planimg}/> 
                 </div>
             </div>
 

@@ -12,8 +12,8 @@ export class Browseideaheader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Create something fantastic</h1>
-                        <p>Browse ideas to find something for you</p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Active fundraisers</h1>
+                        <p className ="animated fadeInUp">the place where you can help & earn</p> 
                         </Col>
                     </Row>
                 </Container>
@@ -22,7 +22,7 @@ export class Browseideaheader extends Component{
                 
                 <div className = "SectionHeaderRight">
                 
-                    <img alt ="FundRaiser" src={fundraiseimg}/> 
+                    <img className ="animated fadeIn" alt ="FundRaiser" src={fundraiseimg}/> 
 
                 </div>
             </div>

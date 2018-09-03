@@ -2505,6 +2505,7 @@ google-login{
 .HomeFund {
   padding-top:5%;
   background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
+  min-width:1400px;
   width:100%;
   height:100%;
 }
@@ -2603,6 +2604,72 @@ margin:6% 0 6% 0;
   text-align:center;
 }
 
+
+
+@media (min-width: 0px) and (max-width: 468px) {
+
+
+  .HeaderLeft{
+    width:100%;
+  }
+
+  .HeaderRight{
+    display:none;
+  }
+
+  .Section{
+    width:100%;
+    height:100%;
+  }
+
+.SectionPlans{
+    padding:2%;
+    float:left;
+    width: 100%;
+    height:180px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#BEBEBE;
+    text-align:center
+  }
+
+  .SectionInside > img {
+    text-align:center;
+    display:inline-flex;
+    width:75px;
+    height:75px;
+    margin:2% 0 2% 0;
+  }
+
+  .SectionInside h2 > .Rectangle {
+    text-align:center;
+    display:inline-flex;
+    width: 60px;
+    height: 3px;
+    margin:2% 0 2% 0%;
+    background: #7DC72C;
+  }
+
+  .Section h2{
+    font-family:Lato;
+    margin:2% 0 2% 0%;
+    font-size:24px;
+  }
+
+  .Section p{
+    font-family:Museo Sans;
+    font-weight:100;
+    margin:2% 0% 2% 0%;
+    font-size:14px;
+  }
+
+
+
+
+
+
+
+}
 
 
 `;

@@ -12,8 +12,8 @@ export class LightningHeader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Lightning Hedgefund</h1>
-                        <p>It's more risky, but has higher ROI.</p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Lightning Hedgefund</h1>
+                        <p className ="animated fadeInUp">It's more risky, but has higher ROI.</p> 
                         </Col>
                     </Row>
                 </Container>
@@ -21,7 +21,7 @@ export class LightningHeader extends Component{
                 
                 
                 <div className = "SectionHeaderRight">
-                    <img alt ="Lightning Plan" src={planimg}/> 
+                    <img className ="animated fadeIn" alt ="Lightning Plan" src={planimg}/> 
                 </div>
             </div>
 

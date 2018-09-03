@@ -17,8 +17,8 @@ export class Fundheader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Support for your strategy</h1>
-                        <p>Submit your idea and get support</p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Support for your strategy</h1>
+                         <p className ="animated fadeInUp">Submit your idea and get support</p> 
                         </Col>
                     </Row>
                 </Container>
@@ -27,7 +27,7 @@ export class Fundheader extends Component{
                 
                 <div className = "SectionHeaderRight">
                 
-                    <img alt ="Fund" src={fundimg}/> 
+                    <img className ="animated fadeIn" alt ="Fund" src={fundimg}/> 
 
                 </div>
             </div>

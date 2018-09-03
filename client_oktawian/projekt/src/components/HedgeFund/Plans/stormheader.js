@@ -12,8 +12,8 @@ export class StormHeader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Storm Hedgefund</h1>
-                        <p>Long term - it is designed for mature investors. </p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Storm Hedgefund</h1>
+                        <p className ="animated fadeInUp">Long term - it is designed for mature investors. </p> 
                         </Col>
                     </Row>
                 </Container>
@@ -21,7 +21,7 @@ export class StormHeader extends Component{
                 
                 
                 <div className = "SectionHeaderRight">
-                    <img alt ="Storm Plan" src={planimg}/> 
+                    <img className ="animated fadeIn" alt ="Storm Plan" src={planimg}/> 
                 </div>
             </div>
 
