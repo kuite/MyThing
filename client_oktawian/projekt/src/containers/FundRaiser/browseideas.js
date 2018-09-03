@@ -27,7 +27,6 @@ class Main extends React.Component {
       super(props);
       this.state = {
         
-        data: [],
         isLoaded: false,
         
         displayCategory: "all",
@@ -46,12 +45,11 @@ class Main extends React.Component {
           return response.json();
 
         }).then(data => {
-          this.setState({
-            isLoaded: true,
-          })
-          const PRODUCTS = data.map(obj => ({title: obj.title, description: obj.description}))
+          console.log(data);
+          let PRODUCTS = data.items.map(obj => ({ title: obj.title, description: obj.description })); 
           this.setState({isLoaded: true, PRODUCTS})
-
+          console.log(this.state)
+        
         }).catch(err => {
         });
     }
@@ -72,6 +70,8 @@ class Main extends React.Component {
     }
    }
 
+
+const PRODUCTS = [];
 
 
 const Result = ({state: { products, displayCategory} }) =>
@@ -171,9 +171,6 @@ const UI = ({
 //data (need to fetch from api later)
 
 //GET FUNCTION
-
-
-
 
 const uniqueItems = (x, i, a) => a.indexOf(x) === i;
 
