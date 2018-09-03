@@ -20,7 +20,6 @@ export default class Home extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
                 <Header/>
                 <ChoiceSection/>
                 <CarouselFinal/>

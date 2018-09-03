@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Container, Row, Col} from 'reactstrap';
 
-import {Navbar} from '../../components/navbar';
+
 
 import '../../global-styles';
 
@@ -21,7 +21,6 @@ export default class Browseideas extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
                 <Plans/>
              </div>
         )

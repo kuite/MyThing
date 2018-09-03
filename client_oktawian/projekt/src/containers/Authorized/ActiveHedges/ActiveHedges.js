@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 
 
-import {Navbar} from '../../../components/navbar';
 import '../../../global-styles';
 import {Container, Row, Col } from 'reactstrap';
 
@@ -18,7 +17,6 @@ export default class ActiveHedges extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
                 <div className="HomeFund">
                         <Container>
                         <div className ="BitcoinAvailable">

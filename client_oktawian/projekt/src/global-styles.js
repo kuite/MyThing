@@ -1795,7 +1795,7 @@ margin-top:33%;
 .Logo{
   margin-top:3%;
   width:150px;
-  height:100%;
+  height:65px;
   background-image: url(img/logowhite.svg);
   background-repeat: no-repeat;
 }
@@ -1803,7 +1803,7 @@ margin-top:33%;
 .LogoScroll{
   margin-top:3%;
   width:150px;
-  height:100%;
+  height:65px;
   background-image: url(img/logocolor.svg);
   background-repeat: no-repeat;
 }
@@ -1827,6 +1827,12 @@ margin-top:33%;
     box-shadow: 0 0 0 0 rgba(0,50,0,.2), 0 0 8px 0 rgba(0,50,0,.4);
   }
 
+
+.Menu > button {
+
+  margin-top:5%;
+}
+
   .Menu {
   }
 
@@ -1836,7 +1842,7 @@ margin-top:33%;
     width:0%;
     height:0%;
     font-size:14px;
-    font-family:Lato;
+    font-family:Helvetica;
     color:white;
   }
 
@@ -1848,13 +1854,13 @@ margin-top:33%;
     background-color:none;
     padding:0%;
     font-size:14px;
-    font-family:Lato;
+    font-family:Helvetica;
     color:#222064;
   }
 
   .Menu  a:hover{
     font-size:14px;
-    font-family:Museo Sans;
+    font-family:Helvetica
     color:#00C57F;
     text-decoration:none;
   }
@@ -2500,7 +2506,7 @@ google-login{
   padding-top:5%;
   background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
   width:100%;
-  height:1800px;
+  height:100%;
 }
 
 .BitcoinAvailable{
@@ -2571,7 +2577,31 @@ margin:6% 0 6% 0;
 }
 
 
+// FOOTER
 
+.FooterFirstLevel{
+  width:100%;
+  margin:0% 0 0% 0;
+  background-color:transparent;
+  padding:2% 20% 2% 20%;
+  border-top: 1px solid grey;
+}
+
+.FooterSecondLevel{
+  width:100%;
+  height:40px;
+  background-color:#222064;
+  color:#75739B;
+  font-size:12px;
+  text-align:center;
+}
+
+.FooterSecondLevel > p{
+
+  color:#75739B;
+  font-size:12px;
+  text-align:center;
+}
 
 
 

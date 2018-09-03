@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Container} from 'reactstrap';
 
-import {Navbar} from '../../../components/navbar';
 import '../../../global-styles';
 
 import {IncreaseStep} from '../../../components/Authorized/Increase/increasesteps';
@@ -13,7 +12,6 @@ export default class IncreaseSteps extends Component{
     render(){
         return(
             <div>
-            <Navbar/>
         <div className="HomeFund">
             <Container>
                 <div className ="BitcoinAvailable">

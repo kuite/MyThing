@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 
 
-import {Navbar} from '../../../components/navbar';
 import '../../../global-styles';
 
 
@@ -15,7 +14,6 @@ export default class MyFunds extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
                 <NoFunds/>
              </div>
         )

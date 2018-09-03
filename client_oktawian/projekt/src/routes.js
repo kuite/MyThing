@@ -46,6 +46,9 @@ import {MyFunds} from './containers/Authorized/MyFunds/MyFunds';
 import withdraw from './containers/Authorized/Withdraw/Withdraw.js';
 import deposit from './containers/Authorized/Deposit/Deposit.js';
 
+
+import Footer from './components/footer'
+import Navbar from './components/navbar'
 /*
 configureFakeBackend();
 */
@@ -76,10 +79,10 @@ class App extends Component {
     render() {
         return (
             <div>
-                                        
+                               
             <Router onUpdate= {scrollToTop} history={history}>
             <div>
-             <SignInModule/> 
+            <Navbar/> 
 
               <ScrollToTopRoute exact path="/" component={home} />
               <ScrollToTopRoute path="/fund" component={fund} />
@@ -104,6 +107,7 @@ class App extends Component {
               <PrivateRoute path ="/deposit" component ={deposit}/>
               <PrivateRoute path ="/withdraw" component ={withdraw}/>
             
+            <Footer/>
             </div>
           </Router>
             </div>

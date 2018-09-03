@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import {Container, Row, Col} from 'reactstrap';
-import {Navbar} from '../../../components/navbar';
 import { Link } from 'react-router-dom';
 
 import {PlanAdvantageOne, PlanAdvantageTwo, PlanAdvantageThree} from '../../../components/HedgeFund/Plans/Advantages';
@@ -19,7 +18,6 @@ export default class Intermediate extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
                 <IntermediateBackground/>
              </div>
         )

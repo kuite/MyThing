@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import {Container, Row, Col, Progress } from 'reactstrap';
-import {Navbar} from '../../components/navbar';
 import { Link } from 'react-router-dom';
 
 import {Browseideaheader} from '../../components/FundRaiser/browseideaheader';
@@ -14,7 +13,6 @@ export default class Browseideas extends Component{
     render(){
         return(
             <div>  
-                <Navbar/>
                 <Browseideaheader/>
                 <Main/>
              </div>
@@ -45,6 +43,9 @@ class Main extends React.Component {
         .then(response => response.json())
         .then(data => this.setState({ hits: data.hits, isLoading: false }))
         .catch(error => this.setState({ error, isLoading: false }));
+
+        console.log(this.state);
+
     }
 
 

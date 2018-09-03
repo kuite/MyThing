@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 
-import {Navbar} from '../../components/navbar';
 import {Container, FormGroup, Input,} from 'reactstrap';
 
 import {Fundheader, Fundheader2} from '../../components/Fund/fundheader';
@@ -37,7 +36,7 @@ export default class Fund extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
+
                 <Fundheader/>
                 <Fundheader2/>
                 <Container>
