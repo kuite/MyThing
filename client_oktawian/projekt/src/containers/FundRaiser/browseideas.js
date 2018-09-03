@@ -48,9 +48,9 @@ class Main extends React.Component {
         }).then(data => {
           this.setState({
             isLoaded: true,
-            data: data,
           })
-          console.log(data);
+          const PRODUCTS = data.map(obj => ({title: obj.title, description: obj.description}))
+          this.setState({isLoaded: true, PRODUCTS})
 
         }).catch(err => {
         });
@@ -72,10 +72,6 @@ class Main extends React.Component {
     }
    }
 
-   const PRODUCTS = [
-    {i: 1, category: "Category1", name: "IdeaCategory1", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
-    {i: 2, category: "Category2", name: "IdeaCategory2", desc: "Description about idea",StartDate: "27.01.1995", EndDate: "31.12.2027", BtcGoal: '20 000', BtcDonated: '14 000',  img: <div>test</div>},
-];
 
 
 const Result = ({state: { products, displayCategory} }) =>
@@ -85,8 +81,8 @@ const Result = ({state: { products, displayCategory} }) =>
     .filter(({ category }) =>
         displayCategory === category || displayCategory === "all"
     )
-    .map(( {i, category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img}) =>
-      <ResultItem key ={i} category={category} name={name} desc={desc} StartDate ={StartDate} EndDate ={EndDate} BtcGoal={BtcGoal} BtcDonated={BtcDonated} img ={img}/>
+    .map(( {title, description}) =>
+      <ResultItem title ={title} description ={description}/>
     )
     
   }
@@ -96,28 +92,28 @@ const Result = ({state: { products, displayCategory} }) =>
 
 
 
-export const ResultItem = ({i, category, name, StartDate, EndDate, BtcGoal, BtcDonated, desc, img }) =>
+export const ResultItem = ({title, description}) =>
  
-<div key ={i} className ="Idea"> 
+<div className ="Idea"> 
                              
 <Container>
     <Row>
         <Col sm={{size:1}}><Vote/></Col>   
         <Col sm={{size:3}}><div className ="Idea_image"></div></Col>
         <Col sm={{size:6}}>
-        <h2>{name}</h2>
+        <h2>{title}</h2>
             <p>Business/Non Profit</p>
-            <p>{category}</p>
-            <p>Started {StartDate} - Finish: {EndDate}</p>
+            <p>[category]</p>
+            <p>Started [startdate] - Finish: [enddate]</p>
         <div className ="Rectangle"></div>
         
-        <p>{desc}</p>
+        <p>{description}</p>
 
         <Progress multi>
-            <Progress bar color="success" value="{BtcDonated}"/> {BtcDonated} BTC / {BtcGoal }BTC funded
+            <Progress bar color="success" value="{BtcDonated}"/> [btcdonated] BTC / [btcgoal] BTC funded
         </Progress>
 
-            <Link to ={`${name}`} className="SecondaryButton">Support idea now</Link>
+            <Link to ={`${title}`} className="SecondaryButton">Support idea now</Link>
 
         </Col>
     </Row>
