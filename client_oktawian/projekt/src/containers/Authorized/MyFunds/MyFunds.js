@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import {Container} from 'reactstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 
@@ -28,7 +29,7 @@ class NoFunds extends Component{
             <Container>
                 <div className ="BitcoinAvailable">
                 <h2>No active funds</h2>
-                <button className ="Login">Add fund now</button>
+                <Link to ="/fund"><button className ="Login">Add fund now</button></Link>
                 </div>
             </Container>
             </div>

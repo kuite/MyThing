@@ -202,71 +202,64 @@ const renderDropzoneInput = (field) => {
   
     return (
         <form onSubmit={handleSubmit(submitToServer)}>
-  
- 
-        <Field name="Title"
-          Type="text"
-          component={RenderTitle}
-          placeholder="What is Title of idea?"
-            />
-    
-  
-        <Field name="Description"
-          Type="text"
-          component={RenderDescription}
-          placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you"
-            />
+      <div className ="FundForm">
+              <div className ="FundFormLeft">
+                  <h3>Image:</h3>
+                  <Field
+                        name={FILE_FIELD_NAME}
+                        component={renderDropzoneInput}
+                      />
+              </div>
+              <div className ="FundFormRight">
+                    <Field name="Title"
+                      Type="text"
+                      component={RenderTitle}
+                      placeholder="What is Title of idea?"
+                        />
+                
+              
+                    <Field name="Description"
+                      Type="text"
+                      component={RenderDescription}
+                      placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you"
+                        />
 
 
-        <Field name="BtcGoal"
-          Type="number"
-          component={RenderBtcGoal}
-          placeholder="How many you will achieve?"
-           />
+                    <Field name="BtcGoal"
+                      Type="number"
+                      component={RenderBtcGoal}
+                      placeholder="Your BTC Goal? (np 0,65)"
+                      />
 
-      
-          <Field
-          name="type"
-          component={renderSelectList}
-          data={[ 'bussiness', 'nonprofit' ]}/>
+                  
+                      <Field
+                      name="type"
+                      component={renderSelectList}
+                      data={[ 'bussiness', 'nonprofit' ]}/>
 
-     
-          <Field name="Date"
-          Type="Date"
-          component={RenderDatePicker}
-           />
-      
-        <Field
-          name="Category"
-          component={renderDropdownList}
-          data={Category}
-          valueField="value"
-          textField="color"/>
-
-
+                
+                      <Field name="Date"
+                      Type="Date"
+                      component={RenderDatePicker}
+                      />
+                  
+                    <Field
+                      name="Category"
+                      component={renderDropdownList}
+                      data={Category}
+                      valueField="value"
+                      textField="color"/>
 
 
-
-      <h3>Image:</h3>
-      <Field
-            name={FILE_FIELD_NAME}
-            component={renderDropzoneInput}
-          />
-      
+                      <button
+                      className ="Login"
+                      Type="submit"
+                        disabled={submitting}>
+                        Submit</button>
 
 
-
-
-
-
-        <div>
-          <button
-          className ="SecondaryButton"
-           Type="submit"
-            disabled={submitting}>
-            Submit</button>
-        </div>
-  
+              </div>
+            </div>
       </form>
     )
   }

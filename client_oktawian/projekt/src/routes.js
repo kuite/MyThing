@@ -85,7 +85,7 @@ class App extends Component {
             <Navbar/> 
 
               <ScrollToTopRoute exact path="/" component={home} />
-              <ScrollToTopRoute path="/fund" component={fund} />
+              
               <ScrollToTopRoute path="/browseideas" component={browseideas} />
               <ScrollToTopRoute path="/earnwithus" component={earnwithus} />
               <ScrollToTopRoute path="/register" component={RegisterPage} />
@@ -98,7 +98,10 @@ class App extends Component {
               <ScrollToTopRoute path ="/increase" component ={increase}/>
               <ScrollToTopRoute path ="/policy" component ={policyprivacy}/>
 
+              <PrivateRoute path="/fund" component={fund} />
+
               <PrivateRoute path ="/homepage" component ={homepage}/>
+              
 
               <PrivateRoute path ="/activehedges" component ={ActiveHedges}/>
               <PrivateRoute path ="/userprofile" component ={UserProfile}/>

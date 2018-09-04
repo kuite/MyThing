@@ -17,8 +17,8 @@ export class Fundheader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Support for your strategy</h1>
-                         <p className ="animated fadeInUp">Submit your idea and get support</p> 
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Get funds for yourself<br/> or a loved one</h1>
+                         <p className ="animated fadeInUp">Once you add the collection and make it available to<br/> the world, people can support your initiative</p> 
                         </Col>
                     </Row>
                 </Container>
@@ -42,7 +42,7 @@ export class Fundheader2 extends Component{
         return(
             <div className ="FundHeader2">
                 <h2>What's happening with your growing idea?</h2>
-                <p>Our platform makes these ideas crystallize and have a much better chance of success.</p>
+                <p>Our platform makes these ideas crystallize and have a much better chance to realize.</p>
 
                 <div className ="FundHeader2Icons">
 
@@ -59,7 +59,7 @@ export class Fundheader2 extends Component{
 
                     <div className="FundIcon"><img alt ="Start up Resources"  src={fundheadericon3}/>
                     <h3>Start-up resources</h3>
-                    <p>If your idea is interesting, there will be investors and people who will want to support it</p>
+                    <p>If your idea is interesting, there will bes people who will want to support it</p>
                     
                      </div>
                 </div>

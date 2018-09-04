@@ -1,28 +1,103 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="53px" height="64px" viewBox="0 0 53 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
-    <title>noun_Sharing_1261785</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="3.Get-Funded-(view-square)" transform="translate(-688.000000, -755.000000)" fill="#00C57F" fill-rule="nonzero">
-            <g id="noun_Sharing_1261785" transform="translate(688.000000, 754.000000)">
-                <g id="Group">
-                    <path d="M36.9,45 C36.69,46.19 36.04,48 34,48 L23,48 L23,50 L34,50 C38,50 39,46.08 39,44 C39,43.4477153 38.5522847,43 38,43 L13,43 C12.734197,42.9984632 12.4787188,43.1028135 12.29,43.29 L0.29,55.29 L1.7,56.7 L13.41,45 L36.9,45 Z" id="Shape"></path>
-                    <path d="M49.29,36.29 L40.29,45.29 L41.7,46.7 L49.91,38.49 C51.2645074,40.2863721 50.9886136,42.8263462 49.28,44.29 L37.59,56 L17,56 C16.734197,55.9984632 16.4787188,56.1028135 16.29,56.29 L9.29,63.29 L10.7,64.7 L17.41,58 L38,58 C38.265803,58.0015368 38.5212812,57.8971865 38.71,57.71 L50.71,45.71 C54.43,41.99 52.34,37.92 50.71,36.3 C50.5235699,36.1093589 50.2687228,36.001069 50.0020832,35.9991913 C49.7354436,35.9973135 49.4790965,36.1020035 49.29,36.29 Z" id="Shape"></path>
-                    <rect id="Rectangle-path" x="19" y="48" width="2" height="2"></rect>
-                    <path d="M17,36 C17.0059552,37.7411305 18.1375132,39.2784115 19.7982142,39.8015209 C21.4589151,40.3246303 23.2672417,39.7133927 24.27,38.29 C25.2064692,39.3735595 26.5678422,39.9963375 28,39.9963375 C29.4321578,39.9963375 30.7935308,39.3735595 31.73,38.29 C32.6674073,39.6396903 34.3349143,40.2787447 35.9342526,39.9012352 C37.533591,39.5237258 38.739328,38.2064679 38.9742537,36.5800589 C39.2091795,34.9536498 38.4254914,33.3490306 36.9983563,32.5343638 C35.5712212,31.7196971 33.7910319,31.8607509 32.51,32.89 C31.6745678,31.1650484 29.9266129,30.0694495 28.01,30.0694495 C26.0933871,30.0694495 24.3454322,31.1650484 23.51,32.89 C22.7995493,32.3153483 21.9137632,32.0012648 21,32 C18.790861,32 17,33.790861 17,36 Z M35,34 C36.1045695,34 37,34.8954305 37,36 C37,37.1045695 36.1045695,38 35,38 C33.8954305,38 33,37.1045695 33,36 C33,34.8954305 33.8954305,34 35,34 Z M28,32 C29.6568542,32 31,33.3431458 31,35 C31,36.6568542 29.6568542,38 28,38 C26.3431458,38 25,36.6568542 25,35 C25,33.3431458 26.3431458,32 28,32 Z M21,34 C22.1045695,34 23,34.8954305 23,36 C23,37.1045695 22.1045695,38 21,38 C19.8954305,38 19,37.1045695 19,36 C19,34.8954305 19.8954305,34 21,34 Z" id="Shape"></path>
-                    <path d="M36,16 L49.59,16 L46.3,19.29 L47.71,20.7 L52.71,15.7 C53.0977236,15.3099625 53.0977236,14.6800375 52.71,14.29 L47.71,9.29 L46.29,10.71 L49.59,14 L36,14 C34.8954305,14 34,14.8954305 34,16 L34,22 L36,22 L36,16 Z" id="Shape"></path>
-                    <path d="M27,4.41 L27,20 L29,20 L29,4.41 L32.29,7.7 L33.7,6.29 L28.7,1.29 C28.3099625,0.902276405 27.6800375,0.902276405 27.29,1.29 L22.29,6.29 L23.7,7.7 L27,4.41 Z" id="Shape"></path>
-                    <rect id="Rectangle-path" x="27" y="26" width="2" height="2"></rect>
-                    <rect id="Rectangle-path" x="34" y="28" width="2" height="2"></rect>
-                    <rect id="Rectangle-path" x="34" y="24" width="2" height="2"></rect>
-                    <rect id="Rectangle-path" x="20" y="28" width="2" height="2"></rect>
-                    <rect id="Rectangle-path" x="20" y="24" width="2" height="2"></rect>
-                    <rect id="Rectangle-path" x="27" y="22" width="2" height="2"></rect>
-                    <path d="M8.29,20.71 L9.7,19.3 L6.41,16 L20,16 L20,22 L22,22 L22,16 C22,14.8954305 21.1045695,14 20,14 L6.41,14 L9.7,10.71 L8.29,9.29 L3.29,14.29 C2.90227641,14.6800375 2.90227641,15.3099625 3.29,15.7 L8.29,20.71 Z" id="Shape"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 53 64" style="enable-background:new 0 0 53 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Shape_6_);}
+	.st1{fill:url(#Shape_7_);}
+	.st2{fill:url(#Rectangle-path_7_);}
+	.st3{fill:url(#Shape_8_);}
+	.st4{fill:url(#Shape_9_);}
+	.st5{fill:url(#Shape_10_);}
+	.st6{fill:url(#Rectangle-path_8_);}
+	.st7{fill:url(#Rectangle-path_9_);}
+	.st8{fill:url(#Rectangle-path_10_);}
+	.st9{fill:url(#Rectangle-path_11_);}
+	.st10{fill:url(#Rectangle-path_12_);}
+	.st11{fill:url(#Rectangle-path_13_);}
+	.st12{fill:url(#Shape_11_);}
+</style>
+<title>noun_Sharing_1261785</title>
+<desc>Created with Sketch.</desc>
+<g id="Web">
+	<g id="_x33_.Get-Funded-_x28_view-square_x29_" transform="translate(-688.000000, -755.000000)">
+		<g id="noun_Sharing_1261785" transform="translate(688.000000, 754.000000)">
+			<g id="Group">
+				<linearGradient id="Shape_6_" gradientUnits="userSpaceOnUse" x1="0.29" y1="49.85" x2="39" y2="49.85">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<path id="Shape" class="st0" d="M36.9,45c-0.2,1.2-0.9,3-2.9,3H23v2h11c4,0,5-3.9,5-6c0-0.6-0.4-1-1-1H13
+					c-0.3,0-0.5,0.1-0.7,0.3l-12,12l1.4,1.4L13.4,45H36.9z"/>
+				<linearGradient id="Shape_7_" gradientUnits="userSpaceOnUse" x1="9.29" y1="50.3496" x2="52.7878" y2="50.3496">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<path id="Shape_1_" class="st1" d="M49.3,36.3l-9,9l1.4,1.4l8.2-8.2c1.4,1.8,1.1,4.3-0.6,5.8L37.6,56H17c-0.3,0-0.5,0.1-0.7,0.3
+					l-7,7l1.4,1.4l6.7-6.7H38c0.3,0,0.5-0.1,0.7-0.3l12-12c3.7-3.7,1.6-7.8,0-9.4C50.5,36.1,50.3,36,50,36S49.5,36.1,49.3,36.3z"/>
+				<linearGradient id="Rectangle-path_7_" gradientUnits="userSpaceOnUse" x1="19" y1="49" x2="21" y2="49">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<rect id="Rectangle-path" x="19" y="48" class="st2" width="2" height="2"/>
+				<linearGradient id="Shape_8_" gradientUnits="userSpaceOnUse" x1="17" y1="35.0389" x2="39.0155" y2="35.0389">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<path id="Shape_2_" class="st3" d="M17,36c0,1.7,1.1,3.3,2.8,3.8c1.7,0.5,3.5-0.1,4.5-1.5c0.9,1.1,2.3,1.7,3.7,1.7
+					s2.8-0.6,3.7-1.7c0.9,1.3,2.6,2,4.2,1.6c1.6-0.4,2.8-1.7,3-3.3c0.2-1.6-0.5-3.2-2-4c-1.4-0.8-3.2-0.7-4.5,0.4
+					c-0.8-1.7-2.6-2.8-4.5-2.8s-3.7,1.1-4.5,2.8C22.8,32.3,21.9,32,21,32C18.8,32,17,33.8,17,36z M35,34c1.1,0,2,0.9,2,2s-0.9,2-2,2
+					s-2-0.9-2-2S33.9,34,35,34z M28,32c1.7,0,3,1.3,3,3s-1.3,3-3,3s-3-1.3-3-3S26.3,32,28,32z M21,34c1.1,0,2,0.9,2,2s-0.9,2-2,2
+					s-2-0.9-2-2S19.9,34,21,34z"/>
+				<linearGradient id="Shape_9_" gradientUnits="userSpaceOnUse" x1="34" y1="15.645" x2="53.0008" y2="15.645">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<path id="Shape_3_" class="st4" d="M36,16h13.6l-3.3,3.3l1.4,1.4l5-5c0.4-0.4,0.4-1,0-1.4l-5-5l-1.4,1.4l3.3,3.3H36
+					c-1.1,0-2,0.9-2,2v6h2V16z"/>
+				<linearGradient id="Shape_10_" gradientUnits="userSpaceOnUse" x1="22.29" y1="10.4996" x2="33.7" y2="10.4996">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<path id="Shape_4_" class="st5" d="M27,4.4V20h2V4.4l3.3,3.3l1.4-1.4l-5-5c-0.4-0.4-1-0.4-1.4,0l-5,5l1.4,1.4L27,4.4z"/>
+				<linearGradient id="Rectangle-path_8_" gradientUnits="userSpaceOnUse" x1="27" y1="27" x2="29" y2="27">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<rect id="Rectangle-path_1_" x="27" y="26" class="st6" width="2" height="2"/>
+				<linearGradient id="Rectangle-path_9_" gradientUnits="userSpaceOnUse" x1="34" y1="29" x2="36" y2="29">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<rect id="Rectangle-path_2_" x="34" y="28" class="st7" width="2" height="2"/>
+				<linearGradient id="Rectangle-path_10_" gradientUnits="userSpaceOnUse" x1="34" y1="25" x2="36" y2="25">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<rect id="Rectangle-path_3_" x="34" y="24" class="st8" width="2" height="2"/>
+				<linearGradient id="Rectangle-path_11_" gradientUnits="userSpaceOnUse" x1="20" y1="29" x2="22" y2="29">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<rect id="Rectangle-path_4_" x="20" y="28" class="st9" width="2" height="2"/>
+				<linearGradient id="Rectangle-path_12_" gradientUnits="userSpaceOnUse" x1="20" y1="25" x2="22" y2="25">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<rect id="Rectangle-path_5_" x="20" y="24" class="st10" width="2" height="2"/>
+				<linearGradient id="Rectangle-path_13_" gradientUnits="userSpaceOnUse" x1="27" y1="23" x2="29" y2="23">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<rect id="Rectangle-path_6_" x="27" y="22" class="st11" width="2" height="2"/>
+				<linearGradient id="Shape_11_" gradientUnits="userSpaceOnUse" x1="2.9992" y1="15.645" x2="22" y2="15.645">
+					<stop  offset="0" style="stop-color:#FABD61"/>
+					<stop  offset="1" style="stop-color:#F76B1C"/>
+				</linearGradient>
+				<path id="Shape_5_" class="st12" d="M8.3,20.7l1.4-1.4L6.4,16H20v6h2v-6c0-1.1-0.9-2-2-2H6.4l3.3-3.3L8.3,9.3l-5,5
+					c-0.4,0.4-0.4,1,0,1.4L8.3,20.7z"/>
+			</g>
+		</g>
+	</g>
+</g>
 </svg>

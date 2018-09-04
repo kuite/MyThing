@@ -2285,7 +2285,6 @@ float: left;
   text-align:center;
 }
 
-
 .FundHeader2Icons{
 display:inline-flex;
 }
@@ -2306,6 +2305,45 @@ display:inline-flex;
   text-align:center;
 
 }
+
+
+// FUND FORM
+
+.FundForm{
+  margin:5% 0 17% 0;
+  width:100%;
+  height:420px;
+}
+
+.FundFormLeft{
+  width:30%;
+  float:left;
+}
+
+.FundFormRight{
+  width:70%;
+  float:left;
+}
+
+
+.rw-widget-container{
+  background-color:none !important;
+  border:none !important
+  margin: 2% 0 2% 0;
+}
+
+.rw-widget>.rw-widget-container{
+  margin:0 0 4% 0 !important;
+  width:60% !important;
+}
+
+.DateRangePicker{
+  margin:0% 0 2% 0;
+}
+
+
+
+
 
 
 
