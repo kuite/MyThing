@@ -84,7 +84,61 @@ class Logo extends Component{
 
 export class Menu extends Component{
 
+    constructor() {
+        super();
+        this.state = {
+          width: window.innerWidth,
+        };
+      }
+
+      componentWillMount() {
+        window.addEventListener('resize', this.handleWindowSizeChange);
+      }
+
+      componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowSizeChange);
+      }
+
+      handleWindowSizeChange = () => {
+        this.setState({ width: window.innerWidth });
+      };
+
+
+
+
+
     render(){
+
+        const { width } = this.state;
+        const isMobile = width <= 500;
+
+
+        if (isMobile){
+            return(
+                <nav role="navigation">
+                <div id="menuToggle">
+
+                    <input type="checkbox" />
+                    
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    
+                    <ul id="menu">
+                    <a href="#"><Panel/></a>
+                    <a href="#"><Link className ={this.props.navbarState} to = "/browseideas">Fundraiser</Link></a>
+                    <a href="#"><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></a>
+                    <a href="#"><Fund/></a>
+                    <a href="#"><Register/></a>
+                    <a href="#"><Login/></a>
+                    </ul>
+                </div>
+                </nav>
+            )
+        }
+
+        else{
+
         return(
 
              <div className = "Menu">
@@ -104,6 +158,60 @@ export class Menu extends Component{
         )
     }
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

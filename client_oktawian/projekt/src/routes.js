@@ -69,10 +69,10 @@ class App extends Component {
             // clear alert on location change
             dispatch(alertActions.clear());
         });
-    }
 
-    componentDidUpdate(prevProps) {
-        window.scrollTo(0, 0)
+        this.state = {
+            width: window.innerWidth,
+          };
     }
 
 
