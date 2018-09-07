@@ -4,18 +4,20 @@ using System.Threading.Tasks;
 using webapi.Model.Domain;
 using webapi.Model.Common;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace webapi.Services.Interfaces
 {
     public interface IFundService
     {
-        Task<Fund> GetFundByIdAsync(string fundGuid);
+        Task<Fund> GetFundByIdAsync(string fundGuid, string userId);
 
         Task<Page<Fund>> GetFundsAsync(
             string fundGuid,
-            PagingOptions pagingOptions);
+            PagingOptions pagingOptions,
+            string userId);
 
-        Task<List<Fund>> GetFundsByCategoriesAsync(FundCategories categories);
+        Task<List<Fund>> GetFundsByCategoriesAsync(FundCategories categories, string userId);
 
         Task<List<Fund>> GetUserFundsAsync(string userId);
 

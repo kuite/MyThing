@@ -44,7 +44,8 @@ namespace webapi.Model.Database.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     FacebookId = table.Column<long>(nullable: true),
-                    PictureUrl = table.Column<string>(nullable: true)
+                    PictureUrl = table.Column<string>(nullable: true),
+                    Balance = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,11 +60,66 @@ namespace webapi.Model.Database.Migrations
                     AuthorId = table.Column<Guid>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(nullable: false)
+                    CreatedAt = table.Column<DateTimeOffset>(nullable: false),
+                    Categories = table.Column<int>(nullable: false),
+                    FundType = table.Column<int>(nullable: false),
+                    Vote = table.Column<int>(nullable: false),
+                    VotesCount = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Funds", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FundVotes",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    FundId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
+                    Vote = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FundVotes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Plans",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    InvestorId = table.Column<string>(nullable: true),
+                    PlanType = table.Column<int>(nullable: false),
+                    BtcComitted = table.Column<decimal>(nullable: false),
+                    BtcPayout = table.Column<decimal>(nullable: false),
+                    IsPaid = table.Column<bool>(nullable: false),
+                    IsCashedOut = table.Column<bool>(nullable: false),
+                    StartDate = table.Column<DateTimeOffset>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Plans", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PlansSettings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    DurationDays = table.Column<int>(nullable: false),
+                    MinimumBtc = table.Column<decimal>(nullable: false),
+                    ROI = table.Column<decimal>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    PlanType = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlansSettings", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -229,6 +285,15 @@ namespace webapi.Model.Database.Migrations
 
             migrationBuilder.DropTable(
                 name: "Funds");
+
+            migrationBuilder.DropTable(
+                name: "FundVotes");
+
+            migrationBuilder.DropTable(
+                name: "Plans");
+
+            migrationBuilder.DropTable(
+                name: "PlansSettings");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

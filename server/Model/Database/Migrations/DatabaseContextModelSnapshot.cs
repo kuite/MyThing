@@ -133,6 +133,8 @@ namespace webapi.Model.Database.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<decimal>("Balance");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -197,11 +199,33 @@ namespace webapi.Model.Database.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<int>("FundType");
+
                     b.Property<string>("Title");
+
+                    b.Property<int>("Vote");
+
+                    b.Property<int>("VotesCount");
 
                     b.HasKey("Id");
 
                     b.ToTable("Funds");
+                });
+
+            modelBuilder.Entity("webapi.Model.Database.FundVoteEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("FundId");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<int>("Vote");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FundVotes");
                 });
 
             modelBuilder.Entity("webapi.Model.Database.InvestingPlanEntity", b =>

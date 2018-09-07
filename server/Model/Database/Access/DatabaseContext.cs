@@ -17,5 +17,7 @@ namespace webapi.Model.Database.Access
         public DbSet<InvestingPlanEntity> Plans { get; set; }
 
         public DbSet<PlanSettingsEntity> PlansSettings { get; set; }
+
+        public DbSet<FundVoteEntity> FundVotes { get; set; }
     }
 }

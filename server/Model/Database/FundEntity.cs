@@ -1,4 +1,5 @@
 using System;
+using webapi.Model.Common;
 
 namespace webapi.Model.Database
 {
@@ -10,5 +11,8 @@ namespace webapi.Model.Database
         public string Description { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public FundCategories Categories { get; set; }
+        public FundType FundType { get; set; }
+        public VoteOption Vote { get; set; }
+        public int VotesCount { get; set; }
     }
 }

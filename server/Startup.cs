@@ -86,6 +86,7 @@ namespace webapi
             // Services that consume EF Core objects (DbContext) should be registered as Scoped
             // (see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#registering-your-own-services)
             services.AddScoped<IFundService, FundService>();
+            services.AddScoped<IDocumentService, DocumentService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IInvestmentService, InvestmentService>();
@@ -154,7 +155,7 @@ namespace webapi
             #endregion
         }
 
-        public static void AddTestData(DatabaseContext context)
+        public static void AddTestData2(DatabaseContext context)
         {
 
             var fund0 = context.Funds.Add(new FundEntity 

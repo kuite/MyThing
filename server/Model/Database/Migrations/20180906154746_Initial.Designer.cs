@@ -10,15 +10,15 @@ using webapi.Model.Database.Access;
 namespace webapi.Model.Database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180816123144_AddFundCategories")]
-    partial class AddFundCategories
+    [Migration("20180906154746_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -135,6 +135,8 @@ namespace webapi.Model.Database.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<decimal>("Balance");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -199,11 +201,79 @@ namespace webapi.Model.Database.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<int>("FundType");
+
                     b.Property<string>("Title");
+
+                    b.Property<int>("Vote");
+
+                    b.Property<int>("VotesCount");
 
                     b.HasKey("Id");
 
                     b.ToTable("Funds");
+                });
+
+            modelBuilder.Entity("webapi.Model.Database.FundVoteEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("FundId");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<int>("Vote");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FundVotes");
+                });
+
+            modelBuilder.Entity("webapi.Model.Database.InvestingPlanEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("BtcComitted");
+
+                    b.Property<decimal>("BtcPayout");
+
+                    b.Property<string>("InvestorId");
+
+                    b.Property<bool>("IsCashedOut");
+
+                    b.Property<bool>("IsPaid");
+
+                    b.Property<int>("PlanType");
+
+                    b.Property<DateTimeOffset>("StartDate");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Plans");
+                });
+
+            modelBuilder.Entity("webapi.Model.Database.PlanSettingsEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("DurationDays");
+
+                    b.Property<decimal>("MinimumBtc");
+
+                    b.Property<int>("PlanType");
+
+                    b.Property<decimal>("ROI");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PlansSettings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
