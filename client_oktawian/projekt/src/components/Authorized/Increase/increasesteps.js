@@ -15,32 +15,31 @@ export class IncreaseStep extends Component{
                     <Row>
 
 
-                        <Col sm={{size:12}}>
+                        <Col sm={{size:4}}>
                         <div className ="IncreaseOpportunity">
-                            <img src ={Icon1}/>
-                            <h2>1. Add your idea</h2>
+                            <img alt ="Add Your Fundraiser" src ={Icon1}/>
+                            <h2>1. Add your Fundraiser</h2>
                             <div className="Rectangle"></div>
                             
-                            <p>Do you need support for your business or non profit idea?
-                                Add your own and explain why it is worth investing in it</p>
-                                <Link to="/fund"><button className="SecondaryButton">Add idea now</button></Link>
+                            <p>Do you need support for your fundraiser for you or your family/friends? </p>
+                            <Link to="/fund"><button className="SecondaryButton">Add idea now</button></Link>
                         </div>
                         </Col>
 
-                        <Col sm={{size:12}}>
+                        <Col sm={{size:4}}>
                         <div className ="IncreaseOpportunity">
-                        <img src ={Icon2}/>
-                         <h2>2. Invest in other ideas</h2>
+                        <img alt ="Helping Other" src ={Icon2}/>
+                         <h2>2. Helping other </h2>
                          <div className="Rectangle"></div>
-                         <p>By investing in someone's ideas, you get a percentage of capital growth</p>
+                         <p>You also can help other people achieve their idea.</p>
                          <Link to="/browseideas"><button className="SecondaryButton">Browse ideas</button></Link>
                         </div>
                         </Col>
 
-                        <Col sm={{size:12}}>
+                        <Col sm={{size:4}}>
                         <div className ="IncreaseOpportunity">
-                        <img src ={Icon3}/>
-                             <h2>3.Choose investment plan</h2>
+                        <img alt ="Choose Hedgefund" src ={Icon3}/>
+                             <h2>3.Choose Hedgefund</h2>
                             <div className="Rectangle"></div>
                              <p>Become a member of the club and receive a percentage of each investment in this portal</p>
                              <Link to="/earnwithus"> <button className="SecondaryButton">Choose plan</button></Link>

@@ -40,7 +40,7 @@
             "preLaunchTask": "build client",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceRoot}/client/app",
-            "runtimeExecutable": "C:/Users/tracz/AppData/Local/Google/Chrome SxS/Application/chrome.exe",
+            "runtimeExecutable": "${workspaceRoot}/chrome.exe",
             "sourceMapPathOverrides": {
                 "webpack:///./app/*": "${webRoot}/*",
                 "webpack:///app/*": "${webRoot}/*"
@@ -53,7 +53,7 @@
             "preLaunchTask": "build client_oktawian",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceRoot}/client_oktawian/projekt",
-            "runtimeExecutable": "C:/Users/tracz/AppData/Local/Google/Chrome SxS/Application/chrome.exe",
+            "runtimeExecutable": "${workspaceRoot}/chrome.exe",
             "sourceMapPathOverrides": {
                 "webpack:///./projekt/*": "${webRoot}/*",
                 "webpack:///projekt/*": "${webRoot}/*"

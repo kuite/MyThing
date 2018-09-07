@@ -3,18 +3,28 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 
-import {LoginGoogle} from '../../components/googlelogin';
-import {LoginFacebook} from '../../components/facebooklogin';
-
-
-
-
-
+import { history } from '../../_helpers';
 import { userActions } from '../../_actions';
+import { alertActions } from '../../_actions';
+
+import {LoginGoogle} from '../../components/Login/googlelogin';
+import {LoginFacebook} from '../../components/Login/facebooklogin';
+
+
+
+
 
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
+
+        const { dispatch } = this.props;
+
+        history.listen((location, action) => {
+            // clear alert on location change
+            dispatch(alertActions.clear());
+        });
+
 
         // reset login status
         this.props.dispatch(userActions.logout());
@@ -49,14 +59,14 @@ class LoginPage extends React.Component {
         const { Email, Password } = this.state;
         const { dispatch } = this.props;
 
-        if (Email && Password) {
+        if (Email && Password && /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Email)) {
             dispatch(userActions.login(Email, Password));
         }
 
     }
 
     render() {
-        const { loggingIn } = this.props;
+        const { loggingIn, alert } = this.props;
         const { Email, Password, submitted } = this.state;
 
 
@@ -64,6 +74,10 @@ class LoginPage extends React.Component {
         return (
             
             <div className ="RegisterForm">
+
+            {alert.message &&
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
 
              <div className ="RegistrationLeft">
             <Container>
@@ -75,7 +89,7 @@ class LoginPage extends React.Component {
                     </div>
 
                     <Col sm="12" md={{ size: 8, offset: 3 }}>
-                        <h1>Welcome back.</h1>
+                        <h1>Welcome back</h1>
                      </Col>
                 </Row>
                 <Row>
@@ -91,7 +105,10 @@ class LoginPage extends React.Component {
                         <input type="text" className="form-control" name="Email" value={Email} onChange={this.handleChange} placeholder ="Write your mail" />
 
                         {submitted && !Email &&
-                            <div className="help-block">Username is required</div>
+                            <div className="help-block">Email is required</div>
+                        }
+                        {submitted && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Email) &&
+                                        <div className="help-block">It's seems email isn't in correctly form</div>
                         }
 
                     </div>
@@ -115,7 +132,7 @@ class LoginPage extends React.Component {
                         }
 
 
-                        <Link to="/register">I don't have account yet</Link>
+                        <Link to ="/register">I haven't account yet</Link>
                     </div>
                 </form>
                     </Col>
@@ -138,9 +155,10 @@ class LoginPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
+    const { loggingIn, alert } = state;
     return {
-        loggingIn
+        loggingIn,
+        alert
     };
 
     

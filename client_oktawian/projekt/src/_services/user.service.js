@@ -13,32 +13,28 @@ export const userService = {
 
 
 
-
-
-
-
-
-
-function login(username, password) {
+function login(Email, Password) {
     const requestOptions = {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ Email, Password })
     };
 
     return fetch(`http://localhost:50647/account/login`, requestOptions)
 
-
         .then(handleResponse)
+
         .then(user => {
-            // login successful if there's a jwt token in the response
-            if (user.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
-            }
+
+
+               
+                    // login successful if there's a jwt token in the response
+                        // store user details and jwt token in local storage to keep user logged in between page refreshes
+                        localStorage.setItem('user', JSON.stringify(user));
+                        
 
             return user;
 
@@ -58,6 +54,9 @@ function logout() {
     localStorage.removeItem('user');
 }
 
+
+
+
 function getAll() {
     const requestOptions = {
         method: 'GET',
@@ -67,6 +66,9 @@ function getAll() {
     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
 }
 
+
+
+
 function getById(id) {
     const requestOptions = {
         method: 'GET',
@@ -75,6 +77,14 @@ function getById(id) {
 
     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -96,40 +106,14 @@ function register(user) {
 }
 
 
-/* 
 
-async function register(user){
-        try{
-            let response = await fetch(`http://localhost:50674/account/RegisterUser`, {
-                credentials: 'include',
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    Email: '',
-                    Password: '',
-                    FirstName: '',
-                    LastName: ''
-                })
-            });
-            let responseJson = await response.json();
-            return responseJson;
-        }   catch (error) {
-                console.error(error);
-        }
-}
 
-function update(user) {
-    const requestOptions = {
-        method: 'PUT',
-        headers: { ...authHeader(), 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
-    };
 
-    return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);;
-}
-*/
+
+
+
+
+
 
 
 

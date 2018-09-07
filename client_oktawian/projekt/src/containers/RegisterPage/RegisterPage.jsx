@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 
 
+
 import { history } from '../../_helpers';
 import { userActions } from '../../_actions';
 import { alertActions } from '../../_actions';
@@ -16,14 +17,19 @@ import {Modalfinal} from '../../components/modal';
 
  class RegisterPage extends Component {
 
+    
+
     constructor(props) {
         super(props);
 
         const { dispatch } = this.props;
+
         history.listen((location, action) => {
             // clear alert on location change
             dispatch(alertActions.clear());
         });
+
+
 
         this.state = {
             user: {
@@ -33,9 +39,6 @@ import {Modalfinal} from '../../components/modal';
                 LastName: ''
             },
             submitted: false,
-
-
-
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -61,9 +64,13 @@ import {Modalfinal} from '../../components/modal';
         const { dispatch } = this.props;
 
 
-        if (user.FirstName && user.LastName && user.Email && user.Password) {
+        if (user.FirstName && user.LastName && user.Email && user.Password && /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(user.Email)) {
+
+
             dispatch(userActions.register(user));
-            history.push('/browseideas');
+            history.push('/login');
+
+
         }
     }
 
@@ -73,7 +80,15 @@ import {Modalfinal} from '../../components/modal';
 
         
         return (
+
+
+
+
             <div className = "RegisterForm">
+
+            {alert.message &&
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
 
                         
             <div className ="RegistrationLeft">
@@ -105,10 +120,13 @@ import {Modalfinal} from '../../components/modal';
 
 
                                 <div className={'form-group' + (submitted && !user.Email ? ' has-error' : '')}>
-                                    <input type="text" className="form-control" name="Email" value={user.Email} onChange={this.handleChange} placeholder="Username"/>
+                                    <input type="text" className="form-control" name="Email" value={user.Email} onChange={this.handleChange} placeholder="Email"/>
                                     {submitted && !user.Email &&
                                         <div className="help-block">Email is required</div>
                                     }
+                                    {submitted && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(user.Email) &&
+                                        <div className="help-block">It's seems email isn't in correctly form</div>
+                                      }
                                 </div>
 
                                 <div className={'form-group' + (submitted && !user.Password ? ' has-error' : '')}>
@@ -153,7 +171,7 @@ import {Modalfinal} from '../../components/modal';
 
 
 function mapStateToProps(state) {
-    const { registering, alert } = state.registration;
+    const { registering, alert } = state;
     return {
         registering,
         alert

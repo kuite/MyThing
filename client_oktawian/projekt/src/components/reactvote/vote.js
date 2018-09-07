@@ -72,11 +72,11 @@ export  class Vote extends Component {
   _getCount() {
     const counts = this.state.count.toString().split('')
     
-    return counts.map( (i, _count) => {
+    return counts.map( (_count) => {
       if (_count === '-') {
-        return <span key ={i} className="vote__column">-</span>
+        return <span  className="vote__column">-</span>
       } else {
-        return <NumberColumn key ={i} current={parseFloat(_count)} />
+        return <NumberColumn current={parseFloat(_count)} />
       }
     })
   }
