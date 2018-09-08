@@ -11,18 +11,22 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="*"/>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="*"/>
-    <PackageReference Include="Microsoft.AspNetCore" Version="*"/>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="*"/>
-    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="*"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="*"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="*"/>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="*"/>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="*"/>
+    <PackageReference Include="AutoMapper" Version="*" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="*" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="*" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="*" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="*" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="*" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="*" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="*" PrivateAssets="All" />
   </ItemGroup>

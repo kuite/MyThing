@@ -44,6 +44,17 @@ namespace webapi
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerGen(swagger =>
+                {
+                    swagger.DescribeAllEnumsAsStrings();
+                    swagger.DescribeAllParametersInCamelCase();
+                    swagger.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "My First Swagger" });
+                });
+
             // Use a PostgreSQL database
             var sqlConnectionString = Configuration.GetConnectionString("ConnPostgress");
  
@@ -411,6 +422,17 @@ namespace webapi
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
