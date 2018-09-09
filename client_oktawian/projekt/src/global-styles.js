@@ -2291,7 +2291,7 @@ display:inline-flex;
 }
 
 .FundIcon{
-  width:350px;
+  width:370px;
   float:left;
 }
 
@@ -2426,13 +2426,32 @@ display:inline-flex;
 
 
 .Invest{
+  margin-top:5%;
   text-align:center;
 }
 
+.Secure{
+  width:60%;
+  height:100%;
+  margin:0 auto;
+  margin-top:1.5%;
+  margin-bottom:1.5%;
+  text-align:center;
+}
+
+.Secure > img{
+  float:left;
+
+}
+
 .LawNote{
+  padding:2%;
+  margin:0 auto;
+  margin-top:3%;
+  margin-bottom:3%;
   text-align:center;
   width: 950px;
-  height: 260px;
+  height: 100%;
   border-radius: 8px;
   background-color: #ffffff;
   box-shadow: 0 1px 4px 0 rgba(91, 91, 91, 0.5);
@@ -2896,6 +2915,23 @@ a:hover
 }
 
 
+.FundForm{
+  width:100%;
+}
+
+.FundFormRight{
+  width:100% !important;
+}
+
+.FundFormLeft{
+  width:100%;
+  height:100%:
+}
+
+body input {
+margin-top:7%;
+
+}
 
 .SectionsHeader h1{
   margin-top: 40% !important;

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import {Navbar} from '../../../components/navbar';
+import {Footer} from '../../../components/footer';
+
 
 
 import '../../../global-styles';
@@ -12,7 +15,9 @@ export default class HomePage extends Component{
     render(){
         return(
             <div>
+                <Navbar/>
                 <Funds/>
+                <Footer/>
              </div>
         )
     }

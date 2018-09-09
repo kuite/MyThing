@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Container, Row, Col } from 'reactstrap';
 
 import {PaymentModalfinal} from '../../Payment/paymentmodal'
 
@@ -21,10 +22,12 @@ export class Secure extends Component{
 
     render(){
         return(
+            <Container>
             <div className ="Secure">
                 <img alt ="Secure Icon" src ={SecureIcon}/>
                 <p>your payment is secured by our security systems and 100% anonymous, in addition, you can withdraw your funds within 48 hours</p>
             </div>
+            </Container>
         )
     }
 };
