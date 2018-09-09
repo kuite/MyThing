@@ -82,10 +82,9 @@ class App extends Component {
                                
             <Router onUpdate= {scrollToTop} history={history}>
             <div>
-            <Navbar/> 
+
 
               <ScrollToTopRoute exact path="/" component={home} />
-              
               <ScrollToTopRoute path="/browseideas" component={browseideas} />
               <ScrollToTopRoute path="/earnwithus" component={earnwithus} />
               <ScrollToTopRoute path="/register" component={RegisterPage} />
@@ -110,7 +109,7 @@ class App extends Component {
               <PrivateRoute path ="/deposit" component ={deposit}/>
               <PrivateRoute path ="/withdraw" component ={withdraw}/>
             
-            <Footer/>
+
             </div>
           </Router>
             </div>

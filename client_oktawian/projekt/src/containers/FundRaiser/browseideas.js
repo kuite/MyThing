@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import {Container, Row, Col, Progress } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import {Navbar} from '../../components/navbar';
 import {Browseideaheader} from '../../components/FundRaiser/browseideaheader';
+
+import {Footer} from '../../components/footer';
 
 import {Vote} from '../../components/reactvote/vote';
 import '../../global-styles';
@@ -13,8 +16,10 @@ export default class Browseideas extends Component{
     render(){
         return(
             <div>  
+                 <Navbar/>
                 <Browseideaheader/>
                 <Main/>
+                <Footer/>
              </div>
         )
     }

@@ -41,7 +41,7 @@ export class Navbar extends Component{
             <div onScroll={this.handleScroll.bind(this)} className ={this.state.Navbar}>
                 <Container>
                     <Row>
-                        <Col sm={{size:3}}><Link to ="/"><Logo/></Link></Col>
+                        <Col  xs="6" sm={{size:3}}><Link to ="/"><Logo/></Link></Col>
 
                         <ThemeContext.Provider value={this.state.Navbar} >
                             <Col><Menu navbarState={this.state.Navbar} /></Col>
@@ -82,6 +82,12 @@ class Logo extends Component{
 
 
 
+
+
+
+
+
+
 export class Menu extends Component{
 
     constructor() {
@@ -115,7 +121,7 @@ export class Menu extends Component{
 
         if (isMobile){
             return(
-                <nav role="navigation">
+                <nav className="navigation">
                 <div id="menuToggle">
 
                     <input type="checkbox" />
@@ -125,12 +131,13 @@ export class Menu extends Component{
                     <span></span>
                     
                     <ul id="menu">
-                    <a href="#"><Panel/></a>
-                    <a href="#"><Link className ={this.props.navbarState} to = "/browseideas">Fundraiser</Link></a>
-                    <a href="#"><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></a>
-                    <a href="#"><Fund/></a>
-                    <a href="#"><Register/></a>
-                    <a href="#"><Login/></a>
+                        <li><Panel/></li>
+                        <li><Link className ={this.props.navbarState} to = "/browseideas">Fundraiser</Link></li>
+                        <li><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></li>
+                        <li><Fund/></li>
+                        <li><Register/></li>
+                        <li><Login/></li>
+                        <li><Profil/></li>
                     </ul>
                 </div>
                 </nav>

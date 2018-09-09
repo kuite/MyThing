@@ -2055,6 +2055,7 @@ margin-top:33%;
   /////Carousel
 
   .carousel{
+    display:flex;
     position:relative;
     margin-top:280px;
     margin-bottom:80px;
@@ -2705,6 +2706,10 @@ margin:6% 0 6% 0;
   //MENU MOBILE
 
 
+.navigation{
+  float:right;
+}
+
 
 a
 {
@@ -2721,10 +2726,10 @@ a:hover
 
 #menuToggle
 {
+  position:relative;
   display: block;
-  position: relative;
-  top: 50px;
-  left: 50px;
+  top:15px;
+
   
   z-index: 1;
   
@@ -2734,17 +2739,16 @@ a:hover
 
 #menuToggle input
 {
+  position:absolute;
   display: block;
   width: 40px;
   height: 32px;
-  position: absolute;
   top: -7px;
-  left: -5px;
   
   cursor: pointer;
   
   opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  z-index: 99999999; /* and place it over the hamburger */
   
   -webkit-touch-callout: none;
 }
@@ -2810,16 +2814,13 @@ a:hover
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
+
 #menu
 {
   position: absolute;
   width: 300px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
+  height:1200px;
+  margin: -100px 0 0 -220px;
   padding-top: 125px;
   
   background: #ededed;
@@ -2827,17 +2828,22 @@ a:hover
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  transform-origin: 100% 0%;
+  transform: translate(+200%, 0);
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  z-index:-1;
 }
 
 #menu li
 {
-  padding: 10px 0;
-  font-size: 22px;
+  padding: 15%x 0;
+  padding-top:15%;
+  font-size: 36px;
 }
+
+
+
 
 /*
  * And let's slide it in from the left
@@ -2848,11 +2854,51 @@ a:hover
 }
 
 
+.SectionHeaderRight > img{
+  display:none;
+}
 
 
+.FundHeader2Icons{
+  width:100%;
+}
 
+.Section{
+  border:none;
+  margin-top:12.5%;
+}
+
+.Choice_sections{
+  position:static;
+  display:flow-root;
+}
+
+.FundHeader2{
+  margin-top:25%;
+}
+
+.FundIcon{
+  width:100%;
+}
+
+.Header h1{
+  margin-top:47% !important;
+  font-size:36px !important;
+}
+
+.carousel{
+  display:none;
+}
+
+.HomeInteraction{
+  height:450px;
+  padding-top:70px;
+}
 
 }
+
+//
+
 
 
 `;

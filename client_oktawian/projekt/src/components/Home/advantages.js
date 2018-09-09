@@ -13,9 +13,9 @@ export class Advantages extends Component{
         return(
             <div className ="FundHeader2">
 
-                <div className ="FundHeader2Icons">
                     <div className="FundIcon"><img alt ="Add your fundraisers" src={fundheadericon1}/>
                     <h3>Add your fundraisers</h3>
+                    
                     <p>Filling out a short form will allow you to add your idea, it will be available to others</p>
                      </div>
 
@@ -29,7 +29,6 @@ export class Advantages extends Component{
                     <h3>Be part of our HedgeFund</h3>
                     <p>If your idea is interesting, there will be investors and people who will want to support it</p>
                      </div>
-                </div>
             </div>
         )
     }
