@@ -2895,6 +2895,80 @@ a:hover
   padding-top:70px;
 }
 
+
+
+.SectionsHeader h1{
+  margin-top: 40% !important;
+  font-size: 36px !important;
+}
+
+// HEDGEFUNDS
+
+
+.SectionPlans{
+  border:none;
+}
+
+.SectionPlans > .SectionInside{
+  margin-top:20%;
+}
+
+.Plan{
+  margin-top:25%;
+  width:100%;
+  height:540px;
+}
+
+.Plan > h1{
+  font-size:36px;
+  margin-top:80%;
+  margin-left:0;
+  text-align:center;
+}
+
+.Plan > p{
+  font-size:18px;
+  margin-top:10%;
+  margin-left:0;
+  text-align:center;
+}
+
+.Plan .SecondaryButton {
+  text-align:center;
+}
+
+
+// REGISTRATION
+
+.RegistrationLeft{
+  width:100%;
+}
+
+.RegistrationRight{
+display:none;
+}
+
+
+// Lightning & Storm
+
+.LawNote{
+  width:100%;
+  height:100%;
+  padding:40px;
+}
+
+
+
+// HOMEFUND
+
+.HomeFund{
+  min-width:20px;
+}
+
+.BitcoinAvailable{
+  margin-top:15%;
+}
+
 }
 
 //
