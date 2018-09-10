@@ -151,9 +151,10 @@ export class Menu extends Component{
              <div className = "Menu">
                 <Container>
                     <Row>
-                            <Col><Panel /></Col>
+                            
                             <Col><Link className ={this.props.navbarState} to = "/browseideas">Fundraiser</Link></Col>
                             <Col><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></Col>
+                            <Col><Panel /></Col>
                             <Col><Fund/></Col>
                             <Col><Register/></Col>
                             <Col><Login/></Col>

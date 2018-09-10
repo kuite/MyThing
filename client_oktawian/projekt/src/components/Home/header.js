@@ -30,7 +30,7 @@ export class Header extends Component{
 
                     <Row>
                         <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <Link to ="/increase"><div className="Login animated fadeInUp">Start Now!</div></Link>
+                            <Link to ="/increase"><button className="Login animated fadeInUp">Start Now</button></Link>
                          </Col>
                     </Row>
                          

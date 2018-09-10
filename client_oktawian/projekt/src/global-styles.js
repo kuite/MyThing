@@ -1836,6 +1836,14 @@ margin-top:33%;
   .Menu {
   }
 
+  .Register > a > button{
+    margin-top:10px !important;
+  }
+  .Register > .SecondaryButton{
+    margin-top:10px !important;
+  }
+
+
   .Menu a.Navbar{
     margin-top:15px;
     letter-spacing:1.5px;
