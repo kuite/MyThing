@@ -33,41 +33,45 @@ class Main extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        
-        users: [],
-        isLoading: true,
-        errors: null,
-        
+    
+        data: [],
+        products: [],
+        isLoaded: false,
+    
         displayCategory: "all",
         products: PRODUCTS,
         productCategories: PRODUCT_CATEGORIES
       };
+
       this.setCategory = this.setCategory.bind(this);
     }
 
 
-    getUsers() {
-      axios
-        .get("https://randomuser.me/api/?results=5")
-        .then(response =>
-          response.data.results.map(user => ({
-            name: `${user.name.first} ${user.name.last}`,
-            username: `${user.login.username}`,
-            email: `${user.email}`,
-            image: `${user.picture.thumbnail}`
-          }))
-        )
-        .then(users => {
-          this.setState({
-            users,
-            isLoading: false
-          });
-        })
-        .catch(error => this.setState({ error, isLoading: false }));
-    }
+
   
     componentDidMount() {
-      this.getUsers();
+
+      axios
+      fetch('http://localhost:50647/fund/GetFunds')
+
+      .then(response => {
+        return response.json();
+      })
+      
+      .then(data => {
+
+        console.log(data);
+        this.setState({isLoaded: true, data});
+        console.log(this.state);
+
+        const products = data.items.map(obj => ({title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+        this.setState({isLoaded: true, products});
+  
+        console.log('Products', products);
+
+      }).catch(err => {
+      });
+      
     }
       /*  fetch('http://localhost:50647/fund/GetFunds?MaxPageSize=100&Offset=5&Limit=5')
         
@@ -96,36 +100,11 @@ class Main extends React.Component {
     }
 
     render() {
-    const { isLoading, users } = this.state;
     return (
-
-      <React.Fragment>
-      <h2>Random User</h2>
       <div>
-        {!isLoading ? (
-          users.map(user => {
-            const { username, name, email, image } = user;
-            return (
-              <div key={username}>
-                <p>{name}</p>
-                <div>
-                  <img src={image} alt={name} />
-                </div>
-                <p>{email}</p>
-                <hr />
-              </div>
-            );
-          })
-        ) : (
-          <p>Loading...</p>
-        )}
+        <UI setCategory={this.setCategory} state={this.state} />
       </div>
-    </React.Fragment>
     )
-        /*}
-      <UI setCategory={this.setCategory} state={this.state} />; 
-      */
-  
     }
    }
   
