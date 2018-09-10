@@ -11,6 +11,8 @@ import {Footer} from '../../components/footer';
 import {Vote} from '../../components/reactvote/vote';
 import '../../global-styles';
 
+import axios from 'axios';
+
 export default class Browseideas extends Component{
 
     render(){
@@ -32,7 +34,9 @@ class Main extends React.Component {
       super(props);
       this.state = {
         
-        isLoaded: false,
+        users: [],
+        isLoading: true,
+        errors: null,
         
         displayCategory: "all",
         products: PRODUCTS,
@@ -40,25 +44,51 @@ class Main extends React.Component {
       };
       this.setCategory = this.setCategory.bind(this);
     }
+
+
+    getUsers() {
+      axios
+        .get("https://randomuser.me/api/?results=5")
+        .then(response =>
+          response.data.results.map(user => ({
+            name: `${user.name.first} ${user.name.last}`,
+            username: `${user.login.username}`,
+            email: `${user.email}`,
+            image: `${user.picture.thumbnail}`
+          }))
+        )
+        .then(users => {
+          this.setState({
+            users,
+            isLoading: false
+          });
+        })
+        .catch(error => this.setState({ error, isLoading: false }));
+    }
   
-
-
-    componentDidMount(){
-        fetch('http://localhost:50647/fund/GetFunds?MaxPageSize=100&Offset=5&Limit=5')
+    componentDidMount() {
+      this.getUsers();
+    }
+      /*  fetch('http://localhost:50647/fund/GetFunds?MaxPageSize=100&Offset=5&Limit=5')
         
         .then(response => {
           return response.json();
 
         }).then(data => {
+
           console.log(data);
+
           let PRODUCTS = data.items.map(obj => ({ title: obj.title, description: obj.description })); 
           this.setState({isLoaded: true, PRODUCTS})
+
+
           console.log(this.state)
         
         }).catch(err => {
         });
-    }
 
+      */
+     
     setCategory(category) {
       this.setState({
         displayCategory: category
@@ -66,14 +96,39 @@ class Main extends React.Component {
     }
 
     render() {
+    const { isLoading, users } = this.state;
+    return (
 
-      return (
+      <React.Fragment>
+      <h2>Random User</h2>
       <div>
-      <UI setCategory={this.setCategory} state={this.state} />; 
+        {!isLoading ? (
+          users.map(user => {
+            const { username, name, email, image } = user;
+            return (
+              <div key={username}>
+                <p>{name}</p>
+                <div>
+                  <img src={image} alt={name} />
+                </div>
+                <p>{email}</p>
+                <hr />
+              </div>
+            );
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
-      )
+    </React.Fragment>
+    )
+        /*}
+      <UI setCategory={this.setCategory} state={this.state} />; 
+      */
+  
     }
    }
+  
 
 
 const PRODUCTS = [];

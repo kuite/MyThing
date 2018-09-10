@@ -88,6 +88,9 @@ export var submit =(values) =>{
 
 //async function send to server
 export async function submitToServer(values) {
+
+
+  //FUND
   try {
     let response = await fetch('http://localhost:50647/fund/submitfund', {
       method: 'POST',
@@ -104,6 +107,27 @@ export async function submitToServer(values) {
   } catch (error) {
     console.error(error);
   }
+
+
+ //IMG
+  try {
+    let response = await fetch('http://localhost:50647/Fund/SubmitFundImages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...authHeader()
+      },
+      body: JSON.stringify(values),
+      
+    });
+    let responseJson = await response.json();
+    return responseJson;
+
+  } catch (error) {
+    console.error(error);
+  }
+
+
 
 }
 
@@ -204,11 +228,17 @@ const renderDropzoneInput = (field) => {
         <form onSubmit={handleSubmit(submitToServer)}>
       <div className ="FundForm">
               <div className ="FundFormLeft">
+
+
                   <h3>Image:</h3>
                   <Field
                         name={FILE_FIELD_NAME}
                         component={renderDropzoneInput}
                       />
+
+
+
+
               </div>
               <div className ="FundFormRight">
                     <Field name="Title"
@@ -232,17 +262,19 @@ const renderDropzoneInput = (field) => {
                       />
 
                   
-                      <Field
+                      {/* <Field
                       name="type"
                       component={renderSelectList}
                       data={[ 'bussiness', 'nonprofit' ]}/>
-
+                      
                 
                       <Field name="Date"
                       Type="Date"
                       component={RenderDatePicker}
                       />
-                  
+                    */}  
+
+
                     <Field
                       name="Category"
                       component={renderDropdownList}

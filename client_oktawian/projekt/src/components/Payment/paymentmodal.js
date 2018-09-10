@@ -19,10 +19,8 @@ class PaymentModal extends React.Component{
 };
 
 
-
-
 class Test extends React.Component{
-
+  
   render(){
     return(
       <div>
@@ -34,15 +32,27 @@ class Test extends React.Component{
         <p>to pay send amouth to the adress</p>
 
           <h3>Amount</h3>
+          <p>0.5 btc </p>
           <h3>Adress</h3>
+          <p>0xd200f0f4d02a980d376b5d</p>
 
           <Timer/>
-
           <button className = "SecondaryButton">show qr code instead</button>
       </div>
     )
   }
 };
+
+class QRCode extends React.Component{
+    render(){
+      return(
+        <div>
+          <div>QR CODE</div>
+          <button className = "SecondaryButton">show adress instead</button>
+        </div>
+      )
+    }
+}
 
 
 
@@ -93,8 +103,8 @@ class Timer extends React.Component {
       seconds: seconds,
     });
     
-    // Check if we're at zero.
     if (seconds == 0) { 
+
       clearInterval(this.timer);
     }
   }
