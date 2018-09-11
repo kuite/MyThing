@@ -28,9 +28,6 @@ export default class MyFunds extends Component{
   
       }
   
-  
-  
-    
       componentDidMount() {
   
         axios

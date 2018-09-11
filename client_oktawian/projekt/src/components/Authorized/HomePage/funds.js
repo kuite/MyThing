@@ -3,6 +3,115 @@ import { Link } from 'react-router-dom';
 import {Container, Row, Col } from 'reactstrap';
 import {Btc} from '../../../btc_graph/src/index';
 
+import axios from 'axios';
+
+
+
+
+class MyFunds extends Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+      
+          data: [],
+          products: [],
+          isLoaded: false,
+        };
+  
+      }
+  
+      componentDidMount() {
+  
+        axios
+        fetch('http://localhost:50647/Fund/GetUserFunds')
+  
+        .then(response => {
+          return response.json();
+        })
+        
+        .then(data => {
+  
+          console.log(data);
+          this.setState({isLoaded: true, data});
+          console.log(this.state);
+  
+          const products = data.items.map(obj => ({title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+          this.setState({isLoaded: true, products});
+    
+          console.log('Products', products);
+  
+        }).catch(err => {
+        });
+        
+      }
+    
+    render(){
+        return(
+            <div>
+                <Link to="/login" className="btn btn-link">Name of fund  1</Link><br/>
+                <Link to="/login" className="btn btn-link">Name of fund  2</Link><br/>
+                <Link to="/login" className="btn btn-link">Name of fund  3</Link><br/>
+                <Link to="/login" className="btn btn-link">Name of fund  4</Link><br/>
+            </div>
+        )
+
+    }
+}
+
+
+export default class ActiveHedges extends Component{
+
+    constructor(props) {
+        
+        super(props);
+        this.state = {
+      
+          data: [],
+          isLoaded: false,      
+        }
+    }
+
+      componentDidMount() {
+
+        axios
+        fetch('http://localhost:50647/Invest/GetAllPlans')
+  
+        .then(response => {
+          return response.json();
+        })
+        
+        .then(data => {
+  
+          console.log(data);
+          this.setState({isLoaded: true, data});
+
+  
+        }).catch(err => {
+        });
+        
+      }
+
+
+    render(){
+        return(
+            <div>
+                <Link to="/login" className="btn btn-link">Name of Plan 1</Link><br/>
+            </div>
+        )
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
 export class Funds extends Component{
 
     render(){
@@ -48,10 +157,7 @@ export class Funds extends Component{
                             <h4>My Funds</h4>
                             <p>Check your ideas and other people's investments in them</p>
                             <div className ="Rectangle"></div>
-                            <Link to="/login" className="btn btn-link">Name of fund  1</Link><br/>
-                            <Link to="/login" className="btn btn-link">Name of fund  2</Link><br/>
-                            <Link to="/login" className="btn btn-link">Name of fund  3</Link><br/>
-                            <Link to="/login" className="btn btn-link">Name of fund  4</Link><br/>
+                                    <MyFunds/>
 
 
                         </div>
@@ -66,7 +172,7 @@ export class Funds extends Component{
                             <p>Check all your investments and profits from ideas</p>
 
                             <div className ="Rectangle"></div>
-                            <Link to="/login" className="btn btn-link">Name of Plan 1</Link><br/>
+                                <ActiveHedges/>
 
 
                         </div>
