@@ -6,30 +6,84 @@ import { connect } from 'react-redux';
 import '../../../global-styles';
 import {Container, Row, Col } from 'reactstrap';
 
+import {Navbar} from '../../../components/navbar';
 
 import {Lightning} from '../../../components/HedgeFund/Plans/lightning';
 import {Storm} from '../../../components/HedgeFund/Plans/storm';
+
+import {Footer} from '../../../components/footer';
+import axios from 'axios';
+
 
 
 
 export default class ActiveHedges extends Component{
 
+    constructor(props) {
+        
+        super(props);
+        this.state = {
+      
+          data: [],
+          isLoaded: false,      
+        }
+    }
+
+      componentDidMount() {
+
+        axios
+        fetch('http://localhost:50647/Invest/GetAllPlans')
+  
+        .then(response => {
+          return response.json();
+        })
+        
+        .then(data => {
+  
+          console.log(data);
+          this.setState({isLoaded: true, data});
+
+  
+        }).catch(err => {
+        });
+        
+      }
+
+
     render(){
         return(
             <div>
+                 <Navbar/>
                 <div className="HomeFund">
+            
                         <Container>
+                    
                         <div className ="BitcoinAvailable">
                         <ActiveHedge/>
                         </div>
                         <Plan/>
                         
                     </Container>
+                    <Footer/>
                 </div>
             </div>
         )
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class Plan extends Component{

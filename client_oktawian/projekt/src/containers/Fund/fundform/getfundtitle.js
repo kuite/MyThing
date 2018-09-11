@@ -45,10 +45,9 @@ const validate = values => {
     // Date
 
 
-
     // Category
     if (!values.Category ) {
-      errors.Category = <div className ="help-block">Your money goal is necessary</div>
+      errors.Category = <div className ="help-block">Your categoryis necessary</div>
     }
 
     return errors
@@ -91,7 +90,7 @@ export async function submitToServer(values) {
 
 
   //FUND
-  try {
+   try {
     let response = await fetch('http://localhost:50647/fund/submitfund', {
       method: 'POST',
       headers: {
@@ -109,7 +108,7 @@ export async function submitToServer(values) {
   }
 
 
- //IMG
+ //
   try {
     let response = await fetch('http://localhost:50647/Fund/SubmitFundImages', {
       method: 'POST',
@@ -122,6 +121,7 @@ export async function submitToServer(values) {
     });
     let responseJson = await response.json();
     return responseJson;
+    console.log("Image send?");
 
   } catch (error) {
     console.error(error);
@@ -182,10 +182,11 @@ const renderDropdownList = ({ input, data, valueField, textField }) =>
 
 const Category = 
 [ 
-  { color: 'Startup', value: '1' },
-  { color: 'Technology', value: '2' },
-  { color: 'Economy', value: '3' },
-  { color: 'SocialMedia', value: '4' }
+  { value: 'Medical'},
+  { value: 'Passion'},
+  { value: 'Family'},
+  { value: 'Start-up'},
+  { value: 'Animals'}
  ]
 
 
@@ -230,16 +231,12 @@ const renderDropzoneInput = (field) => {
               <div className ="FundFormLeft">
 
 
-                  <h3>Image:</h3>
                   <Field
                         name={FILE_FIELD_NAME}
                         component={renderDropzoneInput}
                       />
 
-
-
-
-              </div>
+             </div>
               <div className ="FundFormRight">
                     <Field name="Title"
                       Type="text"
@@ -247,7 +244,6 @@ const renderDropzoneInput = (field) => {
                       placeholder="What is Title of idea?"
                         />
                 
-              
                     <Field name="Description"
                       Type="text"
                       component={RenderDescription}
@@ -262,33 +258,29 @@ const renderDropzoneInput = (field) => {
                       />
 
                   
-                      {/* <Field
+                     {/*   <Field
                       name="type"
                       component={renderSelectList}
                       data={[ 'bussiness', 'nonprofit' ]}/>
                       
-                
                       <Field name="Date"
                       Type="Date"
                       component={RenderDatePicker}
                       />
-                    */}  
-
+                     */}
 
                     <Field
                       name="Category"
                       component={renderDropdownList}
                       data={Category}
                       valueField="value"
-                      textField="color"/>
-
+                      textField="value"/>
 
                       <button
                       className ="Login"
                       Type="submit"
                         disabled={submitting}>
                         Submit</button>
-
 
               </div>
             </div>
