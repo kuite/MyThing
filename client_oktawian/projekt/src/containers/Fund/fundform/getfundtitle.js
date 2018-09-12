@@ -24,7 +24,6 @@ const validate = values => {
 
     const errors = {}
 
-
     //Title
     if (!values.Title ) {
     errors.Title =<div className ="help-block">Name of your idea is necessary</div>
@@ -110,6 +109,8 @@ export async function submitToServer(values) {
 
  //
   try {
+
+
     let response = await fetch('http://localhost:50647/Fund/SubmitFundImages', {
       method: 'POST',
       headers: {
@@ -121,9 +122,10 @@ export async function submitToServer(values) {
     });
     let responseJson = await response.json();
     return responseJson;
-    console.log("Image send?");
 
-  } catch (error) {
+  } 
+  
+  catch (error) {
     console.error(error);
   }
 
@@ -182,35 +184,59 @@ const renderDropdownList = ({ input, data, valueField, textField }) =>
 
 const Category = 
 [ 
-  { value: 'Medical'},
-  { value: 'Passion'},
-  { value: 'Family'},
-  { value: 'Start-up'},
-  { value: 'Animals'}
+  { value: 'Medical', enum: '1'},
+  { value: 'Passion', enum: '2'},
+  { value: 'Family', enum: '3'},
+  { value: 'Start-up', enum: '4'},
+  { value: 'Animals', enum: '5'},
  ]
 
 
 // File
 
+//PARSE DATA IMG TO BASE 64
+
 const FILE_FIELD_NAME = 'files';
 
 const renderDropzoneInput = (field) => {
+  
   const files = field.input.value;
+
+
+
+
   return (
     <div>
+
+
       <Dropzone
         name={field.name}
-        onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
+        onDrop={( files, e ) => field.input.onChange(files)}
       >
+
+
+
         <div>Try dropping some files here, or click to select files to upload.</div>
+
+
+
       </Dropzone>
+
+
+
+
+
       {field.meta.touched &&
         field.meta.error &&
         <span className="error">{field.meta.error}</span>}
+
+
       {files && Array.isArray(files) && (
         <ul>
           { files.map((file, i) => <li key={i}>{file.name}</li>) }
         </ul>
+
+
       )}
     </div>
   );
@@ -229,7 +255,7 @@ const renderDropzoneInput = (field) => {
         <form onSubmit={handleSubmit(submitToServer)}>
       <div className ="FundForm">
               <div className ="FundFormLeft">
-
+{/* <UploadFileContent/> */}
 
                   <Field
                         name={FILE_FIELD_NAME}

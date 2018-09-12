@@ -64,7 +64,7 @@ class Main extends React.Component {
         this.setState({isLoaded: true, data});
         console.log(this.state);
 
-        const products = data.items.map(obj => ({title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+        const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
         this.setState({isLoaded: true, products});
   
         console.log('Products', products);
@@ -152,6 +152,7 @@ export const ResultItem = ({title, description}) =>
             <Progress bar color="success" value="{BtcDonated}"/> [btcdonated] BTC / [btcgoal] BTC funded
         </Progress>
 
+            {/* CALL GET FUNDBYID */}
             <Link to ={`${title}`} className="SecondaryButton">Support idea now</Link>
 
         </Col>

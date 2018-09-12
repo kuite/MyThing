@@ -101,15 +101,15 @@ class App extends Component {
 
 
 
-              <ScrollToTopRoute path="/fund" component={fund} />
-              <ScrollToTopRoute path ="/homepage" component ={homepage}/>
+              <PrivateRoute path="/fund" component={fund} />
+              <PrivateRoute path ="/homepage" component ={homepage}/>
               
-              <ScrollToTopRoute path ="/activehedges" component ={ActiveHedges}/>
-              <ScrollToTopRoute path ="/userprofile" component ={UserProfile}/>
-              <ScrollToTopRoute path ="/myfunds" component ={MyFunds}/>
+              <PrivateRoute path ="/activehedges" component ={ActiveHedges}/>
+              <PrivateRoute path ="/userprofile" component ={UserProfile}/>
+              <PrivateRoute path ="/myfunds" component ={MyFunds}/>
 
-              <ScrollToTopRoute path ="/deposit" component ={deposit}/>
-              <ScrollToTopRoute path ="/withdraw" component ={withdraw}/>
+              <PrivateRoute path ="/deposit" component ={deposit}/>
+              <PrivateRoute path ="/withdraw" component ={withdraw}/>
             
 
             </div>

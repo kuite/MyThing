@@ -64,8 +64,8 @@ export default class ActiveHedges extends Component{
                         <Plan/>
                         
                     </Container>
-                    <Footer/>
                 </div>
+                <Footer/>
             </div>
         )
     }

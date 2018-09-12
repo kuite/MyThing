@@ -1744,19 +1744,19 @@ input{
 //
 
 h1{
-  font-family:Lato;
+  font-family:Avenir;
   color:#222064;
 }
 
 h2{
-  font-family:Lato;
+  font-family:Avenir;
   color:#222064;
   font-size:24px;
   font-weight:500;
 }
 
 h3{
-  font-family:Lato;
+  font-family:Avenir;
   color:#222064;
   font-size:22px;
 }
@@ -1769,8 +1769,9 @@ p{
 }
 
 .Header h1{
-font-family:Lato;
-font-size:48px;
+font-family:Avenir;
+font-size:52px;
+font-weight:400;
 color:white;
 margin-top:33%;
 
@@ -1841,6 +1842,10 @@ margin-top:33%;
   }
   .Register > .SecondaryButton{
     margin-top:10px !important;
+  }
+
+  .col > a{
+    text-align:center;
   }
 
 
@@ -2018,7 +2023,7 @@ margin-top:33%;
   }
 
   .Section h2{
-    font-family:Lato;
+    font-family:Avenir;
     margin:2% 0 2% 0%;
     font-size:24px;
   }
@@ -2083,7 +2088,7 @@ margin-top:33%;
   .d-md-block h3{
     padding-bottom:40px;
     font-size:42px;
-    font-family:Lato;
+    font-family:Avenir;
     color:#222064;
   }
 
@@ -2130,7 +2135,7 @@ background-image: url(img/arrow_right.svg);
   
   .Rodo > h1{
     margin:8% 10% 0% 13%;
-    font-family:Lato;
+    font-family:Avenir;
     font-size: 42px;
     font-weight:200;
     letter-spacing: 1px;
@@ -2140,13 +2145,13 @@ background-image: url(img/arrow_right.svg);
   
   .Rodo > h2{
     margin:2% 10% 2% 13%;
-    font-family:Lato;
+    font-family:Avenir;
   }
   
   .Rodo > p{
     margin:2% 10% 0% 13%;
     font-size:12px;
-    font-family:Lato;
+    font-family:Avenir;
   }
   
   .rodo_button{
@@ -2173,7 +2178,7 @@ background-image: url(img/arrow_right.svg);
   .rodo_info > p{
     margin:0;
     font-size:12px;
-    font-family:Lato;
+    font-family:Avenir;
     color:white;
   }
   
@@ -2253,7 +2258,7 @@ background-image: url(img/arrow_right.svg);
 }
 
 .SectionsHeader h1{
-  font-family:Lato;
+  font-family:Avenir;
   font-size:48px;
   font-weight:400;
   color:white;
@@ -2571,7 +2576,7 @@ google-login{
 .HomeFund {
   padding-top:5%;
   background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
-  min-width:1400px;
+  min-height:1200px;
   width:100%;
   height:100%;
 }
@@ -2733,7 +2738,7 @@ margin:6% 0 6% 0;
   }
 
   .Section h2{
-    font-family:Lato;
+    font-family:Avenir;
     margin:2% 0 2% 0%;
     font-size:24px;
   }
