@@ -19,26 +19,116 @@ class PaymentModal extends React.Component{
 };
 
 
-
-
 class Test extends React.Component{
-
+  
   render(){
     return(
       <div>
-        <div className ="PaymentHeader"></div>
+        <div className ="PaymentHeader">
+          <h2> Lightning Plan</h2>
+          <p> Investing plan that</p>
+        
+        </div>
         <p>to pay send amouth to the adress</p>
+
           <h3>Amount</h3>
-
+          <p>0.5 btc </p>
           <h3>Adress</h3>
+          <p>0xd200f0f4d02a980d376b5d</p>
 
-          <p>14:43 Awaiting Payment</p>
-
+          <Timer/>
           <button className = "SecondaryButton">show qr code instead</button>
       </div>
     )
   }
 };
+
+class QRCode extends React.Component{
+    render(){
+      return(
+        <div>
+          <div>QR CODE</div>
+          <button className = "SecondaryButton">show adress instead</button>
+        </div>
+      )
+    }
+}
+
+
+
+
+
+
+
+class Timer extends React.Component {
+  constructor() {
+    super();
+    this.state = { time: {}, seconds: 900 };
+    this.timer = 0;
+    this.countDown = this.countDown.bind(this);
+  }
+
+  secondsToTime(secs){
+
+    let hours = Math.floor(secs / (60 * 60));
+
+    let divisor_for_minutes = secs % (60 * 60);
+    let minutes = Math.floor(divisor_for_minutes / 60);
+
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
+
+    let obj = {
+      "h": hours,
+      "m": minutes,
+      "s": seconds
+    };
+    return obj;
+  }
+
+  componentDidMount() {
+    let timeLeftVar = this.secondsToTime(this.state.seconds);
+    this.setState({ time: timeLeftVar });
+    if (this.timer == 0) {
+      this.timer = setInterval(this.countDown, 1000);
+    }
+
+  }
+
+  countDown() {
+    // Remove one second, set state so a re-render happens.
+    let seconds = this.state.seconds - 1;
+    this.setState({
+      time: this.secondsToTime(seconds),
+      seconds: seconds,
+    });
+    
+    if (seconds == 0) { 
+
+      clearInterval(this.timer);
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        {this.state.time.m} : {this.state.time.s} Awaiting Payment
+      </div>
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

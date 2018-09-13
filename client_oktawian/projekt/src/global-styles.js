@@ -1744,19 +1744,19 @@ input{
 //
 
 h1{
-  font-family:Lato;
+  font-family:Avenir;
   color:#222064;
 }
 
 h2{
-  font-family:Lato;
+  font-family:Avenir;
   color:#222064;
   font-size:24px;
   font-weight:500;
 }
 
 h3{
-  font-family:Lato;
+  font-family:Avenir;
   color:#222064;
   font-size:22px;
 }
@@ -1769,8 +1769,9 @@ p{
 }
 
 .Header h1{
-font-family:Lato;
-font-size:48px;
+font-family:Avenir;
+font-size:52px;
+font-weight:400;
 color:white;
 margin-top:33%;
 
@@ -1835,6 +1836,18 @@ margin-top:33%;
 
   .Menu {
   }
+
+  .Register > a > button{
+    margin-top:10px !important;
+  }
+  .Register > .SecondaryButton{
+    margin-top:10px !important;
+  }
+
+  .col > a{
+    text-align:center;
+  }
+
 
   .Menu a.Navbar{
     margin-top:15px;
@@ -2010,7 +2023,7 @@ margin-top:33%;
   }
 
   .Section h2{
-    font-family:Lato;
+    font-family:Avenir;
     margin:2% 0 2% 0%;
     font-size:24px;
   }
@@ -2055,6 +2068,7 @@ margin-top:33%;
   /////Carousel
 
   .carousel{
+    display:flex;
     position:relative;
     margin-top:280px;
     margin-bottom:80px;
@@ -2074,7 +2088,7 @@ margin-top:33%;
   .d-md-block h3{
     padding-bottom:40px;
     font-size:42px;
-    font-family:Lato;
+    font-family:Avenir;
     color:#222064;
   }
 
@@ -2121,7 +2135,7 @@ background-image: url(img/arrow_right.svg);
   
   .Rodo > h1{
     margin:8% 10% 0% 13%;
-    font-family:Lato;
+    font-family:Avenir;
     font-size: 42px;
     font-weight:200;
     letter-spacing: 1px;
@@ -2131,13 +2145,13 @@ background-image: url(img/arrow_right.svg);
   
   .Rodo > h2{
     margin:2% 10% 2% 13%;
-    font-family:Lato;
+    font-family:Avenir;
   }
   
   .Rodo > p{
     margin:2% 10% 0% 13%;
     font-size:12px;
-    font-family:Lato;
+    font-family:Avenir;
   }
   
   .rodo_button{
@@ -2164,7 +2178,7 @@ background-image: url(img/arrow_right.svg);
   .rodo_info > p{
     margin:0;
     font-size:12px;
-    font-family:Lato;
+    font-family:Avenir;
     color:white;
   }
   
@@ -2244,7 +2258,7 @@ background-image: url(img/arrow_right.svg);
 }
 
 .SectionsHeader h1{
-  font-family:Lato;
+  font-family:Avenir;
   font-size:48px;
   font-weight:400;
   color:white;
@@ -2290,7 +2304,7 @@ display:inline-flex;
 }
 
 .FundIcon{
-  width:350px;
+  width:370px;
   float:left;
 }
 
@@ -2425,13 +2439,32 @@ display:inline-flex;
 
 
 .Invest{
+  margin-top:5%;
   text-align:center;
 }
 
+.Secure{
+  width:60%;
+  height:100%;
+  margin:0 auto;
+  margin-top:1.5%;
+  margin-bottom:1.5%;
+  text-align:center;
+}
+
+.Secure > img{
+  float:left;
+
+}
+
 .LawNote{
+  padding:2%;
+  margin:0 auto;
+  margin-top:3%;
+  margin-bottom:3%;
   text-align:center;
   width: 950px;
-  height: 260px;
+  height: 100%;
   border-radius: 8px;
   background-color: #ffffff;
   box-shadow: 0 1px 4px 0 rgba(91, 91, 91, 0.5);
@@ -2543,7 +2576,7 @@ google-login{
 .HomeFund {
   padding-top:5%;
   background-image: linear-gradient(to right,#8CD051 0%,#68B34A 100%);
-  min-width:1400px;
+  min-height:1200px;
   width:100%;
   height:100%;
 }
@@ -2597,10 +2630,26 @@ margin:6% 0 6% 0;
 
 
   .PaymentHeader{
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    background-color:#1E2A37;
     width:100%;
-    height:80px;
+    height:120px;
   }
+
+  .PaymentHeader > h2{
+    padding-top:10%;
+    color:white !important;
+  }
+
+  .PaymentHeader > p{
+    color:white !important;
+  }
+
+  h3{
+    font-size:14px;
+    
+  }
+
+
 
 .SecureSection{
   margin-top:2%;
@@ -2689,7 +2738,7 @@ margin:6% 0 6% 0;
   }
 
   .Section h2{
-    font-family:Lato;
+    font-family:Avenir;
     margin:2% 0 2% 0%;
     font-size:24px;
   }
@@ -2704,6 +2753,10 @@ margin:6% 0 6% 0;
 
   //MENU MOBILE
 
+
+.navigation{
+  float:right;
+}
 
 
 a
@@ -2721,10 +2774,10 @@ a:hover
 
 #menuToggle
 {
+  position:relative;
   display: block;
-  position: relative;
-  top: 50px;
-  left: 50px;
+  top:15px;
+
   
   z-index: 1;
   
@@ -2734,17 +2787,16 @@ a:hover
 
 #menuToggle input
 {
+  position:absolute;
   display: block;
   width: 40px;
   height: 32px;
-  position: absolute;
   top: -7px;
-  left: -5px;
   
   cursor: pointer;
   
   opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  z-index: 99999999; /* and place it over the hamburger */
   
   -webkit-touch-callout: none;
 }
@@ -2810,16 +2862,13 @@ a:hover
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
+
 #menu
 {
   position: absolute;
   width: 300px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
+  height:1200px;
+  margin: -100px 0 0 -220px;
   padding-top: 125px;
   
   background: #ededed;
@@ -2827,17 +2876,22 @@ a:hover
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  transform-origin: 100% 0%;
+  transform: translate(+200%, 0);
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  z-index:-1;
 }
 
 #menu li
 {
-  padding: 10px 0;
-  font-size: 22px;
+  padding: 15%x 0;
+  padding-top:15%;
+  font-size: 36px;
 }
+
+
+
 
 /*
  * And let's slide it in from the left
@@ -2848,11 +2902,142 @@ a:hover
 }
 
 
+.SectionHeaderRight > img{
+  display:none;
+}
 
 
+.FundHeader2Icons{
+  width:100%;
+}
 
+.Section{
+  border:none;
+  margin-top:12.5%;
+}
+
+.Choice_sections{
+  position:static;
+  display:flow-root;
+}
+
+.FundHeader2{
+  margin-top:25%;
+}
+
+.FundIcon{
+  width:100%;
+}
+
+.Header h1{
+  margin-top:47% !important;
+  font-size:36px !important;
+}
+
+.carousel{
+  display:none;
+}
+
+.HomeInteraction{
+  height:450px;
+  padding-top:70px;
+}
+
+
+.FundForm{
+  width:100%;
+}
+
+.FundFormRight{
+  width:100% !important;
+}
+
+.FundFormLeft{
+  width:100%;
+  height:100%:
+}
+
+body input {
+margin-top:7%;
 
 }
+
+.SectionsHeader h1{
+  margin-top: 40% !important;
+  font-size: 36px !important;
+}
+
+// HEDGEFUNDS
+
+
+.SectionPlans{
+  border:none;
+}
+
+.SectionPlans > .SectionInside{
+  margin-top:20%;
+}
+
+.Plan{
+  margin-top:25%;
+  width:100%;
+  height:540px;
+}
+
+.Plan > h1{
+  font-size:36px;
+  margin-top:80%;
+  margin-left:0;
+  text-align:center;
+}
+
+.Plan > p{
+  font-size:18px;
+  margin-top:10%;
+  margin-left:0;
+  text-align:center;
+}
+
+.Plan .SecondaryButton {
+  text-align:center;
+}
+
+
+// REGISTRATION
+
+.RegistrationLeft{
+  width:100%;
+}
+
+.RegistrationRight{
+display:none;
+}
+
+
+// Lightning & Storm
+
+.LawNote{
+  width:100%;
+  height:100%;
+  padding:40px;
+}
+
+
+
+// HOMEFUND
+
+.HomeFund{
+  min-width:20px;
+}
+
+.BitcoinAvailable{
+  margin-top:15%;
+}
+
+}
+
+//
+
 
 
 `;

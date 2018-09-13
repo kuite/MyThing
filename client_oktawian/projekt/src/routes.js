@@ -82,10 +82,9 @@ class App extends Component {
                                
             <Router onUpdate= {scrollToTop} history={history}>
             <div>
-            <Navbar/> 
+
 
               <ScrollToTopRoute exact path="/" component={home} />
-              
               <ScrollToTopRoute path="/browseideas" component={browseideas} />
               <ScrollToTopRoute path="/earnwithus" component={earnwithus} />
               <ScrollToTopRoute path="/register" component={RegisterPage} />
@@ -98,11 +97,13 @@ class App extends Component {
               <ScrollToTopRoute path ="/increase" component ={increase}/>
               <ScrollToTopRoute path ="/policy" component ={policyprivacy}/>
 
-              <PrivateRoute path="/fund" component={fund} />
 
+
+
+
+              <PrivateRoute path="/fund" component={fund} />
               <PrivateRoute path ="/homepage" component ={homepage}/>
               
-
               <PrivateRoute path ="/activehedges" component ={ActiveHedges}/>
               <PrivateRoute path ="/userprofile" component ={UserProfile}/>
               <PrivateRoute path ="/myfunds" component ={MyFunds}/>
@@ -110,7 +111,7 @@ class App extends Component {
               <PrivateRoute path ="/deposit" component ={deposit}/>
               <PrivateRoute path ="/withdraw" component ={withdraw}/>
             
-            <Footer/>
+
             </div>
           </Router>
             </div>

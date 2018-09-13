@@ -3,18 +3,25 @@ import React, { Component } from 'react';
 import {Container, Row, Col, Progress } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import {Navbar} from '../../components/navbar';
 import {Browseideaheader} from '../../components/FundRaiser/browseideaheader';
+
+import {Footer} from '../../components/footer';
 
 import {Vote} from '../../components/reactvote/vote';
 import '../../global-styles';
+
+import axios from 'axios';
 
 export default class Browseideas extends Component{
 
     render(){
         return(
             <div>  
+                 <Navbar/>
                 <Browseideaheader/>
                 <Main/>
+                <Footer/>
              </div>
         )
     }
@@ -26,34 +33,66 @@ class Main extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        
+    
+        data: [],
+        products: [],
         isLoaded: false,
-        
+    
         displayCategory: "all",
         products: PRODUCTS,
         productCategories: PRODUCT_CATEGORIES
       };
+
       this.setCategory = this.setCategory.bind(this);
     }
+
+
+
   
+    componentDidMount() {
 
+      axios
+      fetch('http://localhost:50647/fund/GetFunds')
 
-    componentDidMount(){
-        fetch('http://localhost:50647/fund/GetFunds?MaxPageSize=100&Offset=5&Limit=5')
+      .then(response => {
+        return response.json();
+      })
+      
+      .then(data => {
+
+        console.log(data);
+        this.setState({isLoaded: true, data});
+        console.log(this.state);
+
+        const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+        this.setState({isLoaded: true, products});
+  
+        console.log('Products', products);
+
+      }).catch(err => {
+      });
+      
+    }
+      /*  fetch('http://localhost:50647/fund/GetFunds?MaxPageSize=100&Offset=5&Limit=5')
         
         .then(response => {
           return response.json();
 
         }).then(data => {
+
           console.log(data);
+
           let PRODUCTS = data.items.map(obj => ({ title: obj.title, description: obj.description })); 
           this.setState({isLoaded: true, PRODUCTS})
+
+
           console.log(this.state)
         
         }).catch(err => {
         });
-    }
 
+      */
+     
     setCategory(category) {
       this.setState({
         displayCategory: category
@@ -61,14 +100,14 @@ class Main extends React.Component {
     }
 
     render() {
-
-      return (
+    return (
       <div>
-      <UI setCategory={this.setCategory} state={this.state} />; 
+        <UI setCategory={this.setCategory} state={this.state} />
       </div>
-      )
+    )
     }
    }
+  
 
 
 const PRODUCTS = [];
@@ -113,6 +152,7 @@ export const ResultItem = ({title, description}) =>
             <Progress bar color="success" value="{BtcDonated}"/> [btcdonated] BTC / [btcgoal] BTC funded
         </Progress>
 
+            {/* CALL GET FUNDBYID */}
             <Link to ={`${title}`} className="SecondaryButton">Support idea now</Link>
 
         </Col>

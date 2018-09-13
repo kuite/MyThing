@@ -29,7 +29,7 @@ export class Modalfinal extends React.Component {
 
    render() {
      return (
-       <div>
+       <div className ="Register">
          <button className ="SecondaryButton" onClick={() => this.openModal()}>Login</button>
          <Modal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
            <Signup/>

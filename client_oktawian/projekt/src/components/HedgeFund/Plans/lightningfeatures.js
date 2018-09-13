@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Container, Row, Col } from 'reactstrap';
 
 
 import PlanIcon1 from '../../../img/planicon1.svg';
@@ -14,8 +15,10 @@ export class LightningFeatures extends Component{
     render(){
         return(
             <div className ="PlanFeatures">
-                <LightningFeaturesOne/>
-                <LightningFeaturesSecond/>
+            <Container>
+                <Row><div><LightningFeaturesOne/></div></Row>
+                <Row><div><LightningFeaturesSecond/></div></Row>
+            </Container>
             </div>
         )
     }
@@ -29,7 +32,6 @@ class LightningFeaturesOne extends Component{
         return(
             <div className ="FundHeader2">
 
-                <div className ="FundHeader2Icons">
 
                     <div className="FundIcon"><img alt ="Pump'n dump" src={PlanIcon1}/>
                     <h3>Pump'n dump</h3>
@@ -46,7 +48,6 @@ class LightningFeaturesOne extends Component{
                     <h3>Dedicated programs</h3>
                     <p>We have reliabble information for gaining profits from pump'n dumps.</p>
                     
-                     </div>
                 </div>
             </div>
         )
@@ -59,7 +60,6 @@ class LightningFeaturesSecond extends Component{
         return(
             <div className ="FundHeader2">
 
-                <div className ="FundHeader2Icons">
 
                     <div className="FundIcon"><img alt ="90 days"  src={PlanIcon4}/>
                     <h3>90 days</h3>
@@ -77,7 +77,6 @@ class LightningFeaturesSecond extends Component{
                     <p>The minimum investment values</p>
                     
                      </div>
-                </div>
             </div>
         )
     }

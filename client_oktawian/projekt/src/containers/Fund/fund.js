@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 
 import {Container, FormGroup, Input,} from 'reactstrap';
 
+import {Navbar} from '../../components/navbar';
+
 import {Fundheader, Fundheader2} from '../../components/Fund/fundheader';
 import StepOneFormValidation from './fundform/getfundtitle';
+
+import {Footer} from '../../components/footer';
 
 import '../../global-styles';
 
@@ -36,12 +40,13 @@ export default class Fund extends Component{
     render(){
         return(
             <div>
-
+                <Navbar/>
                 <Fundheader/>
                 <Fundheader2/>
                 <Container>
                     <GetfundedForm/>
                 </Container>
+                {/* <Footer/> */}
             </div>
         )
     }

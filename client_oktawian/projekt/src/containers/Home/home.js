@@ -9,6 +9,7 @@ import {CarouselFinal} from '../../components/Home/carousel';
 import {Advantages} from '../../components/Home/advantages';
 import {HomeInteraction} from '../../components/Home/interaction';
 import {Policy} from '../../components/Home/policy';
+import {Footer} from '../../components/footer';
 
 
 
@@ -20,6 +21,7 @@ export default class Home extends Component{
     render(){
         return(
             <div>
+                <Navbar/>
                 <Header/>
                 <ChoiceSection/>
                 <CarouselFinal/>
@@ -32,6 +34,7 @@ export default class Home extends Component{
                     </Row>
                 </Container>
                 <Policy/>
+                <Footer/>
             </div>
         )
     }

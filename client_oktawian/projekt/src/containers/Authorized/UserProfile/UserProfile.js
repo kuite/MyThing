@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
+import {Navbar} from '../../../components/navbar';
+import {Footer} from '../../../components/footer';
 
 import '../../../global-styles';
 
@@ -13,7 +14,9 @@ export default class UserProfile extends Component{
     render(){
         return(
             <div>
+                <Navbar/>
                 <UserStatistics/>
+                <Footer/>
              </div>
         )
     }

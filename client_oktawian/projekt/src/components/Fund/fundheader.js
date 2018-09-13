@@ -40,11 +40,12 @@ export class Fundheader2 extends Component{
 
     render(){
         return(
+            <div>
+            <Container>
+                <Row>
             <div className ="FundHeader2">
                 <h2>What's happening with your growing idea?</h2>
                 <p>Our platform makes these ideas crystallize and have a much better chance to realize.</p>
-
-                <div className ="FundHeader2Icons">
 
                     <div className="FundIcon"><img alt ="Add Idea" src={fundheadericon1}/>
                     <h3>Add idea</h3>
@@ -62,7 +63,9 @@ export class Fundheader2 extends Component{
                     <p>If your idea is interesting, there will bes people who will want to support it</p>
                     
                      </div>
-                </div>
+            </div>
+            </Row>
+            </Container>
             </div>
         )
     }
