@@ -4,8 +4,10 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using webapi.Model.Domain;
 using webapi.Services.Interfaces;
+using static Microsoft.AspNetCore.Mvc.ControllerBase;
 
 namespace webapi.Services
 {
@@ -18,15 +20,18 @@ namespace webapi.Services
             _hostingEnvironment = hostingEnvironment;
         }
 
-        public Task<List<IFormFile>> GetFundImgsAsync(string fundGuid)
+        public Task<List<string>> GetFundImgsAsync(string fundId)
         {
-            throw new System.NotImplementedException();
+            var fundDirName = fundId.Replace("-", "");
+            var fundDir = Path.Combine(_hostingEnvironment.ContentRootPath, "images", fundDirName);
+
+            string[] fileEntries = Directory.GetFiles(fundDir);
+            return Task.FromResult(new List<string>(fileEntries));
         }
 
         public async Task<List<ImgUploadResponse>> SaveFundImgsAsync(List<IFormFile> imgs, string fundId)
         {
             var responses = new List<ImgUploadResponse>();
-            Guid fundGuid = new Guid(fundId);
             var fundDirName = fundId.Replace("-", "");
             var fundDir = Path.Combine(_hostingEnvironment.ContentRootPath, "images", fundDirName);
 

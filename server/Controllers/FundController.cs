@@ -61,7 +61,7 @@ namespace webapi.Controllers
         }
 
         [HttpPost("SubmitFund")]
-        //[Authorize(Policy = "ApiUser")]
+        [Authorize(Policy = "ApiUser")]
         [ValidateModel]
         public async Task<IActionResult> SubmitFundAsync([FromBody]Fund fund)
         {
@@ -70,26 +70,34 @@ namespace webapi.Controllers
         }
 
         [HttpPost("SubmitFundImages")]
-        //[Authorize(Policy = "ApiUser")]
+        [Authorize(Policy = "ApiUser")]
         public async Task<IActionResult> SubmitFundImagesAsync(List<IFormFile> imgs, string fundGuid)
         {
             var response = await _imageService.SaveFundImgsAsync(imgs, fundGuid);
             return Ok(response);
         }
 
-        [HttpPost("GetFundsByCategory")]
+        [HttpGet("GetFundImages")]
+        [Authorize(Policy = "ApiUser")]
+        public async Task<IActionResult> GetFundImagesAsync([FromQuery]string fundGuid)
+        {
+            var response = await _imageService.GetFundImgsAsync(fundGuid);
+            return Ok(response);
+        }
+
+        [HttpGet("GetFundsByCategory")]
         [ValidateModel]
-        public async Task<IActionResult> GetFundsByCategoryAsync([FromBody]FundCategories categories, [FromBody]string userId)
+        public async Task<IActionResult> GetFundsByCategoryAsync([FromQuery]FundCategories categories, [FromQuery]string userId)
         {
             if (string.IsNullOrEmpty(categories.ToString())) return NotFound();
             var funds = await _fundService.GetFundsByCategoriesAsync(categories, userId);
             return Ok(funds);
         }
 
-        [HttpPost("GetUserFunds")]
-        //[Authorize(Policy = "ApiUser")]
+        [HttpGet("GetUserFunds")]
+        [Authorize(Policy = "ApiUser")]
         [ValidateModel]
-        public async Task<IActionResult> GetUserFundsAsync([FromBody]string userId)
+        public async Task<IActionResult> GetUserFundsAsync([FromQuery]string userId)
         {
             if (string.IsNullOrEmpty(userId)) return NotFound();
             var funds = await _fundService.GetUserFundsAsync(userId);
@@ -97,7 +105,7 @@ namespace webapi.Controllers
         }
 
         [HttpGet("GetNewFundId")]
-        //[Authorize(Policy = "ApiUser")]
+        [Authorize(Policy = "ApiUser")]
         [ValidateModel]
         public async Task<IActionResult> GetNewFundId()
         {
@@ -106,12 +114,21 @@ namespace webapi.Controllers
         }
 
         [HttpPost("SubmitFundDocs")]
-        //[Authorize(Policy = "ApiUser")]
+        [Authorize(Policy = "ApiUser")]
         [ValidateModel]
         public async Task<IActionResult> SubmitFundDocsAsync(IFormFile doc, string fundId)
         {
             var fileForm = await _documentService.SubmitFundDocsAsync(doc, fundId);
             return Ok(fileForm);
+        }
+
+        [HttpGet("GetFundDocs")]
+        [Authorize(Policy = "ApiUser")]
+        [ValidateModel]
+        public async Task<IActionResult> GetFundDocsAsync([FromQuery]string fundId)
+        {
+            var docs = await _documentService.GetFundDocsAsync(fundId);
+            return Ok(docs);
         }
 
 

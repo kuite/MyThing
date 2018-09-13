@@ -99,7 +99,9 @@ namespace webapi.Services
 
             entities.AddRange( await _context
                     .Funds
-                    .Where(x => HaveCommonItems(x.Categories, searchCategories)).ToListAsync());
+                    .Where(x => HaveCommonItems(x.Categories, searchCategories))
+                    .OrderByDescending(x => x.CreatedAt)
+                    .ToListAsync());
 
             if (userId != null)
             {
@@ -128,7 +130,9 @@ namespace webapi.Services
 
             entities.AddRange( await _context
                     .Funds
-                    .Where(x => x.AuthorId.ToString() == userId).ToListAsync()
+                    .Where(x => x.AuthorId.ToString() == userId)
+                    .OrderByDescending(x => x.CreatedAt)
+                    .ToListAsync()
             );
 
             foreach (var entity in entities)

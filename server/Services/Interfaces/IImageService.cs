@@ -11,7 +11,7 @@ namespace webapi.Services.Interfaces
 {
     public interface IImageService
     {
-        Task<List<IFormFile>> GetFundImgsAsync(string fundGuid);
+        Task<List<string>> GetFundImgsAsync(string fundGuid);
         Task<List<ImgUploadResponse>> SaveFundImgsAsync(List<IFormFile> imgs, string fundGuid);
     }
 }

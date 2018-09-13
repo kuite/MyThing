@@ -11,5 +11,6 @@ namespace webapi.Services.Interfaces
     public interface IDocumentService
     {
         Task<DocsUploadResponse> SubmitFundDocsAsync(IFormFile doc, string fundId);
+        Task<List<string>> GetFundDocsAsync(string fundId);
     }
 }

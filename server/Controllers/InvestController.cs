@@ -25,14 +25,6 @@ namespace webapi.Controllers
             _investService = investService;
         }
 
-        [HttpGet("GetPlanTypes")]
-        [ValidateModel]
-        public IActionResult GetPlanTypesAsync()
-        {
-            var planTypes = _investService.GetPlanTypesAsync();
-            return Ok(planTypes);
-        }
-
         [HttpGet("GetAllPlans")]
         [ValidateModel]
         public async Task<IActionResult> GetAllPlansAsync()

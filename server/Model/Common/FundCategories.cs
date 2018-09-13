@@ -2,8 +2,9 @@ using System;
     [Flags]
     public enum FundCategories
     {
-        Social = 1,
-        Digital = 2,
-        NonProfit = 4,
-        Custom = 8
+        Medical = 1,
+        Passion = 2,
+        Family = 4,
+        StartUp = 8,
+        Animals = 16
     }

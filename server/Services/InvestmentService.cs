@@ -48,15 +48,6 @@ namespace webapi.Services
             return result;
         }
 
-        public async Task<List<PlanType>> GetPlanTypesAsync()
-        {
-            var enumValues = Enum.GetValues(typeof(PlanType));
-            var types = new List<PlanType>();
-            foreach(var value in enumValues){ types.Add((PlanType)value); }
-            //return Enum.GetValues(typeof(PlanType));
-            return types;
-        }
-
         public async Task<List<PlanSettings>> GetAllPlansAsync()
         {
             List<PlanSettingsEntity> entities = await GetPlanSettingsAsync();
