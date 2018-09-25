@@ -98,9 +98,6 @@ class App extends Component {
               <ScrollToTopRoute path ="/policy" component ={policyprivacy}/>
 
 
-
-
-
               <PrivateRoute path="/fund" component={fund} />
               <PrivateRoute path ="/homepage" component ={homepage}/>
               

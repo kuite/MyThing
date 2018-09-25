@@ -16,50 +16,6 @@ import { Field, reduxForm, SubmissionError,} from 'redux-form';
 
 
 
-// all validation
-
-
-
-const validate = values => {
-
-    const errors = {}
-
-    //Title
-    if (!values.Title ) {
-    errors.Title =<div className ="help-block">Name of your idea is necessary</div>
-  }
-
-    //Description
-    if (!values.Description ) {
-      errors.Description =<div className ="help-block">Your description is necessary</div>
-    } else if (values.Description.length < 7) {
-      errors.Description = <div className ="help-block">Should be 7 characters or more</div>
-    }
-
-    //Btc Goal
-    if (!values.BtcGoal ) {
-      errors.BtcGoal =<div className ="help-block">Your money goal is necessary</div>
-    }
-
-    // Date
-
-
-    // Category
-    if (!values.Category ) {
-      errors.Category = <div className ="help-block">Your categoryis necessary</div>
-    }
-
-    return errors
-  }
-
-  // all warnings 
-  const warn = values => {
-    const warnings = {}
-    return warnings
-  }
-
-
-
 
 
 //catch errors + callback to async func submitToServer
@@ -128,9 +84,6 @@ export async function submitToServer(values) {
   catch (error) {
     console.error(error);
   }
-
-
-
 }
 
   // Title
@@ -196,15 +149,78 @@ const Category =
 
 //PARSE DATA IMG TO BASE 64
 
+export class renderDropzoneInput extends React.Component{
+
+  onDrop(acceptedFiles: any): any {
+
+    let images: any = this.state.Images;
+
+    acceptedFiles.forEach((file: any) => {
+
+        const reader: FileReader = new FileReader();
+        reader.onload = () => {
+            const fileAsBase64: any = reader.result.substr(reader.result.indexOf(",") + 1);
+            images.push(fileAsBase64);
+        };
+
+        reader.onabort = () => console.log("file reading was aborted");
+        reader.onerror = () => console.log("file reading has failed");
+
+        reader.readAsDataURL(file);
+    });
+
+    this.setState(prevState => ({   
+         Images: images,
+    }));
+}
+
+
+
+
+  render(){
+
+    const FILE_FIELD_NAME = 'files';
+    const files = field.input.value;
+
+      return(
+        <div>
+        <Dropzone
+          name={field.name}
+          onDrop={( files, e ) => field.input.onChange(files)}
+        >
+          <div>Try dropping some files here, or click to select files to upload.</div>
+        </Dropzone>
+  
+  
+        {field.meta.touched &&
+          field.meta.error &&
+          <span className="error">{field.meta.error}</span>}
+  
+  
+        {files && Array.isArray(files) && (
+          <ul>
+            { files.map((file, i) => <li key={i}>{file.name}</li>) }
+          </ul>
+  
+  
+        )}
+      </div>
+          
+      )
+  }
+}
+
+
+
+{/*
 const FILE_FIELD_NAME = 'files';
 
 const renderDropzoneInput = (field) => {
   
+  
   const files = field.input.value;
-
-
-
-
+  
+  
   return (
     <div>
 
@@ -213,17 +229,8 @@ const renderDropzoneInput = (field) => {
         name={field.name}
         onDrop={( files, e ) => field.input.onChange(files)}
       >
-
-
-
         <div>Try dropping some files here, or click to select files to upload.</div>
-
-
-
       </Dropzone>
-
-
-
 
 
       {field.meta.touched &&
@@ -241,7 +248,7 @@ const renderDropzoneInput = (field) => {
     </div>
   );
 }
-
+*/}
 
 // Description
 
@@ -255,12 +262,18 @@ const renderDropzoneInput = (field) => {
         <form onSubmit={handleSubmit(submitToServer)}>
       <div className ="FundForm">
               <div className ="FundFormLeft">
-{/* <UploadFileContent/> */}
+
+               
+               
+               
+               <renderDropzoneInput/> x
 
                   <Field
                         name={FILE_FIELD_NAME}
                         component={renderDropzoneInput}
                       />
+
+
 
              </div>
               <div className ="FundFormRight">
@@ -320,6 +333,44 @@ const renderDropzoneInput = (field) => {
 
 
 
+// all validation
+
+
+
+const validate = values => {
+
+  const errors = {}
+
+  //Title
+  if (!values.Title ) {
+  errors.Title =<div className ="help-block">Name of your idea is necessary</div>
+}
+
+  //Description
+  if (!values.Description ) {
+    errors.Description =<div className ="help-block">Your description is necessary</div>
+  } else if (values.Description.length < 7) {
+    errors.Description = <div className ="help-block">Should be 7 characters or more</div>
+  }
+
+  //Btc Goal
+  if (!values.BtcGoal ) {
+    errors.BtcGoal =<div className ="help-block">Your money goal is necessary</div>
+  }
+
+  // Category
+  if (!values.Category ) {
+    errors.Category = <div className ="help-block">Your categoryis necessary</div>
+  }
+
+  return errors
+}
+
+// all warnings 
+const warn = values => {
+  const warnings = {}
+  return warnings
+}
 
 
 

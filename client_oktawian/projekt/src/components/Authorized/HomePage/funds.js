@@ -181,11 +181,6 @@ export class Funds extends Component{
                         </Col>
 
 
-                        <Col sm={{size:12}}>
-                        <div class ="BitcoinAvailable">
-                            <Btc/>
-                        </div>
-                        </Col>
 
 
 
