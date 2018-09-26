@@ -2670,18 +2670,17 @@ margin:6% 0 6% 0;
 .FooterFirstLevel{
   width:100%;
   margin:0% 0 0% 0;
-  background-color:transparent;
+  background-color:#eef1f2;
   padding:2% 20% 2% 20%;
-  border-top: 1px solid grey;
 }
 
 .FooterSecondLevel{
+  padding-top: 10px;
   width:100%;
   height:40px;
   background-color:#222064;
   color:#75739B;
   font-size:12px;
-  text-align:center;
 }
 
 .FooterSecondLevel > p{
@@ -2691,7 +2690,14 @@ margin:6% 0 6% 0;
   text-align:center;
 }
 
+.FooterSecondLevel  a {
+  margin-left:10%;
+}
 
+.Certificate {
+  width:34px;
+  margin-right:15px;
+}
 
 @media (min-width: 0px) and (max-width: 468px) {
 

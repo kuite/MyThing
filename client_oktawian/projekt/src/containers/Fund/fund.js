@@ -46,7 +46,7 @@ export default class Fund extends Component{
                 <Container>
                     <GetfundedForm/>
                 </Container>
-                {/* <Footer/> */}
+                <Footer/> 
             </div>
         )
     }

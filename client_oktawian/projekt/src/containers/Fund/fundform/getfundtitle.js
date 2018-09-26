@@ -144,13 +144,17 @@ const Category =
   { value: 'Animals', enum: '5'},
  ]
 
+{/*
 
 // File
 
 //PARSE DATA IMG TO BASE 64
+const FILE_FIELD_NAME = 'files';
+
 
 export class renderDropzoneInput extends React.Component{
 
+  
   onDrop(acceptedFiles: any): any {
 
     let images: any = this.state.Images;
@@ -179,8 +183,8 @@ export class renderDropzoneInput extends React.Component{
 
   render(){
 
-    const FILE_FIELD_NAME = 'files';
     const files = field.input.value;
+
 
       return(
         <div>
@@ -212,7 +216,7 @@ export class renderDropzoneInput extends React.Component{
 
 
 
-{/*
+
 const FILE_FIELD_NAME = 'files';
 
 const renderDropzoneInput = (field) => {
@@ -264,15 +268,17 @@ const renderDropzoneInput = (field) => {
               <div className ="FundFormLeft">
 
                
-               
-               
-               <renderDropzoneInput/> x
+ {/*              
+               <Field name={FILE_FIELD_NAME} component={renderDropzoneInput} field={Dropzone} />
+
+
+               <renderDropzoneInput/> 
 
                   <Field
                         name={FILE_FIELD_NAME}
                         component={renderDropzoneInput}
                       />
-
+*/}
 
 
              </div>
