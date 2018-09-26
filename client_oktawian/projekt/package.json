@@ -39,6 +39,7 @@
     "react-scripts": "1.1.4",
     "react-share": "^2.2.0",
     "react-slick": "^0.23.1",
+    "react-stripe-elements": "^2.0.1",
     "react-vote": "^3.3.0",
     "react-widgets": "^4.4.3",
     "reactstrap": "^6.2.0",
