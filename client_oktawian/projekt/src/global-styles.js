@@ -2397,6 +2397,7 @@ display:inline-flex;
 }
 
 .Plan{
+  margin-bottom:15%;
   width: 580px;
   height: 255px;
   border-radius: 8px;
@@ -2628,6 +2629,10 @@ margin:6% 0 6% 0;
 
   // PAYMENT
 
+  .PaymentBtc > p {
+    margin-top:5%;
+  }
+ 
 
   .PaymentHeader{
     background-color:#1E2A37;
@@ -2646,8 +2651,31 @@ margin:6% 0 6% 0;
 
   h3{
     font-size:14px;
-    
   }
+
+  .nav-item{
+    width:50%;
+  }
+
+
+.nav-link {
+  background-color:#11181f;
+  color:white !important;
+  border-radius:none;
+}
+
+.nav-link.active{
+  background-color:#11181f !important;
+  color:white !important;
+  box-shadow: 0px -3px 0px #F76B1C inset;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  border-top-left-radius: none !important;
+  border-top-right-radius: none !important;
+}
+
 
 
 
@@ -2988,6 +3016,7 @@ margin-top:7%;
   margin-top:25%;
   width:100%;
   height:540px;
+  
 }
 
 .Plan > h1{

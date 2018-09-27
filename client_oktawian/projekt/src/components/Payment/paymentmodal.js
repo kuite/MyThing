@@ -1,12 +1,9 @@
 import React from 'react';
-import {BtcPayment} from './btc/btcpayment';
+import {BtcPaymentFull} from './btc/btcpayment';
+
 
 
 import MyStoreCheckout from './card/paymentvisa';
-
-
-
-
 
 
 
@@ -16,7 +13,7 @@ class PaymentModal extends React.Component{
   render(){
     return(
     <div>
-        <BtcPayment/>
+        <BtcPaymentFull/>
     </div>
     )
   }
