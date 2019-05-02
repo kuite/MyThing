@@ -1,409 +1,144 @@
 import React from 'react';
-
-import DropdownList from 'react-widgets/lib/DropdownList';
-
 import 'react-widgets/dist/css/react-widgets.css';
-import SelectList from 'react-widgets/lib/SelectList';
-
-import Dropzone from "react-dropzone"
-import dropzoneStyle from "react-dropzone"
-
-import {Date} from '../fund.js';
-
+import { Container, Row, Col, Alert } from 'reactstrap';
 import {authHeader} from '../../../_helpers/auth-header.js';
+import { connect } from 'react-redux';
 
-import { Field, reduxForm, SubmissionError,} from 'redux-form';
+import { userActions } from '../../../_actions';
+import { alertActions } from '../../../_actions';
 
 
+class Form extends React.Component{
 
+  constructor(props) {
+    super(props);
 
+    const { dispatch } = this.props;
 
-//catch errors + callback to async func submitToServer
-export var submit =(values) =>{
-
-          let isError =false;
-
-          if (isError) {
-            //  throw new SumissionError(error);
-          } else{
-            return submitToServer(values)
-              .then(data =>{
-                  if (data.errors)  {
-                    console.log(data.errors);
-                      throw new SubmissionError(data.errors);
-                  } else{
-                      console.log(values)
-                      console.log('server added data to database');
-                  }
-              });
-          }
+    this.state = {
+      data: {
+        Title: '',
+        Description: '',
+        btcGoal: '',
+      },
+        submitted:false,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 }
 
 
-//async function send to server
-export async function submitToServer(values) {
+formhandleSubmit(event) {
+event.preventDefault();
+}
 
 
-  //FUND
-   try {
-    let response = await fetch('http://localhost:50647/fund/submitfund', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        ...authHeader()
-      },
-      body: JSON.stringify(values),
-      
-    });
-    let responseJson = await response.json();
-    return responseJson;
+handleChange(event) {
+  const { name, value } = event.target;
+  const { data } = this.state;
+  this.setState({
+      data: {
+          ...data,
+          [name]: value
+      }
+  });
+}
 
-  } catch (error) {
-    console.error(error);
-  }
-
-
- //
-  try {
-
-
-    let response = await fetch('http://localhost:50647/Fund/SubmitFundImages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        ...authHeader()
-      },
-      body: JSON.stringify(values),
-      
-    });
-    let responseJson = await response.json();
-    return responseJson;
-
-  } 
+handleSubmit(event) {
   
-  catch (error) {
-    console.error(error);
+  event.preventDefault();
+
+  this.setState({ submitted: true });
+  const { data } = this.state;
+  const { dispatch } = this.props;
+  if (data.Title && data.Description && data.btcGoal) {
+  dispatch(userActions.sendFund(data));
   }
 }
 
-  // Title
-  const RenderTitle = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
-    <div>
-        <input className="text" {...input} {...inputProps} />  
-        <label>{label}</label>
-        {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  )
+render(){
 
-  // Description
-  const RenderDescription = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
-    <div>
-        <input className="text" {...input} {...inputProps} />
-        <label>{label}</label>
-        {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  )
+  const {registering, alert} = this.props;
+  const {data, submitted } = this.state;
 
-//BTC Goal
-const RenderBtcGoal = ({ input, label, meta: { touched, error, warning }, custom, ...inputProps }) => (
-  <div>
-      <input className="text" {...input} {...inputProps} />  
-      <label>{label}</label>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-  </div>
-)
+  return(
+    <Row>
+    <Col sm="12" md={{ size: 6, offset: 3 }}>
 
-const RenderDatePicker = ({ input, label, meta: { touched, error }, ...custom }) => {
-  return (
-      <Date {...input} {...custom} autoOk={true} DateForm='MM/DD/YYYY' onChange={(event, value) => input.onChange(value)} />
-  );
-};
+                <div>
+             {alert.message &&
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
+                  
+                    {/*
+                          <form name="form" onSubmit={this.handleSubmit}>
+                                <div className={'form-group' + (submitted && !this.state.Title ? ' has-error' : '')}>
+                                <input type="text" className="form-control" name="Title" value={this.state.Title} onChange={e => this.setState({Title: e.target.value })} placeholder="Title" />
+                                
+                                {submitted && !this.state.Title &&
+                                        <div className="help-block">First Name is required</div>
+                                }
+                                </div>
+                                <button className="SecondaryButton">Send Form</button>
+                      
+                        </form>
+                              */}
 
-//Type
-const renderSelectList = ({ input, data }) =>
-  <SelectList {...input}
-    onBlur={() => input.onBlur()}
-    data={data} />
+                  <form name="form" onSubmit={this.handleSubmit}>
+                  <div className={'form-group' + (submitted && !this.state.Title ? ' has-error' : '')}>
+                    <input type="text" className="form-control" name="Title" value={data.Title} onChange={this.handleChange} placeholder="Title" />
+                    {submitted && !data.Title &&
+                          <div className="help-block">First Name is required</div>
+                    }
+                    </div>
 
-//Category
+                    <div className={'form-group' + (submitted && !this.state.Description ? ' has-error' : '')}>
+                    <input type="text" className="form-control" name="Description" value={data.Description} onChange={this.handleChange} placeholder="desc" />
+                    {submitted && !data.Description &&
+                          <div className="help-block">First Name is required</div>
+                    }
+                    </div>
 
-const renderDropdownList = ({ input, data, valueField, textField }) =>
-  <DropdownList {...input}
-    data={data}
-    valueField={valueField}
-    textField={textField}
-    onChange={input.onChange} />
+                   <div className={'form-group' + (submitted && !this.state.btcGoal ? ' has-error' : '')}>
+                    <input type="text" className="form-control" name="btcGoal" value={data.btcGoal} onChange={this.handleChange} placeholder="btc" />
+                    {submitted && !data.btcGoal &&
+                          <div className="help-block">First Name is required</div>
+                    }
+                    </div>
 
+              
+                       <button className="SecondaryButton">Send Data</button>
+                                    {registering && 
+                                        <img alt ="test" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                    }
 
-const Category = 
-[ 
-  { value: 'Medical', enum: '1'},
-  { value: 'Passion', enum: '2'},
-  { value: 'Family', enum: '3'},
-  { value: 'Start-up', enum: '4'},
-  { value: 'Animals', enum: '5'},
- ]
 
 {/*
+   <input type="text" className="form-control" name="Description" value={this.state.Description} onChange={e => this.setState({Title: e.target.value })} placeholder="Title" />
+                    <input type="text" className="form-control" name="Description" value={this.state.Description} onChange={e => this.setState({Description: e.target.value })} placeholder="Description" />
+                    <input type="number" className="form-control" name="btcGoal" value={this.state.btcGoal} onChange={e => this.setState({btcGoal: e.target.value })} placeholder="Btc Goal" />
 
-// File
-
-//PARSE DATA IMG TO BASE 64
-const FILE_FIELD_NAME = 'files';
-
-
-export class renderDropzoneInput extends React.Component{
-
-  
-  onDrop(acceptedFiles: any): any {
-
-    let images: any = this.state.Images;
-
-    acceptedFiles.forEach((file: any) => {
-
-        const reader: FileReader = new FileReader();
-        reader.onload = () => {
-            const fileAsBase64: any = reader.result.substr(reader.result.indexOf(",") + 1);
-            images.push(fileAsBase64);
-        };
-
-        reader.onabort = () => console.log("file reading was aborted");
-        reader.onerror = () => console.log("file reading has failed");
-
-        reader.readAsDataURL(file);
-    });
-
-    this.setState(prevState => ({   
-         Images: images,
-    }));
-}
-
-
-
-
-  render(){
-
-    const files = field.input.value;
-
-
-      return(
-        <div>
-        <Dropzone
-          name={field.name}
-          onDrop={( files, e ) => field.input.onChange(files)}
-        >
-          <div>Try dropping some files here, or click to select files to upload.</div>
-        </Dropzone>
-  
-  
-        {field.meta.touched &&
-          field.meta.error &&
-          <span className="error">{field.meta.error}</span>}
-  
-  
-        {files && Array.isArray(files) && (
-          <ul>
-            { files.map((file, i) => <li key={i}>{file.name}</li>) }
-          </ul>
-  
-  
-        )}
-      </div>
-          
-      )
-  }
-}
-
-
-
-
-const FILE_FIELD_NAME = 'files';
-
-const renderDropzoneInput = (field) => {
-  
-  
-  const files = field.input.value;
-  
-  
-  return (
-    <div>
-
-
-      <Dropzone
-        name={field.name}
-        onDrop={( files, e ) => field.input.onChange(files)}
-      >
-        <div>Try dropping some files here, or click to select files to upload.</div>
-      </Dropzone>
-
-
-      {field.meta.touched &&
-        field.meta.error &&
-        <span className="error">{field.meta.error}</span>}
-
-
-      {files && Array.isArray(files) && (
-        <ul>
-          { files.map((file, i) => <li key={i}>{file.name}</li>) }
-        </ul>
-
-
-      )}
-    </div>
-  );
-}
+                    <button className="SecondaryButton" onClick={() => this.handleSubmit(this.state.Title, this.state.Description, this.state.btcGoal)}>
+                    Send Form
+                  </button>
 */}
+                  </form>
+                </div>
 
-// Description
+     </Col>
+</Row>
 
-
-
-  let StepOneFormValidation = (props) => {
-    const { handleSubmit, submitting, } = props
-  
-  
-    return (
-        <form onSubmit={handleSubmit(submitToServer)}>
-      <div className ="FundForm">
-              <div className ="FundFormLeft">
-
-               
- {/*              
-               <Field name={FILE_FIELD_NAME} component={renderDropzoneInput} field={Dropzone} />
-
-
-               <renderDropzoneInput/> 
-
-                  <Field
-                        name={FILE_FIELD_NAME}
-                        component={renderDropzoneInput}
-                      />
-*/}
-
-
-             </div>
-              <div className ="FundFormRight">
-                    <Field name="Title"
-                      Type="text"
-                      component={RenderTitle}
-                      placeholder="What is Title of idea?"
-                        />
-                
-                    <Field name="Description"
-                      Type="text"
-                      component={RenderDescription}
-                      placeholder="Describe your idea, the more precisely you do it, the greater the chance that someone will support you"
-                        />
-
-
-                    <Field name="BtcGoal"
-                      Type="number"
-                      component={RenderBtcGoal}
-                      placeholder="Your BTC Goal? (np 0,65)"
-                      />
-
-                  
-                     {/*   <Field
-                      name="type"
-                      component={renderSelectList}
-                      data={[ 'bussiness', 'nonprofit' ]}/>
-                      
-                      <Field name="Date"
-                      Type="Date"
-                      component={RenderDatePicker}
-                      />
-                     */}
-
-                    <Field
-                      name="Category"
-                      component={renderDropdownList}
-                      data={Category}
-                      valueField="value"
-                      textField="value"/>
-
-                      <button
-                      className ="Login"
-                      Type="submit"
-                        disabled={submitting}>
-                        Submit</button>
-
-              </div>
-            </div>
-      </form>
-    )
-  }
-
-
-
-
-
-
-
-// all validation
-
-
-
-const validate = values => {
-
-  const errors = {}
-
-  //Title
-  if (!values.Title ) {
-  errors.Title =<div className ="help-block">Name of your idea is necessary</div>
+  )
+}
 }
 
-  //Description
-  if (!values.Description ) {
-    errors.Description =<div className ="help-block">Your description is necessary</div>
-  } else if (values.Description.length < 7) {
-    errors.Description = <div className ="help-block">Should be 7 characters or more</div>
-  }
-
-  //Btc Goal
-  if (!values.BtcGoal ) {
-    errors.BtcGoal =<div className ="help-block">Your money goal is necessary</div>
-  }
-
-  // Category
-  if (!values.Category ) {
-    errors.Category = <div className ="help-block">Your categoryis necessary</div>
-  }
-
-  return errors
+function mapStateToProps(state) {
+  const {registering, alert } = state;
+  return {
+      alert,
+      registering
+  };
 }
 
-// all warnings 
-const warn = values => {
-  const warnings = {}
-  return warnings
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default reduxForm({
-    form: 'syncValidation',           // a unique identifier for this form
-    validate,                                  // <--- validation function given to redux-form
-    warn,                                        // <--- warning function given to redux-form
-  })(StepOneFormValidation)
-  
-
+const connectedFundForm = connect(mapStateToProps)(Form);
+export { connectedFundForm as Form };

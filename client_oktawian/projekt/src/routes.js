@@ -20,6 +20,9 @@ import {PrivateRoute } from './components';
 import home from './containers/Home/home';
 import fund from './containers/Fund/fund';
 import browseideas from './containers/FundRaiser/browseideas';
+import Idea from './containers/FundRaiser/idea';
+
+
 import earnwithus from './containers/HedgeFund/earnwithus';
 
 //Plans
@@ -92,7 +95,9 @@ class App extends Component {
               <ScrollToTopRoute path="/register" component={RegisterPage} />
               <ScrollToTopRoute path="/login" component={LoginPage} />
 
-              <ScrollToTopRoute path="/idea" component={idea} />
+              {/* <ScrollToTopRoute path="/idea" component={idea} /> */}
+
+              <ScrollToTopRoute path ="/idea/:id" component ={Idea}/>
 
               <ScrollToTopRoute path="/lightning" component={Lightning} />
               <ScrollToTopRoute path="/storm" component={Storm} />

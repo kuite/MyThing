@@ -52,7 +52,7 @@ class Main extends React.Component {
     componentDidMount() {
 
       axios
-      fetch('http://localhost:50647/fund/GetFunds')
+fetch('http://localhost:50647/fund/GetFunds')
 
       .then(response => {
         return response.json();
@@ -120,10 +120,7 @@ const Result = ({state: { products, displayCategory} }) =>
     .filter(({ category }) =>
         displayCategory === category || displayCategory === "all"
     )
-    .map(( {title, description}) =>
-      <ResultItem title ={title} description ={description}/>
-    )
-    
+    .map(args => <ResultItem {...args} />)
   }
 </div>;
 
@@ -131,7 +128,7 @@ const Result = ({state: { products, displayCategory} }) =>
 
 
 
-export const ResultItem = ({title, description}) =>
+export const ResultItem = ({id, title, description}) =>
  
 <div className ="Idea"> 
                              
@@ -152,8 +149,12 @@ export const ResultItem = ({title, description}) =>
             <Progress bar color="success" value="{BtcDonated}"/> [btcdonated] BTC / [btcgoal] BTC funded
         </Progress>
 
-            {/* CALL GET FUNDBYID */}
-            <Link to ={`${title}`} className="SecondaryButton">Support idea now</Link>
+            <Link to={{ 
+                  pathname: `/idea/${id}`,
+                 // state: { recipe: recipe.title }
+                }}><button className ="SecondaryButton">View Recipe</button></Link>
+
+
 
         </Col>
     </Row>

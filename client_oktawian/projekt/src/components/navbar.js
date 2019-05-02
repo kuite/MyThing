@@ -442,7 +442,7 @@ export class Profil extends RoleAwareComponentUser{
     <div>
         <Col>
         <ul id="mainmenu">
-        <li className ="limenu"><a className ="link_menu tenth before after"><img alt ="Avatar" className="Avatar" src ={Avatar}/></a>
+        <li><a><img alt ="Avatar" className="Avatar" src ={Avatar}/></a>
           <ul>
             <li><Link to ="/userprofile">User Profile</Link></li>
             <li><Link to="/myfunds">My Funds</Link></li>

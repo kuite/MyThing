@@ -44,6 +44,22 @@ export function users(state = {}, action) {
           return user;
         })
       };
+
+      case userConstants.SENDDATA_REQUEST:
+      return {
+        loading: true,
+        registering: true
+      };
+
+      case userConstants.SENDDATA_SUCCESS:
+      return {
+      };
+
+      case userConstants.SENDDATA_FAILURE:
+      return {
+      };
+
+
     default:
       return state
   }

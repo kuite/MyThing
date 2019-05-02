@@ -8,7 +8,8 @@ export const userService = {
     getAll,
     getById,
     /* update, */
-    delete: _delete
+    delete: _delete,
+    sendData
 };
 
 
@@ -40,19 +41,10 @@ function login(Email, Password) {
 }
 
 
-
-
-
-
-
-
-
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
 }
-
-
 
 
 function getAll() {
@@ -82,14 +74,6 @@ function getById(id) {
 
 
 
-
-
-
-
-
-
-
-
 function register(user) {
     
     const requestOptions = {
@@ -104,6 +88,21 @@ function register(user) {
 }
 
 
+function sendData(Title, Description, btcGoal){
+
+    console.log(Title);
+    
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+          ...authHeader()
+      },
+      body: JSON.stringify({Title, Description, btcGoal})
+  };
+
+  return fetch ('http://localhost:50647/fund/submitfund', requestOptions)
+}
 
 
 

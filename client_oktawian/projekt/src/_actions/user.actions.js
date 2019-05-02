@@ -3,24 +3,14 @@ import { userService } from '../_services';
 import { alertActions } from './';
 import { history } from '../_helpers';
 
-
-
-
-
-
-
 export const userActions = {
     login,
     logout,
     register,
     getAll,
-    delete: _delete
+    delete: _delete,
+    sendFund
 };
-
-
-
-
-
 
 function login(username, password,) {
     
@@ -47,30 +37,12 @@ function login(username, password,) {
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 
-
-
-
-
 function logout() {
 
     userService.logout();
     return { type: userConstants.LOGOUT };
     history.push("/");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function register(user) {
     return dispatch => {
@@ -96,13 +68,6 @@ function register(user) {
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
-
-
-
-
-
-
-
 
 function getAll() {
     return dispatch => {
@@ -136,3 +101,32 @@ function _delete(id) {
     function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
     function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
 }
+
+
+function sendFund (data){
+    
+    const Title = data.Title;
+    const Description = data.Description;
+    const btcGoal = data.btcGoal;
+
+    return dispatch => {
+        dispatch(request(data));
+        userService.sendData(Title, Description, btcGoal)
+        .then(
+            data => { 
+                dispatch(success());
+                dispatch(alertActions.success('Wysyłanie danych pomyślnie'));
+
+            },
+            error => {
+                dispatch(failure(error.toString()));
+                dispatch(alertActions.error(error.toString()));
+            }
+        );
+    };
+
+    function request(data) { return { type: userConstants.SENDDATA_REQUEST, data } }
+    function success(data) { return { type: userConstants.SENDDATA_SUCCESS, data } }
+    function failure(error) { return { type: userConstants.SENDDATA_FAILURE, error } }
+}
+
