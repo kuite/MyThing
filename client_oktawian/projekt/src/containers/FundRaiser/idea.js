@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 import {
     FacebookShareCount,
@@ -19,21 +20,24 @@ import {
     RedditIcon,
   } from 'react-share';
 
+  import axios from 'axios';
+
 
 
 
 
 import {Container, Row, Col, Progress } from 'reactstrap';
 import {Navbar} from '../../components/navbar';
+import fundraiseimg from '../../img/fundraiseimg.jpg'
 
-import {IdeaHeader} from '../../components/FundRaiser/ideaheader';
+// import {IdeaHeader} from '../../components/FundRaiser/ideaheader';
 
 import {PaymentModalfinal} from '../../components/Payment/paymentmodal';
 
 import {Vote} from '../../components/reactvote/vote';
 import '../../global-styles';
 
-export default class Ideas extends Component{
+export class Ideas extends Component{
 
     render(){
         return(
@@ -45,6 +49,72 @@ export default class Ideas extends Component{
         )
     }
 };
+
+export class IdeaHeader extends Component{
+
+  constructor(props){
+    super(props);
+    this.state ={
+    data:[],
+    products:[],
+    isLoaded: false,
+    }
+  }
+
+  componentDidMount() {
+
+    const id = this.props.match.params.id;
+
+    axios
+    fetch(`http://localhost:50647/fund/GetFund/${id}`)
+
+    .then(response => {
+      return response.json();
+    })
+    
+    .then(data => {
+
+      console.log(data);
+      console.log(data.title)
+      this.setState({isLoaded: true, data});
+
+    const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+    
+    console.log(products);
+
+  
+
+    }).catch(err => {
+    });
+    
+  }
+
+  render(){
+      return(
+          <div className ="SectionsHeader">      
+           <div className ="HeaderLeft">                         
+              <Container>
+                  <Row>
+                       <Col sm="12" md={{ size: 8, offset: 3 }}><h1> {this.state.data.title}</h1>
+                      <p>Category, bussiness/non profit</p> 
+                      <p>27.01.1995 - 31.12.2027</p> 
+                      </Col>
+                  </Row>
+              </Container>
+              </div>
+              
+              
+              <div className = "SectionHeaderRight">
+              
+                 <img alt ="Fundraise" src={fundraiseimg}/> 
+
+              </div>
+          </div>
+      )
+  }
+};
+
+
 
 export class Idea extends Component{
 
@@ -206,3 +276,5 @@ class Share extends Component {
     }
   }
   
+
+  export default withRouter(IdeaHeader)

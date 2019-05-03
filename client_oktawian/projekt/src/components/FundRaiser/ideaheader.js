@@ -12,7 +12,7 @@ export class IdeaHeader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>Idea Title</h1>
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1>{title}</h1>
                         <p>Category, bussiness/non profit</p> 
                         <p>27.01.1995 - 31.12.2027</p> 
                         </Col>

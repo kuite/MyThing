@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {Container, Row, Col, Progress } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import {Navbar} from '../../components/navbar';
 import {Browseideaheader} from '../../components/FundRaiser/browseideaheader';
@@ -20,8 +20,10 @@ export default class Browseideas extends Component{
             <div>  
                  <Navbar/>
                 <Browseideaheader/>
+
                 <Main/>
                 <Footer/>
+                
              </div>
         )
     }
@@ -65,6 +67,7 @@ fetch('http://localhost:50647/fund/GetFunds')
         console.log(this.state);
 
         const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+        
         this.setState({isLoaded: true, products});
   
         console.log('Products', products);
@@ -128,7 +131,7 @@ const Result = ({state: { products, displayCategory} }) =>
 
 
 
-export const ResultItem = ({id, title, description}) =>
+const ResultItem = ({id, title, description}) =>
  
 <div className ="Idea"> 
                              
@@ -149,19 +152,19 @@ export const ResultItem = ({id, title, description}) =>
             <Progress bar color="success" value="{BtcDonated}"/> [btcdonated] BTC / [btcgoal] BTC funded
         </Progress>
 
+          <button> {id}</button>
+
+          
             <Link to={{ 
                   pathname: `/idea/${id}`,
-                 // state: { recipe: recipe.title }
+                  state: {id}
                 }}><button className ="SecondaryButton">View Recipe</button></Link>
-
-
 
         </Col>
     </Row>
 </Container>
 </div>
 ;
-
 
 
 const OptionCategory = ({ setCategory, category }) =>
