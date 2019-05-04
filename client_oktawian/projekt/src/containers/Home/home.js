@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Container, Row,} from 'reactstrap';
 
-import {Navbar} from '../../components/navbar';
+import Navbar from '../../components/navbar';
 import {Header} from '../../components/Home/header';
 import {ChoiceSection} from '../../components/Home/choiceSection';
 import {CarouselFinal} from '../../components/Home/carousel';

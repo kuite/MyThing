@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import {I18n, setLocale} from 'react-redux-i18n';
 import {Container, Row, Col } from 'reactstrap';
-
+import { connect } from 'react-redux';
 import fundraiseimg from '../../img/fundraiseimg.jpg'
 
-export class Browseideaheader extends Component{
+class Browseideaheader extends Component{
 
     render(){
         return(
@@ -12,7 +12,7 @@ export class Browseideaheader extends Component{
              <div className ="HeaderLeft">                         
                 <Container>
                     <Row>
-                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">Active fundraisers</h1>
+                         <Col sm="12" md={{ size: 8, offset: 3 }}><h1 className ="animated fadeIn">{I18n.t('activeFundraisers')}</h1>
                         <p className ="animated fadeInUp">the place where you can help & earn</p> 
                         </Col>
                     </Row>
@@ -29,3 +29,11 @@ export class Browseideaheader extends Component{
         )
     }
 };
+
+function mapStateToProps(state) {
+    return {
+        lang: state.i18n.locale,
+    }
+}
+
+export default connect(mapStateToProps)(Browseideaheader)

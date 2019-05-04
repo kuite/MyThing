@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import {Container, Row, Col, Progress } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
 
-import {Navbar} from '../../components/navbar';
-import {Browseideaheader} from '../../components/FundRaiser/browseideaheader';
+import Navbar from '../../components/navbar';
+import Browseideaheader from '../../components/FundRaiser/browseideaheader';
 
 import {Footer} from '../../components/footer';
 
@@ -66,7 +66,7 @@ fetch('http://localhost:50647/fund/GetFunds')
         this.setState({isLoaded: true, data});
         console.log(this.state);
 
-        const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+        const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description,btcGoal: obj.btcGoal, startDate: obj.startDate, endDate: obj.endDate,}));
         
         this.setState({isLoaded: true, products});
   
@@ -131,8 +131,9 @@ const Result = ({state: { products, displayCategory} }) =>
 
 
 
-const ResultItem = ({id, title, description}) =>
+const ResultItem = ({id, title, description, btcGoal, startDate, endDate, category}) =>
  
+
 <div className ="Idea"> 
                              
 <Container>
@@ -141,24 +142,19 @@ const ResultItem = ({id, title, description}) =>
         <Col sm={{size:3}}><div className ="Idea_image"></div></Col>
         <Col sm={{size:6}}>
         <h2>{title}</h2>
-            <p>Business/Non Profit</p>
-            <p>[category]</p>
-            <p>Started [startdate] - Finish: [enddate]</p>
+
+            <p>{category}</p>
+            <p>Started:  {startDate} - <br/>Finished: {endDate}</p>
         <div className ="Rectangle"></div>
         
         <p>{description}</p>
 
-        <Progress multi>
-            <Progress bar color="success" value="{BtcDonated}"/> [btcdonated] BTC / [btcgoal] BTC funded
-        </Progress>
-
-          <button> {id}</button>
-
+      <Progress color = "success" value={"5" - {btcGoal}}>Donated / {btcGoal} BTC goal</Progress>
           
             <Link to={{ 
                   pathname: `/idea/${id}`,
                   state: {id}
-                }}><button className ="SecondaryButton">View Recipe</button></Link>
+                }}><button className ="SecondaryButton">View funraiser</button></Link>
 
         </Col>
     </Row>

@@ -27,7 +27,7 @@ import {
 
 
 import {Container, Row, Col, Progress } from 'reactstrap';
-import {Navbar} from '../../components/navbar';
+import Navbar from '../../components/navbar';
 import fundraiseimg from '../../img/fundraiseimg.jpg'
 
 // import {IdeaHeader} from '../../components/FundRaiser/ideaheader';
@@ -44,11 +44,11 @@ export class Ideas extends Component{
             <div>  
                 <Navbar/>
                 <IdeaHeader/>  
-                <Idea/>
              </div>
         )
     }
 };
+
 
 export class IdeaHeader extends Component{
 
@@ -91,6 +91,8 @@ export class IdeaHeader extends Component{
 
   render(){
       return(
+        <div>
+        <Navbar/>
           <div className ="SectionsHeader">      
            <div className ="HeaderLeft">                         
               <Container>
@@ -110,42 +112,31 @@ export class IdeaHeader extends Component{
 
               </div>
           </div>
+
+<div className ="Idea">                               
+<Container>
+    <Row>
+      <Col sm={{size:1}}>
+      <Vote/>
+      </Col>
+        <Col sm={{size:7}}>
+        <p>{this.state.data.description}</p>
+        </Col>
+        <Col sm={{size:4}}>
+           <Share/>
+          <Progress multi>
+              <Progress bar color="success" value="35" /> 0.4531 / 1 BTC funded
+          </Progress>
+          <PaymentModalfinal/>
+        </Col>       
+    </Row>
+</Container>
+</div>
+
+</div>
       )
   }
 };
-
-
-
-export class Idea extends Component{
-
-    render(){
-        return(
-            <div className ="Idea">                               
-                <Container>
-                    <Row>
-                      <Col sm={{size:1}}>
-                      <Vote/>
-                      </Col>
-                        <Col sm={{size:7}}>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mollis mattis erat quis laoreet. Nunc posuere faucibus aliquam. In efficitur est odio, et dapibus libero faucibus vitae. Pellentesque quis nisi et ipsum ultrices ultricies eget tempus libero. Praesent venenatis aliquam rhoncus. Sed at ullamcorper erat, sit amet pretium ligula. Aenean semper bibendum aliquet.</p>
-                        </Col>
-                        <Col sm={{size:4}}>
-                           <Share/>
-                          <Progress multi>
-                              <Progress bar color="success" value="35" /> 0.4531 / 1 BTC funded
-                          </Progress>
-                          <PaymentModalfinal/>
-                        </Col>       
-                    </Row>
-                </Container>
-            </div>
-        )
-    }
-};
-
-
-
-
 
 
 

@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import {Container, Row, Col } from 'reactstrap';
 import {Modalfinal} from './Login/loginmodal';
 
+
+import {I18n, setLocale} from 'react-redux-i18n';
+import {connect} from 'react-redux'
+
 import { userActions } from '../_actions/user.actions';
-import { history } from '../_helpers';
-
 import {RoleAwareComponent, RoleAwareComponentUser} from './roleawarecomponent';
-
 import { Link } from 'react-router-dom';
+
 
 import Avatar from '../img/avatar.svg'
 
@@ -17,14 +19,19 @@ import Avatar from '../img/avatar.svg'
 const ThemeContext = React.createContext();  
 
 
-
-export class Navbar extends Component{
+ class Navbar extends Component{
 
     constructor(props){
         super(props);
         this.handleScroll = this.handleScroll.bind(this);
         this.state={Navbar: 'Navbar'}
+        this.langSwitch = this.langSwitch.bind(this);
       }
+
+      langSwitch = (lang) => {
+        this.props.dispatch(setLocale(lang))
+        localStorage.setItem('lang', lang)
+    }
 
         componentDidMount() {
           window.addEventListener('scroll', this.handleScroll);
@@ -37,7 +44,6 @@ export class Navbar extends Component{
 
     render(){
         return(
-            
             <div onScroll={this.handleScroll.bind(this)} className ={this.state.Navbar}>
                 <Container>
                     <Row>
@@ -46,6 +52,8 @@ export class Navbar extends Component{
                         <ThemeContext.Provider value={this.state.Navbar} >
                             <Col><Menu navbarState={this.state.Navbar} /></Col>
                         </ThemeContext.Provider>
+                        <li><span onClick={e => {e.preventDefault(); this.langSwitch('en')}}>EN</span></li>
+                        <li><span onClick={e => {e.preventDefault(); this.langSwitch('pl')}}>PL</span></li>
 
                     </Row>
                 </Container>
@@ -132,12 +140,13 @@ export class Menu extends Component{
                     
                     <ul id="menu">
                         <li><Panel/></li>
-                        <li><Link className ={this.props.navbarState} to = "/browseideas">Fundraiser</Link></li>
+                        <li><Link className ={this.props.navbarState} to = "/browseideas">{I18n.t('Fundraiser')}</Link></li>
                         <li><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></li>
                         <li><Fund/></li>
                         <li><Register/></li>
                         <li><Login/></li>
                         <li><Profil/></li>
+                        
                     </ul>
                 </div>
                 </nav>
@@ -152,14 +161,13 @@ export class Menu extends Component{
                 <Container>
                     <Row>
                             
-                            <Col><Link className ={this.props.navbarState} to = "/browseideas">Fundraiser</Link></Col>
+                            <Col><Link className ={this.props.navbarState} to = "/browseideas">{I18n.t('Fundraiser')}</Link></Col>
                             <Col><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></Col>
                             <Col><Panel /></Col>
                             <Col><Fund/></Col>
                             <Col><Register/></Col>
                             <Col><Login/></Col>
-                            <Profil/>
-                        
+                            <Profil/>        
                     </Row>
                 </Container>
             </div>
@@ -167,55 +175,6 @@ export class Menu extends Component{
     }
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -340,22 +299,6 @@ export class Panel extends RoleAwareComponentUser{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export class Fund extends RoleAwareComponentUser{
 
 
@@ -372,11 +315,8 @@ export class Fund extends RoleAwareComponentUser{
       }
 
       handleClick(event) {
-          
         userActions.logout();
-
     }
-
 
     render(){
 
@@ -398,26 +338,7 @@ export class Fund extends RoleAwareComponentUser{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export class Profil extends RoleAwareComponentUser{
-
-
 
     constructor(props) {
         super(props);
@@ -461,11 +382,13 @@ export class Profil extends RoleAwareComponentUser{
 }
 
 
+function mapStateToProps(state) {
 
-export default Navbar;
+    const { lang } = state;
+    return {
+      lang: state.i18n.locale,
+    }
+}
 
 
-
-
-
-
+export default connect(mapStateToProps)(Navbar) 

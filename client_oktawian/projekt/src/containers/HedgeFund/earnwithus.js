@@ -9,7 +9,7 @@ import {PlansHeader} from '../../components/HedgeFund/Plans/plansheader';
 import {Work, Start} from '../../components/HedgeFund/Plans/basic';
 import {Lightning} from '../../components/HedgeFund/Plans/lightning';
 import {Storm} from '../../components/HedgeFund/Plans/storm';
-import {Navbar} from '../../components/navbar';
+import Navbar from '../../components/navbar';
 import {Footer} from '../../components/footer';
 
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import {Container, FormGroup, Input, Alert} from 'reactstrap';
 
-import {Navbar} from '../../components/navbar';
+import Navbar from '../../components/navbar';
 
 import {Fundheader, Fundheader2} from '../../components/Fund/fundheader';
 import {Form} from './fundform/getfundtitle';

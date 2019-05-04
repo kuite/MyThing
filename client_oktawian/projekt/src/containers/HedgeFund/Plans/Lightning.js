@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {Navbar} from '../../../components/navbar';
+import Navbar from '../../../components/navbar';
 
 import {LightningHeader} from '../../../components/HedgeFund/Plans/lightningheader';
 import {ChoiceSection} from '../../../components/HedgeFund/Plans/foursections';

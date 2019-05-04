@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import '../../../global-styles';
 import {Container, Row, Col } from 'reactstrap';
 
-import {Navbar} from '../../../components/navbar';
+import Navbar from '../../../components/navbar';
 
 import {Lightning} from '../../../components/HedgeFund/Plans/lightning';
 import {Storm} from '../../../components/HedgeFund/Plans/storm';

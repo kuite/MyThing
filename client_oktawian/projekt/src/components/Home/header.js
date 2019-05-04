@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import MainImage from '../../img/mainimage.jpg';
+import {I18n, setLocale} from 'react-redux-i18n';
 
 
 
@@ -19,7 +20,7 @@ export class Header extends Component{
                 <Container>
                    <Row>
                         <Col sm="12" md={{ size: 8, offset: 3 }}>
-                            <h1 className ="animated fadeIn">Fundraising for people <br/>and ideas</h1>
+                            <h1 className ="animated fadeIn">{I18n.t('Fundraiser')} Fundraising for people <br/>and ideas</h1>
                          </Col>
                     </Row>
                     <Row>

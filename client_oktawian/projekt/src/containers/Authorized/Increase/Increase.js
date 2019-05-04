@@ -3,7 +3,7 @@ import {Container} from 'reactstrap';
 
 import '../../../global-styles';
 
-import {Navbar} from '../../../components/navbar';
+import Navbar from '../../../components/navbar';
 
 import {IncreaseStep} from '../../../components/Authorized/Increase/increasesteps';
 import {IncreaseHeader} from '../../../components/Authorized/Increase/increaseheader';
