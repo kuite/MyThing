@@ -108,10 +108,11 @@ function sendFund (data){
     const Title = data.Title;
     const Description = data.Description;
     const btcGoal = data.btcGoal;
+    const category = data.category;
 
     return dispatch => {
         dispatch(request(data));
-        userService.sendData(Title, Description, btcGoal)
+        userService.sendData(Title, Description, btcGoal, category)
         .then(
             data => { 
                 dispatch(success());

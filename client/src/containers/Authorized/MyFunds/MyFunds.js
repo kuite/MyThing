@@ -29,9 +29,17 @@ export default class MyFunds extends Component{
       }
   
       componentDidMount() {
-  
+
+        const user = JSON.parse(localStorage.getItem('user'));
+        const userparsed = JSON.parse(user);
+    
+        console.log(userparsed.auth_token);
+        let userId = userparsed.id;
+
+        console.log(userId);
+
         axios
-        fetch('http://localhost:50647/Fund/GetUserFunds')
+        fetch(`http://localhost:50647/fund/GetUserFunds/${userId}`)
   
         .then(response => {
           return response.json();
@@ -43,11 +51,11 @@ export default class MyFunds extends Component{
           this.setState({isLoaded: true, data});
           console.log(this.state);
   
-          const products = data.items.map(obj => ({title: obj.title, description: obj.description,btcGoal: obj.btcGoal}));
+          const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description, category: obj.category, btcGoal: obj.btcGoal, startDate: obj.startDate, endDate: obj.endDate,vote: obj.vote}));
+          
           this.setState({isLoaded: true, products});
     
           console.log('Products', products);
-  
         }).catch(err => {
         });
         

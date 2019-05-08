@@ -65,7 +65,7 @@ class Main extends React.Component {
         this.setState({isLoaded: true, data});
         console.log(this.state);
 
-        const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description, category: obj.categories, btcGoal: obj.btcGoal, startDate: obj.startDate, endDate: obj.endDate,vote: obj.vote}));
+        const products = data.items.map(obj => ({id: obj.id, title: obj.title, description: obj.description, category: obj.category, btcGoal: obj.btcGoal, startDate: obj.startDate, endDate: obj.endDate,vote: obj.vote}));
         
         this.setState({isLoaded: true, products});
   

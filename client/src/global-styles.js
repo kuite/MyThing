@@ -2076,7 +2076,6 @@ margin-top:33%;
 
   .d-md-block{
     display: block !important;
-    position: fixed;
     margin-left: 40%;
     width: 30%;
     top: 10%;

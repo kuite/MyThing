@@ -89,9 +89,10 @@ function register(user) {
 }
 
 
-function sendData(Title, Description, btcGoal){
+function sendData(Title, Description, btcGoal, category){
 
     console.log(Title);
+    console.log(category);
     
     const requestOptions = {
       method: 'POST',
@@ -99,7 +100,7 @@ function sendData(Title, Description, btcGoal){
         'Content-Type': 'application/json',
           ...authHeader()
       },
-      body: JSON.stringify({Title, Description, btcGoal})
+      body: JSON.stringify({Title, Description, btcGoal, category})
   };
 
   return fetch ('http://localhost:50647/fund/submitfund', requestOptions)
