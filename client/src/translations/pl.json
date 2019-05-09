@@ -1,5 +1,49 @@
 {
-    "viewFundraiser": "View Fundraiser",
-    "Fundraiser": "Zbiórka",
-    "activeFundraisers": "Aktywne zbiórki"
+    "viewFundraiser": "Zobacz zbiórki",
+    "fundraiser": "Zbiórki",
+    "activeFundraisers": "Active fundraisers",
+    "addFund": "Dodaj zbiórkę",
+    "userProfile": "Profil użytkownika",
+    "myFunds": "Moje zbiórki",
+    "logout": "Wyloguj",
+    "createAccount": "Zarejestruj się",
+
+    "Fundraising for people and ideas": "Zbiórki dla ludzi i pomysłów",
+    "The place where you can help & earn": "miejsce gdzie możesz pomóc lub zarobić ",
+    "startNow": "Zacznij teraz",
+
+    "reliability": "Rzetelność",
+    "You are an entrepreneur and you need money to start?": "Jesteś przedsiębiorcą i potrzebujesz pieniędzy na start-up?",
+    "growth": "Rozwój",
+    "You are an investor and wan’t to increase your capital?": "Jesteś inwestorem i chcesz zainwestować?",
+    "help": "Pomoc",
+    "You need money for your friend or passion?": "Potrzebujesz pieniędzy dla przyjaciela albo pasji?",
+    "influence": "Wpływ",
+    "Have influence and support initiatives": "Miej wpływ i wspieraj inicjatywy",
+
+    "Add your fundraisers": "Dodaj swoje zbiórki",
+    "Filling out a short form will allow you to add your idea, it will be available to others": "Wypełnij krótki formularz, który doda pomysł, będzie on dostępny dla innych",
+    "Helping other people": "Pomagaj innym ludziom",
+    "Your idea is seen by the rest of the community, more interesting ideas will gain more interest": "Twój pomysł zostanie zobaczony przez społeczność, im bardziej interesujący pomysł, tym uzyska więcej uwagi",
+    "Be part of our community": "Bądź częścią społeczności",
+    "If your idea is interesting, there will be investors and people who will want to support it": "Jest szansa, że znajdziesz inwestora, lub osoby, które wesprą Cię finansowo ",
+    
+    "Fulfill your objectives!": "Spełnij swoje cele!",
+    "Creating an account costs nothing and opens up many possibilities for you": "Stworzenie konta nic nie kosztuje i otwiera wiele możlwości",
+    "Create free account": "Stwórz konto",
+    "For your security & better experience": "Dla bezpieczeństwa i lepszego doświadczenia",
+    "Read privacy notice...": " Czytaj politykę prywatności",
+
+    "Policy guarantees the security of your funds":   "Polityka zapewnia bezpieczeństwo Twoich zbiórek",
+    "Chance for reliable support": "Szansa na rzetelne wsparcie",
+    "100% of your data is safety": "100% Twoich danych jest bezpieczne",
+    "Funraising for:": "Zbiórki:",
+    "Medical": "Medyczne",
+    "Passion":"Pasja",
+    "Family":"Rodzina",
+    "Start-up":"Start-Up",
+     "Animals": "Zwierzęta",
+     "Terms":"Zasady",
+     "Privacy": "Prywatność" 
+
 }

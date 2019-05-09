@@ -1,5 +1,50 @@
 {
     "viewFundraiser": "View Fundraiser",
-    "Fundraiser": "Fundraiser",
-    "activeFundraisers": "Active fundraisers"
+    "fundraiser": "Fundraiser",
+    "activeFundraisers": "Active fundraisers",
+    "addFund": "Add fund",
+    "userProfile": "User profile",
+    "myFunds": "My funds",
+    "logout": "Logout",
+    "createAccount": "Create Account",
+
+    "Fundraising for people and ideas": "Fundraising for people and ideas",
+    "The place where you can help & earn": "the place where you can help & earn",
+    "startNow": "Start now",
+
+    "reliability": "Reliability",
+    "You are an entrepreneur and you need money to start?": "You are an entrepreneur and you need money to start?",
+    "growth": "Growth",
+    "You are an investor and wan’t to increase your capital?": "You are an investor and wan’t to increase your capital?",
+    "help": "Help",
+    "You need money for your friend or passion?": "You need money for your friend or passion?",
+    "influence": "Influence",
+    "Have influence and support initiatives": "Have influence and support initiatives",
+
+    "Add your fundraisers": "Add your fundraisers",
+    "Filling out a short form will allow you to add your idea, it will be available to others": "Filling out a short form will allow you to add your idea, it will be available to others",
+    "Helping other people": "Helping other people",
+    "Your idea is seen by the rest of the community, more interesting ideas will gain more interest": "Your idea is seen by the rest of the community, more interesting ideas will gain more interest",
+    "Be part of our community": "Be part of our community",
+    "If your idea is interesting, there will be investors and people who will want to support it": "If your idea is interesting, there will be investors and people who will want to support it",
+
+    "Fulfill your objectives!": "Fulfill your objectives!",
+    "Creating an account costs nothing and opens up many possibilities for you": "Creating an account costs nothing and opens up many possibilities for you",
+    "Create free account": "Create free account",
+    "For your security & better experience": "For your security & better experience",
+    "Read privacy notice...": "Read privacy notice...",
+
+    "Policy guarantees the security of your funds":   "Policy guarantees the security of your funds",
+    "Chance for reliable support": "Chance for reliable support",
+    "100% of your data is safety": "100% of your data is safety.",
+    "Funraising for:": "Funraising for:",
+    "Medical": "Medical",
+    "Passion":"Passion",
+    "Family":"Family",
+    "Start-up":"Start-up",
+     "Animals": "Animals" ,
+     "Terms":"Zasady",
+     "Privacy": "Prywatność" 
+
+
 }

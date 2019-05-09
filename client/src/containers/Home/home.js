@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import {Container, Row,} from 'reactstrap';
 
 import Navbar from '../../components/navbar';
-import {Header} from '../../components/Home/header';
-import {ChoiceSection} from '../../components/Home/choiceSection';
+import Header from '../../components/Home/header';
+import ChoiceSection from '../../components/Home/choiceSection';
 import {CarouselFinal} from '../../components/Home/carousel';
-import {Advantages} from '../../components/Home/advantages';
-import {HomeInteraction} from '../../components/Home/interaction';
-import {Policy} from '../../components/Home/policy';
-import {Footer} from '../../components/footer';
+import Advantages from '../../components/Home/advantages';
+import HomeInteraction from '../../components/Home/interaction';
+import Policy from '../../components/Home/policy';
+import Footer from '../../components/footer';
 
 
 

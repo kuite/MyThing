@@ -4,7 +4,7 @@ import {Modalfinal} from './Login/loginmodal';
 
 
 import {I18n, setLocale} from 'react-redux-i18n';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
 import { userActions } from '../_actions/user.actions';
 import {RoleAwareComponent, RoleAwareComponentUser} from './roleawarecomponent';
@@ -50,7 +50,7 @@ const ThemeContext = React.createContext();
                         <Col  xs="6" sm={{size:3}}><Link to ="/"><Logo/></Link></Col>
 
                         <ThemeContext.Provider value={this.state.Navbar} >
-                            <Col><Menu navbarState={this.state.Navbar} /></Col>
+                            <Col xs="6" sm={{size:8}}><Menu navbarState={this.state.Navbar} /></Col>
                         </ThemeContext.Provider>
                         <li><span onClick={e => {e.preventDefault(); this.langSwitch('en')}}>EN</span></li>
                         <li><span onClick={e => {e.preventDefault(); this.langSwitch('pl')}}>PL</span></li>
@@ -140,8 +140,8 @@ export class Menu extends Component{
                     
                     <ul id="menu">
                         <li><Panel/></li>
-                        <li><Link className ={this.props.navbarState} to = "/browseideas">{I18n.t('Fundraiser')}</Link></li>
-                        <li><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></li>
+                        <li><Link className ={this.props.navbarState} to = "/browseideas">{I18n.t('fundraiser')}</Link></li>
+                        {/* <li><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></li> */}
                         <li><Fund/></li>
                         <li><Register/></li>
                         <li><Login/></li>
@@ -161,10 +161,10 @@ export class Menu extends Component{
                 <Container>
                     <Row>
                             
-                            <Col><Link className ={this.props.navbarState} to = "/browseideas">{I18n.t('Fundraiser')}</Link></Col>
-                            <Col><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></Col>
+                            <Col><Link className ={this.props.navbarState} to = "/browseideas">{I18n.t('fundraiser')}</Link></Col>
+                            {/* <Col><Link className ={this.props.navbarState} to = "/earnwithus">HedgeFunds</Link></Col> */}
                             <Col><Panel /></Col>
-                            <Col><Fund/></Col>
+                            <Col  xs="6" sm={{size:4}}><Fund/></Col>
                             <Col><Register/></Col>
                             <Col><Login/></Col>
                             <Profil/>        
@@ -215,7 +215,7 @@ export class Register extends RoleAwareComponent{
 
             const jsx = (
                 <div className = "Register">  
-                    <Link  to="/register"><button className ="Login">Create Account</button></Link>  
+                    <Link  to="/register"><button className ="Login">{I18n.t('createAccount')}</button></Link>  
                 </div>
               );
 
@@ -257,7 +257,7 @@ export class Logout extends RoleAwareComponentUser{
 
     const jsx = (
     <div onClick={this.handleClick}>
-        Logout
+        {I18n.t('logout')}
     </div>
       );
 
@@ -323,7 +323,7 @@ export class Fund extends RoleAwareComponentUser{
     const jsx = (
     <div>
          <ThemeContext.Consumer>
-            {value => <Link className={value} to= "/fund">Fund</Link>}
+            {value => <Link className={value} to= "/fund"> {I18n.t('addFund')} </Link>}
         </ThemeContext.Consumer>
     </div>
       );
@@ -365,9 +365,9 @@ export class Profil extends RoleAwareComponentUser{
         <ul id="mainmenu">
         <li><a><img alt ="Avatar" className="Avatar" src ={Avatar}/></a>
           <ul>
-            <li><Link to ="/userprofile">User Profile</Link></li>
-            <li><Link to="/myfunds">My Funds</Link></li>
-            <li><Link to="/activehedges">Active Hedges</Link></li>
+            <li><Link to ="/userprofile">{I18n.t('userProfile')}</Link></li>
+            <li><Link to="/myfunds">{I18n.t('myFunds')}</Link></li>
+            {/*} <li><Link to="/activehedges">Active Hedges</Link></li> */}
             <li><Link to="/"><Logout/></Link></li>
           </ul>
         </li>

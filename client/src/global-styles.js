@@ -1819,6 +1819,7 @@ margin-top:33%;
   }
   
   .NavbarScroll{
+    width:100%;
     z-index:10000;
     position:fixed;
     width:100%;
