@@ -3,6 +3,8 @@ import {Motion, spring} from 'react-motion';
 
 
 
+
+
 const Arrow = ({direction, ...props}) => (
   <svg viewBox="0 0 28 12" {...props}>
     <polyline
@@ -19,94 +21,56 @@ Arrow.defaultProps = {
   direction: 'up'
 }
   
-class NumberColumn extends Component {
-  _getNumbers() {
-    let numbers = []
-    let i = 0
-  
-    while (i < 10) {
-      numbers.push(<div key={i}>{i}</div>)
-      i++
-    }
-  
-    return numbers
-  }
-    
 
-  
-  render() {
-    const { current } = this.props
 
-    return (
-      <div className="vote__column">
-      
-        <Motion
-          style={{y: spring(current * 10)}}
-        >
-          {({y}) =>
-            <div
-              style={{
-                transform: `translateY(${-y}%)`
-              }}
-            >
-                {this._getNumbers()}
-                
-            </div>
-          }
-        </Motion>
-      </div>
-    )
-  }
-}
 
 export  class Vote extends Component {
   constructor(props) {
     super(props)
     
     this.state = {
-      count: 0
+      vote: this.props.vote
     }
   }
 
-  
-  _getCount() {
-    const counts = this.state.count.toString().split('')
-    
-    return counts.map( (_count) => {
-      if (_count === '-') {
-        return <span  className="vote__column">-</span>
-      } else {
-        return <NumberColumn current={parseFloat(_count)} />
-      }
-    })
-  }
+voteUp(){
+//vote = vote + 1;
+console.log(this.state.vote);
+this.setState ({vote: this.state.vote +1})
+};
+
+voteDown(){
+ // vote = vote -1;
+  console.log|(this.state.vote);
+ this.setState ({vote: this.state.vote -1})
+}
 
   render() {
     const { count } = this.state
+
     
     return(
         
       <div className="vote">
 
 
-        <Arrow
-          direction="up"
-          className="vote__arrow vote__arrow--up"
-          onClick={() => this.setState({count: count + 1})}
-        />
+        <button  onClick={() => this.voteUp(this.state.vote)}>
+              <Arrow
+                direction="up"
+                className="vote__arrow vote__arrow--up"
+              />
+        </button>
 
         <div className="vote__columns">
-          {this._getCount()}
-
-          {this.props.vote}
+          {this.state.vote}
         </div>
 
-
-        <Arrow
-          direction="down"
-          className="vote__arrow vote__arrow--down"
-          onClick={() => this.setState({count: count - 1})}
-        />
+        <button  onClick={() => this.voteDown(this.state.vote)}>
+                <Arrow
+                  direction="down"
+                  className="vote__arrow vote__arrow--down"
+                />
+        </button>
 
       </div>
     )

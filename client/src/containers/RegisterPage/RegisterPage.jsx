@@ -65,11 +65,7 @@ import {Modalfinal} from '../../components/modal';
 
 
         if (user.FirstName && user.LastName && user.Email && user.Password && /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(user.Email)) {
-
-
             dispatch(userActions.register(user));
-            history.push('/login');
-
 
         }
     }
